@@ -3,6 +3,8 @@ import {
   getCurrentTime,
   downloadResults,
   reproduceSound,
+  addClasses,
+  removeClasses,
 } from "./utility.js";
 
 const team = [
@@ -103,152 +105,51 @@ function updateJSON(currentLocalStorage, currentIteration, operator) {
   localStorage.setItem("teams", JSON.stringify(currentData));
 }
 
-function removeClasses(elements, ...classes) {
-  elements.forEach((element) => {
-    classes.forEach((currentClass) => {
-      element.classList.forEach((currentElement) => {
-        if (currentElement.includes(currentClass)) {
-          element.classList.remove(currentElement);
-        }
-      });
-    });
-  });
-}
-
-function addClasses(elements, ...classes) {
-  elements.forEach((element) => {
-    classes.forEach((currentClass) => {
-      element.classList.add(currentClass);
-    });
-  });
-}
-
-//
+// This is utilised to implement dynamic width and height to teams
 function resizeTeams(teams, total) {
+  // Remove all classes from current teams
+  removeClasses(teams, 0, teams.length, "width", "height");
   switch (total) {
+    // If there is one team
     case 1:
-      removeClasses([teams[0]], "width", "height");
-      addClasses([teams[0]], "max-width", "max-height");
+      addClasses(teams, 0, 1, "max-width", "max-height");
       break;
+    // If there are two teams
     case 2:
-      removeClasses([teams[0], teams[1]], "width", "height");
-      addClasses([teams[0], teams[1]], "half-width", "max-height");
+      addClasses(teams, 0, 2, "half-width", "max-height");
       break;
+    // If there are three teams
     case 3:
-      removeClasses([teams[0], teams[1], teams[2]], "width", "height");
-      addClasses(
-        [teams[0], teams[1], teams[2]],
-        "width-by-three",
-        "max-height"
-      );
+      addClasses(teams, 0, 3, "width-by-three", "max-height");
       break;
+    // If there are four teams
     case 4:
-      removeClasses(
-        [teams[0], teams[1], teams[2], teams[3]],
-        "width",
-        "height"
-      );
-      addClasses(
-        [teams[0], teams[1], teams[2], teams[3]],
-        "half-width",
-        "half-height"
-      );
+      addClasses(teams, 0, 4, "half-width", "half-height");
       break;
+    // If there are five teams
     case 5:
-      removeClasses(
-        [teams[0], teams[1], teams[2], teams[3], teams[4]],
-        "width",
-        "height"
-      );
-      addClasses([teams[3], teams[4]], "half-width", "half-height");
-      addClasses(
-        [teams[0], teams[1], teams[2]],
-        "width-by-three",
-        "half-height"
-      );
+      // In this case, there two different layouts inside
+      addClasses(3, 4, "half-width", "half-height");
+      addClasses(0, 2, "width-by-three", "half-height");
       break;
+    // If there are six teams
     case 6:
-      removeClasses(
-        [teams[0], teams[1], teams[2], teams[3], teams[4], teams[5]],
-        "width",
-        "height"
-      );
-      addClasses(
-        [teams[0], teams[1], teams[2], teams[3], teams[4], teams[5]],
-        "width-by-three",
-        "half-height"
-      );
+      addClasses(teams, 0, 5, "width-by-three", "half-height");
       break;
+    // If there are seven teams
     case 7:
-      removeClasses(
-        [teams[0], teams[1], teams[2], teams[3], teams[4], teams[5], teams[6]],
-        "width",
-        "height"
-      );
-      addClasses(
-        [teams[0], teams[1], teams[2]],
-        "width-by-three",
-        "height-by-three"
-      );
-      addClasses(
-        [teams[3], teams[4], teams[5], teams[6]],
-        "half-width",
-        "height-by-three"
-      );
+      // In this case, there two different layouts inside
+      addClasses(teams, 0, 2, "width-by-three", "height-by-three");
+      addClasses(teams, 3, 6, "half-width", "height-by-three");
       break;
+    // If there are eight teams
     case 8:
-      removeClasses(
-        [
-          teams[0],
-          teams[1],
-          teams[2],
-          teams[3],
-          teams[4],
-          teams[5],
-          teams[6],
-          teams[7],
-        ],
-        "width",
-        "height"
-      );
-      addClasses(
-        [teams[0], teams[1], teams[2], teams[3], teams[4], teams[5]],
-        "width-by-three",
-        "height-by-three"
-      );
-      addClasses([teams[6], teams[7]], "half-width", "height-by-three");
+      addClasses(teams, 0, 5, "width-by-three", "height-by-three");
+      addClasses(teams, 6, 7, "half-width", "height-by-three");
       break;
+    // If there are nine teams
     default:
-      removeClasses(
-        [
-          teams[0],
-          teams[1],
-          teams[2],
-          teams[3],
-          teams[4],
-          teams[5],
-          teams[6],
-          teams[7],
-          teams[8],
-        ],
-        "width",
-        "height"
-      );
-      addClasses(
-        [
-          teams[0],
-          teams[1],
-          teams[2],
-          teams[3],
-          teams[4],
-          teams[5],
-          teams[6],
-          teams[7],
-          teams[8],
-        ],
-        "width-by-three",
-        "height-by-three"
-      );
+      addClasses(teams, 0, 8, "width-by-three", "height-by-three");
       break;
   }
 }
