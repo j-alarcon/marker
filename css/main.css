@@ -23,11 +23,15 @@
 }
 
 .black {
-  background-color: black;
+  background-color: #000000;
 }
 
-.dark-blue {
-  background-color: #161a37;
+.pink {
+  background-color: #ff1391;
+}
+
+.white {
+  background-color: #ffffff;
 }
 
 .no-border {
@@ -58,8 +62,24 @@
   width: 100%;
 }
 
+.half-width {
+  width: 50%;
+}
+
+.width-by-three {
+  width: 33.33%;
+}
+
 .max-height {
   height: 100%;
+}
+
+.half-height {
+  height: 50%;
+}
+
+.height-by-three {
+  height: 33.33%;
 }
 
 .top-container {
@@ -88,9 +108,11 @@
   height: 86%;
 }
 
-.teams {
-  width: 33.33%;
-  height: 50%;
+.medium-fontsize {
+  font-size: 19vh;
+}
+
+.big-fontsize {
   font-size: 25vh;
 }
 

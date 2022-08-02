@@ -5,6 +5,45 @@ import {
   reproduceSound,
 } from "./utility.js";
 
+const team = [
+  {
+    name: "red",
+    text: "white",
+  },
+  {
+    name: "yellow",
+    text: "black",
+  },
+  {
+    name: "blue",
+    text: "white",
+  },
+  {
+    name: "purple",
+    text: "white",
+  },
+  {
+    name: "green",
+    text: "white",
+  },
+  {
+    name: "orange",
+    text: "white",
+  },
+  {
+    name: "pink",
+    text: "white",
+  },
+  {
+    name: "white",
+    text: "black",
+  },
+  {
+    name: "black",
+    text: "white",
+  },
+];
+let mainContainer = document.getElementsByClassName("main-container")[0];
 let leftSide = Array.from(document.getElementsByClassName("left-side"));
 let rightSide = Array.from(document.getElementsByClassName("right-side"));
 let scores = Array.from(document.getElementsByClassName("score"));
@@ -35,6 +74,18 @@ let jsonScores = {
       color: "orange",
       score: 0,
     },
+    {
+      color: "pink",
+      score: 0,
+    },
+    {
+      color: "white",
+      score: 0,
+    },
+    {
+      color: "black",
+      score: 0,
+    },
   ],
 };
 
@@ -50,6 +101,156 @@ function updateJSON(currentLocalStorage, currentIteration, operator) {
   }
   // Upload local storage values
   localStorage.setItem("teams", JSON.stringify(currentData));
+}
+
+function removeClasses(elements, ...classes) {
+  elements.forEach((element) => {
+    classes.forEach((currentClass) => {
+      element.classList.forEach((currentElement) => {
+        if (currentElement.includes(currentClass)) {
+          element.classList.remove(currentElement);
+        }
+      });
+    });
+  });
+}
+
+function addClasses(elements, ...classes) {
+  elements.forEach((element) => {
+    classes.forEach((currentClass) => {
+      element.classList.add(currentClass);
+    });
+  });
+}
+
+//
+function resizeTeams(teams, total) {
+  switch (total) {
+    case 1:
+      removeClasses([teams[0]], "width", "height");
+      addClasses([teams[0]], "max-width", "max-height");
+      break;
+    case 2:
+      removeClasses([teams[0], teams[1]], "width", "height");
+      addClasses([teams[0], teams[1]], "half-width", "max-height");
+      break;
+    case 3:
+      removeClasses([teams[0], teams[1], teams[2]], "width", "height");
+      addClasses(
+        [teams[0], teams[1], teams[2]],
+        "width-by-three",
+        "max-height"
+      );
+      break;
+    case 4:
+      removeClasses(
+        [teams[0], teams[1], teams[2], teams[3]],
+        "width",
+        "height"
+      );
+      addClasses(
+        [teams[0], teams[1], teams[2], teams[3]],
+        "half-width",
+        "half-height"
+      );
+      break;
+    case 5:
+      removeClasses(
+        [teams[0], teams[1], teams[2], teams[3], teams[4]],
+        "width",
+        "height"
+      );
+      addClasses([teams[3], teams[4]], "half-width", "half-height");
+      addClasses(
+        [teams[0], teams[1], teams[2]],
+        "width-by-three",
+        "half-height"
+      );
+      break;
+    case 6:
+      removeClasses(
+        [teams[0], teams[1], teams[2], teams[3], teams[4], teams[5]],
+        "width",
+        "height"
+      );
+      addClasses(
+        [teams[0], teams[1], teams[2], teams[3], teams[4], teams[5]],
+        "width-by-three",
+        "half-height"
+      );
+      break;
+    case 7:
+      removeClasses(
+        [teams[0], teams[1], teams[2], teams[3], teams[4], teams[5], teams[6]],
+        "width",
+        "height"
+      );
+      addClasses(
+        [teams[0], teams[1], teams[2]],
+        "width-by-three",
+        "height-by-three"
+      );
+      addClasses(
+        [teams[3], teams[4], teams[5], teams[6]],
+        "half-width",
+        "height-by-three"
+      );
+      break;
+    case 8:
+      removeClasses(
+        [
+          teams[0],
+          teams[1],
+          teams[2],
+          teams[3],
+          teams[4],
+          teams[5],
+          teams[6],
+          teams[7],
+        ],
+        "width",
+        "height"
+      );
+      addClasses(
+        [teams[0], teams[1], teams[2], teams[3], teams[4], teams[5]],
+        "width-by-three",
+        "height-by-three"
+      );
+      addClasses([teams[6], teams[7]], "half-width", "height-by-three");
+      break;
+    default:
+      removeClasses(
+        [
+          teams[0],
+          teams[1],
+          teams[2],
+          teams[3],
+          teams[4],
+          teams[5],
+          teams[6],
+          teams[7],
+          teams[8],
+        ],
+        "width",
+        "height"
+      );
+      addClasses(
+        [
+          teams[0],
+          teams[1],
+          teams[2],
+          teams[3],
+          teams[4],
+          teams[5],
+          teams[6],
+          teams[7],
+          teams[8],
+        ],
+        "width-by-three",
+        "height-by-three"
+      );
+      break;
+  }
 }
 
 function startTimer() {
@@ -124,6 +325,19 @@ window.onload = () => {
   }
   updateTimer();
 };
+
+// Add team
+document.getElementById("add").addEventListener("click", () => {});
+
+// Delete team
+document.getElementById("delete").addEventListener("click", () => {
+  if (mainContainer.children.length > 1) {
+    mainContainer.children[mainContainer.children.length - 1].remove(
+      mainContainer.children[mainContainer.children.length - 1].lastElementChild
+    );
+    resizeTeams(mainContainer.children, mainContainer.children.length);
+  }
+});
 
 // Increase score of selected team
 rightSide.forEach((e, i) => {
