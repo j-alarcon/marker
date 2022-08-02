@@ -108,29 +108,29 @@ function updateJSON(currentLocalStorage, currentIteration, operator) {
 // This is utilised to implement dynamic width and height to teams
 function resizeTeams(teams, total) {
   // Remove all classes from current teams
-  removeClasses(teams, 0, teams.length, "width", "height");
+  removeClasses(teams, 0, teams.length-1, "width", "height");
   switch (total) {
     // If there is one team
     case 1:
-      addClasses(teams, 0, 1, "max-width", "max-height");
+      addClasses(teams, 0, 0, "max-width", "max-height");
       break;
     // If there are two teams
     case 2:
-      addClasses(teams, 0, 2, "half-width", "max-height");
+      addClasses(teams, 0, 1, "half-width", "max-height");
       break;
     // If there are three teams
     case 3:
-      addClasses(teams, 0, 3, "width-by-three", "max-height");
+      addClasses(teams, 0, 2, "width-by-three", "max-height");
       break;
     // If there are four teams
     case 4:
-      addClasses(teams, 0, 4, "half-width", "half-height");
+      addClasses(teams, 0, 3, "half-width", "half-height");
       break;
     // If there are five teams
     case 5:
       // In this case, there two different layouts inside
-      addClasses(3, 4, "half-width", "half-height");
-      addClasses(0, 2, "width-by-three", "half-height");
+      addClasses(teams, 0, 2, "width-by-three", "half-height");
+      addClasses(teams, 3, 4, "half-width", "half-height");
       break;
     // If there are six teams
     case 6:

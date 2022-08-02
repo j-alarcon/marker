@@ -36,7 +36,7 @@ export function getCurrentTime() {
 // You can add classes to different elements inside an array
 export function addClasses(elements, init, end, ...classes) {
   // Classes will be added according to range you have selected inside array
-  for (let i = init; i < end; i++) {
+  for (let i = init; i <= end; i++) {
     classes.forEach((currentClass) => {
       elements[i].classList.add(currentClass);
     });
@@ -46,7 +46,8 @@ export function addClasses(elements, init, end, ...classes) {
 // You can remove classes according to keywords to different elements inside an array
 export function removeClasses(elements, init, end, ...classes) {
   // Classes will be removed according to range you have selected inside array
-  for (let i = init; i < end; i++) {
+  for (let i = init; i <= end; i++) {
+    console.log(i);
     classes.forEach((currentClass) => {
       elements[i].classList.forEach((currentElement) => {
         // If your keyword match with any class will be removed
