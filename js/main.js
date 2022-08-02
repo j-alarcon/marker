@@ -7,42 +7,42 @@ import {
   removeClasses,
 } from "./utility.js";
 
-const team = [
+const teams = [
   {
     name: "red",
-    text: "white",
+    text: "white-text",
   },
   {
     name: "yellow",
-    text: "black",
+    text: "black-text",
   },
   {
     name: "blue",
-    text: "white",
+    text: "white-text",
   },
   {
     name: "purple",
-    text: "white",
+    text: "white-text",
   },
   {
     name: "green",
-    text: "white",
+    text: "white-text",
   },
   {
     name: "orange",
-    text: "white",
+    text: "white-text",
   },
   {
     name: "pink",
-    text: "white",
+    text: "white-text",
   },
   {
     name: "white",
-    text: "black",
+    text: "black-text",
   },
   {
     name: "black",
-    text: "white",
+    text: "white-text",
   },
 ];
 let mainContainer = document.getElementsByClassName("main-container")[0];
@@ -108,7 +108,7 @@ function updateJSON(currentLocalStorage, currentIteration, operator) {
 // This is utilised to implement dynamic width and height to teams
 function resizeTeams(teams, total) {
   // Remove all classes from current teams
-  removeClasses(teams, 0, teams.length-1, "width", "height");
+  removeClasses(teams, 0, teams.length - 1, "width", "height");
   switch (total) {
     // If there is one team
     case 1:
@@ -228,7 +228,41 @@ window.onload = () => {
 };
 
 // Add team
-document.getElementById("add").addEventListener("click", () => {});
+document.getElementById("add").addEventListener("click", () => {
+  if (mainContainer.children.length < 9) {
+    let x = mainContainer.children[0].cloneNode(true);
+    x.classList.remove("red");
+    x.classList.remove("white-text");
+    x.children[0].setAttribute(
+      "data-value",
+      teams[mainContainer.children.length].name
+    );
+    x.classList.add(teams[mainContainer.children.length].name);
+    x.classList.add(teams[mainContainer.children.length].text);
+    mainContainer.appendChild(x);
+    x.children[0].children[0].addEventListener("click", () => {
+      updateJSON(
+        localStorage.getItem("teams"),
+        mainContainer.children.length - 1,
+        "-"
+      );
+      x.children[1].innerText = JSON.parse(localStorage.getItem("teams")).teams[
+        mainContainer.children.length - 1
+      ].score;
+    });
+    x.children[0].children[1].addEventListener("click", () => {
+      updateJSON(
+        localStorage.getItem("teams"),
+        mainContainer.children.length - 1,
+        "+"
+      );
+      x.children[1].innerText = JSON.parse(localStorage.getItem("teams")).teams[
+        mainContainer.children.length - 1
+      ].score;
+    });
+  }
+  resizeTeams(mainContainer.children, mainContainer.children.length);
+});
 
 // Delete team
 document.getElementById("delete").addEventListener("click", () => {

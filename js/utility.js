@@ -47,7 +47,6 @@ export function addClasses(elements, init, end, ...classes) {
 export function removeClasses(elements, init, end, ...classes) {
   // Classes will be removed according to range you have selected inside array
   for (let i = init; i <= end; i++) {
-    console.log(i);
     classes.forEach((currentClass) => {
       elements[i].classList.forEach((currentElement) => {
         // If your keyword match with any class will be removed
