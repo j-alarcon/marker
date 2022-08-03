@@ -5,6 +5,10 @@ import {
   reproduceSound,
   addClasses,
   removeClasses,
+  createHTML,
+  appendChilds,
+  deleteLastItemJSON,
+  addItemToJSON,
 } from "./utility.js";
 
 const teams = [
@@ -52,15 +56,14 @@ let jsonScores = {
   teams: [
     {
       color: "red",
-      score: 0,
       text: "white",
+      score: 0,
     },
   ],
 };
 
 function updateJSON(currentLocalStorage, currentIteration, operator) {
   let currentData = JSON.parse(currentLocalStorage);
-  console.log(currentData);
   if (operator === "+") {
     currentData.teams[currentIteration].score++;
   } else {
@@ -71,6 +74,60 @@ function updateJSON(currentLocalStorage, currentIteration, operator) {
   }
   // Upload local storage values
   localStorage.setItem("teams", JSON.stringify(currentData));
+}
+
+function createTeam(color, text, currentTeam) {
+  // Need to create them separately to add events
+  let modifiers = [
+    createHTML("div", null, "left-side", "max-height"),
+    createHTML("div", null, "right-side", "max-height"),
+  ];
+
+  // Create HTML containers with styles
+  mainContainer.appendChild(
+    appendChilds(
+      createHTML(
+        "div",
+        null,
+        "max-width",
+        "max-height",
+        "medium-fontsize",
+        "relative",
+        "flex",
+        "justify-center",
+        "align-center",
+        text,
+        color
+      ),
+      appendChilds(
+        createHTML(
+          "div",
+          color,
+          "change-scores",
+          "flex",
+          "absolute",
+          "max-width",
+          "max-height",
+          "invisible"
+        ),
+        ...modifiers
+      ),
+      createHTML("span", null, "score")
+    )
+  );
+  // Increase or decrease score of selected team
+  modifiers.forEach((e, i) => {
+    e.addEventListener("click", () => {
+      if (i === 1) {
+        updateJSON(localStorage.getItem("teams"), currentTeam, "+");
+      } else {
+        updateJSON(localStorage.getItem("teams"), currentTeam, "-");
+      }
+      modifiers[i].parentNode.parentNode.children[1].innerText = JSON.parse(
+        localStorage.getItem("teams")
+      ).teams[currentTeam].score;
+    });
+  });
 }
 
 // This is utilised to implement dynamic width and height to teams
@@ -121,7 +178,6 @@ function resizeTeams(teams, total) {
       break;
   }
 }
-
 function startTimer() {
   // Clean previous timer if were one.
   clearInterval(timer);
@@ -180,47 +236,15 @@ window.onload = () => {
   if (!localStorage.getItem("teams")) {
     localStorage.setItem("teams", JSON.stringify(jsonScores));
   }
-  // Crear funcion que cree contenedor y le ponga eventos
-  JSON.parse(localStorage.getItem("teams")).teams.forEach((e) => {
-    mainContainer.innerHTML += ` <div
-      class="max-width max-height medium-fontsize relative flex justify-center align-center ${e.text}-text ${e.color}"
-    >
-      <div
-        data-value="${e.color}"
-        class="change-scores flex absolute max-width max-height invisible"
-      >
-        <div class="left-side max-height"></div>
-        <div class="right-side max-height"></div>
-      </div>
-      <span class="score">0</span>
-    </div>`;
-  });
-  let scores = Array.from(document.getElementsByClassName("score"));
-  let leftSide = Array.from(document.getElementsByClassName("left-side"));
-  let rightSide = Array.from(document.getElementsByClassName("right-side"));
-  scores.forEach((e, i) => {
-    e.innerText = JSON.parse(localStorage.getItem("teams")).teams[i].score;
-  });
-  // Increase score of selected team
-  rightSide.forEach((e, i) => {
-    e.addEventListener("click", (x) => {
-      updateJSON(localStorage.getItem("teams"), i, "+");
-      scores[i].innerText = JSON.parse(localStorage.getItem("teams")).teams[
-        i
-      ].score;
+  // Load all teams storaged in local
+  JSON.parse(localStorage.getItem("teams")).teams.forEach((e, i) => {
+    createTeam(e.color, e.text + "-text", i);
+    // Retrieve all scores from JSON file
+    Array.from(document.getElementsByClassName("score")).forEach((e, i) => {
+      e.innerText = JSON.parse(localStorage.getItem("teams")).teams[i].score;
     });
+    resizeTeams(mainContainer.children, mainContainer.children.length);
   });
-
-  // Decrease score of selected team
-  leftSide.forEach((e, i) => {
-    e.addEventListener("click", (x) => {
-      updateJSON(localStorage.getItem("teams"), i, "-");
-      scores[i].innerText = JSON.parse(localStorage.getItem("teams")).teams[
-        i
-      ].score;
-    });
-  });
-  resizeTeams(mainContainer.children, mainContainer.children.length);
   if (!localStorage.getItem("minutes")) {
     localStorage.setItem("minutes", 0);
   }
@@ -236,54 +260,25 @@ window.onload = () => {
 // Add team
 document.getElementById("add").addEventListener("click", () => {
   if (mainContainer.children.length < 9) {
-    let x = mainContainer.children[0].cloneNode(true);
-    x.classList.remove("red");
-    x.classList.remove("white-text");
-    x.children[0].setAttribute(
-      "data-value",
-      teams[mainContainer.children.length].name
+    createTeam(
+      teams[mainContainer.children.length].name,
+      teams[mainContainer.children.length].text + "-text",
+      mainContainer.children.length
     );
-    x.classList.add(teams[mainContainer.children.length].name);
-    x.classList.add(teams[mainContainer.children.length].text + "-text");
-    mainContainer.appendChild(x);
-    x.children[1].innerText = 0;
-    x.children[0].children[0].addEventListener("click", () => {
-      updateJSON(
-        localStorage.getItem("teams"),
-        mainContainer.children.length - 1,
-        "-"
-      );
-      x.children[1].innerText = JSON.parse(localStorage.getItem("teams")).teams[
-        mainContainer.children.length - 1
-      ].score;
-    });
-    x.children[0].children[1].addEventListener("click", () => {
-      updateJSON(
-        localStorage.getItem("teams"),
-        mainContainer.children.length - 1,
-        "+"
-      );
-      x.children[1].innerText = JSON.parse(localStorage.getItem("teams")).teams[
-        mainContainer.children.length - 1
-      ].score;
-    });
+    // Fill new containers with a zero
+    mainContainer.children[
+      mainContainer.children.length - 1
+    ].children[1].innerText = 0;
+    // Add new item and update JSON file
     localStorage.setItem(
       "teams",
-      localStorage
-        .getItem("teams")
-        .substring(0, localStorage.getItem("teams").lastIndexOf("]")) +
-        ',{"color":' +
-        '"' +
-        teams[mainContainer.children.length - 1].name +
-        '"' +
-        ',"text":' +
-        '"' +
-        teams[mainContainer.children.length - 1].text +
-        '"' +
-        ',"score":0}]}'
+      addItemToJSON(
+        localStorage.getItem("teams"),
+        { color: teams[mainContainer.children.length - 1].name },
+        { text: teams[mainContainer.children.length - 1].text },
+        { score: 0 }
+      )
     );
-    console.log(localStorage.getItem("teams"));
-    console.log(mainContainer.children.length);
   }
   resizeTeams(mainContainer.children, mainContainer.children.length);
 });
@@ -295,15 +290,11 @@ document.getElementById("delete").addEventListener("click", () => {
       mainContainer.children[mainContainer.children.length - 1].lastElementChild
     );
     resizeTeams(mainContainer.children, mainContainer.children.length);
+    // Delete last item and update JSON file
     localStorage.setItem(
       "teams",
-      localStorage
-        .getItem("teams")
-        .substring(0, localStorage.getItem("teams").lastIndexOf("},") + 1) +
-        "]}"
+      deleteLastItemJSON(localStorage.getItem("teams"))
     );
-    console.log(localStorage.getItem("teams"));
-    console.log(mainContainer.children.length);
   }
 });
 
@@ -334,13 +325,12 @@ document.getElementById("twenty-minutes").addEventListener("click", () => {
 
 // Reset timer and scores
 document.getElementById("reset").addEventListener("click", (e) => {
-  console.log(localStorage.getItem("teams"));
   let test = JSON.parse(localStorage.getItem("teams"));
-  console.log(JSON.parse(localStorage.getItem("teams")));
   JSON.parse(localStorage.getItem("teams")).teams.forEach((e, i) => {
     test.teams[i].score = 0;
   });
-  // Upload local storage values
   localStorage.setItem("teams", JSON.stringify(test));
+  localStorage.setItem("minutes", 0);
+  localStorage.setItem("seconds", 0);
   window.location.reload();
 });
