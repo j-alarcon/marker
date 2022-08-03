@@ -65,7 +65,9 @@ let jsonScores = {
 function updateJSON(currentLocalStorage, currentIteration, operator) {
   let currentData = JSON.parse(currentLocalStorage);
   if (operator === "+") {
-    currentData.teams[currentIteration].score++;
+    if (currentData.teams[currentIteration].score < 999) {
+      currentData.teams[currentIteration].score++;
+    }
   } else {
     // Prevents negative numbers in score
     if (currentData.teams[currentIteration].score != 0) {
