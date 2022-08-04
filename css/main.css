@@ -34,6 +34,10 @@
   background-color: #ffffff;
 }
 
+.opacity:hover {
+  opacity: 0.8;
+}
+
 .no-border {
   border: none;
 }
@@ -42,8 +46,12 @@
   overflow: hidden;
 }
 
-.hidden{
+.hidden {
   display: none;
+}
+
+.touch {
+  cursor: pointer;
 }
 
 .text-shadow {
@@ -60,6 +68,14 @@
 
 .anton {
   font-family: "Anton", sans-serif;
+}
+
+.medium-fontsize {
+  font-size: 19vh;
+}
+
+.big-fontsize {
+  font-size: 25vh;
 }
 
 .max-width {
@@ -94,35 +110,13 @@
   font-size: 10vh;
 }
 
-.submenu {
-  width: 6.5rem;
-  transition: right 0.5s;
-}
-
-.submenu2{
-  left: 0;
-  margin-left: 1rem;
-}
-
-.actions {
-  height: 25%;
-  font-size: 2.2vh;
-}
-
-.actions:hover {
-  background-color: #cb1e87;
+.reset-icon {
+  width: 2rem;
+  margin: 0.5rem 0 0 0.5rem;
 }
 
 .main-container {
   height: 86%;
-}
-
-.medium-fontsize {
-  font-size: 19vh;
-}
-
-.big-fontsize {
-  font-size: 25vh;
 }
 
 .left-side,

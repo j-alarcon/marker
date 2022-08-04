@@ -13,58 +13,17 @@
   </head>
   <body class="flex direction-column anton max-height">
     <div
-      class="top-container flex justify-center align-center relative overflow-hidden"
+      class="top-container flex justify-center align-center relative overflow-hidden black"
     >
       <div
         id="timer"
-        class="black white-text flex justify-center align-center max-width max-height"
+        class="white-text flex justify-center align-center max-width max-height"
       >
         00:00
       </div>
-      <div
-        class="submenu absolute max-height flex direction-column justify-center align-center"
-      >
-        <button
-          class="actions white-text max-width no-border text-shadow black"
-          id="fifteen-minutes"
-        >
-          15'
-        </button>
-        <button
-          class="actions white-text max-width no-border text-shadow black"
-          id="twenty-minutes"
-        >
-          20'
-        </button>
-        <button
-          class="actions white-text max-width no-border text-shadow black"
-          id="play"
-        >
-          ▶
-        </button>
-        <button
-          class="actions white-text max-width no-border text-shadow black"
-          id="reset"
-        >
-          🔁
-        </button>
-      </div>
-      <div
-        class="submenu2 absolute max-height flex direction-column justify-center align-center"
-      >
-        <button
-          class="actions white-text max-width no-border text-shadow black"
-          id="add"
-        >
-          Add
-        </button>
-        <button
-          class="actions white-text max-width no-border text-shadow black"
-          id="delete"
-        >
-          Delete
-        </button>
-      </div>
+      <button class="reset flex justify-center align-center absolute opacity touch" id="reset">
+        <img class="reset-icon" src="./img/icons/reset.svg" alt="Reset button">
+      </button>
     </div>
     <main class="main-container flex wrap max-width">
     </main>

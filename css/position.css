@@ -30,11 +30,9 @@
   position: relative;
 }
 
-.submenu{
+.reset{
   top: 0;
-  right: -5rem;
+  left: 0;
 }
 
-.submenu:hover {
-  right: 0;
-}
+

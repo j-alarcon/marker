@@ -259,7 +259,7 @@ window.onload = () => {
   updateTimer();
 };
 
-// Add team
+/* // Add team
 document.getElementById("add").addEventListener("click", () => {
   if (mainContainer.children.length < 9) {
     createTeam(
@@ -299,15 +299,15 @@ document.getElementById("delete").addEventListener("click", () => {
     );
   }
 });
-
+ */
 // The code will repeat each one second until all values are equal to zero
-document.getElementById("play").addEventListener("click", () => {
+/* document.getElementById("play").addEventListener("click", () => {
   // Activate timer
   localStorage.setItem("timer", true);
   startTimer();
-});
+}); */
 
-// Set timer to fifteen minutes and stop current timer if were one.
+/* // Set timer to fifteen minutes and stop current timer if were one.
 document.getElementById("fifteen-minutes").addEventListener("click", () => {
   localStorage.setItem("minutes", 15);
   localStorage.setItem("seconds", 0);
@@ -323,7 +323,7 @@ document.getElementById("twenty-minutes").addEventListener("click", () => {
   localStorage.setItem("timer", false);
   clearInterval(timer);
   updateTimer();
-});
+}); */
 
 // Reset timer and scores
 document.getElementById("reset").addEventListener("click", (e) => {
