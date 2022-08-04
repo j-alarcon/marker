@@ -2,12 +2,24 @@
   display: flex;
 }
 
-.direction-column {
+.column {
   flex-direction: column;
 }
 
 .justify-center {
   justify-content: center;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.justify-between {
+  justify-content: space-between;
 }
 
 .align-center {
@@ -30,9 +42,7 @@
   position: relative;
 }
 
-.reset{
+.reset {
   top: 0;
   left: 0;
 }
-
-

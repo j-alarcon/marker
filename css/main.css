@@ -67,15 +67,19 @@
 }
 
 .anton {
-  font-family: "Anton", sans-serif;
+  font-family: "Anton";
+}
+
+.poppins {
+  font-family: "Poppins";
 }
 
 .medium-fontsize {
-  font-size: 19vh;
+  font-size: 18vh;
 }
 
 .big-fontsize {
-  font-size: 25vh;
+  font-size: 24vh;
 }
 
 .max-width {
@@ -103,23 +107,37 @@
 }
 
 .top-container {
-  height: 14%;
+  height: 18%;
 }
 
 #timer {
+  margin-bottom: 2vh;
   font-size: 10vh;
 }
 
 .reset-icon {
-  width: 2rem;
+  width: 2.5vh;
   margin: 0.5rem 0 0 0.5rem;
 }
 
 .main-container {
-  height: 86%;
+  height: 82%;
 }
 
 .left-side,
 .right-side {
   width: 50%;
+}
+
+.submenu {
+  bottom: 1.7vh;
+  width: 19vh;
+}
+
+.play-button {
+  width: 1.8vh;
+}
+
+.icon-fontsize {
+  font-size: 2vh;
 }

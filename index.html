@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="flex direction-column max-height">
+<html lang="en" class="flex column max-height">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
@@ -11,21 +11,71 @@
     <link rel="stylesheet" href="css/responsive.css" />
     <script type="module" src="js/main.js"></script>
   </head>
-  <body class="flex direction-column anton max-height">
+  <body class="flex column anton max-height">
     <div
       class="top-container flex justify-center align-center relative overflow-hidden black"
     >
+      <button
+        class="reset flex justify-center align-center absolute opacity touch"
+        id="reset"
+      >
+        <img
+          class="reset-icon"
+          src="./img/icons/reset.svg"
+          alt="Reset button"
+        />
+      </button>
       <div
         id="timer"
         class="white-text flex justify-center align-center max-width max-height"
       >
         00:00
       </div>
-      <button class="reset flex justify-center align-center absolute opacity touch" id="reset">
-        <img class="reset-icon" src="./img/icons/reset.svg" alt="Reset button">
-      </button>
+      <div
+        class="submenu flex justify-between align-center absolute oswald icon-fontsize"
+      >
+        <button
+          class="flex justify-center align-center opacity touch"
+          class="white-text flex justify-center align-center opacity touch"
+          id="delete"
+        >
+          <img
+            class="play-button"
+            src="./img/icons/minus.svg"
+            alt="Minus Button"
+          />
+        </button>
+        <button class="flex justify-center align-center opacity touch" id="add">
+          <img
+            class="play-button"
+            src="./img/icons/plus.svg"
+            alt="Plus Button"
+          />
+        </button>
+        <button
+          class="white-text flex justify-center align-center opacity touch"
+          id="fifteen-minutes"
+        >
+          15'
+        </button>
+        <button
+          class="white-text flex justify-center align-center opacity touch"
+          id="twenty-minutes"
+        >
+          20'
+        </button>
+        <button
+          class="flex justify-center align-center opacity touch"
+          id="play"
+        >
+          <img
+            class="play-button"
+            src="./img/icons/play.svg"
+            alt="Play button"
+          />
+        </button>
+      </div>
     </div>
-    <main class="main-container flex wrap max-width">
-    </main>
+    <main class="main-container flex wrap max-width"></main>
   </body>
 </html>
