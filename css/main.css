@@ -1,3 +1,19 @@
+.half-width,
+.left-side,
+.right-side {
+  width: 50%;
+}
+
+.main-container,
+.burger-menu {
+  height: 82%;
+}
+
+.burger-menu,
+.burger-checkbox:checked ~ .burger-menu {
+  transition-duration: 0.5s;
+}
+
 .red {
   background-color: #fb0004;
 }
@@ -38,10 +54,6 @@
   opacity: 0.8;
 }
 
-.no-border {
-  border: none;
-}
-
 .overflow-hidden {
   overflow: hidden;
 }
@@ -52,10 +64,6 @@
 
 .touch {
   cursor: pointer;
-}
-
-.text-shadow {
-  text-shadow: 1px 1px black;
 }
 
 .invisible {
@@ -70,10 +78,6 @@
   font-family: "Anton";
 }
 
-.poppins {
-  font-family: "Poppins";
-}
-
 .medium-fontsize {
   font-size: 18vh;
 }
@@ -84,10 +88,6 @@
 
 .max-width {
   width: 100%;
-}
-
-.half-width {
-  width: 50%;
 }
 
 .width-by-three {
@@ -110,34 +110,43 @@
   height: 18%;
 }
 
-#timer {
-  margin-bottom: 2vh;
-  font-size: 10vh;
-}
-
 .reset-icon {
   width: 2.5vh;
   margin: 0.5rem 0 0 0.5rem;
 }
 
-.main-container {
-  height: 82%;
-}
-
-.left-side,
-.right-side {
-  width: 50%;
+#timer {
+  margin-bottom: 2.6vh;
+  font-size: 10vh;
 }
 
 .submenu {
-  bottom: 1.7vh;
   width: 19vh;
 }
 
-.play-button {
+.icon-submenu {
   width: 1.8vh;
 }
 
-.icon-fontsize {
+.submenu-fontsize {
   font-size: 2vh;
+}
+
+#burger-button {
+  width: 4vh;
+  height: 4vh;
+  border-radius: 0.7vh;
+  margin: 0 1.5vh 1.5vh 0;
+}
+
+.burger-icon {
+  width: 3vh;
+}
+
+.burger-checkbox:checked ~ .top-container .burger-icon {
+  transform: rotate(90deg);
+}
+
+.burger-menu {
+  width: 50vh;
 }

@@ -11,71 +11,97 @@
     <link rel="stylesheet" href="css/responsive.css" />
     <script type="module" src="js/main.js"></script>
   </head>
-  <body class="flex column anton max-height">
-    <div
-      class="top-container flex justify-center align-center relative overflow-hidden black"
-    >
-      <button
-        class="reset flex justify-center align-center absolute opacity touch"
-        id="reset"
-      >
-        <img
-          class="reset-icon"
-          src="./img/icons/reset.svg"
-          alt="Reset button"
-        />
-      </button>
+    <body class="flex column anton max-width max-height overflow-hidden">
+      <input
+        class="burger-checkbox absolute"
+        type="checkbox"
+        id="burger-checkbox"
+      />
       <div
-        id="timer"
-        class="white-text flex justify-center align-center max-width max-height"
-      >
-        00:00
-      </div>
-      <div
-        class="submenu flex justify-between align-center absolute oswald icon-fontsize"
+        class="top-container flex justify-center align-center relative overflow-hidden black"
       >
         <button
-          class="flex justify-center align-center opacity touch"
-          class="white-text flex justify-center align-center opacity touch"
-          id="delete"
+          class="reset flex justify-center align-center absolute opacity touch"
+          id="reset"
         >
           <img
-            class="play-button"
-            src="./img/icons/minus.svg"
-            alt="Minus Button"
+            class="reset-icon"
+            src="./img/icons/reset.svg"
+            alt="Reset button"
           />
         </button>
-        <button class="flex justify-center align-center opacity touch" id="add">
-          <img
-            class="play-button"
-            src="./img/icons/plus.svg"
-            alt="Plus Button"
-          />
-        </button>
-        <button
-          class="white-text flex justify-center align-center opacity touch"
-          id="fifteen-minutes"
+        <div
+          id="timer"
+          class="white-text flex justify-center align-center max-width max-height"
         >
-          15'
-        </button>
-        <button
-          class="white-text flex justify-center align-center opacity touch"
-          id="twenty-minutes"
+          00:00
+        </div>
+        <div
+          class="submenu flex justify-between align-center absolute submenu-fontsize"
         >
-          20'
-        </button>
+          <button
+            class="flex justify-center align-center opacity touch"
+            class="white-text flex justify-center align-center opacity touch"
+            id="delete"
+          >
+            <img
+              class="icon-submenu"
+              src="./img/icons/minus.svg"
+              alt="Minus Button"
+            />
+          </button>
+          <button
+            class="flex justify-center align-center opacity touch"
+            id="add"
+          >
+            <img
+              class="icon-submenu"
+              src="./img/icons/plus.svg"
+              alt="Plus Button"
+            />
+          </button>
+          <button
+            class="button-timer white-text flex justify-center align-center opacity touch"
+            id="first-timer"
+          >
+            15'
+          </button>
+          <button
+            class="button-timer white-text flex justify-center align-center opacity touch"
+            id="second-timer"
+          >
+            20'
+          </button>
+          <button
+            class="flex justify-center align-center opacity touch"
+            id="play"
+          >
+            <img
+              class="icon-submenu"
+              src="./img/icons/play.svg"
+              alt="Play button"
+            />
+          </button>
+        </div>
         <button
-          class="flex justify-center align-center opacity touch"
-          id="play"
+          class="white flex justify-center align-center absolute opacity"
+          id="burger-button"
         >
-          <img
-            class="play-button"
-            src="./img/icons/play.svg"
-            alt="Play button"
-          />
+          <label
+            class="flex justify-center align-center max-width max-height test touch"
+            for="burger-checkbox"
+          >
+            <img
+              class="burger-icon"
+              src="./img/icons/burger.svg"
+              alt="Burger button"
+            />
+          </label>
         </button>
       </div>
-    </div>
-    <main class="main-container flex wrap max-width"></main>
-  </body>
+      <aside class="burger-menu white absolute">
+        <p>This is a submenu</p>
+      </aside>
+      <main class="main-container flex wrap max-width"></main>
+    </body>
 </html>

@@ -1,10 +1,12 @@
 @media screen and (max-width: 600px) {
-  .teams {
-    width: 50%;
-    height: 33.33%;
-    font-size: 18vh;
+  .medium-fontsize {
+    font-size: 12vh;
   }
-  .submenu {
-    width: 5.5rem;
+  .burger-menu {
+    display: none;
+  }
+  #burger-button,
+  .burger-checkbox:checked ~ .burger-menu {
+    display: flex;
   }
 }

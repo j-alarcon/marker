@@ -50,7 +50,6 @@ const teams = [
   },
 ];
 let mainContainer = document.getElementsByClassName("main-container")[0];
-
 let timer;
 let jsonScores = {
   teams: [
@@ -180,6 +179,7 @@ function resizeTeams(teams, total) {
       break;
   }
 }
+
 function startTimer() {
   // Clean previous timer if were one.
   clearInterval(timer);
@@ -197,11 +197,16 @@ function startTimer() {
       );
       reproduceSound("../audio/finish.mp3");
       // This prevent weird values if reset when timer has ended
-      localStorage.setItem("minutes", 0);
-      localStorage.setItem("seconds", 0);
-      localStorage.setItem("timer", false);
+      clearTimer();
     }
   }, 1000);
+}
+
+// Stop and reset the timer
+function clearTimer() {
+  localStorage.setItem("minutes", 0);
+  localStorage.setItem("seconds", 0);
+  localStorage.setItem("timer", false);
 }
 
 function calculateTime() {
@@ -302,37 +307,44 @@ document.getElementById("delete").addEventListener("click", () => {
 
 // The code will repeat each one second until all values are equal to zero
 document.getElementById("play").addEventListener("click", () => {
-  // Activate timer
-  localStorage.setItem("timer", true);
-  startTimer();
+  if (
+    localStorage.getItem("timer") === "false" &&
+    (localStorage.getItem("minutes") != 0 ||
+      localStorage.getItem("seconds") != 0)
+  ) {
+    // Activate timer
+    localStorage.setItem("timer", true);
+    startTimer();
+  } else {
+    // Stop timer
+    clearInterval(timer);
+    localStorage.setItem("timer", false);
+  }
 });
 
-// Set timer to fifteen minutes and stop current timer if were one.
-document.getElementById("fifteen-minutes").addEventListener("click", () => {
-  localStorage.setItem("minutes", 15);
-  localStorage.setItem("seconds", 0);
-  localStorage.setItem("timer", false);
-  clearInterval(timer);
-  updateTimer();
-});
-
-// Set timer to twenty minutes and stop current timer if were one.
-document.getElementById("twenty-minutes").addEventListener("click", () => {
-  localStorage.setItem("minutes", 20);
-  localStorage.setItem("seconds", 0);
-  localStorage.setItem("timer", false);
-  clearInterval(timer);
-  updateTimer();
+// Set timer to desired minutes and stop current timer if there wa one.
+Array.from(document.getElementsByClassName("button-timer")).forEach((e) => {
+  e.addEventListener("click", () => {
+    localStorage.setItem(
+      "minutes",
+      String(e.innerText).substring(0, e.innerText.length - 1)
+    );
+    localStorage.setItem("seconds", 0);
+    localStorage.setItem("timer", false);
+    clearInterval(timer);
+    updateTimer();
+  });
 });
 
 // Reset timer and scores
 document.getElementById("reset").addEventListener("click", (e) => {
-  let test = JSON.parse(localStorage.getItem("teams"));
+  // Set all scores to zero
+  let json = JSON.parse(localStorage.getItem("teams"));
   JSON.parse(localStorage.getItem("teams")).teams.forEach((e, i) => {
-    test.teams[i].score = 0;
+    json.teams[i].score = 0;
   });
-  localStorage.setItem("teams", JSON.stringify(test));
-  localStorage.setItem("minutes", 0);
-  localStorage.setItem("seconds", 0);
+  localStorage.setItem("teams", JSON.stringify(json));
+  clearTimer();
+  // Reload website
   window.location.reload();
 });

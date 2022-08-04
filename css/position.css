@@ -1,3 +1,13 @@
+#burger-button,
+.burger-menu {
+  bottom: 0;
+}
+
+#burger-button,
+.burger-checkbox:checked ~ .burger-menu {
+  right: 0;
+}
+
 .flex {
   display: flex;
 }
@@ -45,4 +55,13 @@
 .reset {
   top: 0;
   left: 0;
+}
+
+.submenu {
+  bottom: 2.5vh;
+}
+
+.burger-menu {
+  right: -60vh;
+  z-index: 1;
 }
