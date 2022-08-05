@@ -62,6 +62,6 @@
 }
 
 .burger-menu {
-  right: -60vh;
+ right: 0;
   z-index: 1;
 }

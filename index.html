@@ -11,97 +11,114 @@
     <link rel="stylesheet" href="css/responsive.css" />
     <script type="module" src="js/main.js"></script>
   </head>
-    <body class="flex column anton max-width max-height overflow-hidden">
-      <input
-        class="burger-checkbox absolute"
-        type="checkbox"
-        id="burger-checkbox"
-      />
+  <body class="flex column anton max-width max-height overflow-hidden">
+    <input
+      class="burger-checkbox absolute"
+      type="checkbox"
+      id="burger-checkbox"
+    />
+    <div
+      class="top-container flex justify-center align-center relative overflow-hidden black"
+    >
+      <button
+        class="reset flex justify-center align-center absolute opacity touch"
+        id="reset"
+      >
+        <img
+          class="reset-icon"
+          src="./img/icons/reset.svg"
+          alt="Reset button"
+        />
+      </button>
       <div
-        class="top-container flex justify-center align-center relative overflow-hidden black"
+        id="timer"
+        class="white-text flex justify-center align-center max-width max-height"
+      >
+        00:00
+      </div>
+      <div
+        class="submenu flex justify-between align-center absolute submenu-fontsize"
       >
         <button
-          class="reset flex justify-center align-center absolute opacity touch"
-          id="reset"
+          class="flex justify-center align-center opacity touch"
+          class="white-text flex justify-center align-center opacity touch"
+          id="delete"
         >
           <img
-            class="reset-icon"
-            src="./img/icons/reset.svg"
-            alt="Reset button"
+            class="icon-submenu"
+            src="./img/icons/minus.svg"
+            alt="Minus Button"
           />
         </button>
-        <div
-          id="timer"
-          class="white-text flex justify-center align-center max-width max-height"
-        >
-          00:00
-        </div>
-        <div
-          class="submenu flex justify-between align-center absolute submenu-fontsize"
-        >
-          <button
-            class="flex justify-center align-center opacity touch"
-            class="white-text flex justify-center align-center opacity touch"
-            id="delete"
-          >
-            <img
-              class="icon-submenu"
-              src="./img/icons/minus.svg"
-              alt="Minus Button"
-            />
-          </button>
-          <button
-            class="flex justify-center align-center opacity touch"
-            id="add"
-          >
-            <img
-              class="icon-submenu"
-              src="./img/icons/plus.svg"
-              alt="Plus Button"
-            />
-          </button>
-          <button
-            class="button-timer white-text flex justify-center align-center opacity touch"
-            id="first-timer"
-          >
-            15'
-          </button>
-          <button
-            class="button-timer white-text flex justify-center align-center opacity touch"
-            id="second-timer"
-          >
-            20'
-          </button>
-          <button
-            class="flex justify-center align-center opacity touch"
-            id="play"
-          >
-            <img
-              class="icon-submenu"
-              src="./img/icons/play.svg"
-              alt="Play button"
-            />
-          </button>
-        </div>
+        <button class="flex justify-center align-center opacity touch" id="add">
+          <img
+            class="icon-submenu"
+            src="./img/icons/plus.svg"
+            alt="Plus Button"
+          />
+        </button>
         <button
-          class="white flex justify-center align-center absolute opacity"
-          id="burger-button"
+          class="button-timer white-text flex justify-center align-center opacity touch"
+          id="first-timer"
         >
-          <label
-            class="flex justify-center align-center max-width max-height test touch"
-            for="burger-checkbox"
-          >
-            <img
-              class="burger-icon"
-              src="./img/icons/burger.svg"
-              alt="Burger button"
-            />
-          </label>
+          15'
+        </button>
+        <button
+          class="button-timer white-text flex justify-center align-center opacity touch"
+          id="second-timer"
+        >
+          20'
+        </button>
+        <button
+          class="flex justify-center align-center opacity touch"
+          id="player"
+        >
+          <img
+            class="icon-submenu"
+            src="./img/icons/play.svg"
+            alt="Play button"
+          />
         </button>
       </div>
-      <aside class="burger-menu white absolute">
-        <p>This is a submenu</p>
-      </aside>
-      <main class="main-container flex wrap max-width"></main>
-    </body>
+      <button
+        class="white flex justify-center align-center absolute opacity"
+        id="burger-button"
+      >
+        <label
+          class="flex justify-center align-center max-width max-height touch"
+          for="burger-checkbox"
+        >
+          <img
+            class="burger-icon"
+            src="./img/icons/burger.svg"
+            alt="Burger button"
+          />
+        </label>
+      </button>
+    </div>
+    <aside
+      class="burger-menu flex column align-center white-text light-black absolute"
+    >
+      <h2 class="title-option">Options</h2>
+      <hr class="line white" />
+      <form class="flex column" action="./action.php" method="get">
+        <label class="subtitle-option" for="first-timer">First-timer</label>
+        <div>
+          <div class="flex column align-center">
+            <input class="white" value="15" type="number" min="0" max="999" />
+            <label for="f-minutes">Minutes</label>
+          </div>
+          <div class="flex column align-center">
+            <input class="white" value="0" type="number" min="0" max="999" />
+            <label for="f-seconds">Seconds</label>
+          </div>
+        </div>
+        <div class="container-buttons flex justify-between absolute">
+          <input class="options-button white touch" type="submit" value="Apply" />
+          <input class="options-button white touch" type="reset" value="Reset" />
+        </div>
+      </form>
+    </aside>
+    <main class="main-container flex wrap max-width"></main>
+  </body>
 </html>

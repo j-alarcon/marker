@@ -9,6 +9,7 @@ import {
   appendChilds,
   deleteLastItemJSON,
   addItemToJSON,
+  changeImage,
 } from "./utility.js";
 
 const teams = [
@@ -260,6 +261,11 @@ window.onload = () => {
   }
   if (localStorage.getItem("timer") === "true") {
     startTimer();
+    changeImage(
+      document.getElementById("player").children[0],
+      "./img/icons/stop.svg",
+      "Stop button"
+    );
   }
   updateTimer();
 };
@@ -306,7 +312,7 @@ document.getElementById("delete").addEventListener("click", () => {
 });
 
 // The code will repeat each one second until all values are equal to zero
-document.getElementById("play").addEventListener("click", () => {
+document.getElementById("player").addEventListener("click", () => {
   if (
     localStorage.getItem("timer") === "false" &&
     (localStorage.getItem("minutes") != 0 ||
@@ -315,10 +321,20 @@ document.getElementById("play").addEventListener("click", () => {
     // Activate timer
     localStorage.setItem("timer", true);
     startTimer();
+    changeImage(
+      document.getElementById("player").children[0],
+      "./img/icons/stop.svg",
+      "Stop button"
+    );
   } else {
     // Stop timer
     clearInterval(timer);
     localStorage.setItem("timer", false);
+    changeImage(
+      document.getElementById("player").children[0],
+      "./img/icons/play.svg",
+      "Play button"
+    );
   }
 });
 

@@ -2,6 +2,11 @@ export function formatNumber(number) {
   return number < 10 ? "0" + number : number;
 }
 
+export function changeImage(element, url, alt) {
+  element.src = url;
+  element.alt = alt;
+}
+
 export function downloadResults(localValues, fileName) {
   let anchor = document.createElement("a");
   anchor.setAttribute(
