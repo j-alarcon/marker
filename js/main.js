@@ -263,6 +263,12 @@ window.onload = () => {
     });
     resizeTeams(mainContainer.children, mainContainer.children.length);
   });
+  // Load name of timer buttons
+  Array.from(document.getElementsByClassName("button-timer")).forEach(
+    (e, i) => {
+      e.innerText = timerButtons[i].minutes.value + "'";
+    }
+  );
   if (!localStorage.getItem("minutes")) {
     localStorage.setItem("minutes", 0);
   }
@@ -365,6 +371,12 @@ document.getElementById("submit-changes").addEventListener("click", (e) => {
       localStorage.setItem(e[p].id, e[p].value);
     }
   });
+  // Change name of timer buttons
+  Array.from(document.getElementsByClassName("button-timer")).forEach(
+    (e, i) => {
+      e.innerText = timerButtons[i].minutes.value + "'";
+    }
+  );
 });
 // Set timer to desired minutes and stop current timer if there was one.
 Array.from(document.getElementsByClassName("button-timer")).forEach((e, i) => {
