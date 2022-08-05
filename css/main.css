@@ -16,7 +16,7 @@
 
 .burger-menu,
 .burger-checkbox:checked ~ .burger-menu {
-  transition-duration: 0.5s;
+  transition: right 0.5s;
 }
 
 .disabled,
@@ -207,6 +207,11 @@
   gap: 2vh;
 }
 
+.input-form {
+  width: 7vh;
+  height: 3vh;
+}
+
 .subcontainer-form {
   gap: 0.3vh;
 }
@@ -216,6 +221,7 @@
 }
 
 #message {
+  height: 8vh;
   margin: 0.7vh 0 0.4vh 0;
 }
 

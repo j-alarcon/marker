@@ -52,6 +52,16 @@ const teams = [
 ];
 let mainContainer = document.getElementsByClassName("main-container")[0];
 let timer;
+let timerButtons = [
+  {
+    minutes: document.getElementById("f-minutes"),
+    seconds: document.getElementById("f-seconds"),
+  },
+  {
+    minutes: document.getElementById("s-minutes"),
+    seconds: document.getElementById("s-seconds"),
+  },
+];
 let jsonScores = {
   teams: [
     {
@@ -259,6 +269,13 @@ window.onload = () => {
   if (!localStorage.getItem("seconds")) {
     localStorage.setItem("seconds", 0);
   }
+  if (!localStorage.getItem("f-minutes")) {
+    timerButtons.forEach((e) => {
+      for (let p in e) {
+        localStorage.setItem(e[p].id, e[p].value);
+      }
+    });
+  }
   if (localStorage.getItem("timer") === "true") {
     startTimer();
     changeImage(
@@ -338,14 +355,28 @@ document.getElementById("player").addEventListener("click", () => {
   }
 });
 
-// Set timer to desired minutes and stop current timer if there wa one.
-Array.from(document.getElementsByClassName("button-timer")).forEach((e) => {
+// Change selected options on burger menu
+document.getElementById("submit-changes").addEventListener("click", (e) => {
+  // Don't send the form
+  e.preventDefault();
+  // Storage new values for timer buttons
+  timerButtons.forEach((e) => {
+    for (let p in e) {
+      localStorage.setItem(e[p].id, e[p].value);
+    }
+  });
+});
+// Set timer to desired minutes and stop current timer if there was one.
+Array.from(document.getElementsByClassName("button-timer")).forEach((e, i) => {
   e.addEventListener("click", () => {
     localStorage.setItem(
       "minutes",
-      String(e.innerText).substring(0, e.innerText.length - 1)
+      localStorage.getItem(timerButtons[i].minutes.id)
     );
-    localStorage.setItem("seconds", 0);
+    localStorage.setItem(
+      "seconds",
+      localStorage.getItem(timerButtons[i].seconds.id)
+    );
     localStorage.setItem("timer", false);
     clearInterval(timer);
     updateTimer();
