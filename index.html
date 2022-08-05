@@ -103,7 +103,7 @@
       <hr class="line white" />
       <form class="flex column" action="./action.php" method="get">
         <label class="subtitle-option" for="first-timer">First-timer</label>
-        <div>
+        <div class="flex justify-between align-center">
           <div class="flex column align-center">
             <input class="white" value="15" type="number" min="0" max="999" />
             <label for="f-minutes">Minutes</label>
@@ -114,9 +114,20 @@
           </div>
         </div>
         <div class="container-buttons flex justify-between absolute">
-          <input class="options-button white touch" type="submit" value="Apply" />
-          <input class="options-button white touch" type="reset" value="Reset" />
+          <input
+            class="options-button white touch"
+            type="submit"
+            value="Apply"
+          />
+          <input
+            class="options-button white touch"
+            type="reset"
+            value="Reset"
+          />
         </div>
+        <a href="https://github.com/j-alarcon">
+          <img src="./img/logos/" alt="" />
+        </a>
       </form>
     </aside>
     <main class="main-container flex wrap max-width"></main>
