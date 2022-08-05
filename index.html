@@ -81,7 +81,7 @@
         </button>
       </div>
       <button
-        class="white flex justify-center align-center absolute opacity"
+        class="radius-button white flex justify-center align-center absolute opacity"
         id="burger-button"
       >
         <label
@@ -99,35 +99,164 @@
     <aside
       class="burger-menu flex column align-center white-text light-black absolute"
     >
-      <h2 class="title-option">Options</h2>
-      <hr class="line white" />
-      <form class="flex column" action="./action.php" method="get">
-        <label class="subtitle-option" for="first-timer">First-timer</label>
-        <div class="flex justify-between align-center">
-          <div class="flex column align-center">
-            <input class="white" value="15" type="number" min="0" max="999" />
-            <label for="f-minutes">Minutes</label>
-          </div>
-          <div class="flex column align-center">
-            <input class="white" value="0" type="number" min="0" max="999" />
-            <label for="f-seconds">Seconds</label>
+      <h2 class="title-option-fontsize">Options</h2>
+      <hr class="horizontal-line white" />
+      <form
+        class="form-burger flex column submenu-fontsize"
+        action="./action.php"
+        method="get"
+      >
+        <div class="flex column">
+          <section class="line flex justify-between">
+            <div class="flex column">
+              <label class="subtitle-option-fontsize" for="first-timer"
+                >First-timer</label
+              >
+              <div class="input-form-container flex align-center">
+                <div class="subcontainer-form flex column align-center">
+                  <input
+                    class="white text-center"
+                    id="f-minutes"
+                    value="15"
+                    type="number"
+                    min="0"
+                    max="999"
+                  />
+                  <label for="f-minutes" class="small-fontsize">Minutes</label>
+                </div>
+                <div class="subcontainer-form flex column align-center">
+                  <input
+                    class="white text-center"
+                    id="f-seconds"
+                    value="0"
+                    type="number"
+                    min="0"
+                    max="999"
+                  />
+                  <label for="f-seconds" class="small-fontsize">Seconds</label>
+                </div>
+              </div>
+            </div>
+            <div class="flex column">
+              <label class="subtitle-option-fontsize" for="first-timer"
+                >Second-timer</label
+              >
+              <div class="input-form-container flex align-center">
+                <div class="subcontainer-form flex column align-center">
+                  <input
+                    class="white text-center"
+                    id="s-minutes"
+                    value="20"
+                    type="number"
+                    min="0"
+                    max="999"
+                  />
+                  <label for="s-minutes" class="small-fontsize">Minutes</label>
+                </div>
+                <div class="subcontainer-form flex column align-center">
+                  <input
+                    class="white text-center"
+                    id="s-seconds"
+                    value="0"
+                    type="number"
+                    min="0"
+                    max="999"
+                  />
+                  <label for="s-seconds" class="small-fontsize">Seconds</label>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="line">
+            <div class="container-section flex column justify-center">
+              <div class="subcontainer-form flex align-center">
+                <input id="winner" type="checkbox" />
+                <label for="winner">Winner mode</label>
+              </div>
+              <div class="flex align-center">
+                <input
+                  disabled
+                  class="white text-center disabled"
+                  id="w-points"
+                  value="0"
+                  min="1"
+                  max="999"
+                  type="number"
+                />
+                <label
+                  class="subtitle-side small-fontsize disabled"
+                  for="w-points"
+                  >Points</label
+                >
+              </div>
+            </div>
+          </section>
+          <section class="line">
+            <div class="container-section flex column justify-center">
+              <div class="subcontainer-form flex align-center">
+                <input id="total" type="checkbox" />
+                <label for="total">Total mode</label>
+              </div>
+              <div class="flex align-center">
+                <input
+                  disabled
+                  class="white text-center disabled"
+                  id="t-points"
+                  value="0"
+                  min="1"
+                  max="999"
+                  type="number"
+                />
+                <label
+                  class="subtitle-side small-fontsize disabled"
+                  for="t-points"
+                  >Points</label
+                >
+              </div>
+              <div class="flex column">
+                <textarea
+                  disabled
+                  class="disabled unresizable white"
+                  id="message"
+                ></textarea>
+                <label for="message" class="disabled small-fontsize"
+                  >Custom text</label
+                >
+              </div>
+            </div>
+          </section>
+          <div
+            class="container-form-buttons small-fontsize flex justify-between absolute"
+          >
+            <input
+              class="options-button white touch opacity"
+              type="submit"
+              value="Apply"
+              id="submit-changes"
+            />
+            <input
+              class="options-button white touch opacity"
+              type="reset"
+              value="Reset"
+            />
           </div>
         </div>
-        <div class="container-buttons flex justify-between absolute">
-          <input
-            class="options-button white touch"
-            type="submit"
-            value="Apply"
-          />
-          <input
-            class="options-button white touch"
-            type="reset"
-            value="Reset"
-          />
+        <div
+          class="extra-data-container flex justify-between align-center absolute"
+        >
+          <a href="https://github.com/j-alarcon" target="_blank">
+            <img
+              class="penguin-logo touch opacity"
+              src="./img/logos/penguin_white.png"
+              alt=""
+            />
+          </a>
+          <hr class="vertical-line white" />
+          <div class="small-fontsize">
+            <p>Version 1.1</p>
+            <p>06/09/2022</p>
+          </div>
         </div>
-        <a href="https://github.com/j-alarcon">
-          <img src="./img/logos/" alt="" />
-        </a>
       </form>
     </aside>
     <main class="main-container flex wrap max-width"></main>
