@@ -103,7 +103,7 @@ let jsonOptions = {
     },
     {
       status: false,
-      points: 20,
+      points: 7,
       message: "Milestone achieved!",
     },
   ],
@@ -134,10 +134,14 @@ function updatePoints(currentLocalStorage, currentIteration, operator) {
   }
   // Upload local storage values
   localStorage.setItem("teams", JSON.stringify(currentData));
-  checkWinner(
-    JSON.parse(localStorage.getItem("options")).modes[1].points,
+  /*  checkWinner(
+    JSON.parse(localStorage.getItem("options")).modes[0].points,
     currentData.teams[currentIteration].score,
     currentData.teams[currentIteration].color
+  ); */
+  checkTotal(
+    JSON.parse(localStorage.getItem("options")).modes[1].points,
+    operator
   );
 }
 
@@ -157,7 +161,22 @@ function checkWinner(goal, currentScore, currentTeam) {
   }
 }
 
-function checkTotal(totalCounter, goal) {}
+function checkTotal(goal, operator) {
+  let count = localStorage.getItem("currentTotalScore");
+
+  if (operator === "+") {
+    count++;
+  } else {
+    if (count != 0) {
+      count--;
+    }
+  }
+
+  localStorage.setItem("currentTotalScore", count);
+  if (Number(count) % goal === 0 && Number(count) != 0) {
+    console.log(count + " es multiplo de 7");
+  }
+}
 
 function createTeam(color, text, currentTeam) {
   // Need to create them separately to add events
@@ -338,6 +357,9 @@ window.onload = () => {
   if (!localStorage.getItem("teams")) {
     localStorage.setItem("teams", JSON.stringify(jsonScores));
   }
+  if (!localStorage.getItem("options")) {
+    localStorage.setItem("options", JSON.stringify(jsonOptions));
+  }
   // Load all teams storaged in local
   JSON.parse(localStorage.getItem("teams")).teams.forEach((e, i) => {
     createTeam(e.color, e.text + "-text", i);
@@ -362,15 +384,11 @@ window.onload = () => {
       activateHTML(...modeInputs[i]);
     }
   });
-
   if (!localStorage.getItem("minutes")) {
     localStorage.setItem("minutes", 0);
   }
   if (!localStorage.getItem("seconds")) {
     localStorage.setItem("seconds", 0);
-  }
-  if (!localStorage.getItem("options")) {
-    localStorage.setItem("options", JSON.stringify(jsonOptions));
   }
   if (localStorage.getItem("timer") === "true") {
     startTimer();
@@ -504,6 +522,7 @@ document.getElementById("reset").addEventListener("click", (e) => {
     json.teams[i].score = 0;
   });
   localStorage.setItem("teams", JSON.stringify(json));
+  localStorage.setItem("currentTotalScore", 0);
   clearTimer();
   // Reload website
   window.location.reload();
