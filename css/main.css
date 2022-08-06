@@ -28,6 +28,10 @@
   background-color: #fb0004;
 }
 
+.light-red {
+  background-color: #ca322b;
+}
+
 .yellow {
   background-color: #fff000;
 }
@@ -72,6 +76,12 @@
   display: none;
 }
 
+.hidden-webstyles {
+  -webkit-appearance: none;
+  -o-appearance: none;
+  -moz-appearance: none;
+}
+
 .unresizable {
   resize: none;
 }
@@ -100,6 +110,10 @@
 
 .text-center {
   text-align: center;
+}
+
+.text-left {
+  text-align: left;
 }
 
 .anton {
@@ -220,9 +234,34 @@
   margin-left: 0.7vh;
 }
 
+.mode {
+  width: 1.7vh;
+  height: 1.7vh;
+  margin-right: 0.2vh;
+  border-radius: 0.3vh;
+}
+
+.mode:checked {
+  background-color: #51864b;
+}
+
+/* Hide spinbox from input number in browsers */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -o-appearance: none;
+}
+
+/* Hide spinbox from input number in Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 #message {
   height: 8vh;
-  margin: 0.7vh 0 0.4vh 0;
+  margin: 1vh 0 0.4vh 0;
+  padding: 0.2vh 0.5vh 0.2vh 0.5vh;
+  font-size: 1.8vh;
 }
 
 .container-form-buttons {
