@@ -78,6 +78,7 @@ let modeInputs = [
     document.getElementById("label-t-points"),
     document.getElementById("t-points"),
     document.getElementById("message"),
+    document.getElementById("label-message"),
   ],
 ];
 
@@ -133,7 +134,30 @@ function updatePoints(currentLocalStorage, currentIteration, operator) {
   }
   // Upload local storage values
   localStorage.setItem("teams", JSON.stringify(currentData));
+  checkWinner(
+    JSON.parse(localStorage.getItem("options")).modes[1].points,
+    currentData.teams[currentIteration].score,
+    currentData.teams[currentIteration].color
+  );
 }
+
+// Check if one of the teams have the required points
+function checkWinner(goal, currentScore, currentTeam) {
+  if (currentScore >= localStorage.getItem("currentMaxScore")) {
+    localStorage.setItem("currentMaxScore", currentScore);
+  }
+
+  // Local storage data is string so it needs a conversion to number
+  if (Number(localStorage.getItem("currentMaxScore")) === goal) {
+    console.log(currentTeam + " has reached " + goal + " points.");
+  }
+
+  if (localStorage.getItem("currentMaxScore") >= goal) {
+    localStorage.setItem("currentMaxScore", 0);
+  }
+}
+
+function checkTotal(totalCounter, goal) {}
 
 function createTeam(color, text, currentTeam) {
   // Need to create them separately to add events
@@ -326,7 +350,8 @@ window.onload = () => {
   // Load text of timer buttons
   Array.from(document.getElementsByClassName("button-timer")).forEach(
     (e, i) => {
-      e.innerText = timerInputs[i].minutes.value + "'";
+      e.innerText =
+        JSON.parse(localStorage.getItem("options")).timers[i].minutes + "'";
     }
   );
   // Activate modes at refresh
@@ -479,7 +504,6 @@ document.getElementById("reset").addEventListener("click", (e) => {
     json.teams[i].score = 0;
   });
   localStorage.setItem("teams", JSON.stringify(json));
-  console.log(localStorage.getItem("teams"));
   clearTimer();
   // Reload website
   window.location.reload();
