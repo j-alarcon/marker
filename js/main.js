@@ -50,9 +50,12 @@ const teams = [
     text: "white",
   },
 ];
+
 let mainContainer = document.getElementsByClassName("main-container")[0];
+
 let timer;
-let timerButtons = [
+
+let timerInputs = [
   {
     minutes: document.getElementById("f-minutes"),
     seconds: document.getElementById("f-seconds"),
@@ -62,6 +65,45 @@ let timerButtons = [
     seconds: document.getElementById("s-seconds"),
   },
 ];
+
+let modeInputs = [
+  [
+    document.getElementById("label-w-points"),
+    document.getElementById("w-points"),
+  ],
+  [
+    document.getElementById("label-t-points"),
+    document.getElementById("t-points"),
+    document.getElementById("message"),
+  ],
+];
+
+// JSON where options are storaged
+let jsonOptions = {
+  timers: [
+    {
+      minutes: 15,
+      seconds: 0,
+    },
+    {
+      minutes: 20,
+      seconds: 0,
+    },
+  ],
+  modes: [
+    {
+      status: false,
+      points: 20,
+    },
+    {
+      status: false,
+      points: 20,
+      message: "Milestone achieved!",
+    },
+  ],
+};
+
+// JSON where teams are storaged
 let jsonScores = {
   teams: [
     {
@@ -72,7 +114,7 @@ let jsonScores = {
   ],
 };
 
-function updateJSON(currentLocalStorage, currentIteration, operator) {
+function updatePoints(currentLocalStorage, currentIteration, operator) {
   let currentData = JSON.parse(currentLocalStorage);
   if (operator === "+") {
     if (currentData.teams[currentIteration].score < 999) {
@@ -131,9 +173,9 @@ function createTeam(color, text, currentTeam) {
   modifiers.forEach((e, i) => {
     e.addEventListener("click", () => {
       if (i === 1) {
-        updateJSON(localStorage.getItem("teams"), currentTeam, "+");
+        updatePoints(localStorage.getItem("teams"), currentTeam, "+");
       } else {
-        updateJSON(localStorage.getItem("teams"), currentTeam, "-");
+        updatePoints(localStorage.getItem("teams"), currentTeam, "-");
       }
       modifiers[i].parentNode.parentNode.children[1].innerText = JSON.parse(
         localStorage.getItem("teams")
@@ -189,6 +231,19 @@ function resizeTeams(teams, total) {
       addClasses(teams, 0, 8, "width-by-three", "height-by-three");
       break;
   }
+}
+
+// Storage new values for timer buttons and change texts
+function fillTimerButtons(currentData) {
+  for (let i = 0; i < timerInputs.length; i++) {
+    for (let p in currentData.timers[i]) {
+      currentData.timers[i][p] = timerInputs[i][p].value;
+    }
+    // Change text of button
+    Array.from(document.getElementsByClassName("button-timer"))[i].innerText =
+      timerInputs[i].minutes.value + "'";
+  }
+  localStorage.setItem("options", JSON.stringify(currentData));
 }
 
 function startTimer() {
@@ -263,24 +318,21 @@ window.onload = () => {
     });
     resizeTeams(mainContainer.children, mainContainer.children.length);
   });
-  // Load name of timer buttons
+  // Load text of timer buttons
   Array.from(document.getElementsByClassName("button-timer")).forEach(
     (e, i) => {
-      e.innerText = timerButtons[i].minutes.value + "'";
+      e.innerText = timerInputs[i].minutes.value + "'";
     }
   );
+
   if (!localStorage.getItem("minutes")) {
     localStorage.setItem("minutes", 0);
   }
   if (!localStorage.getItem("seconds")) {
     localStorage.setItem("seconds", 0);
   }
-  if (!localStorage.getItem("f-minutes")) {
-    timerButtons.forEach((e) => {
-      for (let p in e) {
-        localStorage.setItem(e[p].id, e[p].value);
-      }
-    });
+  if (!localStorage.getItem("options")) {
+    localStorage.setItem("options", JSON.stringify(jsonOptions));
   }
   if (localStorage.getItem("timer") === "true") {
     startTimer();
@@ -292,7 +344,6 @@ window.onload = () => {
   }
   updateTimer();
 };
-
 // Add team
 document.getElementById("add").addEventListener("click", () => {
   if (mainContainer.children.length < 9) {
@@ -365,29 +416,19 @@ document.getElementById("player").addEventListener("click", () => {
 document.getElementById("submit-changes").addEventListener("click", (e) => {
   // Don't send the form
   e.preventDefault();
-  // Storage new values for timer buttons
-  timerButtons.forEach((e) => {
-    for (let p in e) {
-      localStorage.setItem(e[p].id, e[p].value);
-    }
-  });
-  // Change name of timer buttons
-  Array.from(document.getElementsByClassName("button-timer")).forEach(
-    (e, i) => {
-      e.innerText = timerButtons[i].minutes.value + "'";
-    }
-  );
+  fillTimerButtons(JSON.parse(localStorage.getItem("options")));
 });
+
 // Set timer to desired minutes and stop current timer if there was one.
 Array.from(document.getElementsByClassName("button-timer")).forEach((e, i) => {
   e.addEventListener("click", () => {
     localStorage.setItem(
       "minutes",
-      localStorage.getItem(timerButtons[i].minutes.id)
+      JSON.parse(localStorage.getItem("options")).timers[i].minutes
     );
     localStorage.setItem(
       "seconds",
-      localStorage.getItem(timerButtons[i].seconds.id)
+      JSON.parse(localStorage.getItem("options")).timers[i].seconds
     );
     localStorage.setItem("timer", false);
     clearInterval(timer);
