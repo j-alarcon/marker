@@ -141,7 +141,7 @@ function updatePoints(currentLocalStorage, currentIteration, operator) {
   ); */
   checkTotal(
     JSON.parse(localStorage.getItem("options")).modes[1].points,
-    operator
+    currentData.teams
   );
 }
 
@@ -161,20 +161,13 @@ function checkWinner(goal, currentScore, currentTeam) {
   }
 }
 
-function checkTotal(goal, operator) {
-  let count = localStorage.getItem("currentTotalScore");
-
-  if (operator === "+") {
-    count++;
-  } else {
-    if (count != 0) {
-      count--;
-    }
-  }
-
-  localStorage.setItem("currentTotalScore", count);
-  if (Number(count) % goal === 0 && Number(count) != 0) {
-    console.log(count + " es multiplo de 7");
+function checkTotal(goal, teams) {
+  let total = 0;
+  teams.forEach((e) => {
+    total += e.score;
+  });
+  if (total % goal === 0) {
+    console.log(JSON.parse(localStorage.getItem("options")).modes[1].message);
   }
 }
 
@@ -522,7 +515,6 @@ document.getElementById("reset").addEventListener("click", (e) => {
     json.teams[i].score = 0;
   });
   localStorage.setItem("teams", JSON.stringify(json));
-  localStorage.setItem("currentTotalScore", 0);
   clearTimer();
   // Reload website
   window.location.reload();
