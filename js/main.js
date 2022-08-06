@@ -10,6 +10,9 @@ import {
   deleteLastItemJSON,
   addItemToJSON,
   changeImage,
+  disableHTML,
+  activateHTML,
+  updateJSON,
 } from "./utility.js";
 
 const teams = [
@@ -77,6 +80,8 @@ let modeInputs = [
     document.getElementById("message"),
   ],
 ];
+
+let modeCheckbox = Array.from(document.getElementsByClassName("mode"));
 
 // JSON where options are storaged
 let jsonOptions = {
@@ -324,6 +329,14 @@ window.onload = () => {
       e.innerText = timerInputs[i].minutes.value + "'";
     }
   );
+  // Activate modes at refresh
+  JSON.parse(localStorage.getItem("options")).modes.forEach((e, i) => {
+    if (e.status) {
+      modeCheckbox[i].checked = true;
+      removeClasses(modeInputs[i], 0, modeInputs[i].length - 1, "disabled");
+      activateHTML(...modeInputs[i]);
+    }
+  });
 
   if (!localStorage.getItem("minutes")) {
     localStorage.setItem("minutes", 0);
@@ -344,6 +357,7 @@ window.onload = () => {
   }
   updateTimer();
 };
+
 // Add team
 document.getElementById("add").addEventListener("click", () => {
   if (mainContainer.children.length < 9) {
@@ -412,6 +426,27 @@ document.getElementById("player").addEventListener("click", () => {
   }
 });
 
+// Activate or deactivate special modes
+Array.from(document.getElementsByClassName("mode")).forEach((e, i) => {
+  e.addEventListener("click", () => {
+    if (e.checked) {
+      removeClasses(modeInputs[i], 0, modeInputs[i].length - 1, "disabled");
+      activateHTML(...modeInputs[i]);
+      localStorage.setItem(
+        "options",
+        updateJSON(localStorage.getItem("options"), "modes", i, "status", true)
+      );
+    } else {
+      addClasses(modeInputs[i], 0, modeInputs[i].length - 1, "disabled");
+      disableHTML(...modeInputs[i]);
+      localStorage.setItem(
+        "options",
+        updateJSON(localStorage.getItem("options"), "modes", i, "status", false)
+      );
+    }
+  });
+});
+
 // Change selected options on burger menu
 document.getElementById("submit-changes").addEventListener("click", (e) => {
   // Don't send the form
@@ -444,6 +479,7 @@ document.getElementById("reset").addEventListener("click", (e) => {
     json.teams[i].score = 0;
   });
   localStorage.setItem("teams", JSON.stringify(json));
+  console.log(localStorage.getItem("teams"));
   clearTimer();
   // Reload website
   window.location.reload();

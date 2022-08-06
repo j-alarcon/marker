@@ -52,6 +52,24 @@ export function createHTML(type, datav, ...classes) {
   return h;
 }
 
+// Disable an infinite number of HTML elements
+export function disableHTML(...elements) {
+  elements.forEach((e) => {
+    if (e.nodeName === "INPUT" || e.nodeName === "TEXTAREA") {
+      e.disabled = true;
+    }
+  });
+}
+
+// Deactivate an infinite number of HTML elements
+export function activateHTML(...elements) {
+  elements.forEach((e) => {
+    if (e.nodeName === "INPUT" || e.nodeName === "TEXTAREA") {
+      e.disabled = false;
+    }
+  });
+}
+
 export function appendChilds(father, ...childs) {
   childs.forEach((e) => {
     father.appendChild(e);
@@ -82,6 +100,13 @@ export function removeClasses(elements, init, end, ...classes) {
       });
     });
   }
+}
+
+// Change JSON simple structure receiving father, number and name of child, and value
+export function updateJSON(json, pFather, nChild, pChild, value) {
+  let currentData = JSON.parse(json);
+  currentData[pFather][nChild][pChild] = value;
+  return JSON.stringify(currentData);
 }
 
 export function deleteLastItemJSON(JSON) {
