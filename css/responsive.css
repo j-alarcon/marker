@@ -1,13 +1,18 @@
+@media screen and (max-width: 950px) {
+  .medium-fontsize {
+    font-size: 13.5vh;
+  }
+
+  .change-scores {
+    flex-direction: column-reverse;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .medium-fontsize {
     font-size: 12vh;
   }
   .burger-menu {
     width: 100%;
-    display: none;
-  }
-  #burger-button,
-  .burger-checkbox:checked ~ .burger-menu {
-    display: flex;
   }
 }
