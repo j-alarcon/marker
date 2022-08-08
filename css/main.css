@@ -67,10 +67,6 @@
   overflow: hidden;
 }
 
-.hidden {
-  display: none;
-}
-
 .hidden-webstyles {
   -webkit-appearance: none;
   -o-appearance: none;

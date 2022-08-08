@@ -10,14 +10,19 @@
   left: 0;
 }
 
+.burger-menu,
 #burger-button,
-.burger-checkbox:checked ~ .burger-menu,
 .container-form-buttons {
   right: 0;
 }
 
-.flex {
+.flex,
+.burger-checkbox:checked ~ .burger-menu {
   display: flex;
+}
+
+.hidden {
+  display: none;
 }
 
 .column {
@@ -69,6 +74,5 @@
 }
 
 .burger-menu {
-  right: -60vh;
   z-index: 1;
 }
