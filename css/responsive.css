@@ -23,6 +23,11 @@
     font-size: 2.5vh;
   }
 
+  .left-side,
+  .right-side {
+    width: 100%;
+  }
+
   .change-scores {
     flex-direction: column-reverse;
   }

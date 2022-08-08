@@ -307,6 +307,25 @@ function fillModeOptions(currentData) {
   localStorage.setItem("options", JSON.stringify(currentData));
 }
 
+// Activate or deactivate special modes according with boolean
+function changeStatusModes(inputs, options, currentPosition, activate) {
+  if (activate) {
+    removeClasses(inputs, 0, inputs.length - 1, "disabled");
+    activateHTML(...inputs);
+    localStorage.setItem(
+      "options",
+      updateJSON(options, "modes", currentPosition, "status", true)
+    );
+  } else {
+    addClasses(inputs, 0, inputs.length - 1, "disabled");
+    disableHTML(...inputs);
+    localStorage.setItem(
+      "options",
+      updateJSON(options, "modes", currentPosition, "status", false)
+    );
+  }
+}
+
 function startTimer() {
   // Clean previous timer if were one.
   clearInterval(timer);
@@ -497,26 +516,25 @@ document.getElementById("player").addEventListener("click", () => {
   }
 });
 
-// Activate or deactivate special modes
-Array.from(document.getElementsByClassName("mode")).forEach((e, i) => {
+Array.from(document.getElementsByClassName("mode")).forEach((e, i) =>
   e.addEventListener("click", () => {
     if (e.checked) {
-      removeClasses(modeInputs[i], 0, modeInputs[i].length - 1, "disabled");
-      activateHTML(...modeInputs[i]);
-      localStorage.setItem(
-        "options",
-        updateJSON(localStorage.getItem("options"), "modes", i, "status", true)
+      changeStatusModes(
+        modeInputs[i],
+        localStorage.getItem("options"),
+        i,
+        true
       );
     } else {
-      addClasses(modeInputs[i], 0, modeInputs[i].length - 1, "disabled");
-      disableHTML(...modeInputs[i]);
-      localStorage.setItem(
-        "options",
-        updateJSON(localStorage.getItem("options"), "modes", i, "status", false)
+      changeStatusModes(
+        modeInputs[i],
+        localStorage.getItem("options"),
+        i,
+        false
       );
     }
-  });
-});
+  })
+);
 
 // Change selected options on burger menu
 document.getElementById("submit-changes").addEventListener("click", (e) => {
@@ -525,6 +543,13 @@ document.getElementById("submit-changes").addEventListener("click", (e) => {
   // Save options
   fillTimerButtons(JSON.parse(localStorage.getItem("options")));
   fillModeOptions(JSON.parse(localStorage.getItem("options")));
+});
+
+// Deactive modes when reset form
+document.getElementById("form-burger").addEventListener("reset", () => {
+  Array.from(document.getElementsByClassName("mode")).forEach((e, i) => {
+    changeStatusModes(modeInputs[i], localStorage.getItem("options"), i, false);
+  });
 });
 
 // Set timer to desired minutes and stop current timer if there was one.
