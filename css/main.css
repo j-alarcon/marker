@@ -256,12 +256,13 @@ input[type="number"] {
 }
 
 .container-form-buttons {
-  width: 14.5vh;
+  width: 15.5vh;
 }
 
 .options-button {
-  width: 6.5vh;
-  height: 3vh;
+  width: 7vh;
+  height: 3.3vh;
+  font-size: 1.8vh;
 }
 
 .extra-data-container {

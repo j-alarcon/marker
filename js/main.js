@@ -140,11 +140,11 @@ function updatePoints(currentLocalStorage, currentIteration, operator) {
   }
   // Upload local storage values
   localStorage.setItem("teams", JSON.stringify(currentData));
-  /*  checkWinner(
+  checkWinner(
     JSON.parse(localStorage.getItem("options")).modes[0].points,
     currentData.teams[currentIteration].score,
     currentData.teams[currentIteration].color
-  ); */
+  );
   checkTotal(
     JSON.parse(localStorage.getItem("options")).modes[1].points,
     currentData.teams
