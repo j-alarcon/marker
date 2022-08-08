@@ -52,6 +52,18 @@ export function createHTML(type, datav, ...classes) {
   return h;
 }
 
+// Find an element according his id
+export function findElement(elements, name) {
+  // If not found, will return -1
+  let x = -1;
+  elements.forEach((e) => {
+    if (e.id.includes(name)) {
+      x = e;
+    }
+  });
+  return x;
+}
+
 // Disable an infinite number of HTML elements
 export function disableHTML(...elements) {
   elements.forEach((e) => {

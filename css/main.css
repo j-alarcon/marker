@@ -14,11 +14,6 @@
   margin: 0 1.5vh 1.5vh 0;
 }
 
-.burger-menu,
-.burger-checkbox:checked ~ .burger-menu {
-  transition: right 0.5s;
-}
-
 .disabled,
 .opacity:hover {
   opacity: 0.8;
@@ -257,7 +252,7 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-#message {
+#t-message {
   height: 8vh;
   margin: 1vh 0 0.4vh 0;
   padding: 0.2vh 0.5vh 0.2vh 0.5vh;
@@ -265,11 +260,11 @@ input[type="number"] {
 }
 
 .container-form-buttons {
-  width: 11.5vh;
+  width: 14.5vh;
 }
 
 .options-button {
-  width: 5vh;
+  width: 6.5vh;
   height: 3vh;
 }
 

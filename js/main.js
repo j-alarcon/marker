@@ -13,6 +13,7 @@ import {
   disableHTML,
   activateHTML,
   updateJSON,
+  findElement,
 } from "./utility.js";
 
 const teams = [
@@ -70,15 +71,12 @@ let timerInputs = [
 ];
 
 let modeInputs = [
+  [document.getElementById("w-points"), document.getElementById("label-w")],
   [
-    document.getElementById("label-w-points"),
-    document.getElementById("w-points"),
-  ],
-  [
-    document.getElementById("label-t-points"),
     document.getElementById("t-points"),
-    document.getElementById("message"),
-    document.getElementById("label-message"),
+    document.getElementById("label-t"),
+    document.getElementById("t-message"),
+    document.getElementById("label-msg"),
   ],
 ];
 
@@ -119,6 +117,14 @@ let jsonScores = {
     },
   ],
 };
+
+// Set all points to zero
+function resetScores(currentData) {
+  currentData.teams.forEach((e) => {
+    e.score = 0;
+  });
+  localStorage.setItem("teams", JSON.stringify(currentData));
+}
 
 function updatePoints(currentLocalStorage, currentIteration, operator) {
   let currentData = JSON.parse(currentLocalStorage);
@@ -287,6 +293,20 @@ function fillTimerButtons(currentData) {
   localStorage.setItem("options", JSON.stringify(currentData));
 }
 
+// Storage new values for mode options
+function fillModeOptions(currentData) {
+  // Refresh JSON file with new values
+  currentData.modes.forEach((e, i) => {
+    e.points = findElement(modeInputs[i], "points").value;
+    // Fill custom message for total mode
+    currentData.modes[1].message = String(
+      findElement(modeInputs[i], "message").value
+    ).trim();
+  });
+  // Convert data in JSON and storage in local
+  localStorage.setItem("options", JSON.stringify(currentData));
+}
+
 function startTimer() {
   // Clean previous timer if were one.
   clearInterval(timer);
@@ -369,14 +389,29 @@ window.onload = () => {
         JSON.parse(localStorage.getItem("options")).timers[i].minutes + "'";
     }
   );
-  // Activate modes at refresh
+  // Load selected timers
+  for (let i = 0; i < timerInputs.length; i++) {
+    for (let p in JSON.parse(localStorage.getItem("options")).timers[i]) {
+      timerInputs[i][p].value = JSON.parse(
+        localStorage.getItem("options")
+      ).timers[i][p];
+    }
+  }
+  // Activate modes at refresh and load parameters
   JSON.parse(localStorage.getItem("options")).modes.forEach((e, i) => {
     if (e.status) {
       modeCheckbox[i].checked = true;
       removeClasses(modeInputs[i], 0, modeInputs[i].length - 1, "disabled");
       activateHTML(...modeInputs[i]);
     }
+    // Load storaged points
+    findElement(modeInputs[i], "points").value = e.points;
+    // Load storaged message only if exists
+    if (findElement(modeInputs[i], "message") != -1) {
+      findElement(modeInputs[i], "message").value = e.message;
+    }
   });
+
   if (!localStorage.getItem("minutes")) {
     localStorage.setItem("minutes", 0);
   }
@@ -487,7 +522,9 @@ Array.from(document.getElementsByClassName("mode")).forEach((e, i) => {
 document.getElementById("submit-changes").addEventListener("click", (e) => {
   // Don't send the form
   e.preventDefault();
+  // Save options
   fillTimerButtons(JSON.parse(localStorage.getItem("options")));
+  fillModeOptions(JSON.parse(localStorage.getItem("options")));
 });
 
 // Set timer to desired minutes and stop current timer if there was one.
@@ -509,12 +546,7 @@ Array.from(document.getElementsByClassName("button-timer")).forEach((e, i) => {
 
 // Reset timer and scores
 document.getElementById("reset").addEventListener("click", (e) => {
-  // Set all scores to zero
-  let json = JSON.parse(localStorage.getItem("teams"));
-  JSON.parse(localStorage.getItem("teams")).teams.forEach((e, i) => {
-    json.teams[i].score = 0;
-  });
-  localStorage.setItem("teams", JSON.stringify(json));
+  resetScores(JSON.parse(localStorage.getItem("teams")));
   clearTimer();
   // Reload website
   window.location.reload();

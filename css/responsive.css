@@ -3,6 +3,7 @@
     font-size: 12vh;
   }
   .burger-menu {
+    width: 100%;
     display: none;
   }
   #burger-button,

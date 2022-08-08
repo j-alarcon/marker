@@ -170,13 +170,17 @@
           <section class="line">
             <div class="container-section flex column justify-center">
               <div class="subcontainer-form flex align-center">
-                <input id="winner" type="checkbox" class="mode light-red hidden-webstyles" />
+                <input
+                  id="winner"
+                  type="checkbox"
+                  class="mode light-red hidden-webstyles"
+                />
                 <label for="winner">Winner mode</label>
               </div>
               <div class="flex align-center">
                 <input
                   disabled
-                  class="input-form white text-center disabled "
+                  class="input-form white text-center disabled"
                   id="w-points"
                   value="20"
                   min="1"
@@ -186,7 +190,7 @@
                 <label
                   class="subtitle-side small-fontsize disabled"
                   for="w-points"
-                  id="label-w-points"
+                  id="label-w"
                   >Points</label
                 >
               </div>
@@ -195,7 +199,11 @@
           <section class="line">
             <div class="container-section flex column justify-center">
               <div class="subcontainer-form flex align-center">
-                <input id="total" type="checkbox" class="mode light-red hidden-webstyles" />
+                <input
+                  id="total"
+                  type="checkbox"
+                  class="mode light-red hidden-webstyles"
+                />
                 <label for="total">Total mode</label>
               </div>
               <div class="flex align-center">
@@ -211,7 +219,7 @@
                 <label
                   class="subtitle-side small-fontsize disabled"
                   for="t-points"
-                  id="label-t-points"
+                  id="label-t"
                   >Points</label
                 >
               </div>
@@ -219,10 +227,14 @@
                 <textarea
                   disabled
                   class="disabled max-width unresizable white text-left"
-                  id="message"
-                >Milestone achieved!
+                  id="t-message"
+                >
+Milestone achieved!
                 </textarea>
-                <label for="message" id="label-message" class="disabled small-fontsize"
+                <label
+                  for="message"
+                  id="label-msg"
+                  class="disabled small-fontsize"
                   >Custom text</label
                 >
               </div>
