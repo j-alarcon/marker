@@ -287,8 +287,12 @@ function resizeTeams(teams, total) {
 function generateAlert(message) {
   document.getElementById("alert").innerText = message;
   reproduceSound("./../audio/alert.mp3");
+  document.getElementById("alert").style.bottom = "0";
+  // After 3 seconds
+  setTimeout(() => {
+    document.getElementById("alert").style.bottom = "-100%";
+  }, 3000);
 }
-
 // Storage new values for timer buttons and change texts
 function fillTimerButtons(currentData) {
   for (let i = 0; i < timerInputs.length; i++) {

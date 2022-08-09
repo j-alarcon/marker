@@ -81,10 +81,6 @@
   -moz-appearance: none;
 }
 
-.unresizable {
-  resize: none;
-}
-
 .radius-button {
   border-radius: 0.7vh;
 }
@@ -161,8 +157,9 @@
 }
 
 .alert {
-  padding: 1vh 1vh 1vh 1vh;
+  padding: 0.5vh 1vh 0.5vh 1vh;
   border-top-right-radius: 1vh;
+  transition: bottom 0.5s;
 }
 
 #timer {
@@ -262,7 +259,7 @@ input[type="number"] {
 }
 
 #t-message {
-  height: 8vh;
+  height: 5vh;
   margin: 1vh 0 0.4vh 0;
   padding: 0.2vh 0.5vh 0.2vh 0.5vh;
   font-size: 1.8vh;

@@ -18,7 +18,7 @@
       id="burger-checkbox"
     />
     <div
-      class="top-container flex justify-center align-center relative overflow-hidden black"
+      class="top-container flex justify-center align-center relative black overflow-hidden"
     >
       <button
         class="reset flex justify-center align-center absolute opacity touch"
@@ -30,7 +30,10 @@
           alt="Reset button"
         />
       </button>
-      <div class="alert white absolute submenu-fontsize" id="alert">Lorem ipsum</div>
+      <div
+        class="alert flex justify-center align-center white absolute submenu-fontsize"
+        id="alert"
+      >Lorem ipsum</div>
       <div
         id="timer"
         class="white-text flex justify-center align-center max-width max-height"
@@ -225,13 +228,14 @@
                 >
               </div>
               <div class="flex column">
-                <textarea
+                <input  
+                  type="text"
+                  value="Milestone achieved!"
                   disabled
-                  class="outline disabled max-width unresizable white text-left"
+                  class="outline flex align-center disabled max-width white text-left"
                   id="t-message"
-                  maxlength="100"
+                  maxlength="50"
                 >
-Milestone achieved!
                 </textarea>
                 <label
                   for="message"

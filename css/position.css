@@ -1,8 +1,7 @@
 #burger-button,
 .burger-menu,
 .container-form-buttons,
-.extra-data-container,
-.alert {
+.extra-data-container {
   bottom: 0;
 }
 
@@ -69,6 +68,10 @@
 
 .reset {
   top: 0;
+}
+
+.alert {
+  bottom: -100%;
 }
 
 .submenu {
