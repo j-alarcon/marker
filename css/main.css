@@ -19,6 +19,14 @@
   opacity: 0.8;
 }
 
+.outline {
+  outline: 0.4vh solid rgba(0, 0, 0, 0);
+}
+
+.error {
+  outline-color: #d42d2d;
+}
+
 .red {
   background-color: #fb0004;
 }

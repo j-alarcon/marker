@@ -14,6 +14,7 @@ import {
   activateHTML,
   updateJSON,
   findElement,
+  validateInput,
 } from "./utility.js";
 
 const teams = [
@@ -284,11 +285,17 @@ function resizeTeams(teams, total) {
 function fillTimerButtons(currentData) {
   for (let i = 0; i < timerInputs.length; i++) {
     for (let p in currentData.timers[i]) {
-      currentData.timers[i][p] = timerInputs[i][p].value;
+      // Add or remove red outlines to indicate user when info is wrong
+      if (validateInput(timerInputs[i][p], 0, 99)) {
+        currentData.timers[i][p] = timerInputs[i][p].value;
+        timerInputs[i][p].classList.remove("error");
+      } else {
+        timerInputs[i][p].classList.add("error");
+      }
     }
-    // Change text of button
+    // Change text of button or refresh if value was wrong
     Array.from(document.getElementsByClassName("button-timer"))[i].innerText =
-      timerInputs[i].minutes.value + "'";
+      currentData.timers[i].minutes + "'";
   }
   localStorage.setItem("options", JSON.stringify(currentData));
 }
@@ -297,11 +304,26 @@ function fillTimerButtons(currentData) {
 function fillModeOptions(currentData) {
   // Refresh JSON file with new values
   currentData.modes.forEach((e, i) => {
-    e.points = findElement(modeInputs[i], "points").value;
+    // Add or remove red outlines to indicate user when info is wrong
+    if (validateInput(findElement(modeInputs[i], "points"), 0, 999)) {
+      e.points = findElement(modeInputs[i], "points").value;
+      findElement(modeInputs[i], "points").classList.remove("error");
+    } else {
+      findElement(modeInputs[i], "points").classList.add("error");
+    }
+
     // Fill custom message for total mode
-    currentData.modes[1].message = String(
-      findElement(modeInputs[i], "message").value
-    ).trim();
+    if (findElement(modeInputs[i], "message") != -1) {
+      // Add or remove red outlines to indicate user when info is wrong
+      if (String(findElement(modeInputs[i], "message").value).trim() != "") {
+        currentData.modes[i].message = String(
+          findElement(modeInputs[i], "message").value
+        ).trim();
+        findElement(modeInputs[i], "message").classList.remove("error");
+      } else {
+        findElement(modeInputs[i], "message").classList.add("error");
+      }
+    }
   });
   // Convert data in JSON and storage in local
   localStorage.setItem("options", JSON.stringify(currentData));
@@ -516,6 +538,7 @@ document.getElementById("player").addEventListener("click", () => {
   }
 });
 
+// Deactive or activate modes according to selected checkbox
 Array.from(document.getElementsByClassName("mode")).forEach((e, i) =>
   e.addEventListener("click", () => {
     if (e.checked) {
@@ -547,8 +570,14 @@ document.getElementById("submit-changes").addEventListener("click", (e) => {
 
 // Deactive modes when reset form
 document.getElementById("form-burger").addEventListener("reset", () => {
+  // Deactive modes
   Array.from(document.getElementsByClassName("mode")).forEach((e, i) => {
     changeStatusModes(modeInputs[i], localStorage.getItem("options"), i, false);
+  });
+  // Disable error outlines
+  Array.from(document.getElementsByClassName("error")).forEach((e) => {
+    console.log(e);
+    e.classList.remove("error");
   });
 });
 

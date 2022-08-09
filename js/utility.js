@@ -52,6 +52,18 @@ export function createHTML(type, datav, ...classes) {
   return h;
 }
 
+// Prevent user to introduce negative numbers or white-spaces and remove red outline
+export function validateInput(input, min, max) {
+  if (
+    input.value >= min &&
+    input.value <= max &&
+    input.value != "" &&
+    !input.value.includes(".")
+  ) {
+    return input;
+  }
+}
+
 // Find an element according his id
 export function findElement(elements, name) {
   // If not found, will return -1
