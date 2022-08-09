@@ -39,7 +39,7 @@ export function getCurrentTime() {
 }
 
 // Create any type of HTML element which receives type, data-value and infinite classes
-export function createHTML(type, datav, ...classes) {
+export function createHTML(type, datav, text, ...classes) {
   let h = document.createElement(type);
   // If classes are not specified this won't work
   classes.forEach((e) => {

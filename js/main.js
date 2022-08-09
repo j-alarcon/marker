@@ -83,6 +83,12 @@ let modeInputs = [
 
 let modeCheckbox = Array.from(document.getElementsByClassName("mode"));
 
+// Alerts are storaged here in order to generate a queue
+let currentQueue = [];
+
+// Accumulator to share time between all elements in the queue
+let miliseconds = 0;
+
 // JSON where options are storaged
 let jsonOptions = {
   timers: [
@@ -164,6 +170,7 @@ function checkWinner(goal, currentScore, currentTeam) {
   }
   // Local storage data is string so it needs a conversion to number
   if (Number(localStorage.getItem("currentMaxScore")) === Number(goal)) {
+    // Team and background are both white and need a black border
     if (currentTeam === "white") {
       generateAlert(
         '<div class="' +
@@ -204,8 +211,8 @@ function checkTotal(goal, teams) {
 function createTeam(color, text, currentTeam) {
   // Need to create them separately to add events
   let modifiers = [
-    createHTML("div", null, "left-side", "max-height"),
-    createHTML("div", null, "right-side", "max-height"),
+    createHTML("div", null, null, "left-side", "max-height"),
+    createHTML("div", null, null, "right-side", "max-height"),
   ];
 
   // Create HTML containers with styles
@@ -213,6 +220,7 @@ function createTeam(color, text, currentTeam) {
     appendChilds(
       createHTML(
         "div",
+        null,
         null,
         "max-width",
         "max-height",
@@ -228,6 +236,7 @@ function createTeam(color, text, currentTeam) {
         createHTML(
           "div",
           color,
+          null,
           "change-scores",
           "flex",
           "absolute",
@@ -237,7 +246,7 @@ function createTeam(color, text, currentTeam) {
         ),
         ...modifiers
       ),
-      createHTML("span", null, "score")
+      createHTML("span", null, null, "score")
     )
   );
   // Increase or decrease score of selected team
@@ -304,14 +313,24 @@ function resizeTeams(teams, total) {
   }
 }
 
-function generateAlert(message) {
-  document.getElementById("alert").innerHTML = message;
+async function generateAlert(message) {
+  // Insert current element to count total number and reproduce sound
+  currentQueue.push(message);
   reproduceSound("./../audio/alert.mp3");
+  // Avoid first element to wait
+  currentQueue.length == 1 ? (miliseconds = 0) : (miliseconds = 2300);
+  console.log(miliseconds);
+  // Wait estimating time according with total number in the queue
+  await new Promise((res) =>
+    setTimeout(res, miliseconds * (currentQueue.length + 1))
+  );
   document.getElementById("alert").style.bottom = "0";
-  // After 3 seconds
-  setTimeout(() => {
-    document.getElementById("alert").style.bottom = "-100%";
-  }, 2500);
+  document.getElementById("alert").innerHTML = message;
+  // Wait two seconds before disappearing alert
+  await new Promise((res) => setTimeout(res, 2000));
+  document.getElementById("alert").style.bottom = "-100%";
+  // Delete elements from the queue that are done
+  currentQueue.shift();
 }
 // Storage new values for timer buttons and change texts
 function fillTimerButtons(currentData) {

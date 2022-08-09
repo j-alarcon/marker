@@ -71,8 +71,7 @@
 }
 
 .alert {
- /*  bottom: -100%; */
- bottom: 0;
+  bottom: -100%;
 }
 
 .submenu {
