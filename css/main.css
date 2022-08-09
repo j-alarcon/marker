@@ -160,6 +160,11 @@
   margin: 1vh 0 0 1vh;
 }
 
+.alert {
+  padding: 1vh 1vh 1vh 1vh;
+  border-top-right-radius: 1vh;
+}
+
 #timer {
   margin-bottom: 2.6vh;
   font-size: 10vh;

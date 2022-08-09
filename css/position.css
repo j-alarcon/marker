@@ -1,12 +1,14 @@
 #burger-button,
 .burger-menu,
 .container-form-buttons,
-.extra-data-container {
+.extra-data-container,
+.alert {
   bottom: 0;
 }
 
 .reset,
-.extra-data-container {
+.extra-data-container,
+.alert {
   left: 0;
 }
 
