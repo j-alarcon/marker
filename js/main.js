@@ -164,7 +164,27 @@ function checkWinner(goal, currentScore, currentTeam) {
   }
   // Local storage data is string so it needs a conversion to number
   if (Number(localStorage.getItem("currentMaxScore")) === Number(goal)) {
-    generateAlert(currentTeam + " -> " + goal);
+    if (currentTeam === "white") {
+      generateAlert(
+        '<div class="' +
+          currentTeam +
+          " tiny-square tiny-border" +
+          '"></div>&nbsp;<div class="title-option-fontsize">' +
+          "&#10140;&nbsp;" +
+          goal +
+          "</div>"
+      );
+    } else {
+      generateAlert(
+        '<div class="' +
+          currentTeam +
+          " tiny-square" +
+          '"></div>&nbsp;<div class="title-option-fontsize">' +
+          "&#10140;&nbsp;" +
+          goal +
+          "</div>"
+      );
+    }
   }
   if (Number(localStorage.getItem("currentMaxScore")) >= Number(goal)) {
     localStorage.setItem("currentMaxScore", 0);
@@ -285,13 +305,13 @@ function resizeTeams(teams, total) {
 }
 
 function generateAlert(message) {
-  document.getElementById("alert").innerText = message;
+  document.getElementById("alert").innerHTML = message;
   reproduceSound("./../audio/alert.mp3");
   document.getElementById("alert").style.bottom = "0";
   // After 3 seconds
   setTimeout(() => {
     document.getElementById("alert").style.bottom = "-100%";
-  }, 3000);
+  }, 2500);
 }
 // Storage new values for timer buttons and change texts
 function fillTimerButtons(currentData) {

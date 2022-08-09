@@ -36,7 +36,7 @@
 }
 
 .yellow {
-  background-color: #fff000;
+  background-color: #efd601;
 }
 
 .blue {
@@ -65,6 +65,10 @@
 
 .white {
   background-color: #ffffff;
+}
+
+.tiny-border {
+  border: 0.3vh solid black;
 }
 
 .light-black {
@@ -157,9 +161,14 @@
 }
 
 .alert {
-  padding: 0.5vh 1vh 0.5vh 1vh;
+  padding: 0.7vh 1vh 0.7vh 1vh;
   border-top-right-radius: 1vh;
   transition: bottom 0.5s;
+}
+
+.tiny-square {
+  width: 4vh;
+  height: 4vh;
 }
 
 #timer {
