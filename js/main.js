@@ -141,15 +141,20 @@ function updatePoints(currentLocalStorage, currentIteration, operator) {
   }
   // Upload local storage values
   localStorage.setItem("teams", JSON.stringify(currentData));
-  checkWinner(
-    JSON.parse(localStorage.getItem("options")).modes[0].points,
-    currentData.teams[currentIteration].score,
-    currentData.teams[currentIteration].color
-  );
-  checkTotal(
-    JSON.parse(localStorage.getItem("options")).modes[1].points,
-    currentData.teams
-  );
+  if (modeCheckbox[0].checked) {
+    checkWinner(
+      JSON.parse(localStorage.getItem("options")).modes[0].points,
+      currentData.teams[currentIteration].score,
+      currentData.teams[currentIteration].color
+    );
+  }
+
+  if (modeCheckbox[1].checked) {
+    checkTotal(
+      JSON.parse(localStorage.getItem("options")).modes[1].points,
+      currentData.teams
+    );
+  }
 }
 
 // Check if one of the teams have the required points
@@ -157,13 +162,12 @@ function checkWinner(goal, currentScore, currentTeam) {
   if (currentScore >= localStorage.getItem("currentMaxScore")) {
     localStorage.setItem("currentMaxScore", currentScore);
   }
-
+  console.log(localStorage.getItem("currentMaxScore"));
   // Local storage data is string so it needs a conversion to number
-  if (Number(localStorage.getItem("currentMaxScore")) === goal) {
+  if (Number(localStorage.getItem("currentMaxScore")) === Number(goal)) {
     console.log(currentTeam + " has reached " + goal + " points.");
   }
-
-  if (localStorage.getItem("currentMaxScore") >= goal) {
+  if (Number(localStorage.getItem("currentMaxScore")) >= Number(goal)) {
     localStorage.setItem("currentMaxScore", 0);
   }
 }
@@ -452,6 +456,9 @@ window.onload = () => {
       findElement(modeInputs[i], "message").value = e.message;
     }
   });
+  if (!localStorage.getItem("currentMaxScore")) {
+    localStorage.setItem("currentMaxScore", 1);
+  }
 
   if (!localStorage.getItem("minutes")) {
     localStorage.setItem("minutes", 0);
@@ -601,6 +608,7 @@ Array.from(document.getElementsByClassName("button-timer")).forEach((e, i) => {
 // Reset timer and scores
 document.getElementById("reset").addEventListener("click", (e) => {
   resetScores(JSON.parse(localStorage.getItem("teams")));
+  localStorage.setItem("currentMaxScore", 1);
   clearTimer();
   // Reload website
   window.location.reload();
