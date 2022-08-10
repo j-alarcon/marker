@@ -17,6 +17,12 @@
   right: 0;
 }
 
+.burger-menu,
+#burger-button,
+.reset {
+  z-index: 2;
+}
+
 .flex,
 .burger-checkbox:checked ~ .burger-menu {
   display: flex;
@@ -78,7 +84,6 @@
   bottom: 2.5vh;
 }
 
-.burger-menu,
-.reset {
+.alert-container {
   z-index: 1;
 }

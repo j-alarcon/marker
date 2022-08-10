@@ -174,7 +174,9 @@ function checkWinner(goal, currentScore, currentTeam) {
           "&#10140;&nbsp;" +
           goal +
           "</div>",
-        true
+        true,
+        // Different shape in responsive sizes
+        "small-alert"
       );
     } else {
       generateAlert(
@@ -185,7 +187,8 @@ function checkWinner(goal, currentScore, currentTeam) {
           "&#10140;&nbsp;" +
           goal +
           "</div>",
-        true
+        true,
+        "small-alert"
       );
     }
   }
@@ -200,7 +203,11 @@ function checkTotal(goal, teams) {
     total += e.score;
   });
   if (total % goal === 0) {
-    generateAlert(JSON.parse(localStorage.getItem("options")).modes[1].message);
+    generateAlert(
+      JSON.parse(localStorage.getItem("options")).modes[1].message,
+      false,
+      "alert"
+    );
   }
 }
 
@@ -311,14 +318,14 @@ function resizeTeams(teams, total) {
   }
 }
 
-async function generateAlert(message, isHTML) {
+async function generateAlert(message, isHTML, mainClass) {
   // Generate an alert according to received message
   let newAlert = createHTML(
     "div",
     null,
     message,
     isHTML,
-    "alert",
+    mainClass,
     "white",
     "flex",
     "justify-center",
