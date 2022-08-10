@@ -5,6 +5,11 @@
   bottom: 0;
 }
 
+.alert,
+.small-alert {
+  bottom: -100%;
+}
+
 .reset,
 .extra-data-container,
 .alert-container {
@@ -74,10 +79,6 @@
 
 .reset {
   top: 0;
-}
-
-.alert {
-  bottom: -100%;
 }
 
 .submenu {
