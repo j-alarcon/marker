@@ -7,7 +7,7 @@
 
 .reset,
 .extra-data-container,
-.alert {
+.alert-container {
   left: 0;
 }
 
@@ -78,6 +78,7 @@
   bottom: 2.5vh;
 }
 
-.burger-menu {
+.burger-menu,
+.reset {
   z-index: 1;
 }

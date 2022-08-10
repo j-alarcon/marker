@@ -39,7 +39,7 @@ export function getCurrentTime() {
 }
 
 // Create any type of HTML element which receives type, data-value and infinite classes
-export function createHTML(type, datav, text, ...classes) {
+export function createHTML(type, datav, text, isHTML, ...classes) {
   let h = document.createElement(type);
   // If classes are not specified this won't work
   classes.forEach((e) => {
@@ -48,6 +48,14 @@ export function createHTML(type, datav, text, ...classes) {
   // If data-value is null or false won't be applied
   if (datav) {
     h.setAttribute("data-value", datav);
+  }
+  // If text is null or false anything won't be inserted
+  if (text) {
+    if (isHTML) {
+      h.innerHTML = text;
+    } else {
+      h.innerText = text;
+    }
   }
   return h;
 }

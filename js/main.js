@@ -83,12 +83,6 @@ let modeInputs = [
 
 let modeCheckbox = Array.from(document.getElementsByClassName("mode"));
 
-// Alerts are storaged here in order to generate a queue
-let currentQueue = [];
-
-// Accumulator to share time between all elements in the queue
-let miliseconds = 0;
-
 // JSON where options are storaged
 let jsonOptions = {
   timers: [
@@ -147,18 +141,18 @@ function updatePoints(currentLocalStorage, currentIteration, operator) {
   }
   // Upload local storage values
   localStorage.setItem("teams", JSON.stringify(currentData));
+  // If both modes are activated, total mode has priority
+  if (modeCheckbox[1].checked) {
+    checkTotal(
+      JSON.parse(localStorage.getItem("options")).modes[1].points,
+      currentData.teams
+    );
+  }
   if (modeCheckbox[0].checked) {
     checkWinner(
       JSON.parse(localStorage.getItem("options")).modes[0].points,
       currentData.teams[currentIteration].score,
       currentData.teams[currentIteration].color
-    );
-  }
-
-  if (modeCheckbox[1].checked) {
-    checkTotal(
-      JSON.parse(localStorage.getItem("options")).modes[1].points,
-      currentData.teams
     );
   }
 }
@@ -179,7 +173,8 @@ function checkWinner(goal, currentScore, currentTeam) {
           '"></div>&nbsp;<div class="title-option-fontsize">' +
           "&#10140;&nbsp;" +
           goal +
-          "</div>"
+          "</div>",
+        true
       );
     } else {
       generateAlert(
@@ -189,7 +184,8 @@ function checkWinner(goal, currentScore, currentTeam) {
           '"></div>&nbsp;<div class="title-option-fontsize">' +
           "&#10140;&nbsp;" +
           goal +
-          "</div>"
+          "</div>",
+        true
       );
     }
   }
@@ -211,8 +207,8 @@ function checkTotal(goal, teams) {
 function createTeam(color, text, currentTeam) {
   // Need to create them separately to add events
   let modifiers = [
-    createHTML("div", null, null, "left-side", "max-height"),
-    createHTML("div", null, null, "right-side", "max-height"),
+    createHTML("div", null, null, null, "left-side", "max-height"),
+    createHTML("div", null, null, null, "right-side", "max-height"),
   ];
 
   // Create HTML containers with styles
@@ -220,6 +216,7 @@ function createTeam(color, text, currentTeam) {
     appendChilds(
       createHTML(
         "div",
+        null,
         null,
         null,
         "max-width",
@@ -237,6 +234,7 @@ function createTeam(color, text, currentTeam) {
           "div",
           color,
           null,
+          null,
           "change-scores",
           "flex",
           "absolute",
@@ -246,7 +244,7 @@ function createTeam(color, text, currentTeam) {
         ),
         ...modifiers
       ),
-      createHTML("span", null, null, "score")
+      createHTML("span", null, null, null, "score")
     )
   );
   // Increase or decrease score of selected team
@@ -313,25 +311,45 @@ function resizeTeams(teams, total) {
   }
 }
 
-async function generateAlert(message) {
-  // Insert current element to count total number and reproduce sound
-  currentQueue.push(message);
-  reproduceSound("./../audio/alert.mp3");
-  // Avoid first element to wait
-  currentQueue.length == 1 ? (miliseconds = 0) : (miliseconds = 2300);
-  console.log(miliseconds);
-  // Wait estimating time according with total number in the queue
-  await new Promise((res) =>
-    setTimeout(res, miliseconds * (currentQueue.length + 1))
+async function generateAlert(message, isHTML) {
+  // We generate an alert according to received message
+  let newAlert = createHTML(
+    "div",
+    null,
+    message,
+    isHTML,
+    "alert",
+    "white",
+    "flex",
+    "justify-center",
+    "align-center",
+    "absolute"
   );
-  document.getElementById("alert").style.bottom = "0";
-  document.getElementById("alert").innerHTML = message;
+  document.getElementById("alert-container").appendChild(newAlert);
+  let alertPos = Array.from(
+    document.getElementById("alert-container").children
+  ).indexOf(newAlert);
+  reproduceSound("./../audio/alert.mp3");
+
+  while (alertPos != 0) {
+    alertPos = Array.from(
+      document.getElementById("alert-container").children
+    ).indexOf(newAlert);
+    await new Promise((res) => setTimeout(res, Number.POSITIVE_INFINITY));
+  }
+  // Display alert on screen
+  newAlert.style.bottom = "0";
+  // Wait one second before starting transition
+  await new Promise((res) => setTimeout(res, 1000));
   // Wait two seconds before disappearing alert
-  await new Promise((res) => setTimeout(res, 2000));
-  document.getElementById("alert").style.bottom = "-100%";
+  await new Promise((res) => setTimeout(res, 1500));
   // Delete elements from the queue that are done
-  currentQueue.shift();
+  newAlert.style.bottom = "-100%";
+  // Wait six miliseconds before ending transition
+  await new Promise((res) => setTimeout(res, 600));
+  document.getElementById("alert-container").removeChild(newAlert);
 }
+
 // Storage new values for timer buttons and change texts
 function fillTimerButtons(currentData) {
   for (let i = 0; i < timerInputs.length; i++) {
@@ -630,7 +648,6 @@ document.getElementById("form-burger").addEventListener("reset", () => {
   });
   // Disable error outlines
   Array.from(document.getElementsByClassName("error")).forEach((e) => {
-    console.log(e);
     e.classList.remove("error");
   });
 });
