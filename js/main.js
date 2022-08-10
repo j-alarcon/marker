@@ -1,3 +1,4 @@
+// https://github.com/j-alarcon
 import {
   formatNumber,
   getCurrentTime,
