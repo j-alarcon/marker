@@ -141,18 +141,18 @@ function updatePoints(currentLocalStorage, currentIteration, operator) {
   }
   // Upload local storage values
   localStorage.setItem("teams", JSON.stringify(currentData));
-  // If both modes are activated, total mode has priority
-  if (modeCheckbox[1].checked) {
-    checkTotal(
-      JSON.parse(localStorage.getItem("options")).modes[1].points,
-      currentData.teams
-    );
-  }
+  // If both modes are activated, winner mode has priority
   if (modeCheckbox[0].checked) {
     checkWinner(
       JSON.parse(localStorage.getItem("options")).modes[0].points,
       currentData.teams[currentIteration].score,
       currentData.teams[currentIteration].color
+    );
+  }
+  if (modeCheckbox[1].checked) {
+    checkTotal(
+      JSON.parse(localStorage.getItem("options")).modes[1].points,
+      currentData.teams
     );
   }
 }
@@ -312,7 +312,7 @@ function resizeTeams(teams, total) {
 }
 
 async function generateAlert(message, isHTML) {
-  // We generate an alert according to received message
+  // Generate an alert according to received message
   let newAlert = createHTML(
     "div",
     null,
@@ -325,24 +325,24 @@ async function generateAlert(message, isHTML) {
     "align-center",
     "absolute"
   );
-  document.getElementById("alert-container").appendChild(newAlert);
-  let alertPos = Array.from(
-    document.getElementById("alert-container").children
-  ).indexOf(newAlert);
+
+  // Add current alert to main container with the others
+  let fatherContainer = document.getElementById("alert-container");
+  fatherContainer.appendChild(newAlert);
   reproduceSound("./../audio/alert.mp3");
 
-  while (alertPos != 0) {
-    alertPos = Array.from(
+  // This code will repeat until this is the only child of the container
+  do {
+    var alertPos = Array.from(
       document.getElementById("alert-container").children
     ).indexOf(newAlert);
     await new Promise((res) => setTimeout(res, Number.POSITIVE_INFINITY));
-  }
+  } while (alertPos != 0);
+
   // Display alert on screen
   newAlert.style.bottom = "0";
-  // Wait one second before starting transition
-  await new Promise((res) => setTimeout(res, 1000));
   // Wait two seconds before disappearing alert
-  await new Promise((res) => setTimeout(res, 1500));
+  await new Promise((res) => setTimeout(res, 2000));
   // Delete elements from the queue that are done
   newAlert.style.bottom = "-100%";
   // Wait six miliseconds before ending transition
