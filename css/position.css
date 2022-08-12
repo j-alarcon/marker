@@ -87,6 +87,6 @@
   bottom: 2.5vh;
 }
 
-.alert-container {
+.alert-container, .alert {
   z-index: 1;
 }
