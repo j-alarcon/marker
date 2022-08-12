@@ -18,6 +18,11 @@ import {
   validateInput,
 } from "./utility.js";
 
+// Register the service worker
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./sw.js");
+}
+
 const teams = [
   {
     name: "red",
