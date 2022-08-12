@@ -203,7 +203,7 @@ function checkTotal(goal, teams) {
   teams.forEach((e) => {
     total += e.score;
   });
-  if (total % goal === 0) {
+  if (total % goal === 0 && total != 0) {
     generateAlert(
       JSON.parse(localStorage.getItem("options")).modes[1].message,
       false,
