@@ -24,6 +24,7 @@
 }
 
 .burger-menu,
+.submenu,
 #burger-button,
 .reset {
   z-index: 2;
