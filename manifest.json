@@ -17,39 +17,39 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "./img/pwa/icons/reoneo_icon_32x32.webp",
+      "src": "./img/pwa/icons/reoneo_icon_32x32.png",
       "sizes": "32x32",
-      "type": "image/webp",
+      "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "./img/pwa/icons/reoneo_icon_48x48.webp",
+      "src": "./img/pwa/icons/reoneo_icon_48x48.png",
       "sizes": "48x48",
-      "type": "image/webp",
+      "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "./img/pwa/icons/reoneo_icon_64x64.webp",
+      "src": "./img/pwa/icons/reoneo_icon_64x64.png",
       "sizes": "64x64",
-      "type": "image/webp",
+      "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "./img/pwa/icons/reoneo_icon_72x72.webp",
+      "src": "./img/pwa/icons/reoneo_icon_72x72.png",
       "sizes": "72x72",
-      "type": "image/webp",
+      "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "./img/pwa/icons/reoneo_icon_96x96.webp",
+      "src": "./img/pwa/icons/reoneo_icon_96x96.png",
       "sizes": "96x96",
-      "type": "image/webp",
+      "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "./img/pwa/icons/reoneo_icon_128x128.webp",
+      "src": "./img/pwa/icons/reoneo_icon_128x128.png",
       "sizes": "128x128",
-      "type": "image/webp",
+      "type": "image/png",
       "purpose": "maskable"
     },
     {
@@ -59,15 +59,15 @@
       "purpose": "any"
     },
     {
-      "src": "./img/pwa/icons/reoneo_icon_192x192.webp",
+      "src": "./img/pwa/icons/reoneo_icon_192x192.png",
       "sizes": "192x192",
       "type": "image/webp",
       "purpose": "maskable"
     },
     {
-      "src": "./img/pwa/icons/reoneo_icon_256x256.webp",
+      "src": "./img/pwa/icons/reoneo_icon_256x256.png",
       "sizes": "256x256",
-      "type": "image/webp",
+      "type": "image/png",
       "purpose": "maskable"
     },
     {
