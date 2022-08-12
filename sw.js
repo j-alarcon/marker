@@ -10,6 +10,8 @@ const appShellFiles = [
   "./css/position.css",
   "./css/reset.css",
   "./css/responsive.css",
+  "./audio/alert.mp3",
+  "./audio/finish.mp3",
   "./fonts/anton.ttf",
   "./img/favicon.webp",
   "./img/icons/burger.svg",
