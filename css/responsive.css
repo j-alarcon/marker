@@ -7,7 +7,7 @@
   }
 
   .medium-fontsize {
-    font-size: 13.5vh;
+    font-size: 13vh;
   }
 
   .reset-icon {
@@ -21,6 +21,7 @@
 
   #timer {
     margin-bottom: 4vh;
+    font-size: 10vh;
   }
 
   #burger-button {
@@ -30,15 +31,15 @@
 
   .submenu {
     bottom: 2.3vh;
-    width: 21vh;
+    width: 22vh;
   }
 
   .icon-submenu {
-    width: 2vh;
+    width: 2.2vh;
   }
 
   .submenu-fontsize {
-    font-size: 2.5vh;
+    font-size: 2.3vh;
   }
 
   .change-scores {
@@ -48,9 +49,14 @@
 
 @media screen and (max-width: 600px) {
   .medium-fontsize {
-    font-size: 12vh;
+    font-size: 11vh;
   }
   .burger-menu {
     width: 100%;
   }
+
+  #timer{
+    font-size: 8.5vh;
+  }
+
 }
