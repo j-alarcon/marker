@@ -434,11 +434,16 @@ function startTimer() {
       parseInt(localStorage.getItem("minutes")) <= 0 &&
       localStorage.getItem("seconds") <= 0
     ) {
-      // Stop the timer, download file, reproduce sound, and refill local data with default values
+      // Stop the timer, download file, change play button, reproduce sound, and refill local data with default values
       clearInterval(timer);
       downloadResults(
         JSON.stringify(JSON.parse(localStorage.getItem("teams")), null, 2),
         getCurrentTime() + ".json"
+      );
+      changeImage(
+        document.getElementById("player").children[0],
+        "./img/icons/play.svg",
+        "Play button"
       );
       reproduceSound("../audio/finish.mp3");
       // This prevent weird values if reset when timer has ended
