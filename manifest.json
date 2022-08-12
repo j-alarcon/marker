@@ -1,0 +1,92 @@
+{
+  "name": "Reoneo",
+  "short_name": "Reoneo",
+  "description": "Colorful counter to quantify scores of different teams with a timer",
+  "developer": {
+    "name": "Javier Alarcón",
+    "url": "https://github.com/j-alarcon"
+  },
+  "version": "1.0",
+  "categories": ["utilities", "sports", "entertaiment"],
+  "lang": "en",
+  "start_url": "./index.html",
+  "scope": "./",
+  "theme_color": "#439318",
+  "background_color": "#0f0e0e",
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./img/pwa/icons/reoneo_icon_32x32.webp",
+      "sizes": "32x32",
+      "type": "image/webp",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./img/pwa/icons/reoneo_icon_48x48.webp",
+      "sizes": "48x48",
+      "type": "image/webp",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./img/pwa/icons/reoneo_icon_64x64.webp",
+      "sizes": "64x64",
+      "type": "image/webp",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./img/pwa/icons/reoneo_icon_72x72.webp",
+      "sizes": "72x72",
+      "type": "image/webp",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./img/pwa/icons/reoneo_icon_96x96.webp",
+      "sizes": "96x96",
+      "type": "image/webp",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./img/pwa/icons/reoneo_icon_128x128.webp",
+      "sizes": "128x128",
+      "type": "image/webp",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./img/pwa/icons/reoneo_icon_144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./img/pwa/icons/reoneo_icon_192x192.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./img/pwa/icons/reoneo_icon_256x256.webp",
+      "sizes": "256x256",
+      "type": "image/webp",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./img/pwa/icons/reoneo_icon_384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./img/pwa/icons/reoneo_icon_512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./img/pwa/icons/reoneo_icon_1024x1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
