@@ -70,7 +70,7 @@ input::-webkit-inner-spin-button {
 }
 
 .red {
-  background-color: #fb0004;
+  background-color: #f2150b;
 }
 
 .light-red {
@@ -82,19 +82,19 @@ input::-webkit-inner-spin-button {
 }
 
 .blue {
-  background-color: #0000c1;
+  background-color: #14487c;
 }
 
 .purple {
-  background-color: #6c0372;
+  background-color: #621566;
 }
 
 .green {
-  background-color: #03740d;
+  background-color: #2a801f;
 }
 
 .orange {
-  background-color: #ee7000;
+  background-color: #dd6c0a;
 }
 
 .black {
@@ -102,7 +102,7 @@ input::-webkit-inner-spin-button {
 }
 
 .pink {
-  background-color: #ff1391;
+  background-color: #da1e82;
 }
 
 .white {
