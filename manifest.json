@@ -12,7 +12,7 @@
   "start_url": "./index.html",
   "scope": "./",
   "theme_color": "#161618",
-  "background_color": "#37425b",
+  "background_color": "#FFFFFF",
   "display": "standalone",
   "orientation": "portrait",
   "icons": [
