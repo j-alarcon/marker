@@ -448,7 +448,6 @@ function startTimer() {
           getCurrentTime() + ".json"
         );
       }
-
       changeImage(
         document.getElementById("player").children[0],
         "./img/icons/play.svg",
