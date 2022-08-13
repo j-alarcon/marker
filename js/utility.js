@@ -138,7 +138,14 @@ export function removeClasses(elements, init, end, ...classes) {
 // Change JSON simple structure receiving father, number and name of child, and value
 export function updateJSON(json, pFather, nChild, pChild, value) {
   let currentData = JSON.parse(json);
-  currentData[pFather][nChild][pChild] = value;
+  if (pChild) {
+    currentData[pFather][nChild][pChild] = value;
+  } else if (nChild) {
+    currentData[pFather][nChild] = value;
+  } else {
+    currentData[pFather] = value;
+  }
+  console.log(currentData);
   return JSON.stringify(currentData);
 }
 

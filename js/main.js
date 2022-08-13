@@ -112,6 +112,7 @@ let jsonOptions = {
       message: "Milestone achieved!",
     },
   ],
+  download: false,
 };
 
 // JSON where teams are storaged
@@ -441,10 +442,13 @@ function startTimer() {
     ) {
       // Stop the timer, download file, change play button, reproduce sound, and refill local data with default values
       clearInterval(timer);
-      downloadResults(
-        JSON.stringify(JSON.parse(localStorage.getItem("teams")), null, 2),
-        getCurrentTime() + ".json"
-      );
+      if (document.getElementById("download").checked) {
+        downloadResults(
+          JSON.stringify(JSON.parse(localStorage.getItem("teams")), null, 2),
+          getCurrentTime() + ".json"
+        );
+      }
+
       changeImage(
         document.getElementById("player").children[0],
         "./img/icons/play.svg",
@@ -648,6 +652,21 @@ Array.from(document.getElementsByClassName("mode")).forEach((e, i) =>
     }
   })
 );
+
+// Deactivate or activate download option accordin to selected checkbox
+document.getElementById("download").addEventListener("click", () => {
+  if (document.getElementById("download").checked) {
+    localStorage.setItem(
+      "options",
+      updateJSON(localStorage.getItem("options"), "download", null, null, true)
+    );
+  } else {
+    localStorage.setItem(
+      "options",
+      updateJSON(localStorage.getItem("options"), "download", null, null, false)
+    );
+  }
+});
 
 // Change selected options on burger menu
 document.getElementById("submit-changes").addEventListener("click", (e) => {

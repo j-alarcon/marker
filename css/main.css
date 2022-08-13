@@ -265,14 +265,14 @@ input::-webkit-inner-spin-button {
   margin-left: 0.7vh;
 }
 
-.mode {
+.checkbox {
   width: 1.7vh;
   height: 1.7vh;
   margin-right: 0.2vh;
   border-radius: 0.3vh;
 }
 
-.mode:checked {
+.checkbox:checked {
   background-color: #51864b;
 }
 
