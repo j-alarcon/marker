@@ -1,8 +1,8 @@
-<strong>This is a simple project developed with HTML, CSS and JavaScript</strong> to follow the points gained by different teams participating in any game.
+<strong>This is a PWA developed with HTML, CSS and JavaScript</strong> to count points of different teams with a completely functional timer. It is going to transform in your habitual tool in your tournaments, contests or private parties. 
 
-It is composed of different panels for each team, and you can add or decrease the points by pressing on the left or the right of any square. There is also a timer that will indicate the end of the round that you can initialize by pressing the start button.
+It is composed of different panels for each team or player, and you can add or decrease the points by pressing on left or right of any square <em>(Top or bottom on tablet/mobile)</em>. There is also a timer that will indicate the end of the round that you can initialize by pressing the start button. 
 
-You can change display initial values of timer by pressing the buttons of the side menu. You can as well reset all values by pressing the reset button.
+You can change display initial values of timers by pressing the buttons under the timer. You can as well reset all values by pressing the reset button.
 
 At the end of each round, a file containing all results will be downloaded in your downloads folder with the name of the current date.
 
