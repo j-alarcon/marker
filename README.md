@@ -1,13 +1,31 @@
-<strong>This is a PWA developed with HTML, CSS and JavaScript</strong> to count points of different teams with a completely functional timer. It is going to transform in your habitual tool in your tournaments, contests or private parties. 
+<strong>This is a PWA developed with HTML, CSS and JavaScript</strong> to count points from various teams with a fully functional timer. It has offline functionality so you are able to use it without an internet connection, but keep in mind that you will need to load up contents at least one time.
 
-It is composed of different panels for each team or player, and you can add or decrease the points by pressing on left or right of any square <em>(Top or bottom on tablet/mobile)</em>. There is also a timer that will indicate the end of the round that you can initialize by pressing the start button. 
+I hope that you are ready to convert Reoneo into your regular tool in tournaments, contests or private parties... you can even use the timer to bake a pizza! 
 
-You can change display initial values of timers by pressing the buttons under the timer. You can as well reset all values by pressing the reset button.
+Each team or player has its own panel, where you can add or decrease the total points by pressing left or right <em>(Top or bottom on tablet/mobile)</em>
 
-At the end of each round, a file containing all results will be downloaded in your downloads folder with the name of the current date.
+You can use a marvellous timer that will indicate the end of the current cycle with a strong sound. In addition, you can customize two buttons with your favourite startup minutes and seconds.
+
+By tapping on the burger menu, you will access the options, where you can also enable modes. <strong>Reoneo has two special modes:</strong>
+
+<ul>
+    <li><strong>Winner mode:</strong> The first player to reach the given score will win and you will receive a notification.</li>
+    </br>
+    <li><strong>Total mode:</strong> You can set an objective that all players can reach together, you will receive a notification as well. It can be used to figure out the right time to switch sides in a volleyball match <em>(every seven points)</em>. Show some creativity!</li>
+</ul>
+
+At the end of each round, a file containing all results will be downloaded in your downloads folder with the name of the current date, if you activate the corresponding option.
 
 <strong>Instructions:</strong> Maybe you are on a lazy day, or you are lost in this weird website because you don't know how to use it, don't worry, I understand.
 <ul>
+    <li>
+        <em>I want to see it right now:</em>
+        <ol>
+            <li>Just click on this link: <a href="https://j-alarcon.github.io/reoneo/">Reoneo</a></li>
+            <li>Or you can find the link in the environments category at your right by clicking view deployment inside this one <strong>(You need a Github's account)</strong>.</li>
+        </ol>
+    </li>
+    </br>
     <li>
         <em>I would like to have it on my device:</em>
         <ol>
