@@ -32,7 +32,7 @@ const appShellFiles = [
   "./img/pwa/icons/reoneo_icon_256x256.png",
   "./img/pwa/icons/reoneo_icon_384x384.png",
   "./img/pwa/icons/reoneo_icon_512x512.png",
-  "./img/pwa/icons/reoneo_icon_1024x1024.png", 
+  "./img/pwa/icons/reoneo_icon_1024x1024.png",
   "./js/main.js",
   "./js/utility.js",
 ];
@@ -73,7 +73,9 @@ self.addEventListener("fetch", (e) => {
       if (r) return r;
       const response = await fetch(e.request);
       const cache = await caches.open(cacheName);
-      cache.put(e.request, response.clone());
+      // Avoid partial response audio exception
+      try { cache.put(e.request, response.clone()); } 
+      catch (e) { console.log(e); }
       return response;
     })()
   );
