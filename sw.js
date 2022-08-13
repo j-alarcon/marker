@@ -5,8 +5,10 @@ const cacheName = "reoneo_v1.0";
 const appShellFiles = [
   "./",
   "./index.html",
-  "./css/fonts.css",
+  "./audio/alert.mp3",
+  "./audio/finish.mp3",
   "./css/main.css",
+  "./css/fonts.css",
   "./css/position.css",
   "./css/reset.css",
   "./css/responsive.css",

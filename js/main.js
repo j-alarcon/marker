@@ -342,7 +342,7 @@ async function generateAlert(message, isHTML, mainClass) {
   // Add current alert to main container with the others
   let fatherContainer = document.getElementById("alert-container");
   fatherContainer.appendChild(newAlert);
-  reproduceSound("./../audio/alert.mp3");
+  reproduceSound("./audio/alert.mp3");
 
   // This code will repeat until this is the only child of the container
   do {
@@ -450,7 +450,7 @@ function startTimer() {
         "./img/icons/play.svg",
         "Play button"
       );
-      reproduceSound("../audio/finish.mp3");
+      reproduceSound("./audio/finish.mp3");
       // This prevent weird values if reset when timer has ended
       clearTimer();
     }
