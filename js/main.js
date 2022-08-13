@@ -700,6 +700,11 @@ Array.from(document.getElementsByClassName("button-timer")).forEach((e, i) => {
       JSON.parse(localStorage.getItem("options")).timers[i].seconds
     );
     localStorage.setItem("timer", false);
+    changeImage(
+      document.getElementById("player").children[0],
+      "./img/icons/play.svg",
+      "Play button"
+    );
     clearInterval(timer);
     updateTimer();
   });
