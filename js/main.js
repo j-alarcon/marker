@@ -20,9 +20,10 @@ import {
 
 // Register the service worker
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("./sw.js");
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js");
+  });
 }
-
 const teams = [
   {
     name: "red",

@@ -9,7 +9,7 @@
   "version": "1.0",
   "categories": ["utilities", "sports", "entertaiment"],
   "lang": "en",
-  "start_url": "./index.html",
+  "start_url": "./",
   "scope": "./",
   "theme_color": "#161618",
   "background_color": "#FFFFFF",

@@ -145,7 +145,6 @@ export function updateJSON(json, pFather, nChild, pChild, value) {
   } else {
     currentData[pFather] = value;
   }
-  console.log(currentData);
   return JSON.stringify(currentData);
 }
 
