@@ -33,21 +33,21 @@
     {
       "src": "./img/pwa/screenshots/mobile_two_teams.jpg",
       "sizes": "720x1438",
-      "type": "image/jpg",
+      "type": "image/png",
       "platform": "narrow",
       "label": "Displaying two teams"
     },
     {
       "src": "./img/pwa/screenshots/mobile_three_teams.jpg",
       "sizes": "720x1438",
-      "type": "image/jpg",
+      "type": "image/png",
       "platform": "narrow",
       "label": "Displaying three teams"
     },
     {
       "src": "./img/pwa/screenshots/mobile_six_teams.jpg",
       "sizes": "720x1438",
-      "type": "image/jpg",
+      "type": "image/png",
       "platform": "narrow",
       "label": "Displaying six teams"
     }
