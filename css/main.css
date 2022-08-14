@@ -300,9 +300,10 @@ input[type="number"] {
 
 .penguin-logo {
   width: 6vh;
+  margin-bottom: .3vh;
 }
 
 .vertical-line {
   width: 0.2vh;
-  margin: 0 1vh 0 0.6vh;
+  margin: 0 1vh .2vh 0.6vh;
 }
