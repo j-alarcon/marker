@@ -8,6 +8,50 @@
   },
   "version": "1.0",
   "categories": ["utilities", "sports", "entertaiment"],
+  "screenshots": [
+    {
+      "src": "./img/pwa/screenshots/computer_two_teams.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Displaying two teams"
+    },
+    {
+      "src": "./img/pwa/screenshots/computer_six_teams.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Displaying six teams"
+    },
+    {
+      "src": "./img/pwa/screenshots/computer_nine_teams.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Displaying nine teams"
+    },
+    {
+      "src": "./img/pwa/screenshots/mobile_two_teams.jpg",
+      "sizes": "720x1438",
+      "type": "image/jpg",
+      "platform": "narrow",
+      "label": "Displaying two teams"
+    },
+    {
+      "src": "./img/pwa/screenshots/mobile_three_teams.jpg",
+      "sizes": "720x1438",
+      "type": "image/jpg",
+      "platform": "narrow",
+      "label": "Displaying three teams"
+    },
+    {
+      "src": "./img/pwa/screenshots/mobile_six_teams.jpg",
+      "sizes": "720x1438",
+      "type": "image/jpg",
+      "platform": "narrow",
+      "label": "Displaying six teams"
+    }
+  ],
   "lang": "en",
   "start_url": "./",
   "scope": "./",
