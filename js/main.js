@@ -774,6 +774,6 @@ document.getElementById("reset").addEventListener("click", (e) => {
     // Reload website
     window.location.reload();
   } catch (ex) {
-    windows.reload();
+    window.location.reload();
   }
 });
