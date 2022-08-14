@@ -265,14 +265,18 @@ function createTeam(color, text, currentTeam) {
   // Increase or decrease score of selected team
   modifiers.forEach((e, i) => {
     e.addEventListener("click", () => {
-      if (i === 1) {
-        updatePoints(localStorage.getItem("teams"), currentTeam, "+");
-      } else {
-        updatePoints(localStorage.getItem("teams"), currentTeam, "-");
+      try {
+        if (i === 1) {
+          updatePoints(localStorage.getItem("teams"), currentTeam, "+");
+        } else {
+          updatePoints(localStorage.getItem("teams"), currentTeam, "-");
+        }
+        modifiers[i].parentNode.parentNode.children[1].innerText = JSON.parse(
+          localStorage.getItem("teams")
+        ).teams[currentTeam].score;
+      } catch (ex) {
+        window.location.reload();
       }
-      modifiers[i].parentNode.parentNode.children[1].innerText = JSON.parse(
-        localStorage.getItem("teams")
-      ).teams[currentTeam].score;
     });
   });
 }
@@ -566,105 +570,138 @@ window.onload = () => {
 
 // Add team
 document.getElementById("add").addEventListener("click", () => {
-  if (mainContainer.children.length < 9) {
-    createTeam(
-      teams[mainContainer.children.length].name,
-      teams[mainContainer.children.length].text + "-text",
-      mainContainer.children.length
-    );
-    // Fill new containers with a zero
-    mainContainer.children[
-      mainContainer.children.length - 1
-    ].children[1].innerText = 0;
-    // Add new item and update JSON file
-    localStorage.setItem(
-      "teams",
-      addItemToJSON(
-        localStorage.getItem("teams"),
-        { color: teams[mainContainer.children.length - 1].name },
-        { text: teams[mainContainer.children.length - 1].text },
-        { score: 0 }
-      )
-    );
+  try {
+    if (mainContainer.children.length < 9) {
+      createTeam(
+        teams[mainContainer.children.length].name,
+        teams[mainContainer.children.length].text + "-text",
+        mainContainer.children.length
+      );
+      // Fill new containers with a zero
+      mainContainer.children[
+        mainContainer.children.length - 1
+      ].children[1].innerText = 0;
+      // Add new item and update JSON file
+      localStorage.setItem(
+        "teams",
+        addItemToJSON(
+          localStorage.getItem("teams"),
+          { color: teams[mainContainer.children.length - 1].name },
+          { text: teams[mainContainer.children.length - 1].text },
+          { score: 0 }
+        )
+      );
+    }
+    resizeTeams(mainContainer.children, mainContainer.children.length);
+  } catch (ex) {
+    window.location.reload();
   }
-  resizeTeams(mainContainer.children, mainContainer.children.length);
 });
 
 // Delete team
 document.getElementById("delete").addEventListener("click", () => {
-  if (mainContainer.children.length > 1) {
-    mainContainer.children[mainContainer.children.length - 1].remove(
-      mainContainer.children[mainContainer.children.length - 1].lastElementChild
-    );
-    resizeTeams(mainContainer.children, mainContainer.children.length);
-    // Delete last item and update JSON file
-    localStorage.setItem(
-      "teams",
-      deleteLastItemJSON(localStorage.getItem("teams"))
-    );
+  try {
+    if (mainContainer.children.length > 1) {
+      mainContainer.children[mainContainer.children.length - 1].remove(
+        mainContainer.children[mainContainer.children.length - 1]
+          .lastElementChild
+      );
+      resizeTeams(mainContainer.children, mainContainer.children.length);
+      // Delete last item and update JSON file
+      localStorage.setItem(
+        "teams",
+        deleteLastItemJSON(localStorage.getItem("teams"))
+      );
+    }
+  } catch (ex) {
+    window.location.reload();
   }
 });
 
 // The code will repeat each one second until all values are equal to zero
 document.getElementById("player").addEventListener("click", () => {
-  if (
-    localStorage.getItem("timer") === "false" &&
-    (localStorage.getItem("minutes") != 0 ||
-      localStorage.getItem("seconds") != 0)
-  ) {
-    // Activate timer
-    localStorage.setItem("timer", true);
-    startTimer();
-    changeImage(
-      document.getElementById("player").children[0],
-      "./img/icons/stop.svg",
-      "Stop button"
-    );
-  } else {
-    // Stop timer
-    clearInterval(timer);
-    localStorage.setItem("timer", false);
-    changeImage(
-      document.getElementById("player").children[0],
-      "./img/icons/play.svg",
-      "Play button"
-    );
+  try {
+    if (
+      localStorage.getItem("timer") === "false" &&
+      (localStorage.getItem("minutes") != 0 ||
+        localStorage.getItem("seconds") != 0)
+    ) {
+      // Activate timer
+      localStorage.setItem("timer", true);
+      startTimer();
+      changeImage(
+        document.getElementById("player").children[0],
+        "./img/icons/stop.svg",
+        "Stop button"
+      );
+    } else {
+      // Stop timer
+      clearInterval(timer);
+      localStorage.setItem("timer", false);
+      changeImage(
+        document.getElementById("player").children[0],
+        "./img/icons/play.svg",
+        "Play button"
+      );
+    }
+  } catch (ex) {
+    window.location.reload();
   }
 });
 
 // Deactive or activate modes according to selected checkbox
 Array.from(document.getElementsByClassName("mode")).forEach((e, i) =>
   e.addEventListener("click", () => {
-    if (e.checked) {
-      changeStatusModes(
-        modeInputs[i],
-        localStorage.getItem("options"),
-        i,
-        true
-      );
-    } else {
-      changeStatusModes(
-        modeInputs[i],
-        localStorage.getItem("options"),
-        i,
-        false
-      );
+    try {
+      if (e.checked) {
+        changeStatusModes(
+          modeInputs[i],
+          localStorage.getItem("options"),
+          i,
+          true
+        );
+      } else {
+        changeStatusModes(
+          modeInputs[i],
+          localStorage.getItem("options"),
+          i,
+          false
+        );
+      }
+    } catch (ex) {
+      window.location.reload();
     }
   })
 );
 
 // Deactivate or activate download option accordin to selected checkbox
 document.getElementById("download").addEventListener("click", () => {
-  if (document.getElementById("download").checked) {
-    localStorage.setItem(
-      "options",
-      updateJSON(localStorage.getItem("options"), "download", null, null, true)
-    );
-  } else {
-    localStorage.setItem(
-      "options",
-      updateJSON(localStorage.getItem("options"), "download", null, null, false)
-    );
+  try {
+    if (document.getElementById("download").checked) {
+      localStorage.setItem(
+        "options",
+        updateJSON(
+          localStorage.getItem("options"),
+          "download",
+          null,
+          null,
+          true
+        )
+      );
+    } else {
+      localStorage.setItem(
+        "options",
+        updateJSON(
+          localStorage.getItem("options"),
+          "download",
+          null,
+          null,
+          false
+        )
+      );
+    }
+  } catch (ex) {
+    window.location.reload();
   }
 });
 
@@ -672,50 +709,71 @@ document.getElementById("download").addEventListener("click", () => {
 document.getElementById("submit-changes").addEventListener("click", (e) => {
   // Don't send the form
   e.preventDefault();
-  // Save options
-  fillTimerButtons(JSON.parse(localStorage.getItem("options")));
-  fillModeOptions(JSON.parse(localStorage.getItem("options")));
+  try {
+    // Save options
+    fillTimerButtons(JSON.parse(localStorage.getItem("options")));
+    fillModeOptions(JSON.parse(localStorage.getItem("options")));
+  } catch (ex) {
+    window.location.reload();
+  }
 });
 
 // Deactive modes when reset form
 document.getElementById("form-burger").addEventListener("reset", () => {
-  // Deactive modes
-  Array.from(document.getElementsByClassName("mode")).forEach((e, i) => {
-    changeStatusModes(modeInputs[i], localStorage.getItem("options"), i, false);
-  });
-  // Disable error outlines
-  Array.from(document.getElementsByClassName("error")).forEach((e) => {
-    e.classList.remove("error");
-  });
+  try {
+    // Deactive modes
+    Array.from(document.getElementsByClassName("mode")).forEach((e, i) => {
+      changeStatusModes(
+        modeInputs[i],
+        localStorage.getItem("options"),
+        i,
+        false
+      );
+    });
+    // Disable error outlines
+    Array.from(document.getElementsByClassName("error")).forEach((e) => {
+      e.classList.remove("error");
+    });
+  } catch (ex) {
+    window.location.reload();
+  }
 });
 
 // Set timer to desired minutes and stop current timer if there was one.
 Array.from(document.getElementsByClassName("button-timer")).forEach((e, i) => {
   e.addEventListener("click", () => {
-    localStorage.setItem(
-      "minutes",
-      JSON.parse(localStorage.getItem("options")).timers[i].minutes
-    );
-    localStorage.setItem(
-      "seconds",
-      JSON.parse(localStorage.getItem("options")).timers[i].seconds
-    );
-    localStorage.setItem("timer", false);
-    changeImage(
-      document.getElementById("player").children[0],
-      "./img/icons/play.svg",
-      "Play button"
-    );
-    clearInterval(timer);
-    updateTimer();
+    try {
+      localStorage.setItem(
+        "minutes",
+        JSON.parse(localStorage.getItem("options")).timers[i].minutes
+      );
+      localStorage.setItem(
+        "seconds",
+        JSON.parse(localStorage.getItem("options")).timers[i].seconds
+      );
+      localStorage.setItem("timer", false);
+      changeImage(
+        document.getElementById("player").children[0],
+        "./img/icons/play.svg",
+        "Play button"
+      );
+      clearInterval(timer);
+      updateTimer();
+    } catch (ex) {
+      window.location.reload();
+    }
   });
 });
 
 // Reset timer and scores
 document.getElementById("reset").addEventListener("click", (e) => {
-  resetScores(JSON.parse(localStorage.getItem("teams")));
-  localStorage.setItem("currentMaxScore", 1);
-  clearTimer();
-  // Reload website
-  window.location.reload();
+  try {
+    resetScores(JSON.parse(localStorage.getItem("teams")));
+    localStorage.setItem("currentMaxScore", 1);
+    clearTimer();
+    // Reload website
+    window.location.reload();
+  } catch (ex) {
+    windows.reload();
+  }
 });
