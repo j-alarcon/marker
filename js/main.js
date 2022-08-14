@@ -490,8 +490,13 @@ function calculateTime() {
     }
   }
 
-  // Refill HTML container
-  updateTimer();
+  // Refill HTML container and avoid NaN values
+  if (isNaN(localStorage.getItem("seconds") - 1)) {
+    clearTimer();
+    window.location.reload();
+  } else {
+    updateTimer();
+  }
 }
 
 function updateTimer() {
