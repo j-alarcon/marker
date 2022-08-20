@@ -21,7 +21,7 @@ At the end of each round, a file containing all results will be downloaded in yo
     <li>
         <em>I want to see it right now:</em>
         <ol>
-            <li>Just click on this link: <a href="https://j-alarcon.github.io/reoneo/">Reoneo</a></li>
+            <li>Just click on this link: <a href="https://j-alarcon.github.io/reoneo/">Reoneo</a>.</li>
             <li>Or you can find the link in the environments category at your right by clicking view deployment inside it<strong>(You need a Github's account)</strong>.</li>
         </ol>
     </li>
