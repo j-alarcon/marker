@@ -30,10 +30,10 @@ At the end of each round, a file containing all results will be downloaded in yo
         <em>I would like to have it on my device:</em>
         <ol>
             </br>
-            <a href="https://www.google.com">
+            <a href="https://apps.microsoft.com/store/detail/reoneo/9N90NMW2N4CV?hl=es-ad&gl=AD">
                 <img alt="Windows badge" src="./img/pwa/badges/windows_en.png" />
             </a>
-            <a href="https://www.google.com">
+            <a href="https://play.google.com/store/apps/details?id=reoneo.twa&hl=es">
                 <img alt="Android badge" src="./img/pwa/badges/android_en.png" />
             </a> 
         </ol>
