@@ -116,7 +116,7 @@ let jsonOptions = {
     {
       status: false,
       points: 7,
-      message: "Milestone achieved!",
+      message: "🎉🚩🥳🔥",
     },
   ],
   download: false,
@@ -519,7 +519,7 @@ window.onload = () => {
 
   // Change text of application if language is registered
   for (let p in languages) {
-    if (navigator.language.includes(p + "-")) {
+    if (navigatorLanguage.includes(p + "-")) {
       itemsText.forEach((e, i) => {
         if (e.nodeName === "INPUT") {
           e.value = languages[p][i];
