@@ -5,11 +5,6 @@
   width: 50%;
 }
 
-.input-form,
-.options-button {
-  width: 7vh;
-}
-
 .tiny-square,
 #burger-button {
   width: 4vh;
@@ -212,7 +207,7 @@ input::-webkit-inner-spin-button {
 }
 
 .submenu-fontsize {
-  font-size: 2.3vh;
+  font-size: 2.4vh;
 }
 
 .burger-icon {
@@ -250,12 +245,13 @@ input::-webkit-inner-spin-button {
 }
 
 .input-form {
+  width: 7vh;
   height: 3vh;
 }
 
 .subcontainer-form {
   gap: 0.3vh;
-  margin-bottom: .5vh;
+  margin-bottom: 0.5vh;
 }
 
 .subtitle-side {
@@ -284,10 +280,11 @@ input[type="number"] {
 }
 
 .container-form-buttons {
-  width: 15.5vh;
+  gap: 1.5vh;
 }
 
 .options-button {
+  padding: 0 0.4vh 0 0.4vh;
   height: 3.3vh;
 }
 
@@ -296,7 +293,7 @@ input[type="number"] {
 }
 
 .penguin-logo {
-  margin-top: .2vh;
+  margin-top: 0.2vh;
   width: 5.5vh;
 }
 

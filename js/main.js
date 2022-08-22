@@ -18,6 +18,12 @@ import {
   validateInput,
 } from "./utility.js";
 
+// Need to import JSON as JS without backend
+import languages from "../json/languages.js";
+
+// All items with text to be translated
+const itemsText = Array.from(document.getElementsByClassName("translate"));
+
 // Register the service worker
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
@@ -508,6 +514,22 @@ function updateTimer() {
 
 // Fill default values to empty local data and containers
 window.onload = () => {
+  // Check user navigator language
+  let navigatorLanguage = navigator.language || navigator.userLanguage;
+
+  // Change text of application if language is registered
+  for (let p in languages) {
+    if (navigator.language.includes(p + "-")) {
+      itemsText.forEach((e, i) => {
+        if (e.nodeName === "INPUT") {
+          e.value = languages[p][i];
+        } else {
+          e.innerText = languages[p][i];
+        }
+      });
+    }
+  }
+
   if (!localStorage.getItem("teams")) {
     localStorage.setItem("teams", JSON.stringify(jsonScores));
   }

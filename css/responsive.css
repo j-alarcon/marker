@@ -68,15 +68,19 @@
     font-size: 3.1vh;
   }
 
-  .options-button {
-    font-size: 2vh;
+  .burger-menu {
+    width: 100%;
+  }
+
+  .input-form {
+    font-size: 2.5vh;
   }
 
   .subtitle-option-fontsize {
     font-size: 2.4vh;
   }
 
-  .burger-menu {
-    width: 100%;
+  .options-button {
+    font-size: 2vh;
   }
 }
