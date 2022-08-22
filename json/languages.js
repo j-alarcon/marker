@@ -16,7 +16,7 @@ export default {
     "Guardar",
     "Reiniciar",
     "Versión 1.1",
-    "22/08/2022",
+    "23/08/2022",
   ],
   fr: [
     "Options",
@@ -35,7 +35,7 @@ export default {
     "Sauvegarder",
     "Redémarrer",
     "Version 1.1",
-    "22/08/2022",
+    "23/08/2022",
   ],
   de: [
     "Optionen",
@@ -54,6 +54,6 @@ export default {
     "Speichern",
     "Neu starten",
     "Version 1.1",
-    "2022/08/22",
+    "2022/08/23",
   ],
 };
