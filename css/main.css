@@ -162,15 +162,11 @@ input::-webkit-inner-spin-button {
 }
 
 .small-fontsize {
-  font-size: 1.6vh;
+  font-size: 1.7vh;
 }
 
 .medium-fontsize {
   font-size: 18vh;
-}
-
-.big-fontsize {
-  font-size: 24vh;
 }
 
 .max-width {
@@ -212,11 +208,11 @@ input::-webkit-inner-spin-button {
 }
 
 .icon-submenu {
-  width: 1.8vh;
+  width: 2.2vh;
 }
 
 .submenu-fontsize {
-  font-size: 2vh;
+  font-size: 2.2vh;
 }
 
 .burger-icon {
@@ -259,6 +255,7 @@ input::-webkit-inner-spin-button {
 
 .subcontainer-form {
   gap: 0.3vh;
+  margin-bottom: .5vh;
 }
 
 .subtitle-side {
@@ -300,10 +297,10 @@ input[type="number"] {
 
 .penguin-logo {
   width: 6vh;
-  margin-bottom: .3vh;
+  margin-bottom: 0.3vh;
 }
 
 .vertical-line {
   width: 0.2vh;
-  margin: 0 1vh .2vh 0.6vh;
+  margin: 0 1vh 0.2vh 0.6vh;
 }
