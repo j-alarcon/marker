@@ -444,10 +444,10 @@ function updateTimer() {
 window.onload = () => {
   // Check user navigator language
   let navigatorLanguage = navigator.language || navigator.userLanguage;
-
   // Change text of application if language is registered
   console.log(navigatorLanguage);
   for (let p in languages) {
+    // We only use the first letters to match variants
     if (navigatorLanguage.includes(p)) {
       itemsText.forEach((e, i) => {
         if (e.nodeName === "INPUT") {
