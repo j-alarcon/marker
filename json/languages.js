@@ -20,10 +20,10 @@ export default {
   ],
   fr: [
     "Options",
-    "Première minuterie",
+    "1ème minuterie",
     "Minutes",
     "Secondes",
-    "Deuxième minuterie",
+    "2ème minuterie",
     "Minutes",
     "Secondes",
     "Mode gagnant",
