@@ -56,6 +56,18 @@
     font-size: 11vh;
   }
 
+  .submenu {
+    bottom: 1.7vh;
+  }
+
+  .icon-submenu {
+    width: 3vh;
+  }
+
+  .submenu-fontsize {
+    font-size: 3.1vh;
+  }
+
   .options-button {
     font-size: 2vh;
   }
