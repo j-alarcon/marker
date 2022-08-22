@@ -518,8 +518,9 @@ window.onload = () => {
   let navigatorLanguage = navigator.language || navigator.userLanguage;
 
   // Change text of application if language is registered
+  console.log(navigatorLanguage);
   for (let p in languages) {
-    if (navigatorLanguage.includes(p + "-")) {
+    if (navigatorLanguage.includes(p)) {
       itemsText.forEach((e, i) => {
         if (e.nodeName === "INPUT") {
           e.value = languages[p][i];
