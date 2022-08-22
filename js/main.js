@@ -20,9 +20,9 @@ import {
 
 // Need to import JSON as JS without backend
 import languages from "../json/languages.js";
-
-// All items with text to be translated
-const itemsText = Array.from(document.getElementsByClassName("translate"));
+import teams from "../json/teams.js";
+import options from "../json/options.js";
+import scores from "../json/scores.js";
 
 // Register the service worker
 if ("serviceWorker" in navigator) {
@@ -30,44 +30,9 @@ if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("./sw.js");
   });
 }
-const teams = [
-  {
-    name: "red",
-    text: "white",
-  },
-  {
-    name: "yellow",
-    text: "black",
-  },
-  {
-    name: "blue",
-    text: "white",
-  },
-  {
-    name: "purple",
-    text: "white",
-  },
-  {
-    name: "green",
-    text: "white",
-  },
-  {
-    name: "orange",
-    text: "white",
-  },
-  {
-    name: "pink",
-    text: "white",
-  },
-  {
-    name: "white",
-    text: "black",
-  },
-  {
-    name: "black",
-    text: "white",
-  },
-];
+
+// All items with text to be translated
+const itemsText = Array.from(document.getElementsByClassName("translate"));
 
 let mainContainer = document.getElementsByClassName("main-container")[0];
 
@@ -95,43 +60,6 @@ let modeInputs = [
 ];
 
 let modeCheckbox = Array.from(document.getElementsByClassName("mode"));
-
-// JSON where options are storaged
-let jsonOptions = {
-  timers: [
-    {
-      minutes: 15,
-      seconds: 0,
-    },
-    {
-      minutes: 20,
-      seconds: 0,
-    },
-  ],
-  modes: [
-    {
-      status: false,
-      points: 20,
-    },
-    {
-      status: false,
-      points: 7,
-      message: "🎉🚩🥳🔥",
-    },
-  ],
-  download: false,
-};
-
-// JSON where teams are storaged
-let jsonScores = {
-  teams: [
-    {
-      color: "red",
-      text: "white",
-      score: 0,
-    },
-  ],
-};
 
 // Set all points to zero
 function resetScores(currentData) {
@@ -532,10 +460,10 @@ window.onload = () => {
   }
 
   if (!localStorage.getItem("teams")) {
-    localStorage.setItem("teams", JSON.stringify(jsonScores));
+    localStorage.setItem("teams", JSON.stringify(scores));
   }
   if (!localStorage.getItem("options")) {
-    localStorage.setItem("options", JSON.stringify(jsonOptions));
+    localStorage.setItem("options", JSON.stringify(options));
   }
   // Load all teams storaged in local
   JSON.parse(localStorage.getItem("teams")).teams.forEach((e, i) => {

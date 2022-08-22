@@ -15,8 +15,8 @@ export default {
     "Descargar resultados",
     "Guardar",
     "Reiniciar",
-    "Versión 1.0",
-    "15/06/2022",
+    "Versión 1.1",
+    "22/08/2022",
   ],
   fr: [
     "Options",
@@ -34,8 +34,8 @@ export default {
     "Téléchargez les résultats",
     "Sauvegarder",
     "Redémarrer",
-    "Version 1.0",
-    "15/06/2022",
+    "Version 1.1",
+    "22/08/2022",
   ],
   de: [
     "Optionen",
@@ -53,7 +53,7 @@ export default {
     "Ergebnisse herunterladen",
     "Speichern",
     "Neu starten",
-    "Version 1.0",
-    "2022/06/15",
+    "Version 1.1",
+    "2022/08/22",
   ],
 };
