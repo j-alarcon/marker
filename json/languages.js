@@ -1,10 +1,10 @@
 export default {
   es: [
     "Opciones",
-    "Primer temporizador",
+    "1er temporizador",
     "Minutos",
     "Segundos",
-    "Segundo temporizador",
+    "2ndo temporizador",
     "Minutos",
     "Segundos",
     "Modo ganador",
