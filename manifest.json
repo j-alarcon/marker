@@ -40,28 +40,28 @@
     },
     {
       "src": "./img/pwa/screenshots/mobile_two_teams.png",
-      "sizes": "720x1437",
+      "sizes": "720x1435",
       "type": "image/png",
       "platform": "narrow",
       "label": "Displaying two teams"
     },
     {
       "src": "./img/pwa/screenshots/mobile_three_teams.png",
-      "sizes": "720x1437",
+      "sizes": "720x1435",
       "type": "image/png",
       "platform": "narrow",
       "label": "Displaying three teams"
     },
     {
       "src": "./img/pwa/screenshots/mobile_six_teams.png",
-      "sizes": "720x1437",
+      "sizes": "720x1435",
       "type": "image/png",
       "platform": "narrow",
       "label": "Displaying six teams"
     },
     {
       "src": "./img/pwa/screenshots/mobile_nine_teams.png",
-      "sizes": "720x1437",
+      "sizes": "720x1435",
       "type": "image/png",
       "platform": "narrow",
       "label": "Displaying nine teams"

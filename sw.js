@@ -15,16 +15,16 @@ if (!self.define) {
         return e;
       })
   );
-  self.define = (n, o) => {
-    const c =
+  self.define = (n, c) => {
+    const o =
       e ||
       ("document" in self ? document.currentScript.src : "") ||
       location.href;
-    if (i[c]) return;
+    if (i[o]) return;
     let r = {};
-    const a = (e) => s(e, c),
-      d = { module: { uri: c }, exports: r, require: a };
-    i[c] = Promise.all(n.map((e) => d[e] || a(e))).then((e) => (o(...e), r));
+    const a = (e) => s(e, o),
+      d = { module: { uri: o }, exports: r, require: a };
+    i[o] = Promise.all(n.map((e) => d[e] || a(e))).then((e) => (c(...e), r));
   };
 }
 define(["./workbox-7e688afb"], function (e) {
@@ -51,7 +51,7 @@ define(["./workbox-7e688afb"], function (e) {
         { url: "css/reset.css", revision: "5f0d731c9c8c5af4020e5e437a490290" },
         {
           url: "css/responsive.css",
-          revision: "f92e2add79d880af8c3ca6a7352ad408",
+          revision: "a5bd2d3bef4cbb70810b54d9ae19ffb3",
         },
         {
           url: "fonts/anton.ttf",
@@ -60,7 +60,7 @@ define(["./workbox-7e688afb"], function (e) {
         { url: "FUNDING.yml", revision: "d71ac27283ed800598bb8fb4b731ff6c" },
         {
           url: "img/favicon.webp",
-          revision: "3aac10bbde61b78119d4169576a65b32",
+          revision: "25f7ca26c06995fcabf7b4ad5dde1251",
         },
         {
           url: "img/icons/burger.svg",
@@ -87,8 +87,8 @@ define(["./workbox-7e688afb"], function (e) {
           revision: "e0ea4c9a93871d30c83981d21a4e51bc",
         },
         {
-          url: "img/logos/penguin_white.png",
-          revision: "58b714df1e969b055d0af96b0cf3ead9",
+          url: "img/logos/penguin_white.webp",
+          revision: "055e603b725c349e0cd46c0d4cc1ee14",
         },
         {
           url: "img/pwa/badges/android_en.png",
@@ -164,21 +164,21 @@ define(["./workbox-7e688afb"], function (e) {
         },
         {
           url: "img/pwa/screenshots/mobile_nine_teams.png",
-          revision: "57e1741c2a3f97e19870a90dbc760a18",
+          revision: "2a5c8197730463778afd36aa8d16315d",
         },
         {
           url: "img/pwa/screenshots/mobile_six_teams.png",
-          revision: "9ec8e52b7106833403fb83c5a760ee9f",
+          revision: "93c3e9da9b99ad6b940516d599eebc4c",
         },
         {
           url: "img/pwa/screenshots/mobile_three_teams.png",
-          revision: "65dfd1265dd30c3f027af7b95bc90040",
+          revision: "5c2d9a92746aa2d78323c0cdd15165ba",
         },
         {
           url: "img/pwa/screenshots/mobile_two_teams.png",
-          revision: "30552280ecc2fba78f28a4d1b81c8f83",
+          revision: "abef1a557deb1b9fcaa49bf825e71b73",
         },
-        { url: "index.html", revision: "25de18ff410ffbadbf92a92b739dfad1" },
+        { url: "index.html", revision: "2684c777381f2ba1c6f90ef408fbc313" },
         { url: "js/main.js", revision: "2ec3ef5ecda47538b79da79ac2e8b626" },
         { url: "js/utility.js", revision: "46b3ea1a98db4d6b7f7d516ccb2ef4d1" },
         {
@@ -191,8 +191,8 @@ define(["./workbox-7e688afb"], function (e) {
         },
         { url: "json/scores.js", revision: "b9c5b2d93288c36b3935727906c35fe2" },
         { url: "json/teams.js", revision: "d5afd27a9adc62975c793ea2346a97fc" },
-        { url: "manifest.json", revision: "38862720530b36866d5dd6af9033b654" },
-        { url: "README.md", revision: "09bd387d66c7abf75e1c4a2763b7133a" },
+        { url: "manifest.json", revision: "abd12cb729e5b5bfadd136953f2c5aed" },
+        { url: "README.md", revision: "04681dffd1eaf7df179bd4da3c68b0f0" },
       ],
       { ignoreURLParametersMatching: [/^utm_/, /^fbclid$/] }
     );
