@@ -178,7 +178,7 @@ define(["./workbox-7e688afb"], function (e) {
           url: "img/pwa/screenshots/mobile_two_teams.png",
           revision: "abef1a557deb1b9fcaa49bf825e71b73",
         },
-        { url: "index.html", revision: "d6ec293225a98f939f53b27bc445c097" },
+        { url: "index.html", revision: "2684c777381f2ba1c6f90ef408fbc313" },
         { url: "js/main.js", revision: "2ec3ef5ecda47538b79da79ac2e8b626" },
         { url: "js/utility.js", revision: "46b3ea1a98db4d6b7f7d516ccb2ef4d1" },
         {
