@@ -32,7 +32,7 @@ if ("serviceWorker" in navigator) {
 }
 
 // All items with text to be translated
-const itemsText = Array.from(document.getElementsByClassName("translate"));
+const itemsTranslate = Array.from(document.getElementsByClassName("translate"));
 
 let mainContainer = document.getElementsByClassName("main-container")[0];
 
@@ -451,7 +451,7 @@ window.onload = () => {
       // Change language on html tag
       document.getElementById("language").lang = p;
       // Fill texts with detected language
-      itemsText.forEach((e, i) => {
+      itemsTranslate.forEach((e, i) => {
         if (e.nodeName === "INPUT") {
           e.value = languages[p][i];
         } else {
