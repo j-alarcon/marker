@@ -31,9 +31,6 @@ if ("serviceWorker" in navigator) {
   });
 }
 
-// All items with text to be translated
-const itemsTranslate = Array.from(document.getElementsByClassName("translate"));
-
 let mainContainer = document.getElementsByClassName("main-container")[0];
 
 let timer;
@@ -161,6 +158,29 @@ function createTeam(color, text, currentTeam) {
     createHTML("div", null, null, null, "right-side", "max-height"),
   ];
 
+  // Need to create separately to add translation at first team
+  let nameTeam = createHTML(
+    "input",
+    null,
+    null,
+    null,
+    "name",
+    "absolute",
+    "text-center",
+    "deactivated",
+    text
+  );
+
+  // Translate if detect a default team name at first team
+  let templateNames = ["EQUIPO 1", "ÉQUIPE 1", "MANNSCHAFT 1", "TEAM 1"];
+  if (currentTeam === 0) {
+    templateNames.forEach((e) => {
+      if (JSON.parse(localStorage.getItem("teams")).teams[0].name === e) {
+        nameTeam.classList.add("translate");
+      }
+    });
+  }
+
   // Create HTML containers with styles
   mainContainer.appendChild(
     appendChilds(
@@ -195,25 +215,16 @@ function createTeam(color, text, currentTeam) {
         ...modifiers
       ),
       createHTML("span", null, null, null, "score"),
-      createHTML(
-        "input",
-        null,
-        null,
-        null,
-        "name",
-        "absolute",
-        "text-center",
-        "deactivated",
-        text
-      )
+      nameTeam
     )
   );
+
   // Increase or decrease score of selected team
   modifiers.forEach((e, i) => {
     e.addEventListener("click", () => {
       try {
         if (i === 1) {
-          // Prevent increment when a team or played have won 
+          // Prevent increment when a team or played have won
           if (Number(localStorage.getItem("currentMaxScore")) !== 0) {
             updatePoints(localStorage.getItem("teams"), currentTeam, "+");
           }
@@ -457,25 +468,6 @@ function updateTimer() {
 
 // Fill default values to empty local data and containers
 window.onload = () => {
-  // Check user navigator language
-  let navigatorLanguage = navigator.language || navigator.userLanguage;
-  // Change text of application if language is registered
-  for (let p in languages) {
-    // We only use the first letters to match variants
-    if (navigatorLanguage.includes(p)) {
-      // Change language on html tag
-      document.getElementById("language").lang = p;
-      // Fill texts with detected language
-      itemsTranslate.forEach((e, i) => {
-        if (e.nodeName === "INPUT") {
-          e.value = languages[p][i];
-        } else {
-          e.innerText = languages[p][i];
-        }
-      });
-    }
-  }
-
   if (!localStorage.getItem("teams")) {
     localStorage.setItem("teams", JSON.stringify(scores));
   }
@@ -495,6 +487,30 @@ window.onload = () => {
     });
     resizeTeams(mainContainer.children, mainContainer.children.length);
   });
+
+  // All items with text to be translated
+  const itemsTranslate = Array.from(
+    document.getElementsByClassName("translate")
+  );
+  // Check user navigator language
+  let navigatorLanguage = navigator.language || navigator.userLanguage;
+  // Change text of application if language is registered
+  for (let p in languages) {
+    // We only use the first letters to match variants
+    if (navigatorLanguage.includes(p)) {
+      // Change language on html tag
+      document.getElementById("language").lang = p;
+      // Fill texts with detected language
+      itemsTranslate.forEach((e, i) => {
+        if (e.nodeName === "INPUT") {
+          e.value = languages[p][i];
+        } else {
+          e.innerText = languages[p][i];
+        }
+      });
+    }
+  }
+
   // Load text of timer buttons
   Array.from(document.getElementsByClassName("button-timer")).forEach(
     (e, i) => {
@@ -547,6 +563,20 @@ window.onload = () => {
 
 // Add team
 document.getElementById("add").addEventListener("click", () => {
+  // Generate different default team names according to languages
+  let nameTeam = "TEAM";
+  switch (document.getElementById("language").lang) {
+    case "es":
+      nameTeam = "EQUIPO";
+      break;
+    case "de":
+      nameTeam = "MANNSCHAFT";
+      break;
+    case "fr":
+      nameTeam = "ÉQUIPE";
+      break;
+  }
+
   try {
     if (mainContainer.children.length < 9) {
       createTeam(
@@ -554,21 +584,20 @@ document.getElementById("add").addEventListener("click", () => {
         teams[mainContainer.children.length].text + "-text",
         mainContainer.children.length
       );
-
       // Fill new containers with a zero and default text
       mainContainer.children[
         mainContainer.children.length - 1
       ].children[1].innerText = 0;
       mainContainer.children[
         mainContainer.children.length - 1
-      ].children[2].value = "TEAM " + mainContainer.children.length;
+      ].children[2].value = nameTeam + " " + mainContainer.children.length;
 
       // Add new item and update JSON file
       localStorage.setItem(
         "teams",
         addItemToJSON(
           localStorage.getItem("teams"),
-          { name: "TEAM " + mainContainer.children.length },
+          { name: nameTeam + " " + mainContainer.children.length },
           { color: teams[mainContainer.children.length - 1].name },
           { text: teams[mainContainer.children.length - 1].text },
           { score: 0 }
