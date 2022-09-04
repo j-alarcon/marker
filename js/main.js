@@ -83,6 +83,7 @@ function updatePoints(currentLocalStorage, currentIteration, operator) {
       currentData.teams[currentIteration].score--;
     }
   }
+  console.log(localStorage.getItem("currentMaxScore"));
   // Upload local storage values
   localStorage.setItem("teams", JSON.stringify(currentData));
   // If both modes are activated, winner mode has priority
@@ -234,7 +235,10 @@ function createTeam(color, text, currentTeam) {
       try {
         if (i === 1) {
           // Prevent increment when a team or played have won
-          if (Number(localStorage.getItem("currentMaxScore")) !== 0) {
+          if (
+            Number(localStorage.getItem("currentMaxScore")) !== 0 ||
+            !JSON.parse(localStorage.getItem("options")).modes[0].status
+          ) {
             updatePoints(localStorage.getItem("teams"), currentTeam, "+");
           }
         } else {
@@ -723,7 +727,6 @@ document.getElementById("submit-changes").addEventListener("click", (e) => {
     fillTimerButtons(JSON.parse(localStorage.getItem("options")));
     fillModeOptions(JSON.parse(localStorage.getItem("options")));
     fillExtraModes(extraModes);
-    window.location.reload();
   } catch (ex) {
     window.location.reload();
   }
