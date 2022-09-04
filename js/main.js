@@ -758,7 +758,11 @@ document.getElementById("reset").addEventListener("click", (e) => {
 });
 
 document.getElementById("edit").addEventListener("click", () => {
-  Array.from(document.getElementsByClassName("name")).forEach((e) => {
+  Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
     e.classList.toggle("deactivated");
+    localStorage.setItem(
+      "teams",
+      updateJSON(localStorage.getItem("teams"), "teams", i, "name", e.value)
+    );
   });
 });
