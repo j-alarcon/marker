@@ -193,7 +193,8 @@ function createTeam(color, text, currentTeam) {
         ),
         ...modifiers
       ),
-      createHTML("span", null, null, null, "score")
+      createHTML("span", null, null, null, "score"),
+      createHTML("span", null, null, null, "name", "absolute")
     )
   );
   // Increase or decrease score of selected team
@@ -473,6 +474,11 @@ window.onload = () => {
     // Retrieve all scores from JSON file
     Array.from(document.getElementsByClassName("score")).forEach((e, i) => {
       e.innerText = JSON.parse(localStorage.getItem("teams")).teams[i].score;
+    });
+    // Retrieve all names from JSON file
+    Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
+      e.innerText = JSON.parse(localStorage.getItem("teams")).teams[i].name;
+      console.log(localStorage.getItem("teams"))
     });
     resizeTeams(mainContainer.children, mainContainer.children.length);
   });

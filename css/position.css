@@ -90,3 +90,11 @@
 .alert {
   z-index: 2;
 }
+
+.name{
+  display: flex;
+  align-items: center;
+  font-size: 13vh;
+  top: 0;
+  height: 35%;
+}
