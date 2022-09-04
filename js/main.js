@@ -202,7 +202,8 @@ function createTeam(color, text, currentTeam) {
         "name",
         "absolute",
         "text-center",
-        "deactivated"
+        "deactivated",
+        text
       )
     )
   );
@@ -549,15 +550,21 @@ document.getElementById("add").addEventListener("click", () => {
         teams[mainContainer.children.length].text + "-text",
         mainContainer.children.length
       );
-      // Fill new containers with a zero
+
+      // Fill new containers with a zero and default text
       mainContainer.children[
         mainContainer.children.length - 1
       ].children[1].innerText = 0;
+      mainContainer.children[
+        mainContainer.children.length - 1
+      ].children[2].value = "TEAM " + mainContainer.children.length;
+
       // Add new item and update JSON file
       localStorage.setItem(
         "teams",
         addItemToJSON(
           localStorage.getItem("teams"),
+          { name: "TEAM " + mainContainer.children.length },
           { color: teams[mainContainer.children.length - 1].name },
           { text: teams[mainContainer.children.length - 1].text },
           { score: 0 }
