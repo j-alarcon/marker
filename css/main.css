@@ -156,6 +156,10 @@ input::-webkit-inner-spin-button {
   font-family: "Anton";
 }
 
+.ubuntu{
+  font-family: "Ubuntu";
+}
+
 .small-fontsize {
   font-size: 1.7vh;
 }
