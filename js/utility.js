@@ -154,7 +154,7 @@ export function deleteLastItemJSON(JSON) {
 
 export function addItemToJSON(JSON, ...objects) {
   let json = JSON.substring(0, JSON.lastIndexOf("]")) + ",{";
-  objects.forEach((e, i) => {
+  objects.forEach((e) => {
     for (let p in e) {
       json += '"' + p + '":';
       typeof e[p] === "string"

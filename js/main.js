@@ -104,6 +104,7 @@ function checkWinner(goal, currentScore, currentTeam) {
   if (currentScore >= localStorage.getItem("currentMaxScore")) {
     localStorage.setItem("currentMaxScore", currentScore);
   }
+
   // Local storage data is string so it needs a conversion to number
   if (Number(localStorage.getItem("currentMaxScore")) === Number(goal)) {
     // Team and background are both white and need a black border
@@ -212,7 +213,10 @@ function createTeam(color, text, currentTeam) {
     e.addEventListener("click", () => {
       try {
         if (i === 1) {
-          updatePoints(localStorage.getItem("teams"), currentTeam, "+");
+          // Prevent increment when a team or played have won 
+          if (Number(localStorage.getItem("currentMaxScore")) !== 0) {
+            updatePoints(localStorage.getItem("teams"), currentTeam, "+");
+          }
         } else {
           updatePoints(localStorage.getItem("teams"), currentTeam, "-");
         }
