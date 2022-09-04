@@ -160,16 +160,6 @@ function createTeam(color, text, currentTeam) {
     createHTML("div", null, null, null, "right-side", "max-height"),
   ];
 
-  let teamName = createHTML(
-    "input",
-    null,
-    null,
-    null,
-    "name",
-    "absolute",
-    "ubuntu"
-  );
-
   // Create HTML containers with styles
   mainContainer.appendChild(
     appendChilds(
@@ -204,7 +194,16 @@ function createTeam(color, text, currentTeam) {
         ...modifiers
       ),
       createHTML("span", null, null, null, "score"),
-      teamName
+      createHTML(
+        "input",
+        null,
+        null,
+        null,
+        "name",
+        "absolute",
+        "text-center",
+        "deactivated"
+      )
     )
   );
   // Increase or decrease score of selected team
@@ -224,11 +223,6 @@ function createTeam(color, text, currentTeam) {
       }
     });
   });
-
-  // Edit name of selected team
-  teamName.addEventListener("click", () => {
-    console.log(teamName);
-  })
 }
 
 // This is utilised to implement dynamic width and height to teams
@@ -754,4 +748,10 @@ document.getElementById("reset").addEventListener("click", (e) => {
   } catch (ex) {
     window.location.reload();
   }
+});
+
+document.getElementById("edit").addEventListener("click", () => {
+  Array.from(document.getElementsByClassName("name")).forEach((e) => {
+    e.classList.toggle("deactivated");
+  });
 });

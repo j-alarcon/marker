@@ -12,6 +12,13 @@
 }
 
 .reset,
+.edit,
+.name {
+  top: 0;
+}
+
+.reset,
+.edit,
 .extra-data-container,
 .alert-container {
   left: 0;
@@ -26,7 +33,8 @@
 .burger-menu,
 .submenu,
 #burger-button,
-.reset {
+.reset,
+.edit {
   z-index: 1;
 }
 
@@ -79,27 +87,10 @@
   position: relative;
 }
 
-.reset {
-  top: 0;
-}
-
 .submenu {
   bottom: 2vh;
 }
 
 .alert {
   z-index: 2;
-}
-
-.name{
-  width: 60vh;
-  color: white;
-  font-size: 11vh;
-  top: 0;
-  text-align: center;
-  height: 35%;
-}
-
-.name:focus{
-  outline: none;
 }

@@ -10,6 +10,11 @@
   width: 4vh;
 }
 
+.reset-icon,
+.edit-icon {
+  width: 2.5vh;
+}
+
 .tiny-square,
 #burger-button {
   height: 4vh;
@@ -140,6 +145,10 @@ input::-webkit-inner-spin-button {
   opacity: 0;
 }
 
+.deactivated {
+  pointer-events: none;
+}
+
 .white-text {
   color: white;
 }
@@ -156,7 +165,7 @@ input::-webkit-inner-spin-button {
   font-family: "Anton";
 }
 
-.ubuntu{
+.ubuntu {
   font-family: "Ubuntu";
 }
 
@@ -192,14 +201,23 @@ input::-webkit-inner-spin-button {
   height: 18%;
 }
 
-.reset-icon {
-  width: 2.5vh;
+.reset {
   margin: 1vh 0 0 1vh;
+}
+
+.edit {
+  margin: 1vh 0 0 4.5vh;
 }
 
 #timer {
   margin-bottom: 2.6vh;
   font-size: 10vh;
+}
+
+.name {
+  width: 60vh;
+  font-size: 11vh;
+  height: 35%;
 }
 
 .submenu {
