@@ -58,6 +58,11 @@ let modeInputs = [
 
 let modeCheckbox = Array.from(document.getElementsByClassName("mode"));
 
+let extraModes = [
+  document.getElementById("showNames"),
+  document.getElementById("download"),
+];
+
 // Set all points to zero
 function resetScores(currentData) {
   currentData.teams.forEach((e) => {
@@ -81,14 +86,14 @@ function updatePoints(currentLocalStorage, currentIteration, operator) {
   // Upload local storage values
   localStorage.setItem("teams", JSON.stringify(currentData));
   // If both modes are activated, winner mode has priority
-  if (modeCheckbox[0].checked) {
+  if (JSON.parse(localStorage.getItem("options")).modes[0].status) {
     checkWinner(
       JSON.parse(localStorage.getItem("options")).modes[0].points,
       currentData.teams[currentIteration].score,
       currentData.teams[currentIteration].color
     );
   }
-  if (modeCheckbox[1].checked) {
+  if (JSON.parse(localStorage.getItem("options")).modes[1].status) {
     checkTotal(
       JSON.parse(localStorage.getItem("options")).modes[1].points,
       currentData.teams
@@ -159,26 +164,30 @@ function createTeam(color, text, currentTeam) {
   ];
 
   // Need to create separately to add translation at first team
-  let nameTeam = createHTML(
-    "input",
-    null,
-    null,
-    null,
-    "name",
-    "absolute",
-    "text-center",
-    "deactivated",
-    text
-  );
-
-  // Translate if detect a default team name at first team
-  let templateNames = ["EQUIPO 1", "ÉQUIPE 1", "MANNSCHAFT 1", "TEAM 1"];
-  if (currentTeam === 0) {
-    templateNames.forEach((e) => {
-      if (JSON.parse(localStorage.getItem("teams")).teams[0].name === e) {
-        nameTeam.classList.add("translate");
-      }
-    });
+  let nameTeam = "";
+  if (document.getElementById("showNames").checked) {
+    nameTeam = createHTML(
+      "input",
+      null,
+      null,
+      null,
+      "name",
+      "absolute",
+      "text-center",
+      "deactivated",
+      text
+    );
+    // Translate if detect a default team name at first team
+    let templateNames = ["EQUIPO 1", "ÉQUIPE 1", "MANNSCHAFT 1", "TEAM 1"];
+    if (currentTeam === 0) {
+      templateNames.forEach((e) => {
+        if (JSON.parse(localStorage.getItem("teams")).teams[0].name === e) {
+          nameTeam.classList.add("translate");
+        }
+      });
+    }
+  } else {
+    nameTeam = createHTML("span", null, null, null);
   }
 
   // Create HTML containers with styles
@@ -377,6 +386,22 @@ function fillModeOptions(currentData) {
   localStorage.setItem("options", JSON.stringify(currentData));
 }
 
+// Deactivate or activate extra options according to selected checkbox
+function fillExtraModes(options) {
+  options.forEach((e) => {
+    let active;
+    try {
+      active = e.checked ? true : false;
+      localStorage.setItem(
+        "options",
+        updateJSON(localStorage.getItem("options"), e.id, null, null, active)
+      );
+    } catch (ex) {
+      window.location.reload();
+    }
+  });
+}
+
 // Activate or deactivate special modes according with boolean
 function changeStatusModes(inputs, options, currentPosition, activate) {
   if (activate) {
@@ -482,9 +507,11 @@ window.onload = () => {
       e.innerText = JSON.parse(localStorage.getItem("teams")).teams[i].score;
     });
     // Retrieve all names from JSON file
-    Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
-      e.value = JSON.parse(localStorage.getItem("teams")).teams[i].name;
-    });
+    if (document.getElementById("showNames").checked) {
+      Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
+        e.value = JSON.parse(localStorage.getItem("teams")).teams[i].name;
+      });
+    }
     resizeTeams(mainContainer.children, mainContainer.children.length);
   });
 
@@ -518,6 +545,7 @@ window.onload = () => {
         JSON.parse(localStorage.getItem("options")).timers[i].minutes + "'";
     }
   );
+
   // Load selected timers
   for (let i = 0; i < timerInputs.length; i++) {
     for (let p in JSON.parse(localStorage.getItem("options")).timers[i]) {
@@ -686,37 +714,6 @@ Array.from(document.getElementsByClassName("mode")).forEach((e, i) =>
   })
 );
 
-// Deactivate or activate download option accordin to selected checkbox
-document.getElementById("download").addEventListener("click", () => {
-  try {
-    if (document.getElementById("download").checked) {
-      localStorage.setItem(
-        "options",
-        updateJSON(
-          localStorage.getItem("options"),
-          "download",
-          null,
-          null,
-          true
-        )
-      );
-    } else {
-      localStorage.setItem(
-        "options",
-        updateJSON(
-          localStorage.getItem("options"),
-          "download",
-          null,
-          null,
-          false
-        )
-      );
-    }
-  } catch (ex) {
-    window.location.reload();
-  }
-});
-
 // Change selected options on burger menu
 document.getElementById("submit-changes").addEventListener("click", (e) => {
   // Don't send the form
@@ -725,6 +722,8 @@ document.getElementById("submit-changes").addEventListener("click", (e) => {
     // Save options
     fillTimerButtons(JSON.parse(localStorage.getItem("options")));
     fillModeOptions(JSON.parse(localStorage.getItem("options")));
+    fillExtraModes(extraModes);
+    window.location.reload();
   } catch (ex) {
     window.location.reload();
   }

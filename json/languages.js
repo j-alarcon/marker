@@ -13,6 +13,7 @@ export default {
     "Modo total",
     "Puntos",
     "Texto personalizado",
+    "Mostrar nombres",
     "Descargar resultados",
     "Guardar",
     "Reiniciar",
@@ -33,12 +34,13 @@ export default {
     "Mode total",
     "Points",
     "Texte personnalisé",
+    "Afficher les noms",
     "Téléchargez les résultats",
     "Sauvegarder",
     "Redémarrer",
     "Version 1.1",
     "23/08/2022",
-    "ÉQUIPE 1" 
+    "ÉQUIPE 1",
   ],
   de: [
     "Optionen",
@@ -53,11 +55,12 @@ export default {
     "Vollmodus",
     "Punkte",
     "Benutzerdefinierter Text",
+    "Namen zeigen",
     "Ergebnisse herunterladen",
     "Speichern",
     "Neu starten",
     "Version 1.1",
     "2022/08/23",
-    "MANNSCHAFT 1"
+    "MANNSCHAFT 1",
   ],
 };

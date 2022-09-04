@@ -21,5 +21,6 @@ export default {
       message: "🎉🚩🥳🔥",
     },
   ],
+  names: false,
   download: false,
 };
