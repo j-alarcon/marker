@@ -92,9 +92,14 @@
 }
 
 .name{
-  display: flex;
-  align-items: center;
-  font-size: 13vh;
+  width: 60vh;
+  color: white;
+  font-size: 11vh;
   top: 0;
+  text-align: center;
   height: 35%;
+}
+
+.name:focus{
+  outline: none;
 }
