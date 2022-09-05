@@ -1,4 +1,5 @@
 /* https://github.com/j-alarcon */
+.edit,
 #burger-button,
 .burger-menu,
 .container-form-buttons,
@@ -12,29 +13,28 @@
 }
 
 .reset,
-.edit,
 .name {
   top: 0;
 }
 
 .reset,
-.edit,
 .extra-data-container,
 .alert-container {
   left: 0;
 }
 
+.edit,
 .burger-menu,
 #burger-button,
 .container-form-buttons {
   right: 0;
 }
 
+.reset,
+.edit,
 .burger-menu,
 .submenu,
-#burger-button,
-.reset,
-.edit {
+#burger-button {
   z-index: 1;
 }
 
