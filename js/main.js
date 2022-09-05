@@ -89,20 +89,14 @@ function updatePoints(currentLocalStorage, currentIteration, operator) {
   // Upload local storage values
   localStorage.setItem("teams", JSON.stringify(currentData));
   // If both modes are activated, winner mode has priority
-  if (
-    JSON.parse(localStorage.getItem("options")).modes[0].status ||
-    modeCheckbox[0].checked
-  ) {
+  if (modeCheckbox[0].checked) {
     checkWinner(
       JSON.parse(localStorage.getItem("options")).modes[0].points,
       currentData.teams[currentIteration].score,
       currentData.teams[currentIteration].color
     );
   }
-  if (
-    JSON.parse(localStorage.getItem("options")).modes[1].status ||
-    modeCheckbox[1].checked
-  ) {
+  if (modeCheckbox[1].checked) {
     checkTotal(
       JSON.parse(localStorage.getItem("options")).modes[1].points,
       currentData.teams
@@ -222,6 +216,7 @@ function createTeam(color, text, currentTeam) {
         "max-width",
         "max-height",
         "medium-fontsize",
+        "overflow-hidden",
         "relative",
         "flex",
         "justify-center",
@@ -252,10 +247,11 @@ function createTeam(color, text, currentTeam) {
   // Increase or decrease score of selected team
   modifiers.forEach((e, i) => {
     e.addEventListener("click", () => {
+      console.log(localStorage.getItem("currentMaxScore"));
       try {
         if (i === 1) {
           // Prevent increment when a team or played have won
-          if (Number(localStorage.getItem("currentMaxScore")) != 10) {
+          if (Number(localStorage.getItem("currentMaxScore")) != 0) {
             updatePoints(localStorage.getItem("teams"), currentTeam, "+");
           }
         } else {
@@ -861,6 +857,9 @@ Array.from(document.getElementsByClassName("mode")).forEach((e, i) =>
     if (e.checked) {
       changeStatusModes(modeInputs[i], null, null, i, true);
     } else {
+      if (i === 0) {
+        localStorage.setItem("currentMaxScore", 1);
+      }
       changeStatusModes(modeInputs[i], null, null, i, false);
     }
   })
