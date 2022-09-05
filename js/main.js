@@ -187,7 +187,9 @@ function createTeam(color, text, currentTeam) {
 
   // Don't show names if option is unchecked
   if (!extraModes[0].checked) {
-    nameTeam.classList.add("hide");
+    nameTeam.classList.add("hidden");
+    // Deactivate edit button
+    document.getElementById("edit").classList.add("hidden");
   }
 
   // Translate if detect a default team name at first team
@@ -585,8 +587,7 @@ window.onload = () => {
       e.value = JSON.parse(localStorage.getItem("teams")).teams[i].name;
       // Don't show names if option is unchecked
       if (!extraModes[0].checked) {
-        console.log("hola");
-        e.classList.add("hide");
+        e.classList.add("hidden");
       }
     });
     resizeTeams(mainContainer.children, mainContainer.children.length);
@@ -761,7 +762,6 @@ Array.from(document.getElementsByClassName("mode")).forEach((e, i) =>
     } else {
       changeStatusModes(modeInputs[i], null, i, false);
     }
-    console.log("SI");
   })
 );
 
@@ -769,12 +769,16 @@ Array.from(document.getElementsByClassName("mode")).forEach((e, i) =>
 extraModes[0].addEventListener("change", () => {
   if (extraModes[0].checked) {
     Array.from(document.getElementsByClassName("name")).forEach((e) => {
-      e.classList.remove("hide");
+      e.classList.remove("hidden");
     });
+    // Activate edit button
+    document.getElementById("edit").classList.remove("hidden");
   } else {
     Array.from(document.getElementsByClassName("name")).forEach((e) => {
-      e.classList.add("hide");
+      e.classList.add("hidden");
     });
+    // Deactivate edit button
+    document.getElementById("edit").classList.add("hidden");
   }
 });
 

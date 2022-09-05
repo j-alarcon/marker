@@ -112,10 +112,6 @@ input::-webkit-inner-spin-button {
   background-color: #181818;
 }
 
-.hide {
-  display: none;
-}
-
 .overflow-hidden {
   overflow: hidden;
 }
