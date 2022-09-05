@@ -156,6 +156,10 @@ input::-webkit-inner-spin-button {
   text-align: left;
 }
 
+.mayus{
+  text-transform: uppercase;
+}
+
 .anton {
   font-family: "Anton";
 }

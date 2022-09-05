@@ -182,6 +182,7 @@ function createTeam(color, text, currentTeam) {
     "absolute",
     "text-center",
     "deactivated",
+    "mayus",
     text
   );
 
