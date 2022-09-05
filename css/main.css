@@ -176,6 +176,26 @@ input::-webkit-inner-spin-button {
   font-size: 18vh;
 }
 
+.max-fontsize{
+  font-size: 12vh;
+}
+
+.half-fontsize{
+  font-size: 6.8vh;
+}
+
+.standard-fontsize{
+  font-size: 10vh;
+}
+
+.one-height{
+  height: 40%;
+}
+
+.one-width{
+  width: 70vh;
+}
+
 .max-width {
   width: 100%;
 }
@@ -220,12 +240,6 @@ input::-webkit-inner-spin-button {
 #timer {
   margin-bottom: 2.6vh;
   font-size: 10vh;
-}
-
-.name {
-  width: 60vh;
-  font-size: 11vh;
-  height: 40%;
 }
 
 .submenu {

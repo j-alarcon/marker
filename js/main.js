@@ -172,7 +172,7 @@ function createTeam(color, text, currentTeam) {
     createHTML("div", null, null, null, "right-side", "max-height"),
   ];
 
-  // Need to create separately to add translation at first team
+  // Need to create separately to add new values
   let nameTeam = createHTML(
     "input",
     null,
@@ -185,6 +185,9 @@ function createTeam(color, text, currentTeam) {
     "mayus",
     text
   );
+
+  // Limit max characters
+  nameTeam.maxLength = 12;
 
   // Don't show names if option is unchecked
   if (!extraModes[0].checked) {
@@ -247,7 +250,9 @@ function createTeam(color, text, currentTeam) {
       try {
         if (i === 1) {
           // Prevent increment when a team or played have won
-          updatePoints(localStorage.getItem("teams"), currentTeam, "+");
+          if (Number(localStorage.getItem("currentMaxScore")) != 10) {
+            updatePoints(localStorage.getItem("teams"), currentTeam, "+");
+          }
         } else {
           updatePoints(localStorage.getItem("teams"), currentTeam, "-");
         }
@@ -261,22 +266,26 @@ function createTeam(color, text, currentTeam) {
   });
 }
 
-// This is utilised to implement dynamic width and height to teams
-function resizeTeams(teams, total) {
+// This is utilised to implement dynamic width, height and names to teams
+function resizeTeams(teams, names, total) {
   // Remove all classes from current teams
   removeClasses(teams, 0, teams.length - 1, "width", "height");
+  removeClasses(names, 0, names.length - 1, "width", "height", "fontsize");
   switch (total) {
     // If there is one team
     case 1:
       addClasses(teams, 0, 0, "max-width", "max-height");
+      addClasses(names, 0, 0, "one-width", "one-height", "max-fontsize");
       break;
     // If there are two teams
     case 2:
       addClasses(teams, 0, 1, "half-width", "max-height");
+      addClasses(names, 0, 1, "one-width", "one-height", "standard-fontsize");
       break;
     // If there are three teams
     case 3:
       addClasses(teams, 0, 2, "width-by-three", "max-height");
+      addClasses(names, 0, 2, "one-width", "one-height", "half-fontsize");
       break;
     // If there are four teams
     case 4:
@@ -467,9 +476,6 @@ function changeStatusModes(
       "options",
       updateJSON(options, nameLevel, currentPosition, "status", activate)
     );
-    console.log(
-      updateJSON(options, nameLevel, currentPosition, "status", activate)
-    );
   }
 }
 
@@ -595,7 +601,11 @@ window.onload = () => {
         e.classList.add("hidden");
       }
     });
-    resizeTeams(mainContainer.children, mainContainer.children.length);
+    resizeTeams(
+      mainContainer.children,
+      document.getElementsByClassName("name"),
+      mainContainer.children.length
+    );
   });
 
   // All items with text to be translated
@@ -702,7 +712,11 @@ document.getElementById("add").addEventListener("click", () => {
         )
       );
     }
-    resizeTeams(mainContainer.children, mainContainer.children.length);
+    resizeTeams(
+      mainContainer.children,
+      document.getElementsByClassName("name"),
+      mainContainer.children.length
+    );
   } catch (ex) {
     window.location.reload();
   }
@@ -716,7 +730,11 @@ document.getElementById("delete").addEventListener("click", () => {
         mainContainer.children[mainContainer.children.length - 1]
           .lastElementChild
       );
-      resizeTeams(mainContainer.children, mainContainer.children.length);
+      resizeTeams(
+        mainContainer.children,
+        document.getElementsByClassName("name"),
+        mainContainer.children.length
+      );
       // Delete last item and update JSON file
       localStorage.setItem(
         "teams",
@@ -834,8 +852,6 @@ document.getElementById("form-burger").addEventListener("reset", () => {
     window.location.reload();
   }
 });
-
-console.log(localStorage.getItem("options"));
 
 // Set timer to desired minutes and stop current timer if there was one.
 Array.from(document.getElementsByClassName("button-timer")).forEach((e, i) => {
