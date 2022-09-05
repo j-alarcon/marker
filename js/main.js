@@ -57,6 +57,9 @@ let modeInputs = [
 ];
 
 let modeCheckbox = Array.from(document.getElementsByClassName("mode"));
+let extraModeCheckbox = Array.from(
+  document.getElementsByClassName("extramode")
+);
 
 let extraModes = [
   document.getElementById("showNames"),
@@ -83,18 +86,23 @@ function updatePoints(currentLocalStorage, currentIteration, operator) {
       currentData.teams[currentIteration].score--;
     }
   }
-  console.log(localStorage.getItem("currentMaxScore"));
   // Upload local storage values
   localStorage.setItem("teams", JSON.stringify(currentData));
   // If both modes are activated, winner mode has priority
-  if (JSON.parse(localStorage.getItem("options")).modes[0].status) {
+  if (
+    JSON.parse(localStorage.getItem("options")).modes[0].status ||
+    modeCheckbox[0].checked
+  ) {
     checkWinner(
       JSON.parse(localStorage.getItem("options")).modes[0].points,
       currentData.teams[currentIteration].score,
       currentData.teams[currentIteration].color
     );
   }
-  if (JSON.parse(localStorage.getItem("options")).modes[1].status) {
+  if (
+    JSON.parse(localStorage.getItem("options")).modes[1].status ||
+    modeCheckbox[1].checked
+  ) {
     checkTotal(
       JSON.parse(localStorage.getItem("options")).modes[1].points,
       currentData.teams
@@ -165,30 +173,25 @@ function createTeam(color, text, currentTeam) {
   ];
 
   // Need to create separately to add translation at first team
-  let nameTeam = "";
-  if (document.getElementById("showNames").checked) {
-    nameTeam = createHTML(
-      "input",
-      null,
-      null,
-      null,
-      "name",
-      "absolute",
-      "text-center",
-      "deactivated",
-      text
-    );
-    // Translate if detect a default team name at first team
-    let templateNames = ["EQUIPO 1", "ÉQUIPE 1", "MANNSCHAFT 1", "TEAM 1"];
-    if (currentTeam === 0) {
-      templateNames.forEach((e) => {
-        if (JSON.parse(localStorage.getItem("teams")).teams[0].name === e) {
-          nameTeam.classList.add("translate");
-        }
-      });
-    }
-  } else {
-    nameTeam = createHTML("span", null, null, null);
+  let nameTeam = createHTML(
+    "input",
+    null,
+    null,
+    null,
+    "name",
+    "absolute",
+    "text-center",
+    "deactivated",
+    text
+  );
+  // Translate if detect a default team name at first team
+  let templateNames = ["EQUIPO 1", "ÉQUIPE 1", "MANNSCHAFT 1", "TEAM 1"];
+  if (currentTeam === 0) {
+    templateNames.forEach((e) => {
+      if (JSON.parse(localStorage.getItem("teams")).teams[0].name === e) {
+        nameTeam.classList.add("translate");
+      }
+    });
   }
 
   // Create HTML containers with styles
@@ -235,12 +238,7 @@ function createTeam(color, text, currentTeam) {
       try {
         if (i === 1) {
           // Prevent increment when a team or played have won
-          if (
-            Number(localStorage.getItem("currentMaxScore")) !== 0 ||
-            !JSON.parse(localStorage.getItem("options")).modes[0].status
-          ) {
-            updatePoints(localStorage.getItem("teams"), currentTeam, "+");
-          }
+          updatePoints(localStorage.getItem("teams"), currentTeam, "+");
         } else {
           updatePoints(localStorage.getItem("teams"), currentTeam, "-");
         }
@@ -361,6 +359,31 @@ function fillTimerButtons(currentData) {
   localStorage.setItem("options", JSON.stringify(currentData));
 }
 
+// Deactive or activate modes according to selected checkbox
+function fillModes(modes) {
+  Array.from(modes).forEach((e, i) => {
+    try {
+      if (e.checked) {
+        changeStatusModes(
+          modeInputs[i],
+          localStorage.getItem("options"),
+          i,
+          true
+        );
+      } else {
+        changeStatusModes(
+          modeInputs[i],
+          localStorage.getItem("options"),
+          i,
+          false
+        );
+      }
+    } catch (ex) {
+      window.location.reload();
+    }
+  });
+}
+
 // Storage new values for mode options
 function fillModeOptions(currentData) {
   // Refresh JSON file with new values
@@ -392,13 +415,19 @@ function fillModeOptions(currentData) {
 
 // Deactivate or activate extra options according to selected checkbox
 function fillExtraModes(options) {
-  options.forEach((e) => {
+  options.forEach((e, i) => {
     let active;
     try {
       active = e.checked ? true : false;
       localStorage.setItem(
         "options",
-        updateJSON(localStorage.getItem("options"), e.id, null, null, active)
+        updateJSON(
+          localStorage.getItem("options"),
+          "extraModes",
+          i,
+          "status",
+          active
+        )
       );
     } catch (ex) {
       window.location.reload();
@@ -411,17 +440,23 @@ function changeStatusModes(inputs, options, currentPosition, activate) {
   if (activate) {
     removeClasses(inputs, 0, inputs.length - 1, "disabled");
     activateHTML(...inputs);
-    localStorage.setItem(
-      "options",
-      updateJSON(options, "modes", currentPosition, "status", true)
-    );
+    // Will change JSON only if received
+    if (options) {
+      localStorage.setItem(
+        "options",
+        updateJSON(options, "modes", currentPosition, "status", true)
+      );
+    }
   } else {
     addClasses(inputs, 0, inputs.length - 1, "disabled");
     disableHTML(...inputs);
-    localStorage.setItem(
-      "options",
-      updateJSON(options, "modes", currentPosition, "status", false)
-    );
+    // Will change JSON only if received
+    if (options) {
+      localStorage.setItem(
+        "options",
+        updateJSON(options, "modes", currentPosition, "status", false)
+      );
+    }
   }
 }
 
@@ -511,11 +546,9 @@ window.onload = () => {
       e.innerText = JSON.parse(localStorage.getItem("teams")).teams[i].score;
     });
     // Retrieve all names from JSON file
-    if (document.getElementById("showNames").checked) {
-      Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
-        e.value = JSON.parse(localStorage.getItem("teams")).teams[i].name;
-      });
-    }
+    Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
+      e.value = JSON.parse(localStorage.getItem("teams")).teams[i].name;
+    });
     resizeTeams(mainContainer.children, mainContainer.children.length);
   });
 
@@ -564,6 +597,8 @@ window.onload = () => {
       modeCheckbox[i].checked = true;
       removeClasses(modeInputs[i], 0, modeInputs[i].length - 1, "disabled");
       activateHTML(...modeInputs[i]);
+    } else {
+      modeCheckbox[i].checked = false;
     }
     // Load storaged points
     findElement(modeInputs[i], "points").value = e.points;
@@ -572,6 +607,18 @@ window.onload = () => {
       findElement(modeInputs[i], "message").value = e.message;
     }
   });
+
+  // Activate extramodes at refresh
+  Array.from(JSON.parse(localStorage.getItem("options")).extraModes).forEach(
+    (e, i) => {
+      if (e.status) {
+        extraModeCheckbox[i].checked = true;
+      } else {
+        extraModeCheckbox[i].checked = false;
+      }
+    }
+  );
+
   if (!localStorage.getItem("currentMaxScore")) {
     localStorage.setItem("currentMaxScore", 1);
   }
@@ -693,30 +740,29 @@ document.getElementById("player").addEventListener("click", () => {
   }
 });
 
-// Deactive or activate modes according to selected checkbox
+// Activate or deactivate modes temporary when click
 Array.from(document.getElementsByClassName("mode")).forEach((e, i) =>
   e.addEventListener("click", () => {
-    try {
-      if (e.checked) {
-        changeStatusModes(
-          modeInputs[i],
-          localStorage.getItem("options"),
-          i,
-          true
-        );
-      } else {
-        changeStatusModes(
-          modeInputs[i],
-          localStorage.getItem("options"),
-          i,
-          false
-        );
-      }
-    } catch (ex) {
-      window.location.reload();
+    if (e.checked) {
+      changeStatusModes(modeInputs[i], null, i, true);
+    } else {
+      changeStatusModes(modeInputs[i], null, i, false);
     }
   })
 );
+
+// Hide or Show names according to selected checkbox
+extraModes[0].addEventListener("click", () => {
+  if (extraModes[0].checked) {
+    Array.from(document.getElementsByClassName("name")).forEach((e) => {
+      e.classList.remove("hide");
+    });
+  } else {
+    Array.from(document.getElementsByClassName("name")).forEach((e) => {
+      e.classList.add("hide");
+    });
+  }
+});
 
 // Change selected options on burger menu
 document.getElementById("submit-changes").addEventListener("click", (e) => {
@@ -725,6 +771,7 @@ document.getElementById("submit-changes").addEventListener("click", (e) => {
   try {
     // Save options
     fillTimerButtons(JSON.parse(localStorage.getItem("options")));
+    fillModes(document.getElementsByClassName("mode"));
     fillModeOptions(JSON.parse(localStorage.getItem("options")));
     fillExtraModes(extraModes);
   } catch (ex) {
@@ -739,7 +786,7 @@ document.getElementById("form-burger").addEventListener("reset", () => {
     Array.from(document.getElementsByClassName("mode")).forEach((e, i) => {
       changeStatusModes(
         modeInputs[i],
-        localStorage.getItem("options"),
+        null,
         i,
         false
       );

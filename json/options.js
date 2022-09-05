@@ -15,12 +15,18 @@ export default {
       status: false,
       points: 20,
     },
-    {
+    { 
       status: false,
       points: 7,
       message: "🎉🚩🥳🔥",
     },
   ],
-  names: false,
-  download: false,
+  extraModes: [
+    {
+      status: false,
+    },
+    {
+      status: false,
+    },
+  ],
 };
