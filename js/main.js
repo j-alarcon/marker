@@ -196,6 +196,11 @@ function createTeam(color, text, currentTeam) {
     document.getElementById("edit").classList.add("hidden");
   }
 
+  // Reset edit button
+  Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
+    e.classList.add("deactivated");
+  });
+
   // Translate if detect a default team name at first team
   let templateNames = ["EQUIPO 1", "ÉQUIPE 1", "MANNSCHAFT 1", "TEAM 1"];
   if (currentTeam === 0) {
@@ -240,7 +245,7 @@ function createTeam(color, text, currentTeam) {
         ...modifiers
       ),
       createHTML("span", null, null, null, "score"),
-      nameTeam,
+      nameTeam
     )
   );
 
@@ -804,6 +809,10 @@ document.getElementById("delete").addEventListener("click", () => {
         document.getElementsByClassName("name"),
         mainContainer.children.length
       );
+      // Reset edit button
+      Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
+        e.classList.add("deactivated");
+      });
       // Delete last item and update JSON file
       localStorage.setItem(
         "teams",
