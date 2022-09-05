@@ -49,6 +49,11 @@ input::-webkit-inner-spin-button {
   -o-appearance: none;
 }
 
+.big-name-fontsize,
+#timer {
+  font-size: 10vh;
+}
+
 .alert,
 .small-alert,
 #t-message,
@@ -156,7 +161,7 @@ input::-webkit-inner-spin-button {
   text-align: left;
 }
 
-.mayus{
+.mayus {
   text-transform: uppercase;
 }
 
@@ -168,48 +173,32 @@ input::-webkit-inner-spin-button {
   font-family: "Ubuntu";
 }
 
-.small-fontsize {
-  font-size: 1.7vh;
-}
-
 .medium-fontsize {
   font-size: 16vh;
 }
 
-.max-name-fontsize{
+.max-name-fontsize {
   font-size: 12vh;
 }
 
-.big-name-fontsize{
-  font-size: 10vh;
-}
-
-.normal-name-fontsize{
+.normal-name-fontsize {
   font-size: 6.8vh;
 }
 
-.small-name-fontsize{
+.small-name-fontsize {
   font-size: 6vh;
 }
 
-.tiny-name-fontsize{
+.special-name-fontsize {
+  font-size: 3vh;
+}
+
+.tiny-name-fontsize {
   font-size: 4vh;
 }
 
-.normal-height{
-  height: 40%;
-}
-
-.medium-height{
-  height: 30%;
-}
-
-.height-scores{
-  margin-top: 6vh;
-}
-
-.special-height{
-  height: 37%;
+.small-fontsize {
+  font-size: 1.7vh;
 }
 
 .max-width {
@@ -228,8 +217,20 @@ input::-webkit-inner-spin-button {
   height: 50%;
 }
 
+.normal-height {
+  height: 40%;
+}
+
 .height-by-three {
   height: 33.33%;
+}
+
+.medium-height {
+  height: 30%;
+}
+
+.special-height {
+  height: 25%;
 }
 
 .top-container {
@@ -241,7 +242,8 @@ input::-webkit-inner-spin-button {
 }
 
 .reset-icon {
-  width: 2.5vh;
+  width: 3vh;
+  height: 3vh;
 }
 
 .edit {
@@ -255,7 +257,6 @@ input::-webkit-inner-spin-button {
 
 #timer {
   margin-bottom: 2.6vh;
-  font-size: 10vh;
 }
 
 .submenu {

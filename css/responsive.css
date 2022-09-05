@@ -10,6 +10,22 @@
     font-size: 13vh;
   }
 
+  .max-name-fontsize {
+    font-size: 8.5vh;
+  }
+
+  .small-name-fontsize {
+    font-size: 3.5vh;
+  }
+
+  .tiny-name-fontsize {
+    font-size: 3.5vh;
+  }
+
+  .special-height {
+    height: 30%;
+  }
+
   .reset-icon {
     width: 3vh;
   }
@@ -48,12 +64,32 @@
 }
 
 @media screen and (max-width: 600px) {
+  .normal-name-fontsize {
+    font-size: 3.5vh;
+  }
+
+  .tiny-name-fontsize {
+    font-size: 2.7vh;
+  }
+
   .small-fontsize {
     font-size: 1.9vh;
   }
 
   .medium-fontsize {
     font-size: 11vh;
+  }
+
+  .max-name-fontsize {
+    font-size: 7vh;
+  }
+
+  .small-name-fontsize {
+    font-size: 2.5vh;
+  }
+
+  .special-name-fontsize {
+    font-size: 2.4vh;
   }
 
   .submenu {
