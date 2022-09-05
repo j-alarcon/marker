@@ -184,6 +184,12 @@ function createTeam(color, text, currentTeam) {
     "deactivated",
     text
   );
+
+  // Don't show names if option is unchecked
+  if (!extraModes[0].checked) {
+    nameTeam.classList.add("hide");
+  }
+
   // Translate if detect a default team name at first team
   let templateNames = ["EQUIPO 1", "ÉQUIPE 1", "MANNSCHAFT 1", "TEAM 1"];
   if (currentTeam === 0) {
@@ -538,6 +544,35 @@ window.onload = () => {
   if (!localStorage.getItem("options")) {
     localStorage.setItem("options", JSON.stringify(options));
   }
+
+  // Activate modes at refresh and load parameters
+  JSON.parse(localStorage.getItem("options")).modes.forEach((e, i) => {
+    if (e.status) {
+      modeCheckbox[i].checked = true;
+      removeClasses(modeInputs[i], 0, modeInputs[i].length - 1, "disabled");
+      activateHTML(...modeInputs[i]);
+    } else {
+      modeCheckbox[i].checked = false;
+    }
+    // Load storaged points
+    findElement(modeInputs[i], "points").value = e.points;
+    // Load storaged message only if exists
+    if (findElement(modeInputs[i], "message") != -1) {
+      findElement(modeInputs[i], "message").value = e.message;
+    }
+  });
+
+  // Activate extramodes at refresh
+  Array.from(JSON.parse(localStorage.getItem("options")).extraModes).forEach(
+    (e, i) => {
+      if (e.status) {
+        extraModeCheckbox[i].checked = true;
+      } else {
+        extraModeCheckbox[i].checked = false;
+      }
+    }
+  );
+
   // Load all teams storaged in local
   JSON.parse(localStorage.getItem("teams")).teams.forEach((e, i) => {
     createTeam(e.color, e.text + "-text", i);
@@ -548,6 +583,11 @@ window.onload = () => {
     // Retrieve all names from JSON file
     Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
       e.value = JSON.parse(localStorage.getItem("teams")).teams[i].name;
+      // Don't show names if option is unchecked
+      if (!extraModes[0].checked) {
+        console.log("hola");
+        e.classList.add("hide");
+      }
     });
     resizeTeams(mainContainer.children, mainContainer.children.length);
   });
@@ -591,33 +631,6 @@ window.onload = () => {
       ).timers[i][p];
     }
   }
-  // Activate modes at refresh and load parameters
-  JSON.parse(localStorage.getItem("options")).modes.forEach((e, i) => {
-    if (e.status) {
-      modeCheckbox[i].checked = true;
-      removeClasses(modeInputs[i], 0, modeInputs[i].length - 1, "disabled");
-      activateHTML(...modeInputs[i]);
-    } else {
-      modeCheckbox[i].checked = false;
-    }
-    // Load storaged points
-    findElement(modeInputs[i], "points").value = e.points;
-    // Load storaged message only if exists
-    if (findElement(modeInputs[i], "message") != -1) {
-      findElement(modeInputs[i], "message").value = e.message;
-    }
-  });
-
-  // Activate extramodes at refresh
-  Array.from(JSON.parse(localStorage.getItem("options")).extraModes).forEach(
-    (e, i) => {
-      if (e.status) {
-        extraModeCheckbox[i].checked = true;
-      } else {
-        extraModeCheckbox[i].checked = false;
-      }
-    }
-  );
 
   if (!localStorage.getItem("currentMaxScore")) {
     localStorage.setItem("currentMaxScore", 1);
@@ -742,17 +755,18 @@ document.getElementById("player").addEventListener("click", () => {
 
 // Activate or deactivate modes temporary when click
 Array.from(document.getElementsByClassName("mode")).forEach((e, i) =>
-  e.addEventListener("click", () => {
+  e.addEventListener("change", () => {
     if (e.checked) {
       changeStatusModes(modeInputs[i], null, i, true);
     } else {
       changeStatusModes(modeInputs[i], null, i, false);
     }
+    console.log("SI");
   })
 );
 
 // Hide or Show names according to selected checkbox
-extraModes[0].addEventListener("click", () => {
+extraModes[0].addEventListener("change", () => {
   if (extraModes[0].checked) {
     Array.from(document.getElementsByClassName("name")).forEach((e) => {
       e.classList.remove("hide");
@@ -786,7 +800,7 @@ document.getElementById("form-burger").addEventListener("reset", () => {
     Array.from(document.getElementsByClassName("mode")).forEach((e, i) => {
       changeStatusModes(
         modeInputs[i],
-        null,
+        localStorage.getItem("options"),
         i,
         false
       );
@@ -795,6 +809,7 @@ document.getElementById("form-burger").addEventListener("reset", () => {
     Array.from(document.getElementsByClassName("error")).forEach((e) => {
       e.classList.remove("error");
     });
+    window.location.reload();
   } catch (ex) {
     window.location.reload();
   }
