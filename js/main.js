@@ -267,54 +267,68 @@ function createTeam(color, text, currentTeam) {
 }
 
 // This is utilised to implement dynamic width, height and names to teams
-function resizeTeams(teams, names, total) {
-  // Remove all classes from current teams
+function resizeTeams(teams, names, scores, total) {
+  let x = "height";
+  if(document.getElementById("showNames").checked){
+    x = "height-scores";
+  }
+    // Remove all classes from current teams
   removeClasses(teams, 0, teams.length - 1, "width", "height");
   removeClasses(names, 0, names.length - 1, "width", "height", "fontsize");
+  removeClasses(scores, 0, names.length - 1, "height");
   switch (total) {
     // If there is one team
     case 1:
       addClasses(teams, 0, 0, "max-width", "max-height");
-      addClasses(names, 0, 0, "one-width", "one-height", "max-fontsize");
+      addClasses(names, 0, 0, "normal-width", "normal-height", "max-name-fontsize");
       break;
     // If there are two teams
     case 2:
       addClasses(teams, 0, 1, "half-width", "max-height");
-      addClasses(names, 0, 1, "one-width", "one-height", "standard-fontsize");
+      addClasses(names, 0, 1, "normal-width", "normal-height", "normal-name-fontsize");
       break;
     // If there are three teams
     case 3:
       addClasses(teams, 0, 2, "width-by-three", "max-height");
-      addClasses(names, 0, 2, "one-width", "one-height", "half-fontsize");
+      addClasses(names, 0, 2, "normal-width", "normal-height", "small-name-fontsize");
       break;
     // If there are four teams
     case 4:
       addClasses(teams, 0, 3, "half-width", "half-height");
+      addClasses(names, 0, 3, "normal-width", "medium-height", "tiny-name-fontsize");
       break;
     // If there are five teams
     case 5:
       // In this case, there two different layouts inside
       addClasses(teams, 0, 2, "width-by-three", "half-height");
       addClasses(teams, 3, 4, "half-width", "half-height");
+      addClasses(names, 0, 4, "normal-width", "medium-height", "tiny-name-fontsize");
       break;
     // If there are six teams
     case 6:
       addClasses(teams, 0, 5, "width-by-three", "half-height");
+      addClasses(names, 0, 5, "normal-width", "medium-height", "tiny-name-fontsize");
       break;
     // If there are seven teams
     case 7:
       // In this case, there two different layouts inside
       addClasses(teams, 0, 2, "width-by-three", "height-by-three");
       addClasses(teams, 3, 6, "half-width", "height-by-three");
+      addClasses(names, 0, 6, "normal-width", "special-height", "tiny-name-fontsize");
+      addClasses(scores, 0, 6, x);
       break;
     // If there are eight teams
     case 8:
       addClasses(teams, 0, 5, "width-by-three", "height-by-three");
       addClasses(teams, 6, 7, "half-width", "height-by-three");
+      addClasses(names, 0, 7, "normal-width", "special-height", "tiny-name-fontsize");
+      addClasses(scores, 0, 7, x);
       break;
     // If there are nine teams
     default:
       addClasses(teams, 0, 8, "width-by-three", "height-by-three");
+      addClasses(names, 0, 8, "normal-width", "special-height", "tiny-name-fontsize");
+      addClasses(scores, 0, 8, x);
       break;
   }
 }
@@ -604,6 +618,7 @@ window.onload = () => {
     resizeTeams(
       mainContainer.children,
       document.getElementsByClassName("name"),
+      document.getElementsByClassName("score"),
       mainContainer.children.length
     );
   });
@@ -715,6 +730,7 @@ document.getElementById("add").addEventListener("click", () => {
     resizeTeams(
       mainContainer.children,
       document.getElementsByClassName("name"),
+      document.getElementsByClassName("score"),
       mainContainer.children.length
     );
   } catch (ex) {
@@ -733,6 +749,7 @@ document.getElementById("delete").addEventListener("click", () => {
       resizeTeams(
         mainContainer.children,
         document.getElementsByClassName("name"),
+        document.getElementsByClassName("score"),
         mainContainer.children.length
       );
       // Delete last item and update JSON file

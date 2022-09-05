@@ -173,27 +173,43 @@ input::-webkit-inner-spin-button {
 }
 
 .medium-fontsize {
-  font-size: 18vh;
+  font-size: 16vh;
 }
 
-.max-fontsize{
+.max-name-fontsize{
   font-size: 12vh;
 }
 
-.half-fontsize{
-  font-size: 6.8vh;
-}
-
-.standard-fontsize{
+.big-name-fontsize{
   font-size: 10vh;
 }
 
-.one-height{
+.normal-name-fontsize{
+  font-size: 6.8vh;
+}
+
+.small-name-fontsize{
+  font-size: 6vh;
+}
+
+.tiny-name-fontsize{
+  font-size: 4vh;
+}
+
+.normal-height{
   height: 40%;
 }
 
-.one-width{
-  width: 70vh;
+.medium-height{
+  height: 30%;
+}
+
+.height-scores{
+  margin-top: 6vh;
+}
+
+.special-height{
+  height: 37%;
 }
 
 .max-width {
