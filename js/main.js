@@ -376,6 +376,7 @@ function fillModes(modes) {
         changeStatusModes(
           modeInputs[i],
           localStorage.getItem("options"),
+          "modes",
           i,
           true
         );
@@ -383,6 +384,7 @@ function fillModes(modes) {
         changeStatusModes(
           modeInputs[i],
           localStorage.getItem("options"),
+          "modes",
           i,
           false
         );
@@ -445,27 +447,29 @@ function fillExtraModes(options) {
 }
 
 // Activate or deactivate special modes according with boolean
-function changeStatusModes(inputs, options, currentPosition, activate) {
+function changeStatusModes(
+  inputs,
+  options,
+  nameLevel,
+  currentPosition,
+  activate
+) {
   if (activate) {
     removeClasses(inputs, 0, inputs.length - 1, "disabled");
     activateHTML(...inputs);
-    // Will change JSON only if received
-    if (options) {
-      localStorage.setItem(
-        "options",
-        updateJSON(options, "modes", currentPosition, "status", true)
-      );
-    }
   } else {
     addClasses(inputs, 0, inputs.length - 1, "disabled");
     disableHTML(...inputs);
-    // Will change JSON only if received
-    if (options) {
-      localStorage.setItem(
-        "options",
-        updateJSON(options, "modes", currentPosition, "status", false)
-      );
-    }
+  }
+  // Will change JSON only if received
+  if (options) {
+    localStorage.setItem(
+      "options",
+      updateJSON(options, nameLevel, currentPosition, "status", activate)
+    );
+    console.log(
+      updateJSON(options, nameLevel, currentPosition, "status", activate)
+    );
   }
 }
 
@@ -759,9 +763,9 @@ document.getElementById("player").addEventListener("click", () => {
 Array.from(document.getElementsByClassName("mode")).forEach((e, i) =>
   e.addEventListener("change", () => {
     if (e.checked) {
-      changeStatusModes(modeInputs[i], null, i, true);
+      changeStatusModes(modeInputs[i], null, null, i, true);
     } else {
-      changeStatusModes(modeInputs[i], null, i, false);
+      changeStatusModes(modeInputs[i], null, null, i, false);
     }
   })
 );
@@ -806,6 +810,17 @@ document.getElementById("form-burger").addEventListener("reset", () => {
       changeStatusModes(
         modeInputs[i],
         localStorage.getItem("options"),
+        "modes",
+        i,
+        false
+      );
+    });
+    // Deactive extramodes
+    Array.from(document.getElementsByClassName("extramode")).forEach((e, i) => {
+      changeStatusModes(
+        modeInputs[i],
+        localStorage.getItem("options"),
+        "extraModes",
         i,
         false
       );
@@ -819,6 +834,8 @@ document.getElementById("form-burger").addEventListener("reset", () => {
     window.location.reload();
   }
 });
+
+console.log(localStorage.getItem("options"));
 
 // Set timer to desired minutes and stop current timer if there was one.
 Array.from(document.getElementsByClassName("button-timer")).forEach((e, i) => {
