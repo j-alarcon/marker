@@ -201,7 +201,7 @@ function createTeam(color, text, currentTeam, onLoad) {
     "absolute",
     "text-center",
     "deactivated",
-    "mayus",
+    "upper",
     text
   );
 

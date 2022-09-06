@@ -10,6 +10,11 @@
   width: 4vh;
 }
 
+.reset-icon,
+.burger-icon {
+  width: 3vh;
+}
+
 .tiny-square,
 #burger-button {
   height: 4vh;
@@ -43,10 +48,12 @@
 }
 
 /* Hide spinbox from input number in browsers */
+.hidden-webstyles,
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   -o-appearance: none;
+  -moz-appearance: none;
 }
 
 .big-name-fontsize,
@@ -121,12 +128,6 @@ input::-webkit-inner-spin-button {
   overflow: hidden;
 }
 
-.hidden-webstyles {
-  -webkit-appearance: none;
-  -o-appearance: none;
-  -moz-appearance: none;
-}
-
 .radius-button {
   border-radius: 0.7vh;
 }
@@ -161,7 +162,7 @@ input::-webkit-inner-spin-button {
   text-align: left;
 }
 
-.mayus {
+.upper {
   text-transform: uppercase;
 }
 
@@ -182,7 +183,7 @@ input::-webkit-inner-spin-button {
 }
 
 .normal-name-fontsize {
-  font-size: 9.3vh;
+  font-size: 9.5vh;
 }
 
 .small-name-fontsize {
@@ -241,18 +242,13 @@ input::-webkit-inner-spin-button {
   margin: 1vh 0 0 1vh;
 }
 
-.reset-icon {
-  width: 3vh;
-  height: 3vh;
-}
-
 .edit {
-  margin-bottom: 2vh;
+  margin-bottom: 1.6vh;
   margin-right: 7vh;
 }
 
 .edit-icon {
-  width: 45px;
+  width: 4.5vh;
 }
 
 #timer {
@@ -269,10 +265,6 @@ input::-webkit-inner-spin-button {
 
 .submenu-fontsize {
   font-size: 2.4vh;
-}
-
-.burger-icon {
-  width: 3vh;
 }
 
 .burger-checkbox:checked ~ .top-container .burger-icon {
