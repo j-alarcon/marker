@@ -19,7 +19,6 @@ export default {
     "Reiniciar",
     "Versión 1.2",
     "07/09/2022",
-    "EQUIPO 1",
   ],
   fr: [
     "Options",
@@ -40,7 +39,6 @@ export default {
     "Redémarrer",
     "Version 1.2",
     "07/09/2022",
-    "ÉQUIPE 1",
   ],
   de: [
     "Optionen",
@@ -61,6 +59,5 @@ export default {
     "Neu starten",
     "Version 1.2",
     "2022/09/07",
-    "MANNSCHAFT 1",
   ],
 };

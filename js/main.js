@@ -32,6 +32,8 @@ if ("serviceWorker" in navigator) {
   });
 }
 
+const templateNames = ["EQUIPO", "ÉQUIPE", "MANNSCHAFT", "TEAM"];
+
 let mainContainer = document.getElementsByClassName("main-container")[0];
 
 let timer;
@@ -105,6 +107,28 @@ function updatePoints(currentLocalStorage, currentIteration, operator) {
   }
 }
 
+// Translate all items with the class translate
+function translatePage(items) {
+  // Check user navigator language
+  let navigatorLanguage = navigator.language || navigator.userLanguage;
+  // Change text of application if language is registered
+  for (let p in languages) {
+    // We only use the first letters to match variants
+    if (navigatorLanguage.includes(p)) {
+      // Change language on html tag
+      document.getElementById("language").lang = p;
+      // Fill texts with detected language
+      items.forEach((e, i) => {
+        if (e.nodeName === "INPUT") {
+          e.value = languages[p][i];
+        } else {
+          e.innerText = languages[p][i];
+        }
+      });
+    }
+  }
+}
+
 // Check if one of the teams have the required points
 function checkWinner(goal, currentScore, currentTeam) {
   if (currentScore >= localStorage.getItem("currentMaxScore")) {
@@ -160,7 +184,7 @@ function checkTotal(goal, teams) {
   }
 }
 
-function createTeam(color, text, currentTeam) {
+function createTeam(color, text, currentTeam, onLoad) {
   // Need to create them separately to add events
   let modifiers = [
     createHTML("div", null, null, null, "left-side", "max-height"),
@@ -187,7 +211,7 @@ function createTeam(color, text, currentTeam) {
   // Don't show names if option is unchecked
   if (!extraModes[0].checked) {
     nameTeam.classList.add("hidden");
-    // Deactivate edit button
+    // Deactivate and reset edit button
     document.getElementById("edit").classList.add("hidden");
   }
 
@@ -195,13 +219,30 @@ function createTeam(color, text, currentTeam) {
   Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
     e.classList.add("deactivated");
   });
+  document.getElementById("edit").children[0].src = "./img/icons/edit.svg";
 
-  // Translate if detect a default team name at first team
-  let templateNames = ["EQUIPO 1", "ÉQUIPE 1", "MANNSCHAFT 1", "TEAM 1"];
-  if (currentTeam === 0) {
+  // Only when previous existed element is being loaded
+  if (onLoad) {
+    // Translate if detect a default team name at first team
     templateNames.forEach((e) => {
-      if (JSON.parse(localStorage.getItem("teams")).teams[0].name === e) {
-        nameTeam.classList.add("translate");
+      if (
+        JSON.parse(localStorage.getItem("teams")).teams[currentTeam].name ===
+        e + " " + (currentTeam + 1)
+      ) {
+        // Generate different default team names according to languages
+        let name = "TEAM";
+        switch (document.getElementById("language").lang) {
+          case "es":
+            name = "EQUIPO";
+            break;
+          case "de":
+            name = "MANNSCHAFT";
+            break;
+          case "fr":
+            name = "ÉQUIPE";
+            break;
+        }
+        nameTeam.value = name + " " + (currentTeam + 1);
       }
     });
   }
@@ -628,6 +669,8 @@ window.onload = () => {
     localStorage.setItem("options", JSON.stringify(options));
   }
 
+  translatePage(Array.from(document.getElementsByClassName("translate")));
+
   // Activate modes at refresh and load parameters
   JSON.parse(localStorage.getItem("options")).modes.forEach((e, i) => {
     if (e.status) {
@@ -655,21 +698,12 @@ window.onload = () => {
       }
     }
   );
-
   // Load all teams storaged in local
   JSON.parse(localStorage.getItem("teams")).teams.forEach((e, i) => {
-    createTeam(e.color, e.text + "-text", i);
+    createTeam(e.color, e.text + "-text", i, true);
     // Retrieve all scores from JSON file
     Array.from(document.getElementsByClassName("score")).forEach((e, i) => {
       e.innerText = JSON.parse(localStorage.getItem("teams")).teams[i].score;
-    });
-    // Retrieve all names from JSON file
-    Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
-      e.value = JSON.parse(localStorage.getItem("teams")).teams[i].name;
-      // Don't show names if option is unchecked
-      if (!extraModes[0].checked) {
-        e.classList.add("hidden");
-      }
     });
     resizeTeams(
       mainContainer.children,
@@ -677,29 +711,6 @@ window.onload = () => {
       mainContainer.children.length
     );
   });
-
-  // All items with text to be translated
-  const itemsTranslate = Array.from(
-    document.getElementsByClassName("translate")
-  );
-  // Check user navigator language
-  let navigatorLanguage = navigator.language || navigator.userLanguage;
-  // Change text of application if language is registered
-  for (let p in languages) {
-    // We only use the first letters to match variants
-    if (navigatorLanguage.includes(p)) {
-      // Change language on html tag
-      document.getElementById("language").lang = p;
-      // Fill texts with detected language
-      itemsTranslate.forEach((e, i) => {
-        if (e.nodeName === "INPUT") {
-          e.value = languages[p][i];
-        } else {
-          e.innerText = languages[p][i];
-        }
-      });
-    }
-  }
 
   // Load text of timer buttons
   Array.from(document.getElementsByClassName("button-timer")).forEach(
@@ -755,41 +766,37 @@ document.getElementById("add").addEventListener("click", () => {
       break;
   }
 
-  try {
-    if (mainContainer.children.length < 9) {
-      createTeam(
-        teams[mainContainer.children.length].name,
-        teams[mainContainer.children.length].text + "-text",
-        mainContainer.children.length
-      );
-      // Fill new containers with a zero and default text
-      mainContainer.children[
-        mainContainer.children.length - 1
-      ].children[1].innerText = 0;
-      mainContainer.children[
-        mainContainer.children.length - 1
-      ].children[2].value = nameTeam + " " + mainContainer.children.length;
-
-      // Add new item and update JSON file
-      localStorage.setItem(
-        "teams",
-        addItemToJSON(
-          localStorage.getItem("teams"),
-          { name: nameTeam + " " + mainContainer.children.length },
-          { color: teams[mainContainer.children.length - 1].name },
-          { text: teams[mainContainer.children.length - 1].text },
-          { score: 0 }
-        )
-      );
-    }
-    resizeTeams(
-      mainContainer.children,
-      document.getElementsByClassName("name"),
+  if (mainContainer.children.length < 9) {
+    createTeam(
+      teams[mainContainer.children.length].name,
+      teams[mainContainer.children.length].text + "-text",
       mainContainer.children.length
     );
-  } catch (ex) {
-    window.location.reload();
+    // Fill new containers with a zero and default text
+    mainContainer.children[
+      mainContainer.children.length - 1
+    ].children[1].innerText = 0;
+    mainContainer.children[
+      mainContainer.children.length - 1
+    ].children[2].value = nameTeam + " " + mainContainer.children.length;
+
+    // Add new item and update JSON file
+    localStorage.setItem(
+      "teams",
+      addItemToJSON(
+        localStorage.getItem("teams"),
+        { name: nameTeam + " " + mainContainer.children.length },
+        { color: teams[mainContainer.children.length - 1].name },
+        { text: teams[mainContainer.children.length - 1].text },
+        { score: 0 }
+      )
+    );
   }
+  resizeTeams(
+    mainContainer.children,
+    document.getElementsByClassName("name"),
+    mainContainer.children.length
+  );
 });
 
 // Delete team
@@ -809,6 +816,7 @@ document.getElementById("delete").addEventListener("click", () => {
       Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
         e.classList.add("deactivated");
       });
+      document.getElementById("edit").children[0].src = "./img/icons/edit.svg";
       // Delete last item and update JSON file
       localStorage.setItem(
         "teams",
@@ -865,6 +873,38 @@ Array.from(document.getElementsByClassName("mode")).forEach((e, i) =>
   })
 );
 
+// Set default team name according to index
+function resetNames(element, currentIndex, fill) {
+  // Insert default names in code
+  if (fill) {
+    // Generate different default team names according to languages
+    let nameTeam = "TEAM";
+    switch (document.getElementById("language").lang) {
+      case "es":
+        nameTeam = "EQUIPO";
+        break;
+      case "de":
+        nameTeam = "MANNSCHAFT";
+        break;
+      case "fr":
+        nameTeam = "ÉQUIPE";
+        break;
+    }
+    element.value = nameTeam + " " + (currentIndex + 1);
+  }
+  // Set default team names in JSON
+  localStorage.setItem(
+    "teams",
+    updateJSON(
+      localStorage.getItem("teams"),
+      "teams",
+      currentIndex,
+      "name",
+      "TEAM " + (currentIndex + 1)
+    )
+  );
+}
+
 // Hide or Show names according to selected checkbox
 extraModes[0].addEventListener("change", () => {
   if (extraModes[0].checked) {
@@ -874,11 +914,15 @@ extraModes[0].addEventListener("change", () => {
     // Activate edit button
     document.getElementById("edit").classList.remove("hidden");
   } else {
-    Array.from(document.getElementsByClassName("name")).forEach((e) => {
+    Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
       e.classList.add("hidden");
+      e.classList.add("deactivated");
+      // Set default team names
+      resetNames(e, i, true);
     });
-    // Deactivate edit button
+    // Deactivate and reset edit button
     document.getElementById("edit").classList.add("hidden");
+    document.getElementById("edit").children[0].src = "./img/icons/edit.svg";
   }
 });
 
@@ -900,29 +944,11 @@ document.getElementById("submit-changes").addEventListener("click", (e) => {
 // Deactive modes when reset form
 document.getElementById("form-burger").addEventListener("reset", () => {
   try {
-    // Deactive modes
-    Array.from(document.getElementsByClassName("mode")).forEach((e, i) => {
-      changeStatusModes(
-        modeInputs[i],
-        localStorage.getItem("options"),
-        "modes",
-        i,
-        false
-      );
-    });
-    // Deactive extramodes
-    Array.from(document.getElementsByClassName("extramode")).forEach((e, i) => {
-      changeStatusModes(
-        modeInputs[i],
-        localStorage.getItem("options"),
-        "extraModes",
-        i,
-        false
-      );
-    });
-    // Disable error outlines
-    Array.from(document.getElementsByClassName("error")).forEach((e) => {
-      e.classList.remove("error");
+    // Reset all values from options
+    localStorage.removeItem("options");
+    // Set default team names
+    Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
+      resetNames(e, i, false);
     });
     window.location.reload();
   } catch (ex) {
