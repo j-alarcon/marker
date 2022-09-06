@@ -26,8 +26,16 @@
     font-size: 3.5vh;
   }
 
+  .normal-height {
+    height: 43.3%;
+  }
+
+  .medium-height {
+    height: 36.5%;
+  }
+
   .special-height {
-    height: 30%;
+    height: 29.6%;
   }
 
   .reset-icon {
@@ -73,7 +81,7 @@
   }
 
   .tiny-name-fontsize {
-    font-size: 2.7vh;
+    font-size: 2.3vh;
   }
 
   .small-fontsize {
@@ -89,11 +97,23 @@
   }
 
   .small-name-fontsize {
-    font-size: 2.5vh;
+    font-size: 2.4vh;
   }
 
   .special-name-fontsize {
-    font-size: 2.4vh;
+    font-size: 2.3vh;
+  }
+
+  .normal-height {
+    height: 44.1%;
+  }
+
+  .medium-height {
+    height: 38.2%;
+  }
+
+  .special-height {
+    height: 32.2%;
   }
 
   .submenu {
