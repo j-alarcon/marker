@@ -995,6 +995,29 @@ document.getElementById("reset").addEventListener("click", (e) => {
   }
 });
 
+document.addEventListener("keydown", (e) => {
+  console.log(document.getElementById("edit").children[0].src);
+  if (
+    e.key === "Enter" &&
+    document.getElementById("edit").children[0].src.includes("save.svg")
+  ) {
+    toggleImage(
+      document.getElementById("edit").children[0],
+      "./img/icons/",
+      "edit.svg",
+      "save.svg"
+    );
+    Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
+      e.classList.toggle("deactivated");
+      e.blur();
+      localStorage.setItem(
+        "teams",
+        updateJSON(localStorage.getItem("teams"), "teams", i, "name", e.value)
+      );
+    });
+  }
+});
+
 document.getElementById("edit").addEventListener("click", () => {
   toggleImage(
     document.getElementById("edit").children[0],
