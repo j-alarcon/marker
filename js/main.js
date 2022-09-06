@@ -4,6 +4,7 @@ import {
   getCurrentTime,
   downloadResults,
   reproduceSound,
+  toggleImage,
   addClasses,
   removeClasses,
   createHTML,
@@ -247,7 +248,6 @@ function createTeam(color, text, currentTeam) {
   // Increase or decrease score of selected team
   modifiers.forEach((e, i) => {
     e.addEventListener("click", () => {
-      console.log(localStorage.getItem("currentMaxScore"));
       try {
         if (i === 1) {
           // Prevent increment when a team or played have won
@@ -970,6 +970,12 @@ document.getElementById("reset").addEventListener("click", (e) => {
 });
 
 document.getElementById("edit").addEventListener("click", () => {
+  toggleImage(
+    document.getElementById("edit").children[0],
+    "./img/icons/",
+    "edit.svg",
+    "save.svg"
+  );
   Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
     e.classList.toggle("deactivated");
     localStorage.setItem(

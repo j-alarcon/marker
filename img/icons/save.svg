@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="300"
+   height="300"
+   viewBox="0 0 79.375005 79.375004"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2 (1:1.2.1+202207142221+cd75a1ee6d)"
+   sodipodi:docname="save.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#000000"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     showguides="true"
+     inkscape:zoom="2"
+     inkscape:cx="195.5"
+     inkscape:cy="128"
+     inkscape:window-width="1920"
+     inkscape:window-height="949"
+     inkscape:window-x="1920"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <sodipodi:guide
+       position="64.048289,51.684965"
+       orientation="1,0"
+       id="guide738"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="51.171558,69.071495"
+       orientation="0,-1"
+       id="guide740"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="51.171558,63.417065"
+       orientation="1,0"
+       id="guide742"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="69.852589,51.684965"
+       orientation="1,0"
+       id="guide744"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="51.171558,63.417065"
+       orientation="0,-1"
+       id="guide746"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="64.048289,51.684965"
+       orientation="0,-1"
+       id="guide748"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="rect447"
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.353341"
+       d="m 51.171555,10.303508 v 5.65443 h -35.84433 v 47.459114 h 48.72106 V 27.690038 h 5.8043 V 69.071492 H 9.522415 V 10.303508 Z" />
+    <g
+       id="g694"
+       transform="matrix(1.3618853,-0.09481709,0.09481709,1.3618853,-21.914722,-14.186952)">
+      <path
+         id="rect453-7-3"
+         style="fill:#ffffff;stroke-width:0.285988"
+         d="m 61.368818,23.449518 2.791198,2.791198 -20.262547,20.067434 -2.49972,-2.888278 z"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         id="rect453-7-5"
+         style="fill:#ffffff;stroke-width:0.214182"
+         d="m 29.630892,37.167873 2.793584,-2.793583 8.609886,8.614658 0.397513,0.397513 22.728141,-17.145745 -21.786456,21.786455 -0.941685,0.941685 z"
+         sodipodi:nodetypes="cccccccc" />
+    </g>
+  </g>
+</svg>

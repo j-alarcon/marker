@@ -8,6 +8,10 @@ export function changeImage(element, url, alt) {
   element.alt = alt;
 }
 
+export function toggleImage(element, url, image1, image2) {
+  (element.src.includes(image1)) ? (element.src = url + image2) : (element.src = url + image1);
+}
+
 export function downloadResults(localValues, fileName) {
   let anchor = document.createElement("a");
   anchor.setAttribute(
