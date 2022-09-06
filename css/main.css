@@ -178,11 +178,11 @@ input::-webkit-inner-spin-button {
 }
 
 .max-name-fontsize {
-  font-size: 12vh;
+  font-size: 11vh;
 }
 
 .normal-name-fontsize {
-  font-size: 6.8vh;
+  font-size: 9.3vh;
 }
 
 .small-name-fontsize {
@@ -194,7 +194,7 @@ input::-webkit-inner-spin-button {
 }
 
 .tiny-name-fontsize {
-  font-size: 4vh;
+  font-size: 5.5vh;
 }
 
 .small-fontsize {
@@ -218,7 +218,7 @@ input::-webkit-inner-spin-button {
 }
 
 .normal-height {
-  height: 40%;
+  height: 41%;
 }
 
 .height-by-three {
@@ -226,11 +226,11 @@ input::-webkit-inner-spin-button {
 }
 
 .medium-height {
-  height: 30%;
+  height: 32%;
 }
 
 .special-height {
-  height: 25%;
+  height: 23%;
 }
 
 .top-container {

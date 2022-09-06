@@ -11,7 +11,11 @@
   }
 
   .max-name-fontsize {
-    font-size: 8.5vh;
+    font-size: 9vh;
+  }
+
+  .normal-name-fontsize {
+    font-size: 5vh;
   }
 
   .small-name-fontsize {
