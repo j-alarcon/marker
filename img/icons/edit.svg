@@ -25,15 +25,31 @@
      inkscape:document-units="mm"
      showgrid="false"
      showguides="true"
-     inkscape:zoom="1.4396184"
-     inkscape:cx="182.6873"
-     inkscape:cy="135.45256"
+     inkscape:zoom="1.0179639"
+     inkscape:cx="47.644124"
+     inkscape:cy="330.07063"
      inkscape:window-width="1920"
      inkscape:window-height="949"
      inkscape:window-x="1920"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1">
+    <sodipodi:guide
+       position="12.180055,41.490402"
+       orientation="0,-1"
+       id="guide1571"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="16.03,40.517821"
+       orientation="1,0"
+       id="guide1573"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="21.8343,41.557479"
+       orientation="1,0"
+       id="guide1575"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
   <defs
      id="defs2" />
   <g
