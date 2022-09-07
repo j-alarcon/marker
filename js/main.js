@@ -243,6 +243,11 @@ function createTeam(color, text, currentTeam, onLoad) {
             break;
         }
         nameTeam.value = name + " " + (currentTeam + 1);
+      } else {
+        // Set saved team names
+        nameTeam.value = JSON.parse(localStorage.getItem("teams")).teams[
+          currentTeam
+        ].name;
       }
     });
   }
@@ -1012,7 +1017,13 @@ document.addEventListener("keydown", (e) => {
       e.blur();
       localStorage.setItem(
         "teams",
-        updateJSON(localStorage.getItem("teams"), "teams", i, "name", e.value)
+        updateJSON(
+          localStorage.getItem("teams"),
+          "teams",
+          i,
+          "name",
+          e.value.toUpperCase()
+        )
       );
     });
   }
@@ -1029,7 +1040,13 @@ document.getElementById("edit").addEventListener("click", () => {
     e.classList.toggle("deactivated");
     localStorage.setItem(
       "teams",
-      updateJSON(localStorage.getItem("teams"), "teams", i, "name", e.value)
+      updateJSON(
+        localStorage.getItem("teams"),
+        "teams",
+        i,
+        "name",
+        e.value.toUpperCase()
+      )
     );
   });
 });
