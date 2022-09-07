@@ -3,6 +3,16 @@ export function formatNumber(number) {
   return number < 10 ? "0" + number : number;
 }
 
+export function maxLengthInput(inputs, maxLength) {
+  inputs.forEach((e) => {
+    e.addEventListener("keypress", (k) => {
+      if (e.value.length === maxLength) {
+        k.preventDefault();
+      }
+    });
+  });
+}
+
 export function changeImage(element, url, alt) {
   element.src = url;
   element.alt = alt;

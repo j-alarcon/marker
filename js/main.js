@@ -9,6 +9,7 @@ import {
   removeClasses,
   createHTML,
   appendChilds,
+  maxLengthInput,
   deleteLastItemJSON,
   addItemToJSON,
   changeImage,
@@ -974,11 +975,15 @@ document.getElementById("reset").addEventListener("click", (e) => {
 
 // Edit use
 document.getElementById("edit").addEventListener("click", () => {
+  // Avoid user to type more than 12 characters
+  maxLengthInput(Array.from(document.getElementsByClassName("name")), 12);
   editTeam(true);
 });
 
 // Check every time any key pressed
 document.addEventListener("keydown", (e) => {
+  // Avoid user to type more than 12 characters
+  maxLengthInput(Array.from(document.getElementsByClassName("name")), 12);
   // Only when user can save text
   editTeam(
     e.key === "Enter" &&
