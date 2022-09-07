@@ -10,11 +10,6 @@
   width: 4vh;
 }
 
-.reset-icon,
-.burger-icon {
-  width: 3vh;
-}
-
 .tiny-square,
 #burger-button {
   height: 4vh;
@@ -242,29 +237,33 @@ input::-webkit-inner-spin-button {
   margin: 1vh 0 0 1vh;
 }
 
+.reset-icon {
+  width: 3.5vh;
+}
+
 .edit {
-  margin-bottom: 1.6vh;
-  margin-right: 7vh;
+  margin-bottom: 1.3vh;
+  margin-right: 8vh;
 }
 
 .edit-icon {
-  width: 4.5vh;
+  width: 5.8vh;
 }
 
 #timer {
-  margin-bottom: 2.6vh;
+  margin-bottom: 4vh;
 }
 
 .submenu {
-  width: 19vh;
+  width: 21vh;
 }
 
 .icon-submenu {
-  width: 2.4vh;
+  width: 2.6vh;
 }
 
 .submenu-fontsize {
-  font-size: 2.4vh;
+  font-size: 2.9vh;
 }
 
 .burger-checkbox:checked ~ .top-container .burger-icon {
@@ -272,8 +271,17 @@ input::-webkit-inner-spin-button {
 }
 
 .burger-menu {
-  width: 50vh;
+  width: 60vh;
   padding: 0.5vh 2vh 0.5vh 2vh;
+}
+
+.burger-icon {
+  width: 3.7vh;
+}
+
+#burger-button {
+  width: 4.5vh;
+  height: 4.5vh;
 }
 
 .form-burger {
