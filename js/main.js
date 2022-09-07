@@ -33,6 +33,9 @@ if ("serviceWorker" in navigator) {
   });
 }
 
+// Update only when new version is finished
+const currentVersion = 1.2;
+
 const templateNames = ["EQUIPO", "ÉQUIPE", "MANNSCHAFT", "TEAM"];
 
 const mainContainer = document.getElementsByClassName("main-container")[0];
@@ -635,75 +638,87 @@ function updateTimer() {
     formatNumber(localStorage.getItem("seconds"));
 }
 
+// Reset local data when update is up
+window.onbeforeunload = () => {
+  if (Number(localStorage.getItem("currentVersion")) < currentVersion) {
+    localStorage.setItem("currentVersion", currentVersion);
+    localStorage.clear();
+  }
+};
+
 // Fill default values to empty local data and containers
 window.onload = () => {
+  // Prevent old local data to appear and save new version to future refresh
+  if (!localStorage.getItem("currentVersion")) {
+    localStorage.clear();
+    localStorage.setItem("currentVersion", currentVersion);
+  }
   if (!localStorage.getItem("teams")) {
     localStorage.setItem("teams", JSON.stringify(scores));
   }
   if (!localStorage.getItem("options")) {
     localStorage.setItem("options", JSON.stringify(options));
   }
-
   translatePage(Array.from(document.getElementsByClassName("translate")));
 
   // Activate modes at refresh and load parameters
-    JSON.parse(localStorage.getItem("options")).modes.forEach((e, i) => {
+  JSON.parse(localStorage.getItem("options")).modes.forEach((e, i) => {
+    if (e.status) {
+      modeCheckbox[i].checked = true;
+      removeClasses(modeInputs[i], 0, modeInputs[i].length - 1, "disabled");
+      activateHTML(...modeInputs[i]);
+    } else {
+      modeCheckbox[i].checked = false;
+    }
+    // Load storaged points
+    findElement(modeInputs[i], "points").value = e.points;
+    // Load storaged message only if exists
+    if (findElement(modeInputs[i], "message") != -1) {
+      findElement(modeInputs[i], "message").value = e.message;
+    }
+  });
+
+  // Activate extramodes at refresh
+  Array.from(JSON.parse(localStorage.getItem("options")).extraModes).forEach(
+    (e, i) => {
       if (e.status) {
-        modeCheckbox[i].checked = true;
-        removeClasses(modeInputs[i], 0, modeInputs[i].length - 1, "disabled");
-        activateHTML(...modeInputs[i]);
+        extraModeCheckbox[i].checked = true;
       } else {
-        modeCheckbox[i].checked = false;
-      }
-      // Load storaged points
-      findElement(modeInputs[i], "points").value = e.points;
-      // Load storaged message only if exists
-      if (findElement(modeInputs[i], "message") != -1) {
-        findElement(modeInputs[i], "message").value = e.message;
-      }
-    });
-
-    // Activate extramodes at refresh
-    Array.from(JSON.parse(localStorage.getItem("options")).extraModes).forEach(
-      (e, i) => {
-        if (e.status) {
-          extraModeCheckbox[i].checked = true;
-        } else {
-          extraModeCheckbox[i].checked = false;
-        }
-      }
-    );
-
-    // Load all teams storaged in local
-    JSON.parse(localStorage.getItem("teams")).teams.forEach((e, i) => {
-      createTeam(e.color, e.text + "-text", i, true);
-      // Retrieve all scores from JSON file
-      Array.from(document.getElementsByClassName("score")).forEach((e, i) => {
-        e.innerText = JSON.parse(localStorage.getItem("teams")).teams[i].score;
-      });
-      resizeTeams(
-        mainContainer.children,
-        document.getElementsByClassName("name"),
-        mainContainer.children.length
-      );
-    });
-
-    // Load text of timer buttons
-    Array.from(document.getElementsByClassName("button-timer")).forEach(
-      (e, i) => {
-        e.innerText =
-          JSON.parse(localStorage.getItem("options")).timers[i].minutes + "'";
-      }
-    );
-
-    // Load selected timers
-    for (let i = 0; i < timerInputs.length; i++) {
-      for (let p in JSON.parse(localStorage.getItem("options")).timers[i]) {
-        timerInputs[i][p].value = JSON.parse(
-          localStorage.getItem("options")
-        ).timers[i][p];
+        extraModeCheckbox[i].checked = false;
       }
     }
+  );
+
+  // Load all teams storaged in local
+  JSON.parse(localStorage.getItem("teams")).teams.forEach((e, i) => {
+    createTeam(e.color, e.text + "-text", i, true);
+    // Retrieve all scores from JSON file
+    Array.from(document.getElementsByClassName("score")).forEach((e, i) => {
+      e.innerText = JSON.parse(localStorage.getItem("teams")).teams[i].score;
+    });
+    resizeTeams(
+      mainContainer.children,
+      document.getElementsByClassName("name"),
+      mainContainer.children.length
+    );
+  });
+
+  // Load text of timer buttons
+  Array.from(document.getElementsByClassName("button-timer")).forEach(
+    (e, i) => {
+      e.innerText =
+        JSON.parse(localStorage.getItem("options")).timers[i].minutes + "'";
+    }
+  );
+
+  // Load selected timers
+  for (let i = 0; i < timerInputs.length; i++) {
+    for (let p in JSON.parse(localStorage.getItem("options")).timers[i]) {
+      timerInputs[i][p].value = JSON.parse(
+        localStorage.getItem("options")
+      ).timers[i][p];
+    }
+  }
 
   if (!localStorage.getItem("currentMaxScore")) {
     localStorage.setItem("currentMaxScore", 1);
