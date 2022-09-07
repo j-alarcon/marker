@@ -452,6 +452,7 @@ async function generateAlert(message, isHTML, mainClass) {
 
 // Storage new values for timer buttons and change texts
 function fillTimerButtons(currentData) {
+  const data = ["minutes", "seconds"];
   for (let i = 0; i < timerInputs.length; i++) {
     for (let p in currentData.timers[i]) {
       // Add or remove red outlines to indicate user when info is wrong
@@ -462,6 +463,17 @@ function fillTimerButtons(currentData) {
         timerInputs[i][p].classList.add("error");
       }
     }
+    // Update local values
+    localStorage.setItem(
+      "options",
+      updateJSON(
+        localStorage.getItem("options"),
+        "timers",
+        i,
+        data[i],
+        currentData.timers[i].minutes
+      )
+    );
     // Change text of button or refresh if value was wrong
     Array.from(document.getElementsByClassName("button-timer"))[i].innerText =
       currentData.timers[i].minutes + "'";
@@ -488,10 +500,9 @@ function fillModes(modes) {
         false
       );
     }
-    window.location.reload();
   });
 }
-
+console.log(localStorage.getItem("options"));
 // Storage new values for mode options
 function fillModeOptions(currentData) {
   // Refresh JSON file with new values
@@ -536,7 +547,6 @@ function fillExtraModes(options) {
         active
       )
     );
-    window.location.reload();
   });
 }
 
@@ -938,17 +948,13 @@ document.getElementById("submit-changes").addEventListener("click", (e) => {
 
 // Deactive modes when reset form
 document.getElementById("form-burger").addEventListener("reset", () => {
-  try {
-    // Reset all values from options
-    localStorage.removeItem("options");
-    // Set default team names
-    Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
-      resetNames(e, i, false);
-    });
-    window.location.reload();
-  } catch (ex) {
-    window.location.reload();
-  }
+  // Reset all values from options
+  localStorage.removeItem("options");
+  // Set default team names
+  Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
+    resetNames(e, i, false);
+  });
+  window.location.reload();
 });
 
 // Set timer to desired minutes and stop current timer if there was one.
