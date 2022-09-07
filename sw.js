@@ -1,8 +1,8 @@
 if (!self.define) {
   let e,
     i = {};
-  const s = (s, n) => (
-    (s = new URL(s + ".js", n).href),
+  const s = (s, c) => (
+    (s = new URL(s + ".js", c).href),
     i[s] ||
       new Promise((i) => {
         if ("document" in self) {
@@ -15,7 +15,7 @@ if (!self.define) {
         return e;
       })
   );
-  self.define = (n, c) => {
+  self.define = (c, n) => {
     const o =
       e ||
       ("document" in self ? document.currentScript.src : "") ||
@@ -24,7 +24,7 @@ if (!self.define) {
     let r = {};
     const a = (e) => s(e, o),
       d = { module: { uri: o }, exports: r, require: a };
-    i[o] = Promise.all(n.map((e) => d[e] || a(e))).then((e) => (c(...e), r));
+    i[o] = Promise.all(c.map((e) => d[e] || a(e))).then((e) => (n(...e), r));
   };
 }
 define(["./workbox-7e688afb"], function (e) {
@@ -43,15 +43,15 @@ define(["./workbox-7e688afb"], function (e) {
           revision: "28ab7cb69f6910b466221f5a82724a89",
         },
         { url: "css/fonts.css", revision: "0b33fd739a0d416da150513f8723ddac" },
-        { url: "css/main.css", revision: "7bba475985e7a8afba26ae9b328cc10e" },
+        { url: "css/main.css", revision: "f9431a0a8236ffa0b652bb3a80bc4886" },
         {
           url: "css/position.css",
-          revision: "1b7a30a61dc38bf892ee9947da060ffc",
+          revision: "d89178db397552fd8bbc569f9cea5e47",
         },
         { url: "css/reset.css", revision: "7a4cb66395098d422e0253fd53e75cf5" },
         {
           url: "css/responsive.css",
-          revision: "a80da9d8718d7f77ed4e5b8057e2cf78",
+          revision: "95abca2eecf14f0e98ff7ad205be5d53",
         },
         {
           url: "fonts/anton.ttf",
@@ -190,21 +190,21 @@ define(["./workbox-7e688afb"], function (e) {
           url: "img/pwa/screenshots/mobile_two_teams.png",
           revision: "abef1a557deb1b9fcaa49bf825e71b73",
         },
-        { url: "index.html", revision: "ab478cf9731083985a400d46d8c9dab0" },
-        { url: "js/main.js", revision: "ebc1e71c2d18c77c8eb2e3908ac27d2a" },
-        { url: "js/utility.js", revision: "7a70971335404e9a099cb6b2797b7921" },
+        { url: "index.html", revision: "02046e6c2af0c03158a7133f598da3a6" },
+        { url: "js/main.js", revision: "c1466b98cb2b1e7f520a30be155ae58e" },
+        { url: "js/utility.js", revision: "261d8ff4bf6e3210d55fe0753455bfe2" },
         {
           url: "json/languages.js",
           revision: "6cc55029e043c8d8e8804e81fa4369be",
         },
         {
           url: "json/options.js",
-          revision: "fed14ace8064ab949813d41281879cef",
+          revision: "b7cb175470cde3dacad3d5c14a5486c1",
         },
         { url: "json/scores.js", revision: "2fab73c81dd02244fd78344d0c3cd886" },
         { url: "json/teams.js", revision: "3ec98c32e02d1e07f446a7350ac26570" },
         { url: "manifest.json", revision: "21083938951107c1492f1c7919ab5166" },
-        { url: "README.md", revision: "04681dffd1eaf7df179bd4da3c68b0f0" },
+        { url: "README.md", revision: "8862e0d132a481b2bf9ee9dc63c1cae6" },
       ],
       { ignoreURLParametersMatching: [/^utm_/, /^fbclid$/] }
     );
