@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="170"
-   height="170"
-   viewBox="0 0 44.979166 44.979167"
+   width="63"
+   height="63"
+   viewBox="0 0 16.66875 16.66875"
    version="1.1"
    id="svg5"
    inkscape:version="1.2 (1:1.2.1+202207142221+cd75a1ee6d)"
@@ -15,25 +15,31 @@
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
      id="namedview7"
-     pagecolor="#ffffff"
+     pagecolor="#000000"
      bordercolor="#000000"
      borderopacity="0.25"
      inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
+     inkscape:pageopacity="0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
      showguides="true"
-     inkscape:zoom="2.0359279"
-     inkscape:cx="75.641186"
-     inkscape:cy="94.305894"
+     inkscape:zoom="8"
+     inkscape:cx="-3.3125"
+     inkscape:cy="25.1875"
      inkscape:window-width="1920"
-     inkscape:window-height="949"
-     inkscape:window-x="1920"
-     inkscape:window-y="27"
+     inkscape:window-height="976"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1">
+    <sodipodi:guide
+       position="25.601553,-1.8170396"
+       orientation="0,-1"
+       id="guide1349"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
   <defs
      id="defs2" />
   <g
@@ -41,12 +47,12 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:#ffffff;fill-opacity:1;stroke-width:0.223779"
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.082445"
        id="rect2626-3-6"
-       width="8.0075865"
-       height="42.665932"
-       x="18.48579"
-       y="1.1566175"
+       width="2.9501736"
+       height="15.719083"
+       x="7.0285106"
+       y="0.47483358"
        ry="0"
        transform="matrix(0,1,1,0,0,0)" />
   </g>

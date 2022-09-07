@@ -17,7 +17,7 @@
 
 .main-container,
 .burger-menu {
-  height: 82%;
+  height: 80%;
 }
 
 .vertical-line,
@@ -49,11 +49,6 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   -o-appearance: none;
   -moz-appearance: none;
-}
-
-.big-name-fontsize,
-#timer {
-  font-size: 10vh;
 }
 
 .alert,
@@ -173,6 +168,10 @@ input::-webkit-inner-spin-button {
   font-size: 16vh;
 }
 
+.big-name-fontsize {
+  font-size: 10vh;
+}
+
 .max-name-fontsize {
   font-size: 11vh;
 }
@@ -230,7 +229,7 @@ input::-webkit-inner-spin-button {
 }
 
 .top-container {
-  height: 18%;
+  height: 20%;
 }
 
 .reset {
@@ -251,7 +250,8 @@ input::-webkit-inner-spin-button {
 }
 
 #timer {
-  margin-bottom: 4vh;
+  font-size: 11vh;
+  margin-bottom: 3.5vh;
 }
 
 .submenu {
