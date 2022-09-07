@@ -1,8 +1,8 @@
 if (!self.define) {
   let e,
     i = {};
-  const s = (s, c) => (
-    (s = new URL(s + ".js", c).href),
+  const s = (s, n) => (
+    (s = new URL(s + ".js", n).href),
     i[s] ||
       new Promise((i) => {
         if ("document" in self) {
@@ -15,7 +15,7 @@ if (!self.define) {
         return e;
       })
   );
-  self.define = (c, n) => {
+  self.define = (n, c) => {
     const o =
       e ||
       ("document" in self ? document.currentScript.src : "") ||
@@ -24,7 +24,7 @@ if (!self.define) {
     let r = {};
     const a = (e) => s(e, o),
       d = { module: { uri: o }, exports: r, require: a };
-    i[o] = Promise.all(c.map((e) => d[e] || a(e))).then((e) => (n(...e), r));
+    i[o] = Promise.all(n.map((e) => d[e] || a(e))).then((e) => (c(...e), r));
   };
 }
 define(["./workbox-7e688afb"], function (e) {
@@ -191,7 +191,7 @@ define(["./workbox-7e688afb"], function (e) {
           revision: "abef1a557deb1b9fcaa49bf825e71b73",
         },
         { url: "index.html", revision: "02046e6c2af0c03158a7133f598da3a6" },
-        { url: "js/main.js", revision: "c1466b98cb2b1e7f520a30be155ae58e" },
+        { url: "js/main.js", revision: "042aae95aec7f0be0fb53d237dbeefaa" },
         { url: "js/utility.js", revision: "261d8ff4bf6e3210d55fe0753455bfe2" },
         {
           url: "json/languages.js",
@@ -199,7 +199,7 @@ define(["./workbox-7e688afb"], function (e) {
         },
         {
           url: "json/options.js",
-          revision: "b7cb175470cde3dacad3d5c14a5486c1",
+          revision: "e672174da5e41594a4d8bb46c9c106f6",
         },
         { url: "json/scores.js", revision: "2fab73c81dd02244fd78344d0c3cd886" },
         { url: "json/teams.js", revision: "3ec98c32e02d1e07f446a7350ac26570" },

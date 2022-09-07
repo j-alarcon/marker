@@ -308,7 +308,6 @@ function createTeam(color, text, currentTeam, onLoad) {
           localStorage.getItem("teams")
         ).teams[currentTeam].score;
       } catch (ex) {
-        localStorage.clear();
         window.location.reload();
       }
     });
@@ -561,7 +560,6 @@ function changeStatusModes(
         updateJSON(options, nameLevel, currentPosition, "status", activate)
       );
     } catch (ex) {
-      localStorage.clear();
       window.location.reload();
     }
   }
@@ -649,7 +647,6 @@ window.onload = () => {
   translatePage(Array.from(document.getElementsByClassName("translate")));
 
   // Activate modes at refresh and load parameters
-  try {
     JSON.parse(localStorage.getItem("options")).modes.forEach((e, i) => {
       if (e.status) {
         modeCheckbox[i].checked = true;
@@ -707,21 +704,17 @@ window.onload = () => {
         ).timers[i][p];
       }
     }
-  } catch (ex) {
-    localStorage.clear();
-    window.location.reload();
-  }
 
   if (!localStorage.getItem("currentMaxScore")) {
     localStorage.setItem("currentMaxScore", 1);
   }
-
   if (!localStorage.getItem("minutes")) {
     localStorage.setItem("minutes", 0);
   }
   if (!localStorage.getItem("seconds")) {
     localStorage.setItem("seconds", 0);
   }
+
   if (localStorage.getItem("timer") === "true") {
     startTimer();
     changeImage(
@@ -807,7 +800,6 @@ document.getElementById("delete").addEventListener("click", () => {
       );
     }
   } catch (ex) {
-    localStorage.clear();
     window.location.reload();
   }
 });
@@ -839,7 +831,6 @@ document.getElementById("player").addEventListener("click", () => {
       );
     }
   } catch (ex) {
-    localStorage.clear();
     window.location.reload();
   }
 });
@@ -890,7 +881,6 @@ function resetNames(element, currentIndex, fill) {
       )
     );
   } catch (ex) {
-    localStorage.clear();
     window.location.reload();
   }
 }
@@ -926,7 +916,6 @@ document.getElementById("submit-changes").addEventListener("click", (e) => {
     fillModeOptions(JSON.parse(localStorage.getItem("options")));
     fillExtraModes(extraModes);
   } catch (ex) {
-    localStorage.clear();
     window.location.reload();
   }
 });
@@ -942,7 +931,6 @@ document.getElementById("form-burger").addEventListener("reset", () => {
     });
     window.location.reload();
   } catch (ex) {
-    localStorage.clear();
     window.location.reload();
   }
 });
@@ -968,7 +956,6 @@ Array.from(document.getElementsByClassName("button-timer")).forEach((e, i) => {
       clearInterval(timer);
       updateTimer();
     } catch (ex) {
-      localStorage.clear();
       window.location.reload();
     }
   });
@@ -983,7 +970,6 @@ document.getElementById("reset").addEventListener("click", (e) => {
     // Reload website
     window.location.reload();
   } catch (ex) {
-    localStorage.clear();
     window.location.reload();
   }
 });

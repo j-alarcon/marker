@@ -2,7 +2,7 @@
 export default {
   timers: [
     {
-      minutes: 15,
+      minutes: 2,
       seconds: 0,
     },
     {
