@@ -4,7 +4,7 @@ Be prepared to convert Reoneo into your regular tool in tournaments, contests or
 
 Each team or player has its own panel, where you can add or decrease the total points by pressing left or right <em>(Top or bottom on tablet/mobile).</em>
 
-You can use a marvellous timer that will indicate the end of the current cycle with a strong sound. In addition, you can customize two buttons with your favourite startup minutes and seconds.
+You can use a marvellous timer that will indicate the end of the current cycle with a strong sound. In addition, you can customize two buttons with your favourite startup time and display team names.
 
 By tapping on the burger menu, you will access the options, where you can also enable modes. <strong>Reoneo has two special modes:</strong>
 
