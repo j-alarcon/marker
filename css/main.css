@@ -342,15 +342,20 @@ input[type="number"] {
 }
 
 .extra-data-container {
-  margin: 0 1vh 0.2vh 1vh;
+  margin: 0 1vh 0.6vh 1vh;
 }
 
 .penguin-logo {
-  margin-top: 0.2vh;
+  margin-top: .6vh;
   width: 5.5vh;
 }
 
 .vertical-line {
   width: 0.2vh;
+  height: 5.5vh;
   margin: 0 1vh 0.2vh 0.6vh;
+}
+
+.text-data-container{
+  margin-bottom: .1vh;
 }
