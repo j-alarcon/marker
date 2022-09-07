@@ -34,11 +34,11 @@ if ("serviceWorker" in navigator) {
 
 const templateNames = ["EQUIPO", "ÉQUIPE", "MANNSCHAFT", "TEAM"];
 
-let mainContainer = document.getElementsByClassName("main-container")[0];
+const mainContainer = document.getElementsByClassName("main-container")[0];
 
 let timer;
 
-let timerInputs = [
+const timerInputs = [
   {
     minutes: document.getElementById("f-minutes"),
     seconds: document.getElementById("f-seconds"),
@@ -49,7 +49,7 @@ let timerInputs = [
   },
 ];
 
-let modeInputs = [
+const modeInputs = [
   [document.getElementById("w-points"), document.getElementById("label-w")],
   [
     document.getElementById("t-points"),
@@ -59,12 +59,12 @@ let modeInputs = [
   ],
 ];
 
-let modeCheckbox = Array.from(document.getElementsByClassName("mode"));
-let extraModeCheckbox = Array.from(
+const modeCheckbox = Array.from(document.getElementsByClassName("mode"));
+const extraModeCheckbox = Array.from(
   document.getElementsByClassName("extramode")
 );
 
-let extraModes = [
+const extraModes = [
   document.getElementById("showNames"),
   document.getElementById("download"),
 ];
@@ -317,121 +317,93 @@ function createTeam(color, text, currentTeam, onLoad) {
 function resizeTeams(teams, names, total) {
   // Remove all classes from current teams
   removeClasses(teams, 0, teams.length - 1, "width", "height");
-  removeClasses(names, 0, names.length - 1, "width", "height", "fontsize");
+  removeClasses(names, 0, names.length - 1, "height", "fontsize");
   switch (total) {
     // If there is one team
     case 1:
       addClasses(teams, 0, 0, "max-width", "max-height");
-      addClasses(
-        names,
-        0,
-        0,
-        "normal-width",
-        "normal-height",
-        "max-name-fontsize"
-      );
+      addClasses(names, 0, 0, "normal-height", "max-name-fontsize");
       break;
     // If there are two teams
     case 2:
       addClasses(teams, 0, 1, "half-width", "max-height");
-      addClasses(
-        names,
-        0,
-        1,
-        "normal-width",
-        "normal-height",
-        "normal-name-fontsize"
-      );
+      addClasses(names, 0, 1, "normal-height", "normal-name-fontsize");
       break;
     // If there are three teams
     case 3:
       addClasses(teams, 0, 2, "width-by-three", "max-height");
-      addClasses(
-        names,
-        0,
-        2,
-        "normal-width",
-        "normal-height",
-        "small-name-fontsize"
-      );
+      addClasses(names, 0, 2, "normal-height", "small-name-fontsize");
       break;
     // If there are four teams
     case 4:
       addClasses(teams, 0, 3, "half-width", "half-height");
-      addClasses(
-        names,
-        0,
-        3,
-        "normal-width",
-        "medium-height",
-        "tiny-name-fontsize"
-      );
+      addClasses(names, 0, 3, "medium-height", "tiny-name-fontsize");
       break;
     // If there are five teams
     case 5:
       // In this case, there two different layouts inside
       addClasses(teams, 0, 2, "width-by-three", "half-height");
       addClasses(teams, 3, 4, "half-width", "half-height");
-      addClasses(
-        names,
-        0,
-        4,
-        "normal-width",
-        "medium-height",
-        "tiny-name-fontsize"
-      );
+      addClasses(names, 0, 4, "medium-height", "tiny-name-fontsize");
       break;
     // If there are six teams
     case 6:
       addClasses(teams, 0, 5, "width-by-three", "half-height");
-      addClasses(
-        names,
-        0,
-        5,
-        "normal-width",
-        "medium-height",
-        "tiny-name-fontsize"
-      );
+      addClasses(names, 0, 5, "medium-height", "tiny-name-fontsize");
       break;
     // If there are seven teams
     case 7:
       // In this case, there two different layouts inside
       addClasses(teams, 0, 2, "width-by-three", "height-by-three");
       addClasses(teams, 3, 6, "half-width", "height-by-three");
-      addClasses(
-        names,
-        0,
-        6,
-        "normal-width",
-        "special-height",
-        "special-name-fontsize"
-      );
+      addClasses(names, 0, 6, "special-height", "special-name-fontsize");
       break;
     // If there are eight teams
     case 8:
       addClasses(teams, 0, 5, "width-by-three", "height-by-three");
       addClasses(teams, 6, 7, "half-width", "height-by-three");
-      addClasses(
-        names,
-        0,
-        7,
-        "normal-width",
-        "special-height",
-        "special-name-fontsize"
-      );
+      addClasses(names, 0, 7, "special-height", "special-name-fontsize");
       break;
     // If there are nine teams
     default:
       addClasses(teams, 0, 8, "width-by-three", "height-by-three");
-      addClasses(
-        names,
-        0,
-        8,
-        "normal-width",
-        "special-height",
-        "special-name-fontsize"
-      );
+      addClasses(names, 0, 8, "special-height", "special-name-fontsize");
       break;
+  }
+}
+
+// Edit behaviour
+function editTeam(condition) {
+  // When we save info
+  if (condition) {
+    // Change edit icon
+    toggleImage(
+      document.getElementById("edit").children[0],
+      "./img/icons/",
+      "edit.svg",
+      "save.svg"
+    );
+    Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
+      // Activate or deactivate inputs
+      e.classList.toggle("deactivated");
+      // Avoid blink when save
+      e.blur();
+      try {
+        // Save new values
+        localStorage.setItem(
+          "teams",
+          updateJSON(
+            localStorage.getItem("teams"),
+            "teams",
+            i,
+            "name",
+            e.value.toUpperCase()
+          )
+        );
+      } catch (ex) {
+        windows.location.reload();
+      }
+    });
   }
 }
 
@@ -490,33 +462,29 @@ function fillTimerButtons(currentData) {
     Array.from(document.getElementsByClassName("button-timer"))[i].innerText =
       currentData.timers[i].minutes + "'";
   }
-  localStorage.setItem("options", JSON.stringify(currentData));
 }
 
 // Deactive or activate modes according to selected checkbox
 function fillModes(modes) {
   Array.from(modes).forEach((e, i) => {
-    try {
-      if (e.checked) {
-        changeStatusModes(
-          modeInputs[i],
-          localStorage.getItem("options"),
-          "modes",
-          i,
-          true
-        );
-      } else {
-        changeStatusModes(
-          modeInputs[i],
-          localStorage.getItem("options"),
-          "modes",
-          i,
-          false
-        );
-      }
-    } catch (ex) {
-      window.location.reload();
+    if (e.checked) {
+      changeStatusModes(
+        modeInputs[i],
+        localStorage.getItem("options"),
+        "modes",
+        i,
+        true
+      );
+    } else {
+      changeStatusModes(
+        modeInputs[i],
+        localStorage.getItem("options"),
+        "modes",
+        i,
+        false
+      );
     }
+    window.location.reload();
   });
 }
 
@@ -553,21 +521,18 @@ function fillModeOptions(currentData) {
 function fillExtraModes(options) {
   options.forEach((e, i) => {
     let active;
-    try {
-      active = e.checked ? true : false;
-      localStorage.setItem(
-        "options",
-        updateJSON(
-          localStorage.getItem("options"),
-          "extraModes",
-          i,
-          "status",
-          active
-        )
-      );
-    } catch (ex) {
-      window.location.reload();
-    }
+    active = e.checked ? true : false;
+    localStorage.setItem(
+      "options",
+      updateJSON(
+        localStorage.getItem("options"),
+        "extraModes",
+        i,
+        "status",
+        active
+      )
+    );
+    window.location.reload();
   });
 }
 
@@ -588,10 +553,14 @@ function changeStatusModes(
   }
   // Will change JSON only if received
   if (options) {
-    localStorage.setItem(
-      "options",
-      updateJSON(options, nameLevel, currentPosition, "status", activate)
-    );
+    try {
+      localStorage.setItem(
+        "options",
+        updateJSON(options, nameLevel, currentPosition, "status", activate)
+      );
+    } catch (ex) {
+      window.location.reload();
+    }
   }
 }
 
@@ -897,17 +866,21 @@ function resetNames(element, currentIndex, fill) {
     }
     element.value = nameTeam + " " + (currentIndex + 1);
   }
-  // Set default team names in JSON
-  localStorage.setItem(
-    "teams",
-    updateJSON(
-      localStorage.getItem("teams"),
+  try {
+    // Set default team names in JSON
+    localStorage.setItem(
       "teams",
-      currentIndex,
-      "name",
-      "TEAM " + (currentIndex + 1)
-    )
-  );
+      updateJSON(
+        localStorage.getItem("teams"),
+        "teams",
+        currentIndex,
+        "name",
+        "TEAM " + (currentIndex + 1)
+      )
+    );
+  } catch (ex) {
+    window.location.reload();
+  }
 }
 
 // Hide or Show names according to selected checkbox
@@ -920,8 +893,7 @@ extraModes[0].addEventListener("change", () => {
     document.getElementById("edit").classList.remove("hidden");
   } else {
     Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
-      e.classList.add("hidden");
-      e.classList.add("deactivated");
+      addClasses([e], 0, 0, "hidden", "deactivated");
       // Set default team names
       resetNames(e, i, true);
     });
@@ -1000,53 +972,16 @@ document.getElementById("reset").addEventListener("click", (e) => {
   }
 });
 
-document.addEventListener("keydown", (e) => {
-  console.log(document.getElementById("edit").children[0].src);
-  if (
-    e.key === "Enter" &&
-    document.getElementById("edit").children[0].src.includes("save.svg")
-  ) {
-    toggleImage(
-      document.getElementById("edit").children[0],
-      "./img/icons/",
-      "edit.svg",
-      "save.svg"
-    );
-    Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
-      e.classList.toggle("deactivated");
-      e.blur();
-      localStorage.setItem(
-        "teams",
-        updateJSON(
-          localStorage.getItem("teams"),
-          "teams",
-          i,
-          "name",
-          e.value.toUpperCase()
-        )
-      );
-    });
-  }
+// Edit use
+document.getElementById("edit").addEventListener("click", () => {
+  editTeam(true);
 });
 
-document.getElementById("edit").addEventListener("click", () => {
-  toggleImage(
-    document.getElementById("edit").children[0],
-    "./img/icons/",
-    "edit.svg",
-    "save.svg"
+// Check every time any key pressed
+document.addEventListener("keydown", (e) => {
+  // Only when user can save text
+  editTeam(
+    e.key === "Enter" &&
+      document.getElementById("edit").children[0].src.includes("save.svg")
   );
-  Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
-    e.classList.toggle("deactivated");
-    localStorage.setItem(
-      "teams",
-      updateJSON(
-        localStorage.getItem("teams"),
-        "teams",
-        i,
-        "name",
-        e.value.toUpperCase()
-      )
-    );
-  });
 });

@@ -15,7 +15,7 @@ export default {
       status: false,
       points: 20,
     },
-    { 
+    {
       status: false,
       points: 7,
       message: "🎉🚩🥳🔥",
