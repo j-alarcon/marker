@@ -648,6 +648,15 @@ window.onbeforeunload = () => {
 
 // Fill default values to empty local data and containers
 window.onload = () => {
+  // Only if load is first time
+  if (!sessionStorage.getItem("refresh")) {
+    // Reset local data when update is up
+    if (Number(localStorage.getItem("currentVersion")) < currentVersion) {
+      localStorage.setItem("currentVersion", currentVersion);
+      localStorage.clear();
+    }
+    sessionStorage.setItem("refresh", true);
+  }
   // Prevent old local data to appear and save new version to future refresh
   if (!localStorage.getItem("currentVersion")) {
     localStorage.clear();
