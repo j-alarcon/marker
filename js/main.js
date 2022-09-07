@@ -638,14 +638,6 @@ function updateTimer() {
     formatNumber(localStorage.getItem("seconds"));
 }
 
-// Reset local data when update is up
-window.onbeforeunload = () => {
-  if (Number(localStorage.getItem("currentVersion")) < currentVersion) {
-    localStorage.setItem("currentVersion", currentVersion);
-    localStorage.clear();
-  }
-};
-
 // Fill default values to empty local data and containers
 window.onload = () => {
   // Only if load is first time
