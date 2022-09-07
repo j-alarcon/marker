@@ -332,21 +332,12 @@ input[type="number"] {
   padding: 0.2vh 0.5vh 0.2vh 0.5vh;
 }
 
-.container-form-buttons {
-  gap: 1.5vh;
-}
-
-.options-button {
-  padding: 0 1vh 0 1vh;
-  height: 3.3vh;
-}
-
 .extra-data-container {
   margin: 0 1vh 0.6vh 1vh;
 }
 
 .penguin-logo {
-  margin-top: .6vh;
+  margin-top: 0.6vh;
   width: 5.5vh;
 }
 
@@ -356,6 +347,15 @@ input[type="number"] {
   margin: 0 1vh 0.2vh 0.6vh;
 }
 
-.text-data-container{
-  margin-bottom: .1vh;
+.text-data-container {
+  margin-bottom: 0.1vh;
+}
+
+.container-form-buttons {
+  gap: 1.5vh;
+}
+
+.options-button {
+  padding: 0 1vh 0 1vh;
+  height: 3.3vh;
 }

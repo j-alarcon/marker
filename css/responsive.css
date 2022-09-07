@@ -6,6 +6,11 @@
     width: 100%;
   }
 
+  .small-name-fontsize,
+  .tiny-name-fontsize {
+    font-size: 3.5vh;
+  }
+
   .medium-fontsize {
     font-size: 13vh;
   }
@@ -16,14 +21,6 @@
 
   .normal-name-fontsize {
     font-size: 5vh;
-  }
-
-  .small-name-fontsize {
-    font-size: 3.5vh;
-  }
-
-  .tiny-name-fontsize {
-    font-size: 3.5vh;
   }
 
   .normal-height {
@@ -49,7 +46,6 @@
 
   #timer {
     margin-bottom: 4vh;
-    font-size: 10vh;
   }
 
   #burger-button {
@@ -58,20 +54,20 @@
   }
 
   .submenu {
-    bottom: 2.3vh;
-    width: 22vh;
+    width: 25vh;
+    bottom: 1.7vh;
+  }
+
+  .icon-submenu {
+    width: 3vh;
+  }
+
+  .submenu-fontsize {
+    font-size: 3.2vh;
   }
 
   .edit {
     margin-right: 1.6vh;
-  }
-
-  .icon-submenu {
-    width: 2.2vh;
-  }
-
-  .submenu-fontsize {
-    font-size: 2.3vh;
   }
 
   .change-scores {
@@ -80,12 +76,18 @@
 }
 
 @media screen and (max-width: 600px) {
-  .normal-name-fontsize {
-    font-size: 3.5vh;
+  .tiny-name-fontsize,
+  .special-name-fontsize {
+    font-size: 2.3vh;
   }
 
-  .tiny-name-fontsize {
-    font-size: 2.3vh;
+  .small-name-fontsize,
+  .subtitle-option-fontsize {
+    font-size: 2.4vh;
+  }
+
+  .normal-name-fontsize {
+    font-size: 3.5vh;
   }
 
   .small-fontsize {
@@ -100,14 +102,6 @@
     font-size: 7vh;
   }
 
-  .small-name-fontsize {
-    font-size: 2.4vh;
-  }
-
-  .special-name-fontsize {
-    font-size: 2.3vh;
-  }
-
   .normal-height {
     height: 44.1%;
   }
@@ -120,29 +114,12 @@
     height: 32.2%;
   }
 
-  .submenu {
-    width: 25vh;
-    bottom: 1.7vh;
-  }
-
-  .icon-submenu {
-    width: 3vh;
-  }
-
-  .submenu-fontsize {
-    font-size: 3.1vh;
-  }
-
   .burger-menu {
     width: 100%;
   }
 
   .input-form {
     font-size: 2.5vh;
-  }
-
-  .subtitle-option-fontsize {
-    font-size: 2.4vh;
   }
 
   .options-button {

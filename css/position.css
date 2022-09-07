@@ -51,7 +51,7 @@
   flex-direction: column;
 }
 
-.column-reverse{
+.column-reverse {
   flex-direction: column-reverse;
 }
 
@@ -75,10 +75,6 @@
   align-items: center;
 }
 
-.main-container {
-  flex-grow: 1;
-}
-
 .wrap {
   flex-wrap: wrap;
 }
@@ -89,6 +85,10 @@
 
 .relative {
   position: relative;
+}
+
+.main-container {
+  flex-grow: 1;
 }
 
 .submenu {
