@@ -308,6 +308,7 @@ function createTeam(color, text, currentTeam, onLoad) {
           localStorage.getItem("teams")
         ).teams[currentTeam].score;
       } catch (ex) {
+        localStorage.clear();
         window.location.reload();
       }
     });
@@ -402,7 +403,7 @@ function editTeam(condition) {
           )
         );
       } catch (ex) {
-        windows.location.reload();
+        window.location.reload();
       }
     });
   }
@@ -560,6 +561,7 @@ function changeStatusModes(
         updateJSON(options, nameLevel, currentPosition, "status", activate)
       );
     } catch (ex) {
+      localStorage.clear();
       window.location.reload();
     }
   }
@@ -647,61 +649,67 @@ window.onload = () => {
   translatePage(Array.from(document.getElementsByClassName("translate")));
 
   // Activate modes at refresh and load parameters
-  JSON.parse(localStorage.getItem("options")).modes.forEach((e, i) => {
-    if (e.status) {
-      modeCheckbox[i].checked = true;
-      removeClasses(modeInputs[i], 0, modeInputs[i].length - 1, "disabled");
-      activateHTML(...modeInputs[i]);
-    } else {
-      modeCheckbox[i].checked = false;
-    }
-    // Load storaged points
-    findElement(modeInputs[i], "points").value = e.points;
-    // Load storaged message only if exists
-    if (findElement(modeInputs[i], "message") != -1) {
-      findElement(modeInputs[i], "message").value = e.message;
-    }
-  });
-
-  // Activate extramodes at refresh
-  Array.from(JSON.parse(localStorage.getItem("options")).extraModes).forEach(
-    (e, i) => {
+  try {
+    JSON.parse(localStorage.getItem("options")).modes.forEach((e, i) => {
       if (e.status) {
-        extraModeCheckbox[i].checked = true;
+        modeCheckbox[i].checked = true;
+        removeClasses(modeInputs[i], 0, modeInputs[i].length - 1, "disabled");
+        activateHTML(...modeInputs[i]);
       } else {
-        extraModeCheckbox[i].checked = false;
+        modeCheckbox[i].checked = false;
+      }
+      // Load storaged points
+      findElement(modeInputs[i], "points").value = e.points;
+      // Load storaged message only if exists
+      if (findElement(modeInputs[i], "message") != -1) {
+        findElement(modeInputs[i], "message").value = e.message;
+      }
+    });
+
+    // Activate extramodes at refresh
+    Array.from(JSON.parse(localStorage.getItem("options")).extraModes).forEach(
+      (e, i) => {
+        if (e.status) {
+          extraModeCheckbox[i].checked = true;
+        } else {
+          extraModeCheckbox[i].checked = false;
+        }
+      }
+    );
+
+    // Load all teams storaged in local
+    JSON.parse(localStorage.getItem("teams")).teams.forEach((e, i) => {
+      createTeam(e.color, e.text + "-text", i, true);
+      // Retrieve all scores from JSON file
+      Array.from(document.getElementsByClassName("score")).forEach((e, i) => {
+        e.innerText = JSON.parse(localStorage.getItem("teams")).teams[i].score;
+      });
+      resizeTeams(
+        mainContainer.children,
+        document.getElementsByClassName("name"),
+        mainContainer.children.length
+      );
+    });
+
+    // Load text of timer buttons
+    Array.from(document.getElementsByClassName("button-timer")).forEach(
+      (e, i) => {
+        e.innerText =
+          JSON.parse(localStorage.getItem("options")).timers[i].minutes + "'";
+      }
+    );
+
+    // Load selected timers
+    for (let i = 0; i < timerInputs.length; i++) {
+      for (let p in JSON.parse(localStorage.getItem("options")).timers[i]) {
+        timerInputs[i][p].value = JSON.parse(
+          localStorage.getItem("options")
+        ).timers[i][p];
       }
     }
-  );
-  // Load all teams storaged in local
-  JSON.parse(localStorage.getItem("teams")).teams.forEach((e, i) => {
-    createTeam(e.color, e.text + "-text", i, true);
-    // Retrieve all scores from JSON file
-    Array.from(document.getElementsByClassName("score")).forEach((e, i) => {
-      e.innerText = JSON.parse(localStorage.getItem("teams")).teams[i].score;
-    });
-    resizeTeams(
-      mainContainer.children,
-      document.getElementsByClassName("name"),
-      mainContainer.children.length
-    );
-  });
-
-  // Load text of timer buttons
-  Array.from(document.getElementsByClassName("button-timer")).forEach(
-    (e, i) => {
-      e.innerText =
-        JSON.parse(localStorage.getItem("options")).timers[i].minutes + "'";
-    }
-  );
-
-  // Load selected timers
-  for (let i = 0; i < timerInputs.length; i++) {
-    for (let p in JSON.parse(localStorage.getItem("options")).timers[i]) {
-      timerInputs[i][p].value = JSON.parse(
-        localStorage.getItem("options")
-      ).timers[i][p];
-    }
+  } catch (ex) {
+    localStorage.clear();
+    window.location.reload();
   }
 
   if (!localStorage.getItem("currentMaxScore")) {
@@ -799,6 +807,7 @@ document.getElementById("delete").addEventListener("click", () => {
       );
     }
   } catch (ex) {
+    localStorage.clear();
     window.location.reload();
   }
 });
@@ -830,6 +839,7 @@ document.getElementById("player").addEventListener("click", () => {
       );
     }
   } catch (ex) {
+    localStorage.clear();
     window.location.reload();
   }
 });
@@ -880,6 +890,7 @@ function resetNames(element, currentIndex, fill) {
       )
     );
   } catch (ex) {
+    localStorage.clear();
     window.location.reload();
   }
 }
@@ -915,6 +926,7 @@ document.getElementById("submit-changes").addEventListener("click", (e) => {
     fillModeOptions(JSON.parse(localStorage.getItem("options")));
     fillExtraModes(extraModes);
   } catch (ex) {
+    localStorage.clear();
     window.location.reload();
   }
 });
@@ -930,6 +942,7 @@ document.getElementById("form-burger").addEventListener("reset", () => {
     });
     window.location.reload();
   } catch (ex) {
+    localStorage.clear();
     window.location.reload();
   }
 });
@@ -955,6 +968,7 @@ Array.from(document.getElementsByClassName("button-timer")).forEach((e, i) => {
       clearInterval(timer);
       updateTimer();
     } catch (ex) {
+      localStorage.clear();
       window.location.reload();
     }
   });
@@ -969,6 +983,7 @@ document.getElementById("reset").addEventListener("click", (e) => {
     // Reload website
     window.location.reload();
   } catch (ex) {
+    localStorage.clear();
     window.location.reload();
   }
 });
