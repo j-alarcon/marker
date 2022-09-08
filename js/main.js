@@ -449,7 +449,6 @@ async function generateAlert(message, isHTML, mainClass) {
   document.getElementById("alert-container").removeChild(newAlert);
 }
 
-console.log(localStorage.getItem("options"));
 // Storage new values for timer buttons and change texts
 function fillTimerButtons(currentData) {
   for (let i = 0; i < timerInputs.length; i++) {
@@ -501,7 +500,7 @@ function fillModes(modes) {
     }
   });
 }
-console.log(localStorage.getItem("options"));
+
 // Storage new values for mode options
 function fillModeOptions(currentData) {
   // Refresh JSON file with new values

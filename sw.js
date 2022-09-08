@@ -223,7 +223,7 @@ define(["./workbox-7e688afb"], function (e) {
           revision: "50e8d5c02c016e44d9f5b05d9f919d2d",
         },
         { url: "index.html", revision: "0d6ff01b72f381ae2e7c7e6f787c3b9b" },
-        { url: "js/main.js", revision: "76ab650f8a2c9125f1f54c6531a797c0" },
+        { url: "js/main.js", revision: "a9b058720e22cf6f61c12740310bcff5" },
         { url: "js/utility.js", revision: "78e23c633122994d36750e321d3c2e4a" },
         {
           url: "json/languages.js",
