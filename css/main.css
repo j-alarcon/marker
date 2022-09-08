@@ -17,7 +17,7 @@
 
 .main-container,
 .burger-menu {
-  height: 76%;
+  height: 78%;
 }
 
 .vertical-line,
@@ -230,11 +230,11 @@ input::-webkit-inner-spin-button {
 }
 
 .special-height {
-  height: 24.7%;
+  height: 23%;
 }
 
 .top-container {
-  height: 24%;
+  height: 22%;
 }
 
 .reset {
