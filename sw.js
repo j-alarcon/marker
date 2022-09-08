@@ -1,8 +1,8 @@
 if (!self.define) {
   let e,
     i = {};
-  const s = (s, c) => (
-    (s = new URL(s + ".js", c).href),
+  const s = (s, n) => (
+    (s = new URL(s + ".js", n).href),
     i[s] ||
       new Promise((i) => {
         if ("document" in self) {
@@ -15,7 +15,7 @@ if (!self.define) {
         return e;
       })
   );
-  self.define = (c, n) => {
+  self.define = (n, c) => {
     const o =
       e ||
       ("document" in self ? document.currentScript.src : "") ||
@@ -24,7 +24,7 @@ if (!self.define) {
     let r = {};
     const a = (e) => s(e, o),
       d = { module: { uri: o }, exports: r, require: a };
-    i[o] = Promise.all(c.map((e) => d[e] || a(e))).then((e) => (n(...e), r));
+    i[o] = Promise.all(n.map((e) => d[e] || a(e))).then((e) => (c(...e), r));
   };
 }
 define(["./workbox-7e688afb"], function (e) {
@@ -43,15 +43,15 @@ define(["./workbox-7e688afb"], function (e) {
           revision: "28ab7cb69f6910b466221f5a82724a89",
         },
         { url: "css/fonts.css", revision: "0b33fd739a0d416da150513f8723ddac" },
-        { url: "css/main.css", revision: "f9431a0a8236ffa0b652bb3a80bc4886" },
+        { url: "css/main.css", revision: "e3012549dbcfc799f27ceb73fac1ae1c" },
         {
           url: "css/position.css",
-          revision: "d89178db397552fd8bbc569f9cea5e47",
+          revision: "be53a178a10731778985db62e1b87354",
         },
         { url: "css/reset.css", revision: "7a4cb66395098d422e0253fd53e75cf5" },
         {
           url: "css/responsive.css",
-          revision: "95abca2eecf14f0e98ff7ad205be5d53",
+          revision: "f89150ad080975a8caa32f8eb9e93a57",
         },
         {
           url: "fonts/anton.ttf",
@@ -63,8 +63,8 @@ define(["./workbox-7e688afb"], function (e) {
         },
         { url: "FUNDING.yml", revision: "d71ac27283ed800598bb8fb4b731ff6c" },
         {
-          url: "img/favicon.webp",
-          revision: "25f7ca26c06995fcabf7b4ad5dde1251",
+          url: "img/favicon.png",
+          revision: "4f8d8ea6936a9cf8c82e1c61873cad95",
         },
         {
           url: "img/icons/burger.svg",
@@ -72,19 +72,19 @@ define(["./workbox-7e688afb"], function (e) {
         },
         {
           url: "img/icons/edit.svg",
-          revision: "c4727b11bed9db216f986ae04eecc5b5",
+          revision: "25b4cb816f89061e4927444690a0e9d3",
         },
         {
           url: "img/icons/minus.svg",
-          revision: "0b9fe9904f3cfbe2846fcf2a958f1588",
+          revision: "c6360e3a580ab61645956ef208d7447e",
         },
         {
           url: "img/icons/play.svg",
-          revision: "7e4cd4f8c05e88989d609f2755e2f2f7",
+          revision: "abdc792160641708bd9023528c4f9dac",
         },
         {
           url: "img/icons/plus.svg",
-          revision: "e3c09db8d52cb05b59591dcb6d569dca",
+          revision: "0b246f00531334b41b6687e112905468",
         },
         {
           url: "img/icons/reset.svg",
@@ -92,11 +92,11 @@ define(["./workbox-7e688afb"], function (e) {
         },
         {
           url: "img/icons/save.svg",
-          revision: "2cb6a3c54ce355a415e161f04a838fc9",
+          revision: "772fde0db777c95212f3c2c7a471f809",
         },
         {
           url: "img/icons/stop.svg",
-          revision: "e0ea4c9a93871d30c83981d21a4e51bc",
+          revision: "f65ef53b36ca81f5f4eb21bd0be42e2c",
         },
         {
           url: "img/logos/penguin_white.webp",
@@ -120,7 +120,7 @@ define(["./workbox-7e688afb"], function (e) {
         },
         {
           url: "img/pwa/icons/reoneo_icon_144x144.png",
-          revision: "1f3cc0434ba74d0091158c8dc4c09a8a",
+          revision: "e8387d4d57d08e9eeddd5452ba58e6d1",
         },
         {
           url: "img/pwa/icons/reoneo_icon_192x192.png",
@@ -160,39 +160,71 @@ define(["./workbox-7e688afb"], function (e) {
         },
         {
           url: "img/pwa/screenshots/computer_five_teams.png",
-          revision: "82f5e0e1f0fc788c6fdf2242c9116bd2",
+          revision: "bac3e46b933df0e262c809f4f10b465f",
         },
         {
           url: "img/pwa/screenshots/computer_nine_teams.png",
-          revision: "09d1d700d21223f08086f96dba548e9c",
+          revision: "9b1426b8364528891a76882099689eaf",
         },
         {
-          url: "img/pwa/screenshots/computer_three_teams.png",
-          revision: "55e5265de9b2a9f48e01970c8d783380",
+          url: "img/pwa/screenshots/computer_six_teams.png",
+          revision: "51bc6be0a57db30136bc94a3c00baf7b",
         },
         {
           url: "img/pwa/screenshots/computer_two_teams.png",
-          revision: "c94a41e1b86a817f18c58992700b4dbe",
+          revision: "26f4624a4829dc6d36875240a40f8aa8",
+        },
+        {
+          url: "img/pwa/screenshots/mobile_five_teams.png",
+          revision: "e55886d0b1eb02f0ec873e10a8cfecd3",
         },
         {
           url: "img/pwa/screenshots/mobile_nine_teams.png",
-          revision: "2a5c8197730463778afd36aa8d16315d",
+          revision: "66abce98c2384a7e749e7b00fc57e2e6",
         },
         {
           url: "img/pwa/screenshots/mobile_six_teams.png",
-          revision: "93c3e9da9b99ad6b940516d599eebc4c",
-        },
-        {
-          url: "img/pwa/screenshots/mobile_three_teams.png",
-          revision: "5c2d9a92746aa2d78323c0cdd15165ba",
+          revision: "d230b4712d92caf06d49455eeb67e73f",
         },
         {
           url: "img/pwa/screenshots/mobile_two_teams.png",
-          revision: "abef1a557deb1b9fcaa49bf825e71b73",
+          revision: "de63f69d293fb703063979b16c6a2c14",
         },
-        { url: "index.html", revision: "02046e6c2af0c03158a7133f598da3a6" },
-        { url: "js/main.js", revision: "29266dd1cf53c0460891df371e27dd1a" },
-        { url: "js/utility.js", revision: "261d8ff4bf6e3210d55fe0753455bfe2" },
+        {
+          url: "img/pwa/screenshots/tablet_10inch_five_teams.png",
+          revision: "ae16262e89004c9050121ce9d0ced014",
+        },
+        {
+          url: "img/pwa/screenshots/tablet_10inch_nine_teams.png",
+          revision: "6b327d77bcdc384e10b0f6ebc82f5762",
+        },
+        {
+          url: "img/pwa/screenshots/tablet_10inch_six_teams.png",
+          revision: "c9d450411e11e029a0c47644d167daef",
+        },
+        {
+          url: "img/pwa/screenshots/tablet_10inch_two_teams.png",
+          revision: "d3e4beee0eb29a9b2d52262e4747ce2a",
+        },
+        {
+          url: "img/pwa/screenshots/tablet_7inch_five_teams.png",
+          revision: "498f7a59d5ae38e70bb42bff4e7ddae8",
+        },
+        {
+          url: "img/pwa/screenshots/tablet_7inch_nine_teams.png",
+          revision: "faccf1c42b1c8fbc38555b77091502c2",
+        },
+        {
+          url: "img/pwa/screenshots/tablet_7inch_six_teams.png",
+          revision: "f105613921824ec28c301a0985692d68",
+        },
+        {
+          url: "img/pwa/screenshots/tablet_7inch_two_teams.png",
+          revision: "50e8d5c02c016e44d9f5b05d9f919d2d",
+        },
+        { url: "index.html", revision: "0d6ff01b72f381ae2e7c7e6f787c3b9b" },
+        { url: "js/main.js", revision: "76ab650f8a2c9125f1f54c6531a797c0" },
+        { url: "js/utility.js", revision: "78e23c633122994d36750e321d3c2e4a" },
         {
           url: "json/languages.js",
           revision: "6cc55029e043c8d8e8804e81fa4369be",
@@ -203,7 +235,7 @@ define(["./workbox-7e688afb"], function (e) {
         },
         { url: "json/scores.js", revision: "2fab73c81dd02244fd78344d0c3cd886" },
         { url: "json/teams.js", revision: "3ec98c32e02d1e07f446a7350ac26570" },
-        { url: "manifest.json", revision: "21083938951107c1492f1c7919ab5166" },
+        { url: "manifest.json", revision: "b5fd2b7eeca51e5cc52f2a593ec77ebc" },
         { url: "README.md", revision: "8862e0d132a481b2bf9ee9dc63c1cae6" },
       ],
       { ignoreURLParametersMatching: [/^utm_/, /^fbclid$/] }

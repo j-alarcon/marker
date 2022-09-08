@@ -152,8 +152,7 @@ function checkWinner(goal, currentScore, currentTeam) {
           goal +
           "</div>",
         true,
-        // Different shape in responsive sizes
-        "small-alert"
+        "alert"
       );
     } else {
       generateAlert(
@@ -165,7 +164,7 @@ function checkWinner(goal, currentScore, currentTeam) {
           goal +
           "</div>",
         true,
-        "small-alert"
+        "alert"
       );
     }
   }

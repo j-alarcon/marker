@@ -35,8 +35,7 @@
   opacity: 0.8;
 }
 
-.alert,
-.small-alert {
+.alert {
   padding: 0.7vh 1vh 0.7vh 1vh;
   border-top-right-radius: 1vh;
   transition: bottom 0.6s;
