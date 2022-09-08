@@ -229,7 +229,7 @@ input::-webkit-inner-spin-button {
 }
 
 .top-container {
-  height: 20%;
+  height: 22%;
 }
 
 .reset {
@@ -250,20 +250,20 @@ input::-webkit-inner-spin-button {
 }
 
 #timer {
-  font-size: 11vh;
+  font-size: 12.5vh;
   margin-bottom: 3.5vh;
 }
 
 .submenu {
-  width: 21vh;
+  width: 19.5vh;
 }
 
 .icon-submenu {
-  width: 2.6vh;
+  width: 2.5vh;
 }
 
 .submenu-fontsize {
-  font-size: 2.9vh;
+  font-size: 2.7vh;
 }
 
 .burger-checkbox:checked ~ .top-container .burger-icon {
