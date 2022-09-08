@@ -83,7 +83,8 @@ export function validateInput(input, min, max) {
     input.value >= min &&
     input.value <= max &&
     input.value != "" &&
-    !input.value.includes(".")
+    !input.value.includes(".") &&
+    !input.value.includes("00")
   ) {
     return input;
   }
