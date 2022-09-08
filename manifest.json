@@ -18,18 +18,18 @@
       "label": "Displaying two teams"
     },
     {
-      "src": "./img/pwa/screenshots/computer_three_teams.png",
-      "sizes": "1920x1080",
-      "type": "image/png",
-      "platform": "wide",
-      "label": "Displaying three teams"
-    },
-    {
       "src": "./img/pwa/screenshots/computer_five_teams.png",
       "sizes": "1920x1080",
       "type": "image/png",
       "platform": "wide",
       "label": "Displaying five teams"
+    },
+    {
+      "src": "./img/pwa/screenshots/computer_six_teams.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Displaying six teams"
     },
     {
       "src": "./img/pwa/screenshots/computer_nine_teams.png",
@@ -40,28 +40,84 @@
     },
     {
       "src": "./img/pwa/screenshots/mobile_two_teams.png",
-      "sizes": "720x1435",
+      "sizes": "1440x2960",
       "type": "image/png",
       "platform": "narrow",
       "label": "Displaying two teams"
     },
     {
-      "src": "./img/pwa/screenshots/mobile_three_teams.png",
-      "sizes": "720x1435",
+      "src": "./img/pwa/screenshots/mobile_five_teams.png",
+      "sizes": "1440x2960",
       "type": "image/png",
       "platform": "narrow",
-      "label": "Displaying three teams"
+      "label": "Displaying five teams"
     },
     {
       "src": "./img/pwa/screenshots/mobile_six_teams.png",
-      "sizes": "720x1435",
+      "sizes": "1440x2960",
       "type": "image/png",
       "platform": "narrow",
       "label": "Displaying six teams"
     },
     {
       "src": "./img/pwa/screenshots/mobile_nine_teams.png",
-      "sizes": "720x1435",
+      "sizes": "1440x2960",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Displaying nine teams"
+    },
+    {
+      "src": "./img/pwa/screenshots/tablet_7inch_two_teams.png",
+      "sizes": "1200x1920",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Displaying two teams"
+    },
+    {
+      "src": "./img/pwa/screenshots/tablet_7inch_five_teams.png",
+      "sizes": "1200x1920",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Displaying five teams"
+    },
+    {
+      "src": "./img/pwa/screenshots/tablet_7inch_six_teams.png",
+      "sizes": "1200x1920",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Displaying six teams"
+    },
+    {
+      "src": "./img/pwa/screenshots/tablet_7inch_nine_teams.png",
+      "sizes": "1200x1920",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Displaying nine teams"
+    },
+    {
+      "src": "./img/pwa/screenshots/tablet_10inch_two_teams.png",
+      "sizes": "1600x2560",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Displaying two teams"
+    },
+    {
+      "src": "./img/pwa/screenshots/tablet_10inch_five_teams.png",
+      "sizes": "1600x2560",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Displaying five teams"
+    },
+    {
+      "src": "./img/pwa/screenshots/tablet_10inch_six_teams.png",
+      "sizes": "1600x2560",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Displaying six teams"
+    },
+    {
+      "src": "./img/pwa/screenshots/tablet_10inch_nine_teams.png",
+      "sizes": "1600x2560",
       "type": "image/png",
       "platform": "narrow",
       "label": "Displaying nine teams"
