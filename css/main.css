@@ -17,7 +17,7 @@
 
 .main-container,
 .burger-menu {
-  height: 78%;
+  height: 76%;
 }
 
 .vertical-line,
@@ -49,6 +49,11 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   -o-appearance: none;
   -moz-appearance: none;
+}
+
+.submenu-fontsize,
+.formdata-fontsize {
+  font-size: 3vh;
 }
 
 .alert,
@@ -229,7 +234,7 @@ input::-webkit-inner-spin-button {
 }
 
 .top-container {
-  height: 22%;
+  height: 24%;
 }
 
 .reset {
@@ -254,21 +259,22 @@ input::-webkit-inner-spin-button {
 }
 
 #timer {
-  font-size: 12vh;
-  height: 10.5vh;
+  font-size: 13vh;
+  height: 10vh;
 }
 
 .submenu {
-  width: 19.5vh;
-  height: 2.9vh;
+  width: 22vh;
+  height: 1.7vh;
 }
 
 .icon-submenu {
-  width: 2.5vh;
+  width: 2.8vh;
 }
 
 .submenu-fontsize {
-  font-size: 3vh;
+  margin-top: 0.2vh;
+  font-size: 3.2vh;
 }
 
 .burger-checkbox:checked ~ .top-container .burger-icon {
