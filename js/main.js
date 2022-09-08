@@ -450,30 +450,30 @@ async function generateAlert(message, isHTML, mainClass) {
   document.getElementById("alert-container").removeChild(newAlert);
 }
 
+console.log(localStorage.getItem("options"));
 // Storage new values for timer buttons and change texts
 function fillTimerButtons(currentData) {
-  const data = ["minutes", "seconds"];
   for (let i = 0; i < timerInputs.length; i++) {
     for (let p in currentData.timers[i]) {
       // Add or remove red outlines to indicate user when info is wrong
       if (validateInput(timerInputs[i][p], 0, 99)) {
         currentData.timers[i][p] = timerInputs[i][p].value;
+        // Update local values
+        localStorage.setItem(
+          "options",
+          updateJSON(
+            localStorage.getItem("options"),
+            "timers",
+            i,
+            p,
+            timerInputs[i][p].value
+          )
+        );
         timerInputs[i][p].classList.remove("error");
       } else {
         timerInputs[i][p].classList.add("error");
       }
     }
-    // Update local values
-    localStorage.setItem(
-      "options",
-      updateJSON(
-        localStorage.getItem("options"),
-        "timers",
-        i,
-        data[i],
-        currentData.timers[i].minutes
-      )
-    );
     // Change text of button or refresh if value was wrong
     Array.from(document.getElementsByClassName("button-timer"))[i].innerText =
       currentData.timers[i].minutes + "'";
