@@ -65,55 +65,58 @@
         class="alert-container max-width max-height absolute"
         id="alert-container"
       ></div>
-      <div
-        id="timer"
-        class="white-text flex justify-center align-center max-width max-height"
-      >
-        00:00
-      </div>
-      <div
-        class="submenu flex justify-between align-center absolute submenu-fontsize"
-      >
-        <button
-          class="flex justify-center align-center opacity touch"
-          class="white-text flex justify-center align-center opacity touch"
-          id="delete"
+      <div class="container-timer flex column justify-between align-center">
+        <div
+          id="timer"
+          class="white-text flex justify-center align-center max-width max-height"
         >
-          <img
-            class="icon-submenu"
-            src="./img/icons/minus.svg"
-            alt="Minus Button"
-          />
-        </button>
-        <button class="flex justify-center align-center opacity touch" id="add">
-          <img
-            class="icon-submenu"
-            src="./img/icons/plus.svg"
-            alt="Plus Button"
-          />
-        </button>
-        <button
-          class="button-timer white-text flex justify-center align-center opacity touch"
-          id="first-timer"
-        >
-          15'
-        </button>
-        <button
-          class="button-timer white-text flex justify-center align-center opacity touch"
-          id="second-timer"
-        >
-          20'
-        </button>
-        <button
-          class="flex justify-center align-center opacity touch"
-          id="player"
-        >
-          <img
-            class="icon-submenu"
-            src="./img/icons/play.svg"
-            alt="Play button"
-          />
-        </button>
+          00:00
+        </div>
+        <div class="submenu flex justify-between align-center">
+          <button
+            class="flex justify-center align-center opacity touch"
+            class="white-text flex justify-center align-center opacity touch"
+            id="delete"
+          >
+            <img
+              class="icon-submenu"
+              src="./img/icons/minus.svg"
+              alt="Minus Button"
+            />
+          </button>
+          <button
+            class="flex justify-center align-center opacity touch"
+            id="add"
+          >
+            <img
+              class="icon-submenu"
+              src="./img/icons/plus.svg"
+              alt="Plus Button"
+            />
+          </button>
+          <button
+            class="button-timer white-text submenu-fontsize flex justify-center align-center opacity touch"
+            id="first-timer"
+          >
+            15'
+          </button>
+          <button
+            class="button-timer white-text submenu-fontsize flex justify-center align-center opacity touch"
+            id="second-timer"
+          >
+            20'
+          </button>
+          <button
+            class="flex justify-center align-center opacity touch"
+            id="player"
+          >
+            <img
+              class="icon-submenu"
+              src="./img/icons/play.svg"
+              alt="Play button"
+            />
+          </button>
+        </div>
       </div>
       <button
         class="radius-button white flex justify-center align-center absolute opacity"

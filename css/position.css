@@ -91,10 +91,6 @@
   flex-grow: 1;
 }
 
-.submenu {
-  bottom: 2.4vh;
-}
-
 .alert {
   z-index: 2;
 }
