@@ -35,39 +35,42 @@
     height: 29.6%;
   }
 
-  .reset-icon {
-    width: 3vh;
-  }
-
   .alert {
-    height: 5.5vh;
+    height: 6.8vh;
     border-top-right-radius: 0;
-  }
-
-  #timer {
-    margin-bottom: 4vh;
   }
 
   #burger-button {
     top: 0;
+    margin-right: 1.3vh;
     margin-top: 1.3vh;
   }
 
+  .container-timer {
+    height: 14.5vh;
+    margin-bottom: 0.3vh;
+  }
+
+  #timer {
+    font-size: 12vh;
+    height: 10.5vh;
+  }
+
   .submenu {
-    width: 25vh;
-    bottom: 1.7vh;
+    width: 24vh;
+    height: 2.9vh;
   }
 
   .icon-submenu {
-    width: 3vh;
+    width: 2.8vh;
   }
 
   .submenu-fontsize {
-    font-size: 3.2vh;
+    font-size: 3vh;
   }
 
   .edit {
-    margin-right: 1.6vh;
+    margin-right: 1.3vh;
   }
 
   .change-scores {
