@@ -43,7 +43,7 @@ define(["./workbox-7e688afb"], function (e) {
           revision: "28ab7cb69f6910b466221f5a82724a89",
         },
         { url: "css/fonts.css", revision: "0b33fd739a0d416da150513f8723ddac" },
-        { url: "css/main.css", revision: "e3012549dbcfc799f27ceb73fac1ae1c" },
+        { url: "css/main.css", revision: "f60acf06757acdfa988c30477fc05411" },
         {
           url: "css/position.css",
           revision: "be53a178a10731778985db62e1b87354",
@@ -222,7 +222,7 @@ define(["./workbox-7e688afb"], function (e) {
           url: "img/pwa/screenshots/tablet_7inch_two_teams.png",
           revision: "50e8d5c02c016e44d9f5b05d9f919d2d",
         },
-        { url: "index.html", revision: "5dba2c0430abfe43cf7870fd562e4ea1" },
+        { url: "index.html", revision: "7ba1f857269680da8bd5004b181fc3f8" },
         { url: "js/main.js", revision: "a9b058720e22cf6f61c12740310bcff5" },
         { url: "js/utility.js", revision: "78e23c633122994d36750e321d3c2e4a" },
         {

@@ -50,11 +50,6 @@ input::-webkit-inner-spin-button {
   -moz-appearance: none;
 }
 
-.submenu-fontsize,
-.formdata-fontsize {
-  font-size: 3vh;
-}
-
 .alert,
 .small-alert,
 #t-message,
@@ -267,6 +262,10 @@ input::-webkit-inner-spin-button {
   height: 1.7vh;
 }
 
+.submenu-fontsize {
+  font-size: 3vh;
+}
+
 .icon-submenu {
   width: 2.8vh;
 }
@@ -313,6 +312,10 @@ input::-webkit-inner-spin-button {
 .input-form-container {
   margin: 1vh 0 0 0;
   gap: 2vh;
+}
+
+.formdata-fontsize {
+  font-size: 2.3vh;
 }
 
 .input-form {
