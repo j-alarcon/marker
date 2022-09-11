@@ -359,17 +359,13 @@ input[type="number"] {
 
 .penguin-logo {
   margin-top: 0.6vh;
-  width: 5vh;
+  width: 5.1vh;
 }
 
 .vertical-line {
   width: 0.2vh;
   height: 5.5vh;
-  margin: 0 1vh 0.2vh 1vh;
-}
-
-.text-data-container {
-  margin-bottom: 0.1vh;
+  margin: 0 1.2vh 0.2vh 1vh;
 }
 
 .container-form-buttons {
