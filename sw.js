@@ -16,15 +16,15 @@ if (!self.define) {
       })
   );
   self.define = (n, c) => {
-    const o =
+    const a =
       e ||
       ("document" in self ? document.currentScript.src : "") ||
       location.href;
-    if (i[o]) return;
-    let a = {};
-    const r = (e) => s(e, o),
-      d = { module: { uri: o }, exports: a, require: r };
-    i[o] = Promise.all(n.map((e) => d[e] || r(e))).then((e) => (c(...e), a));
+    if (i[a]) return;
+    let o = {};
+    const r = (e) => s(e, a),
+      d = { module: { uri: a }, exports: o, require: r };
+    i[a] = Promise.all(n.map((e) => d[e] || r(e))).then((e) => (c(...e), o));
   };
 }
 define(["./workbox-7e688afb"], function (e) {
@@ -160,67 +160,67 @@ define(["./workbox-7e688afb"], function (e) {
         },
         {
           url: "img/pwa/screenshots/computer_five_teams.png",
-          revision: "bac3e46b933df0e262c809f4f10b465f",
+          revision: "f5c8eba2b2c1d77d6b8d835a51cc0a59",
         },
         {
           url: "img/pwa/screenshots/computer_nine_teams.png",
-          revision: "9b1426b8364528891a76882099689eaf",
+          revision: "3f4195d8efa77e833560b92e2d7fcabc",
         },
         {
           url: "img/pwa/screenshots/computer_six_teams.png",
-          revision: "51bc6be0a57db30136bc94a3c00baf7b",
+          revision: "2123d9392afd918d58ace44e310f15ec",
         },
         {
           url: "img/pwa/screenshots/computer_two_teams.png",
-          revision: "26f4624a4829dc6d36875240a40f8aa8",
+          revision: "a3145d827d912f772afd387924f74206",
         },
         {
           url: "img/pwa/screenshots/mobile_five_teams.png",
-          revision: "e55886d0b1eb02f0ec873e10a8cfecd3",
+          revision: "20a2cfec113699fe260dbb0b459b21ed",
         },
         {
           url: "img/pwa/screenshots/mobile_nine_teams.png",
-          revision: "66abce98c2384a7e749e7b00fc57e2e6",
+          revision: "be4b4966db04db090ac09be551de8982",
         },
         {
           url: "img/pwa/screenshots/mobile_six_teams.png",
-          revision: "d230b4712d92caf06d49455eeb67e73f",
+          revision: "222d7f3c6ecb8038d5f468c494962a46",
         },
         {
           url: "img/pwa/screenshots/mobile_two_teams.png",
-          revision: "de63f69d293fb703063979b16c6a2c14",
+          revision: "382ec3db74ea5bd3c7768cfcf9f48e03",
         },
         {
           url: "img/pwa/screenshots/tablet_10inch_five_teams.png",
-          revision: "ae16262e89004c9050121ce9d0ced014",
+          revision: "e79d63ffa03adb75947de52cb67a5db3",
         },
         {
           url: "img/pwa/screenshots/tablet_10inch_nine_teams.png",
-          revision: "6b327d77bcdc384e10b0f6ebc82f5762",
+          revision: "5138f31c60b80234133e7f3e300a08da",
         },
         {
           url: "img/pwa/screenshots/tablet_10inch_six_teams.png",
-          revision: "c9d450411e11e029a0c47644d167daef",
+          revision: "d61a76470dd891339367fe6bd109d6a3",
         },
         {
           url: "img/pwa/screenshots/tablet_10inch_two_teams.png",
-          revision: "d3e4beee0eb29a9b2d52262e4747ce2a",
+          revision: "18e49f09ccaafa8219d63975c7a4695f",
         },
         {
           url: "img/pwa/screenshots/tablet_7inch_five_teams.png",
-          revision: "498f7a59d5ae38e70bb42bff4e7ddae8",
+          revision: "ba876eec70dbfabba8bfaa8a2f56de01",
         },
         {
           url: "img/pwa/screenshots/tablet_7inch_nine_teams.png",
-          revision: "faccf1c42b1c8fbc38555b77091502c2",
+          revision: "2fa194c6f0d116b9249d5b61ec1b60d8",
         },
         {
           url: "img/pwa/screenshots/tablet_7inch_six_teams.png",
-          revision: "f105613921824ec28c301a0985692d68",
+          revision: "d6042e9affd7175b513c321026680c6f",
         },
         {
           url: "img/pwa/screenshots/tablet_7inch_two_teams.png",
-          revision: "50e8d5c02c016e44d9f5b05d9f919d2d",
+          revision: "3a3f3983b747bbd07a60e15d50aa0c83",
         },
         { url: "index.html", revision: "b22c4ec7ca9858f41c82694f08ee4b42" },
         { url: "js/main.js", revision: "a9b058720e22cf6f61c12740310bcff5" },
