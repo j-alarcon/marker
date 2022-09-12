@@ -100,7 +100,7 @@ define(["./workbox-7e688afb"], function (e) {
         },
         {
           url: "img/logos/white_penguin.png",
-          revision: "e47c3d85bd0d48f18f8e599a912d9fba",
+          revision: "4af174c330d334424b2e206cc9dc4c62",
         },
         {
           url: "img/pwa/badges/android_en.png",
@@ -222,7 +222,7 @@ define(["./workbox-7e688afb"], function (e) {
           url: "img/pwa/screenshots/tablet_7inch_two_teams.png",
           revision: "3a3f3983b747bbd07a60e15d50aa0c83",
         },
-        { url: "index.html", revision: "9bf8357e4331c7a70dbb1d0b6ff365b3" },
+        { url: "index.html", revision: "5e30663d060fb87f07ce30a92af71d39" },
         { url: "js/main.js", revision: "a9b058720e22cf6f61c12740310bcff5" },
         { url: "js/utility.js", revision: "78e23c633122994d36750e321d3c2e4a" },
         {
