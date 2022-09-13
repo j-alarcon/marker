@@ -120,6 +120,10 @@
     margin: 0 2vh 0 0;
   }
 
+  .input-form{
+    -webkit-appearance: none;
+  }
+
   .options-button {
     margin: 0 0.8vh 0 0.8vh;
   }
