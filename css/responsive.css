@@ -105,3 +105,25 @@
     font-size: 2vh;
   }
 }
+
+@media screen and (max-width: 440px) {
+  .line {
+    margin: 1vh 0 1vh 0;
+  }
+
+  .subcontainer-form {
+    margin-bottom: 0;
+  }
+
+  .input-form {
+    height: 4vh;
+  }
+
+  .container-form-buttons {
+    gap: 0;
+  }
+
+  .options-button {
+    margin: 0 0.8vh 0 0.8vh;
+  }
+}
