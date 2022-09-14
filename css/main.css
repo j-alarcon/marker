@@ -1,4 +1,9 @@
 /* https://github.com/j-alarcon */
+.horizontal-line,
+.form-burger {
+  width: 98%;
+}
+
 .half-width,
 .left-side,
 .right-side {
@@ -293,10 +298,6 @@ input::-webkit-inner-spin-button {
   height: 4.5vh;
 }
 
-.form-burger {
-  width: 96%;
-}
-
 .line {
   margin: 1.5vh 0 1.5vh 0;
 }
@@ -354,7 +355,7 @@ input[type="number"] {
 }
 
 .extra-data-container {
-  margin: 0 1vh 0.6vh 1.4vh;
+  margin: 0 1vh 0.6vh 2vh;
 }
 
 .penguin-logo {
@@ -369,6 +370,7 @@ input[type="number"] {
 }
 
 .container-form-buttons {
+  margin-right: 2.6vh;
   gap: 1.5vh;
 }
 

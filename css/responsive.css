@@ -106,6 +106,30 @@
   }
 }
 
+@media screen and (max-width: 440px) {
+  .input-form-container,
+  .container-form-buttons {
+    gap: 0;
+  }
+
+  .line {
+    margin: 0.7vh 0 0.7vh 0;
+  }
+
+  .subcontainer-form {
+    margin: 0 2vh 0 0;
+  }
+
+  .input-form {
+    height: 0;
+    padding: 2vh;
+  }
+
+  .options-button {
+    margin: 0 0.8vh 0 0.8vh;
+  }
+}
+
 @media screen and (max-height: 450px) and (orientation: landscape) {
   .input-form-container,
   .container-form-buttons {
@@ -114,25 +138,6 @@
 
   .line {
     margin: 1vh 0 1vh 0;
-  }
-
-  .subcontainer-form {
-    margin: 0 2vh 0 0;
-  }
-
-  .options-button {
-    margin: 0 0.8vh 0 0.8vh;
-  }
-}
-
-@media screen and (max-width: 440px) {
-  .input-form-container,
-  .container-form-buttons {
-    gap: 0;
-  }
-
-  .line {
-    margin: 0.8vh 0 0.8vh 0;
   }
 
   .subcontainer-form {
