@@ -127,7 +127,6 @@ input::-webkit-inner-spin-button {
 }
 
 .horizontal-line {
-  width: 95%;
   height: 0.2vh;
   margin: 0.5vh 0 1vh 0;
 }

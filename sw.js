@@ -43,7 +43,7 @@ define(["./workbox-7e688afb"], function (e) {
           revision: "28ab7cb69f6910b466221f5a82724a89",
         },
         { url: "css/fonts.css", revision: "0b33fd739a0d416da150513f8723ddac" },
-        { url: "css/main.css", revision: "efaf888a4c3d3a34fc4504c4d4a4a2cd" },
+        { url: "css/main.css", revision: "36fbbaae4177a17eccc1311c5cb60880" },
         {
           url: "css/position.css",
           revision: "be53a178a10731778985db62e1b87354",
@@ -51,7 +51,7 @@ define(["./workbox-7e688afb"], function (e) {
         { url: "css/reset.css", revision: "7a4cb66395098d422e0253fd53e75cf5" },
         {
           url: "css/responsive.css",
-          revision: "f89150ad080975a8caa32f8eb9e93a57",
+          revision: "c86f14dbc16a01960f1b4634436a8b14",
         },
         {
           url: "fonts/anton.ttf",
