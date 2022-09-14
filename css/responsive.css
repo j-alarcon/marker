@@ -113,16 +113,16 @@
   }
 
   .line {
-    margin: 0.8vh 0 0.8vh 0;
+    margin: .8vh 0 .8vh 0;
   }
 
   .subcontainer-form {
     margin: 0 2vh 0 0;
   }
 
-  .input-form {
+  .input-form{
     height: 0;
-    padding: 1.6vh;
+    padding: 2vh;
   }
 
   .options-button {
