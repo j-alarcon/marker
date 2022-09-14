@@ -121,7 +121,8 @@
   }
 
   .input-form{
-    -webkit-appearance: none;
+    height: 0;
+    padding: 2vh;
   }
 
   .options-button {
