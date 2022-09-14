@@ -43,7 +43,7 @@ define(["./workbox-7e688afb"], function (e) {
           revision: "28ab7cb69f6910b466221f5a82724a89",
         },
         { url: "css/fonts.css", revision: "0b33fd739a0d416da150513f8723ddac" },
-        { url: "css/main.css", revision: "36fbbaae4177a17eccc1311c5cb60880" },
+        { url: "css/main.css", revision: "01a35dea69300f41b360fb0845610ddf" },
         {
           url: "css/position.css",
           revision: "be53a178a10731778985db62e1b87354",
