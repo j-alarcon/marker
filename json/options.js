@@ -1,4 +1,4 @@
-// https://github.com/j-alarcon
+// https://yarduon.com
 export default {
   timers: [
     {
