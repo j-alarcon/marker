@@ -51,6 +51,7 @@
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
+  appearance: none;
   -o-appearance: none;
   -moz-appearance: none;
 }
@@ -345,6 +346,7 @@ input::-webkit-inner-spin-button {
 
 /* Hide spinbox from input number in Firefox */
 input[type="number"] {
+  appearance: textfield;
   -moz-appearance: textfield;
 }
 

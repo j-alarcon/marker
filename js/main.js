@@ -298,6 +298,7 @@ function createTeam(color, text, currentTeam, onLoad) {
   modifiers.forEach((e, i) => {
     e.addEventListener("click", () => {
       try {
+        console.log(localStorage.getItem("currentMaxScore"));
         if (i === 1) {
           // Prevent increment when a team or played have won
           if (Number(localStorage.getItem("currentMaxScore")) != 0) {
@@ -948,6 +949,7 @@ document.getElementById("submit-changes").addEventListener("click", (e) => {
 document.getElementById("form-burger").addEventListener("reset", () => {
   // Reset all values from options
   localStorage.removeItem("options");
+  localStorage.setItem("currentMaxScore", 1);
   // Set default team names
   Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
     resetNames(e, i, false);
