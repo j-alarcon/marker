@@ -124,11 +124,6 @@
     margin: 0 2vh 0 0;
   }
 
-  .input-form {
-    height: 0;
-    padding: 2vh;
-  }
-
   .options-button {
     margin: 0 0.8vh 0 0.8vh;
   }
@@ -147,12 +142,7 @@
   .subcontainer-form {
     margin: 0 2vh 0 0;
   }
-
-  .input-form {
-    height: 0;
-    padding: 2vh;
-  }
-
+  
   .options-button {
     margin: 0 0.8vh 0 0.8vh;
   }

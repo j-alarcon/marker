@@ -320,6 +320,7 @@ input::-webkit-inner-spin-button {
 }
 
 .input-form {
+  padding: 1.5vh 0 1.5vh 0;
   width: 7vh;
   height: 3vh;
 }

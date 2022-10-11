@@ -983,19 +983,6 @@ Array.from(document.getElementsByClassName("button-timer")).forEach((e, i) => {
   });
 });
 
-// Reset timer and scores
-document.getElementById("reset").addEventListener("click", (e) => {
-  try {
-    resetScores(JSON.parse(localStorage.getItem("teams")));
-    localStorage.setItem("currentMaxScore", 1);
-    clearTimer();
-    // Reload website
-    window.location.reload();
-  } catch (ex) {
-    window.location.reload();
-  }
-});
-
 // Edit use
 document.getElementById("edit").addEventListener("click", () => {
   // Avoid user to type more than 12 characters
@@ -1013,3 +1000,22 @@ document.addEventListener("keydown", (e) => {
       document.getElementById("edit").children[0].src.includes("save.svg")
   );
 });
+
+// Avoid user to type more than the specified number
+maxLengthInput(Array.from(document.getElementsByClassName("time")), 2);
+maxLengthInput(Array.from(document.getElementsByClassName("points")), 3);
+
+
+// Reset timer and scores
+document.getElementById("reset").addEventListener("click", (e) => {
+  try {
+    resetScores(JSON.parse(localStorage.getItem("teams")));
+    localStorage.setItem("currentMaxScore", 1);
+    clearTimer();
+    // Reload website
+    window.location.reload();
+  } catch (ex) {
+    window.location.reload();
+  }
+});
+
