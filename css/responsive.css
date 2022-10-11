@@ -36,13 +36,17 @@
   }
 
   .alert {
-    height: 6vh;
+    height: 6.5vh;
     border-top-right-radius: 0;
   }
 
   #burger-button {
     top: 0;
     margin: 1.3vh 1.3vh 0 0;
+  }
+
+  .edit-icon {
+    width: 5.5vh;
   }
 
   .edit {
