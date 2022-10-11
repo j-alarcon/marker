@@ -105,6 +105,7 @@ export function findElement(elements, name) {
 // Disable an infinite number of HTML elements
 export function disableHTML(...elements) {
   elements.forEach((e) => {
+    console.log(e);
     if (e.nodeName === "INPUT" || e.nodeName === "TEXTAREA") {
       e.disabled = true;
     }

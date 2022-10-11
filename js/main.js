@@ -950,11 +950,15 @@ document.getElementById("form-burger").addEventListener("reset", () => {
   // Reset all values from options
   localStorage.removeItem("options");
   localStorage.setItem("currentMaxScore", 1);
+  // Disable all modes
+  Array.from(modeInputs).forEach((e, i) => {
+    disableHTML(...modeInputs[i]);
+  });
   // Set default team names
   Array.from(document.getElementsByClassName("name")).forEach((e, i) => {
     resetNames(e, i, false);
   });
-  window.location.reload();
+  location.reload();
 });
 
 // Set timer to desired minutes and stop current timer if there was one.
@@ -1005,7 +1009,6 @@ document.addEventListener("keydown", (e) => {
 maxLengthInput(Array.from(document.getElementsByClassName("time")), 2);
 maxLengthInput(Array.from(document.getElementsByClassName("points")), 3);
 
-
 // Reset timer and scores
 document.getElementById("reset").addEventListener("click", (e) => {
   try {
@@ -1018,4 +1021,3 @@ document.getElementById("reset").addEventListener("click", (e) => {
     window.location.reload();
   }
 });
-
