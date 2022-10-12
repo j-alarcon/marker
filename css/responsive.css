@@ -56,6 +56,10 @@
   .change-scores {
     flex-direction: column-reverse;
   }
+
+  .input-form {
+    padding: 2.3vh 0 2.3vh 0;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -110,7 +114,8 @@
   }
 }
 
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 440px),
+  screen and (max-height: 450px) and (orientation: landscape) {
   .input-form-container,
   .container-form-buttons {
     gap: 0;
@@ -124,25 +129,6 @@
     margin: 0 2vh 0 0;
   }
 
-  .options-button {
-    margin: 0 0.8vh 0 0.8vh;
-  }
-}
-
-@media screen and (max-height: 450px) and (orientation: landscape) {
-  .input-form-container,
-  .container-form-buttons {
-    gap: 0;
-  }
-
-  .line {
-    margin: 1vh 0 1vh 0;
-  }
-
-  .subcontainer-form {
-    margin: 0 2vh 0 0;
-  }
-  
   .options-button {
     margin: 0 0.8vh 0 0.8vh;
   }
