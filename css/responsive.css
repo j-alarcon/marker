@@ -58,7 +58,6 @@
   }
 
   .input-form {
-    font-size: 2.5vh;
     padding: 2.2vh 0 2.2vh 0;
   }
 }
@@ -102,26 +101,29 @@
     height: 31.6%;
   }
 
+  #timer {
+    font-size: 12vh;
+    height: 11vh;
+  }
+
+  .icon-submenu {
+    width: 2.4vh;
+  }
+
   .burger-menu {
     width: 100%;
   }
 
-  .input-form {
-    font-size: 2.5vh;
-  }
-
-  .options-button {
-    font-size: 2vh;
-  }
-}
-
-@media screen and (max-width: 440px),
-  screen and (max-height: 450px) and (orientation: landscape) {
   .line {
     margin: 0.4vh 0 0.4vh 0;
   }
 
   .input-form {
     height: 0;
+    font-size: 2.5vh;
+  }
+
+  .options-button {
+    font-size: 2vh;
   }
 }
