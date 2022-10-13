@@ -15,16 +15,16 @@ if (!self.define) {
         return e;
       })
   );
-  self.define = (n, c) => {
-    const a =
+  self.define = (n, a) => {
+    const c =
       e ||
       ("document" in self ? document.currentScript.src : "") ||
       location.href;
-    if (i[a]) return;
+    if (i[c]) return;
     let o = {};
-    const r = (e) => s(e, a),
-      d = { module: { uri: a }, exports: o, require: r };
-    i[a] = Promise.all(n.map((e) => d[e] || r(e))).then((e) => (c(...e), o));
+    const r = (e) => s(e, c),
+      d = { module: { uri: c }, exports: o, require: r };
+    i[c] = Promise.all(n.map((e) => d[e] || r(e))).then((e) => (a(...e), o));
   };
 }
 define(["./workbox-7e688afb"], function (e) {
@@ -42,16 +42,16 @@ define(["./workbox-7e688afb"], function (e) {
           url: "audio/finish.mp3",
           revision: "28ab7cb69f6910b466221f5a82724a89",
         },
-        { url: "css/fonts.css", revision: "0b33fd739a0d416da150513f8723ddac" },
-        { url: "css/main.css", revision: "01a35dea69300f41b360fb0845610ddf" },
+        { url: "css/fonts.css", revision: "c7f6911f047994d4b81b317a8c9a5d09" },
+        { url: "css/main.css", revision: "725cad70b95cb8739e39215e6611aef3" },
         {
           url: "css/position.css",
-          revision: "be53a178a10731778985db62e1b87354",
+          revision: "bb57a2d1c7f6e41858281c5d959e549c",
         },
-        { url: "css/reset.css", revision: "7a4cb66395098d422e0253fd53e75cf5" },
+        { url: "css/reset.css", revision: "821f47d254bfd553248ed3c8a060b4dd" },
         {
           url: "css/responsive.css",
-          revision: "c86f14dbc16a01960f1b4634436a8b14",
+          revision: "d5fedcae4fae200d1528e3472e1be1b4",
         },
         {
           url: "fonts/anton.ttf",
@@ -61,10 +61,10 @@ define(["./workbox-7e688afb"], function (e) {
           url: "fonts/ubuntu.ttf",
           revision: "d3c3b35e6d478ed149f02fad880dd359",
         },
-        { url: "FUNDING.yml", revision: "d71ac27283ed800598bb8fb4b731ff6c" },
+        { url: "FUNDING.yml", revision: "c21af649c611bd5a3389bd3401dd5c71" },
         {
           url: "img/favicon.png",
-          revision: "4f8d8ea6936a9cf8c82e1c61873cad95",
+          revision: "784f0f20382217254bf54cd388728115",
         },
         {
           url: "img/icons/burger.svg",
@@ -112,51 +112,51 @@ define(["./workbox-7e688afb"], function (e) {
         },
         {
           url: "img/pwa/icons/reoneo_icon_1024x1024.png",
-          revision: "8f18bbd68b0a74fbc5b5897a1b330c26",
+          revision: "640d43b62a11d92859f472fba96ba81a",
         },
         {
           url: "img/pwa/icons/reoneo_icon_128x128.png",
-          revision: "21207658fe98196af36572b6886aacba",
+          revision: "a4a0623ddf7392081ad2728071e96eaf",
         },
         {
           url: "img/pwa/icons/reoneo_icon_144x144.png",
-          revision: "e8387d4d57d08e9eeddd5452ba58e6d1",
+          revision: "b76bf7cbd2b1ea163f92b174755ff93a",
         },
         {
           url: "img/pwa/icons/reoneo_icon_192x192.png",
-          revision: "0aa45da43181e78ba1e1c4cd87cad844",
+          revision: "ae78a709825ecdcc548f6aeb4b7fd9f1",
         },
         {
           url: "img/pwa/icons/reoneo_icon_256x256.png",
-          revision: "7bdb6bb5096548f0f8112e5fc7691961",
+          revision: "859d24a7ba1d8482e6b2a3551a866b64",
         },
         {
           url: "img/pwa/icons/reoneo_icon_32x32.png",
-          revision: "91566a3334978d2ad04efcfe2941ef8f",
+          revision: "8edf24242f30e7ad232d792989cef8a4",
         },
         {
           url: "img/pwa/icons/reoneo_icon_384x384.png",
-          revision: "edc988e9556219edb26b880598db9c89",
+          revision: "e3ea94a5ca43cc8ab824ccdec56877a7",
         },
         {
           url: "img/pwa/icons/reoneo_icon_48x48.png",
-          revision: "93550920de3641de7ca869063eb07323",
+          revision: "332c4d54e59a9cc0c5f57a4809f33afd",
         },
         {
           url: "img/pwa/icons/reoneo_icon_512x512.png",
-          revision: "a0930532598af9b5418fe2cb40147624",
+          revision: "813d233ef18489b54b936fe3c650ab4f",
         },
         {
           url: "img/pwa/icons/reoneo_icon_64x64.png",
-          revision: "4d3480b640def4d15d315c25664cd389",
+          revision: "8f291ca3c72ad57e57e86af81218ad61",
         },
         {
           url: "img/pwa/icons/reoneo_icon_72x72.png",
-          revision: "4d7e5552f34e20c38dd50530bd63bffa",
+          revision: "e9429a30bd2ab6e95a33cc0cb6a9b855",
         },
         {
           url: "img/pwa/icons/reoneo_icon_96x96.png",
-          revision: "bd2d62513576e46fa77fd9d3df96a4fd",
+          revision: "0035b11253e34e0885b4cbc04fdbf696",
         },
         {
           url: "img/pwa/screenshots/computer_five_teams.png",
@@ -176,23 +176,23 @@ define(["./workbox-7e688afb"], function (e) {
         },
         {
           url: "img/pwa/screenshots/mobile_five_teams.png",
-          revision: "20a2cfec113699fe260dbb0b459b21ed",
+          revision: "97d19b3321ead93b408580a2bc38392b",
         },
         {
           url: "img/pwa/screenshots/mobile_nine_teams.png",
-          revision: "be4b4966db04db090ac09be551de8982",
+          revision: "26dbb1fd8a3a96fd4b3f1c703759f200",
         },
         {
           url: "img/pwa/screenshots/mobile_six_teams.png",
-          revision: "222d7f3c6ecb8038d5f468c494962a46",
+          revision: "a420c3a4f36c583d4fcc696a9faf396d",
         },
         {
           url: "img/pwa/screenshots/mobile_two_teams.png",
-          revision: "382ec3db74ea5bd3c7768cfcf9f48e03",
+          revision: "3bd5779739715abef89bae9e3c23d344",
         },
         {
           url: "img/pwa/screenshots/tablet_10inch_five_teams.png",
-          revision: "e79d63ffa03adb75947de52cb67a5db3",
+          revision: "befdef8b8a8ac6a15a298078c2bfa34e",
         },
         {
           url: "img/pwa/screenshots/tablet_10inch_nine_teams.png",
@@ -204,39 +204,39 @@ define(["./workbox-7e688afb"], function (e) {
         },
         {
           url: "img/pwa/screenshots/tablet_10inch_two_teams.png",
-          revision: "18e49f09ccaafa8219d63975c7a4695f",
+          revision: "0bfe14febc91970844f3830e5f7595cd",
         },
         {
           url: "img/pwa/screenshots/tablet_7inch_five_teams.png",
-          revision: "ba876eec70dbfabba8bfaa8a2f56de01",
+          revision: "02bc6a31f80a3e5cf96180419ded1c77",
         },
         {
           url: "img/pwa/screenshots/tablet_7inch_nine_teams.png",
-          revision: "2fa194c6f0d116b9249d5b61ec1b60d8",
+          revision: "44d0f079fcd66cf5e4492c2d8e43ee36",
         },
         {
           url: "img/pwa/screenshots/tablet_7inch_six_teams.png",
-          revision: "d6042e9affd7175b513c321026680c6f",
+          revision: "b1e0361f2b1aeb76dd38848362142ed0",
         },
         {
           url: "img/pwa/screenshots/tablet_7inch_two_teams.png",
-          revision: "3a3f3983b747bbd07a60e15d50aa0c83",
+          revision: "ca08deda589a20b632d71f96d3a05ed2",
         },
-        { url: "index.html", revision: "5e30663d060fb87f07ce30a92af71d39" },
-        { url: "js/main.js", revision: "a9b058720e22cf6f61c12740310bcff5" },
-        { url: "js/utility.js", revision: "78e23c633122994d36750e321d3c2e4a" },
+        { url: "index.html", revision: "aff502007884f829883bb6b715b7eca6" },
+        { url: "js/main.js", revision: "4f9501a38d25a675b4c0e9693b47fd28" },
+        { url: "js/utility.js", revision: "fb23d76d295a96902b2e69ba14b39a04" },
         {
           url: "json/languages.js",
-          revision: "6cc55029e043c8d8e8804e81fa4369be",
+          revision: "113413b3754ed16a9a5138e1d12dadf1",
         },
         {
           url: "json/options.js",
-          revision: "b7cb175470cde3dacad3d5c14a5486c1",
+          revision: "729f462a6f4048b19abe4dfcd636d53a",
         },
-        { url: "json/scores.js", revision: "2fab73c81dd02244fd78344d0c3cd886" },
-        { url: "json/teams.js", revision: "3ec98c32e02d1e07f446a7350ac26570" },
-        { url: "manifest.json", revision: "b5fd2b7eeca51e5cc52f2a593ec77ebc" },
-        { url: "README.md", revision: "0c92fc5ea404073eced3ce8f8c7aad94" },
+        { url: "json/scores.js", revision: "a70354ae8cbe81b4f488b1fa95f51f81" },
+        { url: "json/teams.js", revision: "48be72e91e473e6cc9f779d1b6978dee" },
+        { url: "manifest.json", revision: "66562df4f8eed3a5b67cef0eab9fa761" },
+        { url: "README.md", revision: "4c04123eb36bc048ccab67ba66c2982c" },
       ],
       { ignoreURLParametersMatching: [/^utm_/, /^fbclid$/] }
     );
