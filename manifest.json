@@ -128,6 +128,7 @@
   "scope": "./",
   "theme_color": "#161618",
   "background_color": "#FFFFFF",
+  "display_override": ["standalone", "minimal-ui"],
   "display": "standalone",
   "orientation": "portrait",
   "icons": [
