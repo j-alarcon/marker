@@ -235,7 +235,7 @@ define(["./workbox-7e688afb"], function (e) {
         },
         { url: "json/scores.js", revision: "a70354ae8cbe81b4f488b1fa95f51f81" },
         { url: "json/teams.js", revision: "48be72e91e473e6cc9f779d1b6978dee" },
-        { url: "manifest.json", revision: "66562df4f8eed3a5b67cef0eab9fa761" },
+        { url: "manifest.json", revision: "26671a7ab2e88bd9d5fa6d4a3d9f2eb0" },
         { url: "README.md", revision: "4c04123eb36bc048ccab67ba66c2982c" },
       ],
       { ignoreURLParametersMatching: [/^utm_/, /^fbclid$/] }

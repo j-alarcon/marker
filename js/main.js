@@ -34,7 +34,7 @@ if ("serviceWorker" in navigator) {
 }
 
 // Update only when new version is finished
-const currentVersion = 1.2;
+const currentVersion = 1.3;
 
 const templateNames = ["EQUIPO", "ÉQUIPE", "MANNSCHAFT", "TEAM"];
 
