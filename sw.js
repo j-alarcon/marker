@@ -16,15 +16,15 @@ if (!self.define) {
       })
   );
   self.define = (n, a) => {
-    const o =
+    const c =
       e ||
       ("document" in self ? document.currentScript.src : "") ||
       location.href;
-    if (i[o]) return;
-    let c = {};
-    const r = (e) => s(e, o),
-      d = { module: { uri: o }, exports: c, require: r };
-    i[o] = Promise.all(n.map((e) => d[e] || r(e))).then((e) => (a(...e), c));
+    if (i[c]) return;
+    let o = {};
+    const r = (e) => s(e, c),
+      d = { module: { uri: c }, exports: o, require: r };
+    i[c] = Promise.all(n.map((e) => d[e] || r(e))).then((e) => (a(...e), o));
   };
 }
 define(["./workbox-7e688afb"], function (e) {
@@ -222,12 +222,12 @@ define(["./workbox-7e688afb"], function (e) {
           url: "img/pwa/screenshots/tablet_7inch_two_teams.png",
           revision: "ca08deda589a20b632d71f96d3a05ed2",
         },
-        { url: "index.html", revision: "aff502007884f829883bb6b715b7eca6" },
-        { url: "js/main.js", revision: "c9134829819d6426d7e08f7412a51331" },
+        { url: "index.html", revision: "d74012a1096d64db60fe87c9750546e0" },
+        { url: "js/main.js", revision: "b316e3a1ed420811572811f2a5154354" },
         { url: "js/utility.js", revision: "fb23d76d295a96902b2e69ba14b39a04" },
         {
           url: "json/languages.js",
-          revision: "113413b3754ed16a9a5138e1d12dadf1",
+          revision: "0b1219c33dc1f6a42c893978ec53f243",
         },
         {
           url: "json/options.js",
@@ -235,7 +235,7 @@ define(["./workbox-7e688afb"], function (e) {
         },
         { url: "json/scores.js", revision: "a70354ae8cbe81b4f488b1fa95f51f81" },
         { url: "json/teams.js", revision: "48be72e91e473e6cc9f779d1b6978dee" },
-        { url: "manifest.json", revision: "26671a7ab2e88bd9d5fa6d4a3d9f2eb0" },
+        { url: "manifest.json", revision: "2c7ef491b928903a17889098df822dd7" },
         { url: "README.md", revision: "4c04123eb36bc048ccab67ba66c2982c" },
       ],
       { ignoreURLParametersMatching: [/^utm_/, /^fbclid$/] }
