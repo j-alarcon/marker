@@ -16,15 +16,15 @@ if (!self.define) {
       })
   );
   self.define = (n, a) => {
-    const c =
+    const o =
       e ||
       ("document" in self ? document.currentScript.src : "") ||
       location.href;
-    if (i[c]) return;
-    let o = {};
-    const r = (e) => s(e, c),
-      d = { module: { uri: c }, exports: o, require: r };
-    i[c] = Promise.all(n.map((e) => d[e] || r(e))).then((e) => (a(...e), o));
+    if (i[o]) return;
+    let c = {};
+    const r = (e) => s(e, o),
+      d = { module: { uri: o }, exports: c, require: r };
+    i[o] = Promise.all(n.map((e) => d[e] || r(e))).then((e) => (a(...e), c));
   };
 }
 define(["./workbox-7e688afb"], function (e) {
@@ -112,11 +112,11 @@ define(["./workbox-7e688afb"], function (e) {
         },
         {
           url: "img/pwa/icons/reoneo_icon_1024x1024.png",
-          revision: "640d43b62a11d92859f472fba96ba81a",
+          revision: "d27339765a9a4525321217576a84d0f7",
         },
         {
           url: "img/pwa/icons/reoneo_icon_128x128.png",
-          revision: "a4a0623ddf7392081ad2728071e96eaf",
+          revision: "b2cadd638e2ee884ec07a35e120ee778",
         },
         {
           url: "img/pwa/icons/reoneo_icon_144x144.png",
@@ -124,39 +124,39 @@ define(["./workbox-7e688afb"], function (e) {
         },
         {
           url: "img/pwa/icons/reoneo_icon_192x192.png",
-          revision: "ae78a709825ecdcc548f6aeb4b7fd9f1",
+          revision: "514078472d313aa1031b49e9fbd409fd",
         },
         {
           url: "img/pwa/icons/reoneo_icon_256x256.png",
-          revision: "859d24a7ba1d8482e6b2a3551a866b64",
+          revision: "140133e4f70344e4a82fb4b7beb482b7",
         },
         {
           url: "img/pwa/icons/reoneo_icon_32x32.png",
-          revision: "8edf24242f30e7ad232d792989cef8a4",
+          revision: "babc1dac4ae472eb075638c02cb8b0c7",
         },
         {
           url: "img/pwa/icons/reoneo_icon_384x384.png",
-          revision: "e3ea94a5ca43cc8ab824ccdec56877a7",
+          revision: "7156d09b4227eaca652e60833f064051",
         },
         {
           url: "img/pwa/icons/reoneo_icon_48x48.png",
-          revision: "332c4d54e59a9cc0c5f57a4809f33afd",
+          revision: "549b32c3b3d7af63374659094ffaaa70",
         },
         {
           url: "img/pwa/icons/reoneo_icon_512x512.png",
-          revision: "813d233ef18489b54b936fe3c650ab4f",
+          revision: "05e56ed82d0e36bbc7e4b8f4f7f5e638",
         },
         {
           url: "img/pwa/icons/reoneo_icon_64x64.png",
-          revision: "8f291ca3c72ad57e57e86af81218ad61",
+          revision: "eb0ca2cd59d8184cca27dcfe002a04f8",
         },
         {
           url: "img/pwa/icons/reoneo_icon_72x72.png",
-          revision: "e9429a30bd2ab6e95a33cc0cb6a9b855",
+          revision: "083f49b133084312412213ffe2836fb8",
         },
         {
           url: "img/pwa/icons/reoneo_icon_96x96.png",
-          revision: "0035b11253e34e0885b4cbc04fdbf696",
+          revision: "ae798697dccaee2a4a2966f210d6f9df",
         },
         {
           url: "img/pwa/screenshots/computer_five_teams.png",
@@ -223,7 +223,7 @@ define(["./workbox-7e688afb"], function (e) {
           revision: "ca08deda589a20b632d71f96d3a05ed2",
         },
         { url: "index.html", revision: "aff502007884f829883bb6b715b7eca6" },
-        { url: "js/main.js", revision: "4f9501a38d25a675b4c0e9693b47fd28" },
+        { url: "js/main.js", revision: "c9134829819d6426d7e08f7412a51331" },
         { url: "js/utility.js", revision: "fb23d76d295a96902b2e69ba14b39a04" },
         {
           url: "json/languages.js",
