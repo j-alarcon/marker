@@ -222,12 +222,12 @@ define(["./workbox-7e688afb"], function (e) {
           url: "img/pwa/screenshots/tablet_7inch_two_teams.png",
           revision: "ca08deda589a20b632d71f96d3a05ed2",
         },
-        { url: "index.html", revision: "d74012a1096d64db60fe87c9750546e0" },
-        { url: "js/main.js", revision: "b316e3a1ed420811572811f2a5154354" },
+        { url: "index.html", revision: "e5062c231bffee36f5348c27c7005cf3" },
+        { url: "js/main.js", revision: "2abd4eb85b2bb82f42a9f2167126bb1b" },
         { url: "js/utility.js", revision: "fb23d76d295a96902b2e69ba14b39a04" },
         {
           url: "json/languages.js",
-          revision: "0b1219c33dc1f6a42c893978ec53f243",
+          revision: "3d2704c0e560eef351d8e6dc89615a63",
         },
         {
           url: "json/options.js",
@@ -235,7 +235,7 @@ define(["./workbox-7e688afb"], function (e) {
         },
         { url: "json/scores.js", revision: "a70354ae8cbe81b4f488b1fa95f51f81" },
         { url: "json/teams.js", revision: "48be72e91e473e6cc9f779d1b6978dee" },
-        { url: "manifest.json", revision: "d5cbb92e795843e1bf2e61eb63574689" },
+        { url: "manifest.json", revision: "14208eff63d146d71363445a3b0149dc" },
         { url: "README.md", revision: "090fda91f07abb58c4805a709ac81a40" },
       ],
       { ignoreURLParametersMatching: [/^utm_/, /^fbclid$/] }
