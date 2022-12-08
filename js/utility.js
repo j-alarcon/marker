@@ -128,6 +128,14 @@ export function appendChilds(father, ...childs) {
   return father;
 }
 
+// Add one class to multiple elements
+export function addClass(selectedClass, ...elements) {
+  elements.forEach((e) => {
+    e.classList.add(selectedClass);
+  });
+}
+
+
 // Add classes to different elements inside an array
 export function addClasses(elements, init, end, ...classes) {
   // Classes will be added according to range you have selected inside array

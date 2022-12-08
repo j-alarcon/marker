@@ -5,6 +5,7 @@ import {
   downloadResults,
   reproduceSound,
   toggleImage,
+  addClass,
   addClasses,
   removeClasses,
   createHTML,
@@ -749,6 +750,9 @@ window.onload = () => {
     );
   }
   updateTimer();
+
+  // Hide initial screen
+  addClass("hidden", document.getElementById("initial-screen"));
 };
 
 // Add team

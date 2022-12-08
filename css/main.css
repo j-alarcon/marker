@@ -136,6 +136,10 @@ input::-webkit-inner-spin-button {
   cursor: pointer;
 }
 
+.hidden {
+  display: none;
+}
+
 .invisible {
   opacity: 0;
 }

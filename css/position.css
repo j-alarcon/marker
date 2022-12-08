@@ -38,6 +38,11 @@
   z-index: 1;
 }
 
+.initial-screen,
+.alert {
+  z-index: 2;
+}
+
 .flex,
 .burger-checkbox:checked ~ .burger-menu {
   display: flex;
@@ -89,8 +94,4 @@
 
 .main-container {
   flex-grow: 1;
-}
-
-.alert {
-  z-index: 2;
 }
