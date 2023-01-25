@@ -103,6 +103,10 @@ input::-webkit-inner-spin-button {
   background-color: rgb(15, 14, 14);
 }
 
+.light-black {
+  background-color: #292929;
+}
+
 .pink {
   background-color: #da1e82;
 }
