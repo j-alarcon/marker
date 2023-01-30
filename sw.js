@@ -15,16 +15,16 @@ if (!self.define) {
         return e;
       })
   );
-  self.define = (n, c) => {
-    const o =
+  self.define = (n, o) => {
+    const c =
       e ||
       ("document" in self ? document.currentScript.src : "") ||
       location.href;
-    if (i[o]) return;
+    if (i[c]) return;
     let a = {};
-    const r = (e) => s(e, o),
-      d = { module: { uri: o }, exports: a, require: r };
-    i[o] = Promise.all(n.map((e) => d[e] || r(e))).then((e) => (c(...e), a));
+    const r = (e) => s(e, c),
+      d = { module: { uri: c }, exports: a, require: r };
+    i[c] = Promise.all(n.map((e) => d[e] || r(e))).then((e) => (o(...e), a));
   };
 }
 define(["./workbox-7e688afb"], function (e) {
@@ -43,10 +43,10 @@ define(["./workbox-7e688afb"], function (e) {
           revision: "28ab7cb69f6910b466221f5a82724a89",
         },
         { url: "css/fonts.css", revision: "c7f6911f047994d4b81b317a8c9a5d09" },
-        { url: "css/main.css", revision: "725cad70b95cb8739e39215e6611aef3" },
+        { url: "css/main.css", revision: "6234e6466cd72541e774b73c98884692" },
         {
           url: "css/position.css",
-          revision: "bb57a2d1c7f6e41858281c5d959e549c",
+          revision: "0b0c7b7bf40137e5512d3297ec7ed4e6",
         },
         { url: "css/reset.css", revision: "821f47d254bfd553248ed3c8a060b4dd" },
         {
@@ -99,8 +99,8 @@ define(["./workbox-7e688afb"], function (e) {
           revision: "f65ef53b36ca81f5f4eb21bd0be42e2c",
         },
         {
-          url: "img/logos/white_penguin.png",
-          revision: "4af174c330d334424b2e206cc9dc4c62",
+          url: "img/logos/white_penguin_128x128.png",
+          revision: "521069a5755644473fe94126ee966ab5",
         },
         {
           url: "img/pwa/badges/android_en.png",
@@ -222,9 +222,9 @@ define(["./workbox-7e688afb"], function (e) {
           url: "img/pwa/screenshots/tablet_7inch_two_teams.png",
           revision: "ca08deda589a20b632d71f96d3a05ed2",
         },
-        { url: "index.html", revision: "e5062c231bffee36f5348c27c7005cf3" },
-        { url: "js/main.js", revision: "2abd4eb85b2bb82f42a9f2167126bb1b" },
-        { url: "js/utility.js", revision: "fb23d76d295a96902b2e69ba14b39a04" },
+        { url: "index.html", revision: "cecd05bde52e947260987297a32a9fe3" },
+        { url: "js/main.js", revision: "73ec441e3063510b13295d0d63bbfbad" },
+        { url: "js/utility.js", revision: "35d1b0baaa3be2999b4fcade2acc0872" },
         {
           url: "json/languages.js",
           revision: "3d2704c0e560eef351d8e6dc89615a63",
