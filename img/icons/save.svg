@@ -1,65 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   width="300"
-   height="300"
-   viewBox="0 0 79.375005 79.375004"
-   version="1.1"
-   id="svg5"
-   inkscape:version="1.2 (1:1.2.1+202207142221+cd75a1ee6d)"
-   sodipodi:docname="save.svg"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview7"
-     pagecolor="#000000"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:document-units="mm"
-     showgrid="false"
-     showguides="true"
-     inkscape:zoom="0.7071068"
-     inkscape:cx="-156.27059"
-     inkscape:cy="141.42135"
-     inkscape:window-width="1920"
-     inkscape:window-height="949"
-     inkscape:window-x="1920"
-     inkscape:window-y="27"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
-  <defs
-     id="defs2" />
-  <g
-     inkscape:label="Capa 1"
-     inkscape:groupmode="layer"
-     id="layer1">
-    <path
-       id="rect447-6"
-       style="fill:#ffffff;fill-opacity:1;stroke-width:0.353341"
-       d="m 60.085208,16.850292 0,5.654428 -38.25091,0 v 47.459114 h 48.72106 l -0.0121,-37.320865 h 5.816393 l -2e-6,42.975305 H 16.029488 V 16.85029 Z"
-       sodipodi:nodetypes="ccccccccccc" />
-    <g
-       id="g1349" />
-    <g
-       id="g1354"
-       transform="translate(2.6458334,-2.6458334)">
-      <path
-         id="rect453-7-3-9"
-         style="fill:#ffffff;stroke-width:0.464734"
-         d="m 71.4062,17.126894 4.46041,4.453507 -31.547279,31.498462 -4.380724,-4.428658 z"
-         sodipodi:nodetypes="ccccc" />
-      <path
-         id="rect453-7-5-1"
-         style="fill:#ffffff;stroke-width:0.332313"
-         d="m 27.034566,43.815309 4.404691,-4.404691 8.869469,8.869469 4.40469,4.404691 v 0 l 19.890291,-19.858902 -19.890291,19.858902 -4.40469,4.40469 z"
-         sodipodi:nodetypes="ccccccccc" />
-    </g>
-  </g>
+<!-- https://yarduon.com -->
+<svg width="300" height="300" version="1.1" viewBox="0 0 79.375 79.375" xmlns="http://www.w3.org/2000/svg">
+<g fill="#fff">
+<path d="m60.085 16.85v5.6544h-38.251v47.459h48.721l-0.0121-37.321h5.8164l-2e-6 42.975h-60.33v-58.768z" stroke-width=".35334"/>
+<g transform="translate(2.6458 -2.6458)">
+<path d="m71.406 17.127 4.4604 4.4535-31.547 31.498-4.3807-4.4287z" stroke-width=".46473"/>
+<path d="m27.035 43.815 4.4047-4.4047 13.274 13.274 19.89-19.859-19.89 19.859-4.4047 4.4047z" stroke-width=".33231"/>
+</g>
+</g>
 </svg>

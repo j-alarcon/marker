@@ -1,82 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   width="300"
-   height="300"
-   viewBox="0 0 79.375005 79.375004"
-   version="1.1"
-   id="svg5"
-   inkscape:version="1.2 (1:1.2.1+202207142221+cd75a1ee6d)"
-   sodipodi:docname="edit.svg"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview7"
-     pagecolor="#000000"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:document-units="mm"
-     showgrid="false"
-     showguides="true"
-     inkscape:zoom="1.0179639"
-     inkscape:cx="47.644124"
-     inkscape:cy="330.07063"
-     inkscape:window-width="1920"
-     inkscape:window-height="949"
-     inkscape:window-x="1920"
-     inkscape:window-y="27"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer1">
-    <sodipodi:guide
-       position="12.180055,41.490402"
-       orientation="0,-1"
-       id="guide1571"
-       inkscape:locked="false" />
-    <sodipodi:guide
-       position="16.03,40.517821"
-       orientation="1,0"
-       id="guide1573"
-       inkscape:locked="false" />
-    <sodipodi:guide
-       position="21.8343,41.557479"
-       orientation="1,0"
-       id="guide1575"
-       inkscape:locked="false" />
-  </sodipodi:namedview>
-  <defs
-     id="defs2" />
-  <g
-     inkscape:label="Capa 1"
-     inkscape:groupmode="layer"
-     id="layer1">
-    <path
-       id="rect447"
-       style="fill:#ffffff;fill-opacity:1;stroke-width:0.353341"
-       d="m 34.711029,16.850284 v 5.65443 h 35.844329 v 47.45912 H 21.834299 v -35.72702 h -5.8043 v 41.38146 h 60.330169 v -58.76799 z" />
-    <g
-       id="g4052"
-       transform="rotate(-2.3791015,-2729.933,4311.4407)"
-       style="fill:#ffffff;fill-opacity:1">
-      <rect
-         style="fill:#ffffff;fill-opacity:1;stroke-width:0.479972"
-         id="rect234"
-         width="9.4747934"
-         height="47.381374"
-         x="41.809654"
-         y="215.72383"
-         transform="matrix(0.72562176,-0.68809379,0.68924015,0.72453297,0,0)" />
-      <path
-         id="rect344"
-         style="fill:#ffffff;fill-opacity:1;stroke-width:0.479972"
-         d="m 211.33052,161.49136 6.87512,-6.51955 7.0831,7.44579 1.14123,8.07302 -8.01636,-1.55347 z"
-         sodipodi:nodetypes="cccccc" />
-    </g>
-  </g>
+<!-- https://yarduon.com -->
+<svg width="300" height="300" version="1.1" viewBox="0 0 79.375 79.375" xmlns="http://www.w3.org/2000/svg">
+<g fill="#fff">
+<path d="m34.711 16.85v5.6544h35.844v47.459h-48.721v-35.727h-5.8043v41.381h60.33v-58.768z" stroke-width=".35334"/>
+<g transform="rotate(-2.3791 -2729.9 4311.4)" stroke-width=".47997">
+<rect transform="matrix(.72562 -.68809 .68924 .72453 0 0)" x="41.81" y="215.72" width="9.4748" height="47.381"/>
+<path d="m211.33 161.49 6.8751-6.5196 7.0831 7.4458 1.1412 8.073-8.0164-1.5535z"/>
+</g>
+</g>
 </svg>

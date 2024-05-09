@@ -1,67 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   width="75"
-   height="75"
-   viewBox="0 0 19.843749 19.84375"
-   version="1.1"
-   id="svg5"
-   inkscape:version="1.2 (1:1.2.1+202207142221+cd75a1ee6d)"
-   sodipodi:docname="plus.svg"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview7"
-     pagecolor="#000000"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:document-units="mm"
-     showgrid="false"
-     showguides="true"
-     inkscape:zoom="11.313709"
-     inkscape:cx="30.626562"
-     inkscape:cy="21.080621"
-     inkscape:window-width="1920"
-     inkscape:window-height="976"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="g624" />
-  <defs
-     id="defs2" />
-  <g
-     inkscape:label="Capa 1"
-     inkscape:groupmode="layer"
-     id="layer1">
-    <g
-       id="g624"
-       transform="matrix(0.3690129,0,0,0.3690129,0.03542862,-0.09686305)">
-      <g
-         id="g1431"
-         transform="matrix(1.1904761,0,0,1.2096773,0.01828744,-0.05503867)">
-        <rect
-           style="fill:#ffffff;stroke-width:1.56469"
-           id="rect394"
-           width="10.018756"
-           height="44.454185"
-           x="17.480206"
-           y="0.26249233" />
-        <rect
-           style="fill:#ffffff;stroke-width:1.56469"
-           id="rect394-3"
-           width="9.8597288"
-           height="45.171188"
-           x="-27.419449"
-           y="-0.096009143"
-           transform="rotate(-90)" />
-      </g>
-    </g>
-  </g>
+<!-- https://yarduon.com -->
+<svg width="75" height="75" version="1.1" viewBox="0 0 19.844 19.844" xmlns="http://www.w3.org/2000/svg">
+<g transform="matrix(.36901 0 0 .36901 .035429 -.096863)">
+<g transform="matrix(1.1905 0 0 1.2097 .018287 -.055039)" fill="#fff" stroke-width="1.5647">
+<rect x="17.48" y=".26249" width="10.019" height="44.454"/>
+<rect transform="rotate(-90)" x="-27.419" y="-.096009" width="9.8597" height="45.171"/>
+</g>
+</g>
 </svg>

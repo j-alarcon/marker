@@ -1,3 +1,4 @@
+<!-- https://yarduon.com -->
 <strong>This is a PWA developed with HTML, CSS and JavaScript</strong> to count points from various teams with a fully functional timer. It has offline functionality so you are able to use it without an internet connection, but keep in mind that only works properly with Google Chrome.
 
 Be prepared to convert Reoneo into your regular tool in tournaments, contests or private parties... you can even use the timer to bake a pizza! 
