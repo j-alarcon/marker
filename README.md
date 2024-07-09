@@ -20,6 +20,7 @@ At the end of each round, a file containing all results will be downloaded in yo
 </br>
 <strong>Instructions:</strong> Maybe you are on a lazy day, or you are lost in this weird website because you don't know how to use it, don't worry, I understand.
 <ul>
+    </br>
     <li>
         <em>I want to see it right now:</em>
         <ol>
