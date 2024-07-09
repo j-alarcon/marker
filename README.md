@@ -17,6 +17,7 @@ By tapping on the burger menu, you will access the options, where you can also e
 
 At the end of each round, a file containing all results will be downloaded in your downloads folder with the name of the current date, if you activate the corresponding option.
 
+</br>
 <strong>Instructions:</strong> Maybe you are on a lazy day, or you are lost in this weird website because you don't know how to use it, don't worry, I understand.
 <ul>
     <li>
@@ -29,16 +30,11 @@ At the end of each round, a file containing all results will be downloaded in yo
     </br>
     <li>
         <em>I would like to have it on my device:</em>
-        <ol>
-            </br>
-            <a href="https://apps.microsoft.com/store/detail/reoneo/9N90NMW2N4CV?hl=en">
-                <img alt="Windows badge" src="./img/pwa/badges/windows_en.png" />
-            </a>
-            <a href="https://play.google.com/store/apps/details?id=reoneo.twa&hl=en">
-                <img alt="Android badge" src="./img/pwa/badges/android_en.png" />
-            </a> 
-        </ol>
     </li>
 </ul>
 
+[<img alt="Windows badge" src="./img/pwa/badges/windows_en.png" width="190px" height="57px">](https://apps.microsoft.com/store/detail/reoneo/9N90NMW2N4CV?hl=en)&nbsp;
+[<img alt="Android badge" src="./img/pwa/badges/android_en.png" width="190px" height="57px">](https://play.google.com/store/apps/details?id=reoneo.twa&hl=en)&nbsp;
+
+</br>
 <strong>License:</strong> You are not allowed to modify, use my code or resources for your own projects without my consent, even if it's everything is public. If you do not follow the preceding, I might take legal actions against you.
