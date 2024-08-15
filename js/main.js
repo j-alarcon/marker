@@ -142,32 +142,17 @@ function checkWinner(goal, currentScore, currentTeam) {
 
   // Local storage data is string so it needs a conversion to number
   if (Number(localStorage.getItem("currentMaxScore")) === Number(goal)) {
-    // Team and background are both white and need a black border
-    if (currentTeam === "white") {
-      generateAlert(
-        '<div class="' +
-          currentTeam +
-          " tiny-square tiny-border" +
-          '"></div>&nbsp;<div class="title-option-fontsize">' +
-          "&#10140;&nbsp;" +
-          goal +
-          "</div>",
-        true,
-        "alert"
-      );
-    } else {
-      generateAlert(
-        '<div class="' +
-          currentTeam +
-          " tiny-square" +
-          '"></div>&nbsp;<div class="title-option-fontsize">' +
-          "&#10140;&nbsp;" +
-          goal +
-          "</div>",
-        true,
-        "alert"
-      );
-    }
+    generateAlert(
+      '<div class="' +
+        currentTeam +
+        " tiny-square" +
+        '"></div>&nbsp;<div class="title-option-fontsize white-text">' +
+        "&#10140;&nbsp;" +
+        goal +
+        "</div>",
+      true,
+      "alert"
+    );
   }
   if (Number(localStorage.getItem("currentMaxScore")) >= Number(goal)) {
     localStorage.setItem("currentMaxScore", 0);
@@ -299,7 +284,6 @@ function createTeam(color, text, currentTeam, onLoad) {
   modifiers.forEach((e, i) => {
     e.addEventListener("click", () => {
       try {
-        console.log(localStorage.getItem("currentMaxScore"));
         if (i === 1) {
           // Prevent increment when a team or played have won
           if (Number(localStorage.getItem("currentMaxScore")) != 0) {
@@ -420,7 +404,7 @@ async function generateAlert(message, isHTML, mainClass) {
     message,
     isHTML,
     mainClass,
-    "white",
+    "grey",
     "flex",
     "justify-center",
     "align-center",

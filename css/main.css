@@ -84,11 +84,11 @@ input::-webkit-inner-spin-button {
 }
 
 .blue {
-  background-color: #14487c;
+  background-color: #2060a0;
 }
 
 .purple {
-  background-color: #621566;
+  background-color: #8a1391;
 }
 
 .green {
@@ -115,8 +115,16 @@ input::-webkit-inner-spin-button {
   background-color: #ffffff;
 }
 
-.tiny-border {
-  border: 0.3vh solid black;
+.light-grey {
+  background-color: #746c60;
+}
+
+.grey {
+  background-color: #3a3a3a;
+}
+
+.dark-grey {
+  background-color: #2a3236;
 }
 
 .light-black {
@@ -298,7 +306,7 @@ input::-webkit-inner-spin-button {
 }
 
 .burger-icon {
-  width: 3.5vh;
+  width: 3.2vh;
 }
 
 #burger-button {
