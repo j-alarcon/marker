@@ -92,8 +92,8 @@ export function validateInput(input, min, max) {
 
 // Find an element according his id
 export function findElement(elements, name) {
-  // If not found, will return -1
-  let x = -1;
+  // If not found, will return null
+  let x = null;
   elements.forEach((e) => {
     if (e.id.includes(name)) {
       x = e;
@@ -133,7 +133,6 @@ export function addClass(selectedClass, ...elements) {
     e.classList.add(selectedClass);
   });
 }
-
 
 // Add classes to different elements inside an array
 export function addClasses(elements, init, end, ...classes) {

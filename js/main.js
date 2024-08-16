@@ -439,6 +439,8 @@ async function generateAlert(message, isHTML, mainClass) {
 function fillTimerButtons(currentData) {
   for (let i = 0; i < timerInputs.length; i++) {
     for (let p in currentData.timers[i]) {
+      // Avoid empty values from user
+      if (timerInputs[i][p].value === "") timerInputs[i][p].value = 0;
       // Add or remove red outlines to indicate user when info is wrong
       if (validateInput(timerInputs[i][p], 0, 99)) {
         currentData.timers[i][p] = timerInputs[i][p].value;
@@ -493,8 +495,13 @@ function fillModes(modes) {
 function fillModeOptions(currentData) {
   // Refresh JSON file with new values
   currentData.modes.forEach((e, i) => {
+    // Avoid empty values from user
+    if (findElement(modeInputs[i], "points").value === "") {
+      findElement(modeInputs[i], "points").value = 1;
+    }
+
     // Add or remove red outlines to indicate user when info is wrong
-    if (validateInput(findElement(modeInputs[i], "points"), 0, 999)) {
+    if (validateInput(findElement(modeInputs[i], "points"), 1, 999)) {
       e.points = findElement(modeInputs[i], "points").value;
       findElement(modeInputs[i], "points").classList.remove("error");
     } else {
@@ -502,11 +509,11 @@ function fillModeOptions(currentData) {
     }
 
     // Fill custom message for total mode
-    if (findElement(modeInputs[i], "message") != -1) {
+    if (findElement(modeInputs[i], "message") != null) {
       // Add or remove red outlines to indicate user when info is wrong
-      if (String(findElement(modeInputs[i], "message").value).trim() != "") {
+      if (String(findElement(modeInputs[i], "message").valueOf).trim() != "") {
         currentData.modes[i].message = String(
-          findElement(modeInputs[i], "message").value
+          findElement(modeInputs[i], "message").valueOf
         ).trim();
         findElement(modeInputs[i], "message").classList.remove("error");
       } else {
@@ -668,10 +675,10 @@ window.onload = () => {
       modeCheckbox[i].checked = false;
     }
     // Load storaged points
-    findElement(modeInputs[i], "points").value = e.points;
+    findElement(modeInputs[i], "points").valueOf = e.points;
     // Load storaged message only if exists
-    if (findElement(modeInputs[i], "message") != -1) {
-      findElement(modeInputs[i], "message").value = e.message;
+    if (findElement(modeInputs[i], "message") != null) {
+      findElement(modeInputs[i], "message").valueOf = e.message;
     }
   });
 
