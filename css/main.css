@@ -336,6 +336,10 @@ input::-webkit-inner-spin-button {
   margin: 0 2vh 0.5vh 0;
 }
 
+.timer-text {
+  margin-top: 0.3vh;
+}
+
 .subtitle-side {
   margin-left: 0.7vh;
 }
