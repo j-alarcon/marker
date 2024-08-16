@@ -460,7 +460,9 @@ function fillTimerButtons(currentData) {
     }
     // Change text of button or refresh if value was wrong
     Array.from(document.getElementsByClassName("button-timer"))[i].innerText =
-      currentData.timers[i].minutes + "'";
+      +currentData.timers[i].minutes !== 0
+        ? currentData.timers[i].minutes + "'"
+        : currentData.timers[i].seconds + '"';
   }
 }
 
@@ -702,7 +704,9 @@ window.onload = () => {
   Array.from(document.getElementsByClassName("button-timer")).forEach(
     (e, i) => {
       e.innerText =
-        JSON.parse(localStorage.getItem("options")).timers[i].minutes + "'";
+        +JSON.parse(localStorage.getItem("options")).timers[i].minutes !== 0
+          ? JSON.parse(localStorage.getItem("options")).timers[i].minutes + "'"
+          : JSON.parse(localStorage.getItem("options")).timers[i].seconds + '"';
     }
   );
 
