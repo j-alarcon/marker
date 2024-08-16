@@ -442,19 +442,27 @@ function fillTimerButtons(currentData) {
       // Avoid empty values from user
       if (timerInputs[i][p].value === "") timerInputs[i][p].value = 0;
       // Add or remove red outlines to indicate user when info is wrong
-      if (validateInput(timerInputs[i][p], 0, 99)) {
-        currentData.timers[i][p] = timerInputs[i][p].value;
-        // Update local values
-        localStorage.setItem(
-          "options",
-          updateJSON(
-            localStorage.getItem("options"),
-            "timers",
-            i,
-            p,
-            timerInputs[i][p].value
-          )
-        );
+      if (
+        validateInput(timerInputs[i].minutes, 0, 99) &&
+        validateInput(timerInputs[i].seconds, 0, 59)
+      ) {
+        if (
+          +timerInputs[i].minutes.value !== 0 ||
+          +timerInputs[i].seconds.value !== 0
+        ) {
+          currentData.timers[i][p] = timerInputs[i][p].value;
+          // Update local values
+          localStorage.setItem(
+            "options",
+            updateJSON(
+              localStorage.getItem("options"),
+              "timers",
+              i,
+              p,
+              timerInputs[i][p].value
+            )
+          );
+        }
         timerInputs[i][p].classList.remove("error");
       } else {
         timerInputs[i][p].classList.add("error");
