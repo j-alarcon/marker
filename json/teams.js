@@ -6,7 +6,7 @@ export default [
   },
   {
     name: "yellow",
-    text: "black",
+    text: "white",
   },
   {
     name: "blue",
@@ -29,8 +29,8 @@ export default [
     text: "white",
   },
   {
-    name: "white",
-    text: "black",
+    name: "teal",
+    text: "white",
   },
   {
     name: "black",

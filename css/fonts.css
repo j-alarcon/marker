@@ -4,9 +4,3 @@
   src: url("./../fonts/anton.ttf");
   font-display: swap;
 }
-
-@font-face {
-  font-family: "Ubuntu";
-  src: url("./../fonts/ubuntu.ttf");
-  font-display: swap;
-}
