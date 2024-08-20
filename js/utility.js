@@ -77,14 +77,14 @@ export function createHTML(type, datav, text, isHTML, ...classes) {
   return h;
 }
 
-// Prevent user to introduce negative numbers or white-spaces and remove red outline
+// Prevent user to introduce incorrect values
 export function validateInput(input, min, max) {
   if (
     input.value >= min &&
     input.value <= max &&
     input.value != "" &&
     !input.value.includes(".") &&
-    !input.value.includes("00")
+    !input.value.startsWith("0")
   ) {
     return input;
   }
