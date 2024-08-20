@@ -548,7 +548,7 @@ function fillExtraModes(options) {
     );
   });
 }
-
+console.log(localStorage.getItem("teams"));
 // Activate or deactivate special modes according with boolean
 function changeStatusModes(
   inputs,
@@ -663,13 +663,18 @@ window.onload = () => {
     localStorage.clear();
     localStorage.setItem("currentVersion", currentVersion);
   }
-  if (!localStorage.getItem("teams")) {
-    localStorage.setItem("teams", JSON.stringify(scores));
-  }
   if (!localStorage.getItem("options")) {
     localStorage.setItem("options", JSON.stringify(options));
   }
+
+  // Identify default language and translate content
   translatePage(Array.from(document.getElementsByClassName("translate")));
+
+  // Set default team after detect browser language
+  if (!localStorage.getItem("teams")) {
+    localStorage.setItem("teams", JSON.stringify(scores));
+    resetNames(null, 0, false);
+  }
 
   // Activate modes at refresh and load parameters
   JSON.parse(localStorage.getItem("options")).modes.forEach((e, i) => {
@@ -881,24 +886,25 @@ Array.from(document.getElementsByClassName("mode")).forEach((e, i) =>
 
 // Set default team name according to index
 function resetNames(element, currentIndex, fill) {
+  let nameTeam = "TEAM";
+  // Generate different default team names according to languages
+  switch (document.getElementById("language").lang) {
+    case "es":
+      nameTeam = "EQUIPO";
+      break;
+    case "de":
+      nameTeam = "MANNSCHAFT";
+      break;
+    case "fr":
+      nameTeam = "ÉQUIPE";
+      break;
+  }
   // Insert default names in code
   if (fill) {
-    // Generate different default team names according to languages
-    let nameTeam = "TEAM";
-    switch (document.getElementById("language").lang) {
-      case "es":
-        nameTeam = "EQUIPO";
-        break;
-      case "de":
-        nameTeam = "MANNSCHAFT";
-        break;
-      case "fr":
-        nameTeam = "ÉQUIPE";
-        break;
-    }
     element.value = nameTeam + " " + (currentIndex + 1);
   }
   try {
+    console.log(nameTeam);
     // Set default team names in JSON
     localStorage.setItem(
       "teams",
@@ -907,7 +913,7 @@ function resetNames(element, currentIndex, fill) {
         "teams",
         currentIndex,
         "name",
-        "TEAM " + (currentIndex + 1)
+        nameTeam + " " + (currentIndex + 1)
       )
     );
   } catch (ex) {
