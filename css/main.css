@@ -71,44 +71,44 @@ input::-webkit-inner-spin-button {
   outline-color: #d42d2d;
 }
 
-.red {
-  background-color: #d31305;
-}
-
 .light-red {
   background-color: #ca2b2b;
 }
 
-.yellow {
-  background-color: #ddba0b;
+.red {
+  background-color: rgb(141, 22, 22);
 }
 
 .blue {
-  background-color: #065abb;
+  background-color: #13274f;
 }
 
-.purple {
-  background-color: #9106bb;
-}
-
-.green {
-  background-color: #3ea310;
+.pink {
+  background-color: #a81064;
 }
 
 .orange {
-  background-color: #cf6813;
+  background-color: #c25100;
+}
+
+.teal {
+  background-color: #155c56;
+}
+
+.purple {
+  background-color: #421764;
+}
+
+.brown {
+  background-color: #5f3b1e;
+}
+
+.light-black {
+  background-color: #181818;
 }
 
 .black {
   background-color: rgb(15, 14, 14);
-}
-
-.pink {
-  background-color: #c51d85;
-}
-
-.teal {
-  background-color: rgb(15, 145, 139);
 }
 
 .light-grey {
@@ -121,10 +121,6 @@ input::-webkit-inner-spin-button {
 
 .dark-grey {
   background-color: #2a3236;
-}
-
-.light-black {
-  background-color: #181818;
 }
 
 .overflow-hidden {
@@ -298,7 +294,7 @@ input::-webkit-inner-spin-button {
 }
 
 .burger-icon {
-  width: 3.2vh;
+  width: 3vh;
 }
 
 #burger-button {

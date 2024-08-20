@@ -5,23 +5,7 @@ export default [
     text: "white",
   },
   {
-    name: "yellow",
-    text: "white",
-  },
-  {
     name: "blue",
-    text: "white",
-  },
-  {
-    name: "purple",
-    text: "white",
-  },
-  {
-    name: "green",
-    text: "white",
-  },
-  {
-    name: "orange",
     text: "white",
   },
   {
@@ -29,7 +13,23 @@ export default [
     text: "white",
   },
   {
+    name: "orange",
+    text: "white",
+  },
+  {
     name: "teal",
+    text: "white",
+  },
+  {
+    name: "purple",
+    text: "white",
+  },
+  {
+    name: "brown",
+    text: "white",
+  },
+  {
+    name: "dark-grey",
     text: "white",
   },
   {
