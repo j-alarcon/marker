@@ -84,7 +84,7 @@ export function validateInput(input, min, max) {
     input.value <= max &&
     input.value != "" &&
     !input.value.includes(".") &&
-    !input.value.startsWith("0")
+    String(input.value * 1) === input.value
   ) {
     return input;
   }
