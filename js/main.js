@@ -738,7 +738,7 @@ window.onload = () => {
     localStorage.setItem("currentMaxScore", 1);
   }
   if (!localStorage.getItem("minutes")) {
-    localStorage.setItem("minutes", 0);
+    localStorage.setItem("minutes", 15);
   }
   if (!localStorage.getItem("seconds")) {
     localStorage.setItem("seconds", 0);
