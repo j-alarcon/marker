@@ -76,31 +76,31 @@ input::-webkit-inner-spin-button {
 }
 
 .red {
-  background-color: rgb(141, 22, 22);
+  background-color: rgb(180, 26, 26);
 }
 
 .blue {
-  background-color: #13274f;
+  background-color: #193368;
 }
 
 .pink {
-  background-color: #a81064;
+  background-color: #b9126e;
 }
 
 .orange {
-  background-color: #c25100;
+  background-color: #d35801;
 }
 
 .teal {
-  background-color: #155c56;
+  background-color: #1d7e76;
 }
 
 .purple {
-  background-color: #421764;
+  background-color: #561e81;
 }
 
 .brown {
-  background-color: #5f3b1e;
+  background-color: #835129;
 }
 
 .light-black {
