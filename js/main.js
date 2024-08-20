@@ -548,7 +548,7 @@ function fillExtraModes(options) {
     );
   });
 }
-console.log(localStorage.getItem("teams"));
+
 // Activate or deactivate special modes according with boolean
 function changeStatusModes(
   inputs,
@@ -904,7 +904,6 @@ function resetNames(element, currentIndex, fill) {
     element.value = nameTeam + " " + (currentIndex + 1);
   }
   try {
-    console.log(nameTeam);
     // Set default team names in JSON
     localStorage.setItem(
       "teams",
