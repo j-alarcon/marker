@@ -378,6 +378,11 @@ function editTeam(condition) {
       // Avoid blink when save
       e.blur();
       try {
+        // Avoid empty values from user
+        if (e.value.trim() === "") {
+          e.value = JSON.parse(localStorage.getItem("teams")).teams[i].name;
+        }
+
         // Save new values
         localStorage.setItem(
           "teams",
@@ -955,6 +960,8 @@ document.getElementById("submit-changes").addEventListener("click", (e) => {
     fillModes(document.getElementsByClassName("mode"));
     fillModeOptions(JSON.parse(localStorage.getItem("options")));
     fillExtraModes(extraModes);
+    // Save team names
+    editTeam(true);
   } catch (ex) {
     window.location.reload();
   }
