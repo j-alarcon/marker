@@ -437,11 +437,13 @@ async function generateAlert(message, isHTML, mainClass) {
 
 // Storage new values for timer buttons and change texts
 function fillTimerButtons(currentData) {
+  let maxLimit = { minutes: 99, seconds: 59 };
+
   for (let i = 0; i < timerInputs.length; i++) {
     for (let p in currentData.timers[i]) {
       // Avoid empty values from user
       if (timerInputs[i][p].value === "") timerInputs[i][p].value = 0;
-      // Add or remove red outlines to indicate user when info is wrong
+      //
       if (
         validateInput(timerInputs[i].minutes, 0, 99) &&
         validateInput(timerInputs[i].seconds, 0, 59) &&
@@ -460,11 +462,14 @@ function fillTimerButtons(currentData) {
             timerInputs[i][p].value
           )
         );
-
-        timerInputs[i][p].classList.remove("error");
-      } else {
-        timerInputs[i][p].classList.add("error");
       }
+
+      // Add or remove red outlines to indicate user when info is wrong
+      validateInput(timerInputs[i][p], 0, maxLimit[p]) &&
+      (+timerInputs[i].minutes.value !== 0 ||
+        +timerInputs[i].seconds.value !== 0)
+        ? timerInputs[i][p].classList.remove("error")
+        : timerInputs[i][p].classList.add("error");
     }
     // Change text of button or refresh if value was wrong
     Array.from(document.getElementsByClassName("button-timer"))[i].innerText =
