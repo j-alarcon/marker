@@ -1,5 +1,5 @@
 /* https://yarduon.com */
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 123vh) {
   .alert,
   .left-side,
   .right-side {
@@ -62,7 +62,7 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 68vh) {
   .small-name-fontsize,
   .subtitle-option-fontsize {
     font-size: 2.4vh;
