@@ -9,11 +9,15 @@ export default [
     text: "white",
   },
   {
-    name: "pink",
+    name: "orange",
     text: "white",
   },
   {
-    name: "orange",
+    name: "green",
+    text: "white",
+  },
+  {
+    name: "pink",
     text: "white",
   },
   {
@@ -21,7 +25,7 @@ export default [
     text: "white",
   },
   {
-    name: "purple",
+    name: "dark-grey",
     text: "white",
   },
   {
@@ -29,11 +33,7 @@ export default [
     text: "white",
   },
   {
-    name: "dark-grey",
-    text: "white",
-  },
-  {
-    name: "black",
+    name: "purple",
     text: "white",
   },
 ];

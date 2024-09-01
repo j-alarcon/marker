@@ -409,7 +409,7 @@ async function generateAlert(message, isHTML, mainClass) {
     message,
     isHTML,
     mainClass,
-    "grey",
+    "black",
     "flex",
     "justify-center",
     "align-center",
