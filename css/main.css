@@ -76,31 +76,31 @@ input::-webkit-inner-spin-button {
 }
 
 .red {
-  background-color: rgb(194, 28, 28);
+  background-color: rgb(167, 27, 27);
 }
 
 .blue {
-  background-color: #1d3c7a;
+  background-color: #183163;
 }
 
 .pink {
-  background-color: #c91377;
+  background-color: #ac1166;
 }
 
 .orange {
-  background-color: #e46003;
+  background-color: #d45a02;
 }
 
 .teal {
-  background-color: #229187;
+  background-color: #1b776f;
 }
 
 .purple {
-  background-color: #632294;
+  background-color: #551c81;
 }
 
 .brown {
-  background-color: #975e30;
+  background-color: #86542a;
 }
 
 .light-black {
@@ -225,7 +225,7 @@ input::-webkit-inner-spin-button {
 }
 
 .height-by-three {
-  height: 33.33%;
+  height: 33.4%;
 }
 
 .medium-height {
