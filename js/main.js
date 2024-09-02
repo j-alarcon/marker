@@ -81,16 +81,17 @@ function resetScores(currentData) {
   });
   localStorage.setItem("teams", JSON.stringify(currentData));
 }
-
 function updatePoints(currentLocalStorage, currentIteration, operator) {
   let currentData = JSON.parse(currentLocalStorage);
   if (operator === "+") {
-    if (currentData.teams[currentIteration].score < 999) {
-      currentData.teams[currentIteration].score++;
+    if (localStorage.getItem("winnerExists") === "false") {
+      if (currentData.teams[currentIteration].score < 999) {
+        currentData.teams[currentIteration].score++;
+      }
     }
   } else {
     // Prevents negative numbers in score
-    if (currentData.teams[currentIteration].score != 0) {
+    if (currentData.teams[currentIteration].score > 0) {
       currentData.teams[currentIteration].score--;
     }
   }
@@ -100,8 +101,8 @@ function updatePoints(currentLocalStorage, currentIteration, operator) {
   if (modeCheckbox[0].checked) {
     checkWinner(
       JSON.parse(localStorage.getItem("options")).modes[0].points,
-      currentData.teams[currentIteration].score,
-      currentData.teams[currentIteration].color
+      currentData.teams,
+      currentData.teams[currentIteration]
     );
   }
   if (modeCheckbox[1].checked) {
@@ -135,27 +136,41 @@ function translatePage(items) {
 }
 
 // Check if one of the teams have the required points
-function checkWinner(goal, currentScore, currentTeam) {
-  if (currentScore >= localStorage.getItem("currentMaxScore")) {
-    localStorage.setItem("currentMaxScore", currentScore);
+function checkWinner(goal, teams, currentTeam) {
+  // Create a default object to ensure the condition works
+  let winnerTeam = { score: 0 };
+  teams.forEach((e) => {
+    // Storage team with the current maximum score
+    if (e.score > winnerTeam.score) winnerTeam = e;
+  });
+
+  // When the current winning team achieves the goal
+  if (
+    winnerTeam.score === Number(goal) &&
+    winnerTeam.color === currentTeam.color
+  ) {
+    // Avoid notification spam when try boosting points after a win
+    if (localStorage.getItem("winnerExists") === "false") {
+      generateAlert(
+        '<div class="' +
+          winnerTeam.color +
+          " tiny-square" +
+          '"></div>&nbsp;<div class="title-option-fontsize white-text">' +
+          "&#10140;&nbsp;" +
+          goal +
+          "</div>",
+        true,
+        "alert"
+      );
+      // Turn off the possibility of increasing points
+      localStorage.setItem("winnerExists", true);
+    }
   }
 
-  // Local storage data is string so it needs a conversion to number
-  if (Number(localStorage.getItem("currentMaxScore")) === Number(goal)) {
-    generateAlert(
-      '<div class="' +
-        currentTeam +
-        " tiny-square" +
-        '"></div>&nbsp;<div class="title-option-fontsize white-text">' +
-        "&#10140;&nbsp;" +
-        goal +
-        "</div>",
-      true,
-      "alert"
-    );
-  }
-  if (Number(localStorage.getItem("currentMaxScore")) >= Number(goal)) {
-    localStorage.setItem("currentMaxScore", 0);
+  // When the current winning team decreases points for the goal
+  if (winnerTeam.score < Number(goal)) {
+    // Turn on the possibility of increasing points
+    localStorage.setItem("winnerExists", false);
   }
 }
 
@@ -286,9 +301,7 @@ function createTeam(color, text, currentTeam, onLoad) {
       try {
         if (i === 1) {
           // Prevent increment when a team or played have won
-          if (Number(localStorage.getItem("currentMaxScore")) != 0) {
-            updatePoints(localStorage.getItem("teams"), currentTeam, "+");
-          }
+          updatePoints(localStorage.getItem("teams"), currentTeam, "+");
         } else {
           updatePoints(localStorage.getItem("teams"), currentTeam, "-");
         }
@@ -588,7 +601,7 @@ function changeStatusModes(
 }
 
 function startTimer() {
-  // Clean previous timer if were one.
+  // Clean previous timer if were one
   clearInterval(timer);
   timer = setInterval(() => {
     calculateTime();
@@ -747,8 +760,8 @@ window.onload = () => {
     }
   }
 
-  if (!localStorage.getItem("currentMaxScore")) {
-    localStorage.setItem("currentMaxScore", 1);
+  if (!localStorage.getItem("winnerExists")) {
+    localStorage.setItem("winnerExists", false);
   }
   if (!localStorage.getItem("minutes")) {
     localStorage.setItem("minutes", 15);
@@ -887,7 +900,7 @@ Array.from(document.getElementsByClassName("mode")).forEach((e, i) =>
       changeStatusModes(modeInputs[i], null, null, i, true);
     } else {
       if (i === 0) {
-        localStorage.setItem("currentMaxScore", 1);
+        localStorage.setItem("winnerExists", false);
       }
       changeStatusModes(modeInputs[i], null, null, i, false);
     }
@@ -960,6 +973,8 @@ document.getElementById("submit-changes").addEventListener("click", (e) => {
     fillModes(document.getElementsByClassName("mode"));
     fillModeOptions(JSON.parse(localStorage.getItem("options")));
     fillExtraModes(extraModes);
+    // Reset winner mode
+    localStorage.setItem("winnerExists", false);
     // Save team names
     editTeam(true);
   } catch (ex) {
@@ -971,7 +986,8 @@ document.getElementById("submit-changes").addEventListener("click", (e) => {
 document.getElementById("form-burger").addEventListener("reset", () => {
   // Reset all values from options
   localStorage.removeItem("options");
-  localStorage.setItem("currentMaxScore", 1);
+  // Reset winner mode
+  localStorage.setItem("winnerExists", false);
   // Disable all modes
   Array.from(modeInputs).forEach((e, i) => {
     disableHTML(...modeInputs[i]);
@@ -1035,7 +1051,7 @@ maxLengthInput(Array.from(document.getElementsByClassName("points")), 3);
 document.getElementById("reset").addEventListener("click", (e) => {
   try {
     resetScores(JSON.parse(localStorage.getItem("teams")));
-    localStorage.setItem("currentMaxScore", 1);
+    localStorage.setItem("winnerExists", false);
     clearTimer();
     // Reload website
     window.location.reload();
