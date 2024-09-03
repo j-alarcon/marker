@@ -76,31 +76,35 @@ input::-webkit-inner-spin-button {
 }
 
 .red {
-  background-color: #b3281e;
+  background-color: #a32c24;
 }
 
 .blue {
-  background-color: #105779;
+  background-color: #1e4f66;
 }
 
 .orange {
-  background-color: #c9510c;
+  background-color: #bb5419;
 }
 
 .purple {
-  background-color: #73138b;
+  background-color: #6a217c;
 }
 
 .green {
-  background-color: #1f7c1f;
+  background-color: #257425;
 }
 
 .brown {
-  background-color: #854918;
+  background-color: #72441e;
 }
 
 .pink {
-  background-color: #b61f72;
+  background-color: #a5256b;
+}
+
+.teal {
+  background-color: #12695e;
 }
 
 .light-grey {
@@ -119,12 +123,8 @@ input::-webkit-inner-spin-button {
   background-color: #191e20;
 }
 
-.teal {
-  background-color: #0f7e6f;
-}
-
 .very-light-black {
-  background-color: #473b3b;
+  background-color: #473e3e;
 }
 
 .light-black {
