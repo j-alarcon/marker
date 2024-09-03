@@ -144,6 +144,13 @@ export function addClasses(elements, init, end, ...classes) {
   }
 }
 
+// Remove one class to multiple elements
+export function removeClass(selectedClass, ...elements) {
+  elements.forEach((e) => {
+    e.classList.remove(selectedClass);
+  });
+}
+
 // Remove classes according to keywords to different elements inside an array
 export function removeClasses(elements, init, end, ...classes) {
   // Classes will be removed according to range you have selected inside array

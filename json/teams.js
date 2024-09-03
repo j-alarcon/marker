@@ -29,7 +29,7 @@ export default [
     text: "white",
   },
   {
-    name: "dark-grey",
+    name: "very-light-black",
     text: "white",
   },
   {
