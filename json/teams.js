@@ -13,19 +13,11 @@ export default [
     text: "white",
   },
   {
+    name: "purple",
+    text: "white",
+  },
+  {
     name: "green",
-    text: "white",
-  },
-  {
-    name: "pink",
-    text: "white",
-  },
-  {
-    name: "teal",
-    text: "white",
-  },
-  {
-    name: "dark-grey",
     text: "white",
   },
   {
@@ -33,7 +25,15 @@ export default [
     text: "white",
   },
   {
-    name: "purple",
+    name: "pink",
+    text: "white",
+  },
+  {
+    name: "dark-grey",
+    text: "white",
+  },
+  {
+    name: "teal",
     text: "white",
   },
 ];
