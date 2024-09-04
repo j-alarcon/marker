@@ -21,7 +21,7 @@ export default [
     text: "white",
   },
   {
-    name: "brown",
+    name: "teal",
     text: "white",
   },
   {
@@ -33,7 +33,7 @@ export default [
     text: "white",
   },
   {
-    name: "teal",
+    name: "brown",
     text: "white",
   },
 ];
