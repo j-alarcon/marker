@@ -30,20 +30,9 @@
   height: 5vh;
 }
 
-#burger-button,
-.container-form-buttons {
-  margin: 0 1.5vh 1.5vh 0;
-}
-
 .disabled,
 .opacity:hover {
   opacity: 0.8;
-}
-
-.alert {
-  padding: 1.2vh 1vh 1.2vh 1vh;
-  border-top-right-radius: 1vh;
-  transition: bottom 0.6s;
 }
 
 /* Hide spinbox from input number in browsers */
@@ -61,6 +50,16 @@ input::-webkit-inner-spin-button {
 #t-message,
 .options-button {
   font-size: 1.8vh;
+}
+
+.alert {
+  padding: 1.2vh 1vh 1.2vh 1vh;
+  border-top-right-radius: 1vh;
+  transition: bottom 0.6s;
+}
+
+.team {
+  border: 1.3vh solid #0f0e0e;
 }
 
 .outline {
@@ -139,6 +138,10 @@ input::-webkit-inner-spin-button {
   overflow: hidden;
 }
 
+.radius-team {
+  border-radius: 1.5vh;
+}
+
 .radius-button {
   border-radius: 0.7vh;
 }
@@ -185,7 +188,7 @@ input::-webkit-inner-spin-button {
 }
 
 .medium-fontsize {
-  font-size: 16vh;
+  font-size: 13vh;
 }
 
 .big-name-fontsize {
@@ -271,6 +274,7 @@ input::-webkit-inner-spin-button {
 
 .container-timer {
   height: 14.5vh;
+  margin-top: 1.1vh;
 }
 
 #timer {
@@ -302,6 +306,7 @@ input::-webkit-inner-spin-button {
 
 .burger-menu {
   width: 60vh;
+  height: 76.8vh;
   padding: 0.5vh 2vh 0.5vh 2vh;
 }
 
@@ -312,6 +317,7 @@ input::-webkit-inner-spin-button {
 #burger-button {
   width: 4.5vh;
   height: 4.5vh;
+  margin: 0 1.5vh 1.5vh 0;
 }
 
 .line {
@@ -391,10 +397,15 @@ input[type="number"] {
 
 .container-form-buttons {
   margin-right: 2.6vh;
+  margin: 0 2.6vh 1.5vh 0;
 }
 
 .options-button {
   margin: 0 0 0 2vh;
   padding: 0 1vh 0 1vh;
   height: 3.3vh;
+}
+
+.main-container {
+  padding: 0 1.2vh 1.2vh 1.4vh;
 }

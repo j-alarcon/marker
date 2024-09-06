@@ -86,7 +86,7 @@ function updatePoints(currentLocalStorage, currentIteration, operator) {
   let currentData = JSON.parse(currentLocalStorage);
   if (operator === "+") {
     if (localStorage.getItem("winnerExists") === "false") {
-      if (currentData.teams[currentIteration].score < 999) {
+      if (currentData.teams[currentIteration].score < 99) {
         currentData.teams[currentIteration].score++;
       }
     }
@@ -265,6 +265,8 @@ function createTeam(color, text, currentTeam, onLoad) {
         null,
         null,
         null,
+        "team",
+        "radius-team",
         "max-width",
         "max-height",
         "medium-fontsize",
@@ -531,7 +533,7 @@ function fillModeOptions(currentData) {
     }
 
     // Add or remove red outlines to indicate user when info is wrong
-    if (validateInput(findElement(modeInputs[i], "points"), 1, 999)) {
+    if (validateInput(findElement(modeInputs[i], "points"), 1, 99)) {
       e.points = findElement(modeInputs[i], "points").value;
       findElement(modeInputs[i], "points").classList.remove("error");
     } else {
