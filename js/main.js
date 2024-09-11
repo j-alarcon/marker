@@ -7,7 +7,6 @@ import {
   toggleImage,
   addClass,
   addClasses,
-  removeClass,
   removeClasses,
   createHTML,
   appendChilds,
@@ -1055,7 +1054,6 @@ document.getElementById("reset").addEventListener("click", (e) => {
   try {
     resetScores(JSON.parse(localStorage.getItem("teams")));
     localStorage.setItem("winnerExists", false);
-    clearTimer();
     // Reload website
     window.location.reload();
   } catch (ex) {
