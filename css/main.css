@@ -75,31 +75,31 @@ input::-webkit-inner-spin-button {
 }
 
 .red {
-  background-color: #c4261b;
+  background-color: #b62116;
 }
 
 .blue {
-  background-color: #0f4869;
+  background-color: #0f4768;
 }
 
 .orange {
-  background-color: #d4560d;
+  background-color: #c55412;
 }
 
 .purple {
-  background-color: #6e0a6e;
+  background-color: #6e096e;
 }
 
 .green {
-  background-color: #1f801f;
+  background-color: #186618;
 }
 
 .brown {
-  background-color: #964d12;
+  background-color: #8d4810;
 }
 
 .pink {
-  background-color: #c21c77;
+  background-color: #b4196e;
 }
 
 .teal {
@@ -139,7 +139,7 @@ input::-webkit-inner-spin-button {
 }
 
 .radius-team {
-  border-radius: 1.5vh;
+  border-radius: 1.4vh;
 }
 
 .radius-button {
@@ -256,7 +256,7 @@ input::-webkit-inner-spin-button {
 }
 
 .reset {
-  margin: 1vh 0 0 1vh;
+  margin: 3.6vh 0 0 2.3vh;
 }
 
 .reset-icon {
@@ -274,7 +274,7 @@ input::-webkit-inner-spin-button {
 
 .container-timer {
   height: 14.5vh;
-  margin-top: 1.1vh;
+  margin-top: 1.2vh;
 }
 
 #timer {
@@ -317,7 +317,7 @@ input::-webkit-inner-spin-button {
 #burger-button {
   width: 4.5vh;
   height: 4.5vh;
-  margin: 0 1.5vh 1.5vh 0;
+  margin: 0vh 2.4vh 2.5vh 0;
 }
 
 .line {
@@ -407,5 +407,5 @@ input[type="number"] {
 }
 
 .main-container {
-  padding: 0 1.2vh 1.2vh 1.4vh;
+  padding: 0 1.2vh 1.3vh 1.2vh;
 }
