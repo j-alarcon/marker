@@ -264,12 +264,11 @@ input::-webkit-inner-spin-button {
 }
 
 .edit {
-  margin-bottom: 1.3vh;
-  margin-right: 8vh;
+  margin: 0vh 9.5vh 2.5vh 0;
 }
 
 .edit-icon {
-  width: 5.8vh;
+  width: 5.4vh;
 }
 
 .container-timer {
