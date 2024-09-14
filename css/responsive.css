@@ -45,12 +45,8 @@
     margin: 3.6vh 2.4vh 2.5vh 0;
   }
 
-  .edit-icon {
-    width: 5.5vh;
-  }
-
   .edit {
-    margin-right: 2.4vh;
+    margin: 0vh 2.3vh 2.4vh 0;
   }
 
   .change-scores {
@@ -101,11 +97,27 @@
     height: 31.6%;
   }
 
+  .container-timer {
+    margin-top: 1vh;
+  }
+
   #timer {
     font-size: 11vh;
     height: 9.5vh;
   }
 
+  .reset {
+    margin: 4.1vh 0 0 2.3vh;
+  }
+
+  .edit {
+    margin-bottom: 3vh;
+    margin-right: 2.3vh;
+  }
+
+  #burger-button {
+    margin: 4.1vh 2.4vh 2.5vh 0;
+  }
   .submenu {
     height: 2.8vh;
   }

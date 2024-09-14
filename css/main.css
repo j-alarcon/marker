@@ -256,7 +256,7 @@ input::-webkit-inner-spin-button {
 }
 
 .reset {
-  margin: 3.4vh 0 0 2.3vh;
+  margin: 3.5vh 0 0 2.3vh;
 }
 
 .reset-icon {
@@ -264,7 +264,7 @@ input::-webkit-inner-spin-button {
 }
 
 .edit {
-  margin: 0vh 9.5vh 2.6vh 0;
+  margin: 0vh 9.5vh 2.35vh 0;
 }
 
 .edit-icon {
@@ -273,7 +273,7 @@ input::-webkit-inner-spin-button {
 
 .container-timer {
   height: 14.5vh;
-  margin-top: 1.2vh;
+  margin-top: 1.3vh;
 }
 
 #timer {
@@ -316,7 +316,7 @@ input::-webkit-inner-spin-button {
 #burger-button {
   width: 4.5vh;
   height: 4.5vh;
-  margin: 0vh 2.4vh 2.5vh 0;
+  margin: 0vh 2.4vh 2.3vh 0;
 }
 
 .line {
