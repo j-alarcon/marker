@@ -265,7 +265,6 @@ function createTeam(color, text, currentTeam, onLoad) {
         null,
         null,
         "team",
-        "radius-team",
         "max-width",
         "max-height",
         "medium-fontsize",

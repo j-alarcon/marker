@@ -59,7 +59,8 @@ input::-webkit-inner-spin-button {
 }
 
 .team {
-  border: 1.3vh solid #0f0e0e;
+  border: 1.3vh solid transparent;
+  border-image: url("../img/backgrounds/black.png") 30 round;
 }
 
 .outline {
@@ -131,15 +132,11 @@ input::-webkit-inner-spin-button {
 }
 
 .black {
-  background-color: rgb(15, 14, 14);
+  background-image: url("../img/backgrounds/black.png");
 }
 
 .overflow-hidden {
   overflow: hidden;
-}
-
-.radius-team {
-  border-radius: 1.4vh;
 }
 
 .radius-button {
