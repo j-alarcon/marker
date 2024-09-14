@@ -977,7 +977,9 @@ document.getElementById("submit-changes").addEventListener("click", (e) => {
     // Reset winner mode
     localStorage.setItem("winnerExists", false);
     // Save team names
-    editTeam(true);
+    editTeam(
+      document.getElementById("edit").children[0].src.includes("save.svg")
+    );
     // Hide burger menu
     document.getElementById("burger-checkbox").checked = false;
   } catch (ex) {
