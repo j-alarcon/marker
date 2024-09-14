@@ -978,6 +978,8 @@ document.getElementById("submit-changes").addEventListener("click", (e) => {
     localStorage.setItem("winnerExists", false);
     // Save team names
     editTeam(true);
+    // Hide burger menu
+    document.getElementById("burger-checkbox").checked = false;
   } catch (ex) {
     window.location.reload();
   }
