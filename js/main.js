@@ -983,8 +983,10 @@ document.getElementById("submit-changes").addEventListener("click", (e) => {
     editTeam(
       document.getElementById("edit").children[0].src.includes("save.svg")
     );
-    // Hide burger menu
-    document.getElementById("burger-checkbox").checked = false;
+    // Hide burger menu after validating fields
+    if (document.getElementsByClassName("error").length <= 0) {
+      document.getElementById("burger-checkbox").checked = false;
+    }
   } catch (ex) {
     window.location.reload();
   }
