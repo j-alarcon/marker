@@ -9,7 +9,7 @@
 
 .alert,
 .small-alert {
-  bottom: -100%;
+  top: -100%;
 }
 
 .reset,

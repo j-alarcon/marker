@@ -424,6 +424,9 @@ async function generateAlert(message, isHTML, mainClass) {
     isHTML,
     mainClass,
     "very-dark-grey",
+    "white-text",
+    "border-bottom-right-radius",
+    "border-bottom-left-radius",
     "flex",
     "justify-center",
     "align-center",
@@ -443,12 +446,13 @@ async function generateAlert(message, isHTML, mainClass) {
     await new Promise((res) => setTimeout(res, Number.POSITIVE_INFINITY));
   } while (alertPos != 0);
 
+  console.log(newAlert.style.top);
   // Display alert on screen
-  newAlert.style.bottom = "0";
+  newAlert.style.top = "0";
   // Wait two seconds before disappearing alert
   await new Promise((res) => setTimeout(res, 2000));
   // Delete elements from the queue that are done
-  newAlert.style.bottom = "-100%";
+  newAlert.style.top = "-100%";
   // Wait six miliseconds before ending transition
   await new Promise((res) => setTimeout(res, 600));
   document.getElementById("alert-container").removeChild(newAlert);

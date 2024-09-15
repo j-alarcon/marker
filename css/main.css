@@ -53,9 +53,11 @@ input::-webkit-inner-spin-button {
 }
 
 .alert {
-  padding: 1.2vh 1vh 1.2vh 1vh;
-  border-top-right-radius: 1vh;
-  transition: bottom 0.6s;
+  padding: 1.4vh 1.4vh 1.5vh 1.4vh;
+  margin: 0 0 0 2.4vh;
+  border-bottom-right-radius: 1vh;
+  border-bottom-left-radius: 1vh;
+  transition: top 0.6s;
 }
 
 .team {
@@ -141,6 +143,14 @@ input::-webkit-inner-spin-button {
 
 .radius-button {
   border-radius: 0.7vh;
+}
+
+.border-bottom-right-radius {
+  border-bottom-right-radius: 1vh;
+}
+
+.border-bottom-left-radius {
+  border-bottom-left-radius: 1vh;
 }
 
 .horizontal-line {
@@ -253,15 +263,15 @@ input::-webkit-inner-spin-button {
 }
 
 .reset {
-  margin: 3.5vh 0 0 2.3vh;
+  margin: 15.3vh 0 0 2.4vh;
 }
 
 .reset-icon {
-  width: 3.6vh;
+  width: 4.6vh;
 }
 
 .edit {
-  margin: 0vh 9.5vh 2.35vh 0;
+  margin: 0vh 9.6vh 2.35vh 0;
 }
 
 .edit-icon {
@@ -311,9 +321,9 @@ input::-webkit-inner-spin-button {
 }
 
 #burger-button {
-  width: 4.5vh;
-  height: 4.5vh;
-  margin: 0vh 2.4vh 2.3vh 0;
+  width: 4.6vh;
+  height: 4.6vh;
+  margin: 0vh 2.5vh 2.3vh 0;
 }
 
 .line {

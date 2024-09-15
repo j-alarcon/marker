@@ -1,6 +1,5 @@
 /* https://yarduon.com */
 @media screen and (max-width: 123vh) {
-  .alert,
   .left-side,
   .right-side {
     width: 100%;
@@ -33,11 +32,6 @@
 
   .special-height {
     height: 28%;
-  }
-
-  .alert {
-    height: 6.6vh;
-    border-top-right-radius: 0;
   }
 
   #burger-button {
