@@ -446,7 +446,6 @@ async function generateAlert(message, isHTML, mainClass) {
     await new Promise((res) => setTimeout(res, Number.POSITIVE_INFINITY));
   } while (alertPos != 0);
 
-  console.log(newAlert.style.top);
   // Display alert on screen
   newAlert.style.top = "0";
   // Wait two seconds before disappearing alert
@@ -545,9 +544,9 @@ function fillModeOptions(currentData) {
     // Fill custom message for total mode
     if (findElement(modeInputs[i], "message") != null) {
       // Add or remove red outlines to indicate user when info is wrong
-      if (String(findElement(modeInputs[i], "message").valueOf).trim() != "") {
+      if (String(findElement(modeInputs[i], "message").value).trim() != "") {
         currentData.modes[i].message = String(
-          findElement(modeInputs[i], "message").valueOf
+          findElement(modeInputs[i], "message").value
         ).trim();
         findElement(modeInputs[i], "message").classList.remove("error");
       } else {
