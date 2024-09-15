@@ -34,6 +34,16 @@
     height: 28%;
   }
 
+  .alert {
+    padding: 1vh 0 0 0;
+    background-color: #0f0e0e;
+  }
+
+  .tiny-square {
+    width: 4vh;
+    height: 4vh;
+  }
+
   #burger-button {
     top: 0;
     margin: 3.6vh 2.4vh 2.5vh 0;
@@ -52,7 +62,7 @@
   }
 }
 
-@media screen and (max-width: 68vh) {
+@media screen and (max-width: 75vh) {
   .small-name-fontsize,
   .subtitle-option-fontsize {
     font-size: 2.4vh;
@@ -91,6 +101,16 @@
     height: 31.6%;
   }
 
+  .alert {
+    padding: 0.7vh 0 0 0;
+    font-size: 1.6vh;
+  }
+
+  .tiny-square {
+    width: 3vh;
+    height: 3vh;
+  }
+
   .container-timer {
     margin-top: 1vh;
   }
@@ -101,7 +121,11 @@
   }
 
   .reset {
-    margin: 4.1vh 0 0 2.3vh;
+    margin: 14.6vh 0 0 2.4vh;
+  }
+
+  #burger-button {
+    margin: 4.1vh 2.4vh 2.5vh 0;
   }
 
   .edit {
@@ -109,9 +133,6 @@
     margin-right: 2.3vh;
   }
 
-  #burger-button {
-    margin: 4.1vh 2.4vh 2.5vh 0;
-  }
   .submenu {
     height: 2.8vh;
   }

@@ -13,10 +13,6 @@
 .tiny-square,
 #burger-button {
   width: 4vh;
-}
-
-.tiny-square,
-#burger-button {
   height: 4vh;
 }
 
@@ -263,11 +259,11 @@ input::-webkit-inner-spin-button {
 }
 
 .reset {
-  margin: 15.3vh 0 0 2.4vh;
+  margin: 15.1vh 0 0 2.4vh;
 }
 
 .reset-icon {
-  width: 4.6vh;
+  width: 4.8vh;
 }
 
 .edit {
@@ -275,7 +271,7 @@ input::-webkit-inner-spin-button {
 }
 
 .edit-icon {
-  width: 5.5vh;
+  width: 5.6vh;
 }
 
 .container-timer {
