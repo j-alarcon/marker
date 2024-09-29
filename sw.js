@@ -15,19 +15,19 @@ if (!self.define) {
         return e;
       })
   );
-  self.define = (n, o) => {
-    const c =
+  self.define = (n, c) => {
+    const o =
       e ||
       ("document" in self ? document.currentScript.src : "") ||
       location.href;
-    if (i[c]) return;
-    let a = {};
-    const r = (e) => s(e, c),
-      d = { module: { uri: c }, exports: a, require: r };
-    i[c] = Promise.all(n.map((e) => d[e] || r(e))).then((e) => (o(...e), a));
+    if (i[o]) return;
+    let r = {};
+    const a = (e) => s(e, o),
+      f = { module: { uri: o }, exports: r, require: a };
+    i[o] = Promise.all(n.map((e) => f[e] || a(e))).then((e) => (c(...e), r));
   };
 }
-define(["./workbox-7e688afb"], function (e) {
+define(["./workbox-168f09f0"], function (e) {
   "use strict";
   self.addEventListener("message", (e) => {
     e.data && "SKIP_WAITING" === e.data.type && self.skipWaiting();
@@ -42,61 +42,61 @@ define(["./workbox-7e688afb"], function (e) {
           url: "audio/finish.mp3",
           revision: "28ab7cb69f6910b466221f5a82724a89",
         },
-        { url: "css/fonts.css", revision: "c7f6911f047994d4b81b317a8c9a5d09" },
-        { url: "css/main.css", revision: "6234e6466cd72541e774b73c98884692" },
+        { url: "css/fonts.css", revision: "91d9eea066020887c79a1ffba893ad9f" },
+        { url: "css/main.css", revision: "8822a17fba2155c42f91ffc505e293ce" },
         {
           url: "css/position.css",
-          revision: "0b0c7b7bf40137e5512d3297ec7ed4e6",
+          revision: "d49bc9a6278e4f6c608c9fbb63498ca3",
         },
         { url: "css/reset.css", revision: "821f47d254bfd553248ed3c8a060b4dd" },
         {
           url: "css/responsive.css",
-          revision: "d5fedcae4fae200d1528e3472e1be1b4",
+          revision: "38e27ae6a7306a3611fcdb8981b3d9d8",
         },
         {
           url: "fonts/anton.ttf",
           revision: "055c4df4e2f8c7a4d4675cdd8fa68da0",
         },
-        {
-          url: "fonts/ubuntu.ttf",
-          revision: "d3c3b35e6d478ed149f02fad880dd359",
-        },
         { url: "FUNDING.yml", revision: "c21af649c611bd5a3389bd3401dd5c71" },
+        {
+          url: "img/backgrounds/black.png",
+          revision: "61e40c76055b8b229f628af1f792ff7d",
+        },
         {
           url: "img/favicon.png",
           revision: "784f0f20382217254bf54cd388728115",
         },
         {
           url: "img/icons/burger.svg",
-          revision: "15208ae738be2adac25d7051dffe0bae",
+          revision: "e2bf154b01647ade46f8d424cdff6af8",
         },
         {
           url: "img/icons/edit.svg",
-          revision: "25b4cb816f89061e4927444690a0e9d3",
+          revision: "bfb47eb1515209874d7d1c97347608db",
         },
         {
           url: "img/icons/minus.svg",
-          revision: "c6360e3a580ab61645956ef208d7447e",
+          revision: "c698b370d4ddca8891b5ac50d7179185",
         },
         {
           url: "img/icons/play.svg",
-          revision: "abdc792160641708bd9023528c4f9dac",
+          revision: "b292134dd141bca477736449c37556bb",
         },
         {
           url: "img/icons/plus.svg",
-          revision: "0b246f00531334b41b6687e112905468",
+          revision: "508457fe6220c20fc69990c011927909",
         },
         {
           url: "img/icons/reset.svg",
-          revision: "d98dceb4eefcb90839dea47e55fc3ea6",
+          revision: "978406db962f06f789fe692431f0aeaf",
         },
         {
           url: "img/icons/save.svg",
-          revision: "772fde0db777c95212f3c2c7a471f809",
+          revision: "4b83de597bb3d5418805bc15340062e1",
         },
         {
           url: "img/icons/stop.svg",
-          revision: "f65ef53b36ca81f5f4eb21bd0be42e2c",
+          revision: "4682f49259b07c0403ffb872000e0030",
         },
         {
           url: "img/logos/white_penguin_128x128.png",
@@ -159,10 +159,6 @@ define(["./workbox-7e688afb"], function (e) {
           revision: "4044529632911d6192bfa76cc10df6ab",
         },
         {
-          url: "img/pwa/screenshots/computer_five_teams.png",
-          revision: "f5c8eba2b2c1d77d6b8d835a51cc0a59",
-        },
-        {
           url: "img/pwa/screenshots/computer_nine_teams.png",
           revision: "3f4195d8efa77e833560b92e2d7fcabc",
         },
@@ -179,20 +175,12 @@ define(["./workbox-7e688afb"], function (e) {
           revision: "97d19b3321ead93b408580a2bc38392b",
         },
         {
-          url: "img/pwa/screenshots/mobile_nine_teams.png",
-          revision: "26dbb1fd8a3a96fd4b3f1c703759f200",
-        },
-        {
           url: "img/pwa/screenshots/mobile_six_teams.png",
           revision: "a420c3a4f36c583d4fcc696a9faf396d",
         },
         {
           url: "img/pwa/screenshots/mobile_two_teams.png",
           revision: "3bd5779739715abef89bae9e3c23d344",
-        },
-        {
-          url: "img/pwa/screenshots/tablet_10inch_five_teams.png",
-          revision: "befdef8b8a8ac6a15a298078c2bfa34e",
         },
         {
           url: "img/pwa/screenshots/tablet_10inch_nine_teams.png",
@@ -207,10 +195,6 @@ define(["./workbox-7e688afb"], function (e) {
           revision: "0bfe14febc91970844f3830e5f7595cd",
         },
         {
-          url: "img/pwa/screenshots/tablet_7inch_five_teams.png",
-          revision: "02bc6a31f80a3e5cf96180419ded1c77",
-        },
-        {
           url: "img/pwa/screenshots/tablet_7inch_nine_teams.png",
           revision: "44d0f079fcd66cf5e4492c2d8e43ee36",
         },
@@ -222,21 +206,21 @@ define(["./workbox-7e688afb"], function (e) {
           url: "img/pwa/screenshots/tablet_7inch_two_teams.png",
           revision: "ca08deda589a20b632d71f96d3a05ed2",
         },
-        { url: "index.html", revision: "cecd05bde52e947260987297a32a9fe3" },
-        { url: "js/main.js", revision: "73ec441e3063510b13295d0d63bbfbad" },
-        { url: "js/utility.js", revision: "35d1b0baaa3be2999b4fcade2acc0872" },
+        { url: "index.html", revision: "8d351299c0953d2ea8451a076633c81b" },
+        { url: "js/main.js", revision: "cca9b147700587172f27a9cf9fa41631" },
+        { url: "js/utility.js", revision: "15239c4f095ef6ad30470093cac684b4" },
         {
           url: "json/languages.js",
-          revision: "3d2704c0e560eef351d8e6dc89615a63",
+          revision: "ec7c7689abad3a06866e69aef7e2868f",
         },
         {
           url: "json/options.js",
           revision: "729f462a6f4048b19abe4dfcd636d53a",
         },
         { url: "json/scores.js", revision: "a70354ae8cbe81b4f488b1fa95f51f81" },
-        { url: "json/teams.js", revision: "48be72e91e473e6cc9f779d1b6978dee" },
-        { url: "manifest.json", revision: "14208eff63d146d71363445a3b0149dc" },
-        { url: "README.md", revision: "090fda91f07abb58c4805a709ac81a40" },
+        { url: "json/teams.js", revision: "cf48d0d05e50f47b5cc3278b3f25d1d9" },
+        { url: "manifest.json", revision: "c4658bf5ba4ce7a8ccb2c99995efd805" },
+        { url: "README.md", revision: "736024d0b93cccfee1b2e085ecf4c75f" },
       ],
       { ignoreURLParametersMatching: [/^utm_/, /^fbclid$/] }
     );
